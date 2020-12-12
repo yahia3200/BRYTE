@@ -32,7 +32,7 @@ DEV_Projects_Count int default 0 not null,
 DEV_Age int not null,
 UNIQUE(DEV_User_Name,DEV_ID,DEV_Email),
 primary key (DEV_ID)
-)
+);
 
 
 /* Multivalued Attributes*/
@@ -45,7 +45,7 @@ CREATE TABLE DEV_CATEGORY
     CAT_Verified BIT,
     Primary key (CAT_Field, CAT_Skill, CAT_Developer_Id),
     Foreign key (CAT_Developer_Id) references DEVELOPER
-)
+);
 
 CREATE TABLE DEV_WORKING_EXPERINCE
 (
@@ -57,7 +57,7 @@ CREATE TABLE DEV_WORKING_EXPERINCE
     WOR_Place varchar(50),
     Primary key (WOR_Developer_Id, WOR_Title, WOR_Place)
     Foreign key (WOR_Developer_Id) references DEVELOPER
-)
+);
 
 CREATE TABLE DEV_DEGREE
 (
@@ -68,7 +68,7 @@ CREATE TABLE DEV_DEGREE
     DEG_End_Date date not null,
     Primary key (DEG_Developer_Id, DEG_Field, DEG_Faculty),
     Foreign key (DEG_Developer_Id) references DEVELOPER
-)
+);
 
 CREATE TABLE DEV_AWARDS
 (
@@ -78,7 +78,7 @@ CREATE TABLE DEV_AWARDS
     AWA_Date date,
     Primary key (AWA_Developer_Id, AWA_Title, AWA_Date)
     Foreign key (AWA_Developer_Id) references DEVELOPER
-)
+);
 
 CREATE TABLE DEV_Links
 (
@@ -87,4 +87,4 @@ CREATE TABLE DEV_Links
     LIN_Developer_Id int not null,
     Primary key (LIN_Developer_Id, LIN_Name)
     Foreign key (LIN_Developer_Id) references DEVELOPER
-)
+);
