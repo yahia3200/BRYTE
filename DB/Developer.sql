@@ -1,3 +1,67 @@
+-------------Database creation-------------
+--create database CompanyDBLab4
+
+use BRYTE
+
+------------Table Creation-----------------
+create table DEVELOPER
+(
+DEV_Fname varchar(50) not null, DEV_Minit varchar(50) not null, DEV_Lname varchar(50) not null,
+DEV_User_Name varchar(50) not null,
+DEV_ID int not null,
+DEV_Email varchar not null,
+DEV_Profile_Picture varchar(50),
+DEV_Is_Pro BIT default 0,
+DEV_Phone varchar(50),
+DEV_Creation_Date date not null,
+DEV_Birth_Date date not null,
+DEV_Last_Login date not null,
+DEV_Hash varchar(50) not null,
+DEV_Hash_Token varchar(50) not null,
+DEV_Credentials varchar(50) not null,
+DEV_Wallet varchar(50) not null,
+DEV_Address varchar(50),
+DEV_Job_Title varchar(50),
+
+/*Derived Attributes*/
+DEV_Wining_Count int default 0 not null,
+DEV_Participation_Count int default 0 not null,
+DEV_Pick_Rate float default 0 not null,
+DEV_Bids_Count int default 0 not null,
+DEV_Projects_Count int default 0 not null,
+DEV_Age int not null,
+UNIQUE(DEV_User_Name,DEV_ID,DEV_Email),
+primary key (DEV_ID)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE TABLE DEV_CATEGORY
 (
     CAT_Field varchar(50) not null,
