@@ -27,7 +27,7 @@ CREATE TABLE BID_CATEGORY
 (
     BID_CAT_Field varchar(50) not null,
     BID_CAT_Skill varchar(50),
-    CAT_Bid_Id int not null,
-    Primary key (BID_CAT_Field, BID_CAT_Skill, CAT_Bid_Id),
-    Foreign key (CAT_Bid_Id) references BID
+    CAT_BID_ID int not null,
+    Primary key (BID_CAT_Field, BID_CAT_Skill, CAT_Bid_ID),
+    Foreign key (CAT_BID_ID) references BID
 );

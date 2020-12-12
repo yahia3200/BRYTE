@@ -47,6 +47,6 @@ CREATE TABLE COM_Phases
 	PHS_Description varchar(100) not null,
 	PHS_Competition_Id int not null,
     Primary key (PHS_Name, 	PHS_Competition_Id),
-    Foreign key (PRZ_Competition_Id) references COMPETITION
+    Foreign key (PHS_Competition_Id) references COMPETITION
 );
 

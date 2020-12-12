@@ -1,5 +1,3 @@
--------------Database creation-------------
---create database CompanyDBLab4
 
 use BRYTE
 
