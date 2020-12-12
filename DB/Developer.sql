@@ -6,11 +6,11 @@ use BRYTE
 ------------Table Creation-----------------
 create table DEVELOPER
 (
-DEV_Fname varchar(50) not null, DEV_Minit varchar(50) not null, DEV_Lname varchar(50) not null,
+DEV_Fname varchar(50) not null, DEV_Lname varchar(50) not null,
 DEV_User_Name varchar(50) not null,
-DEV_ID int not null,
+DEV_ID int not null identity,
 DEV_Email varchar not null,
-DEV_Profile_Picture varchar(50),
+DEV_Profile_Picture varchar(500),
 DEV_Is_Pro BIT default 0,
 DEV_Phone varchar(50),
 DEV_Creation_Date date not null,
@@ -19,8 +19,8 @@ DEV_Last_Login date not null,
 DEV_Hash varchar(50) not null,
 DEV_Hash_Token varchar(50) not null,
 DEV_Credentials varchar(50) not null,
-DEV_Wallet varchar(50) not null,
-DEV_Address varchar(50),
+DEV_Wallet float not null default 0,
+DEV_Address varchar(200),
 DEV_Job_Title varchar(50),
 
 /*Derived Attributes*/
@@ -35,32 +35,7 @@ primary key (DEV_ID)
 )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Multivalued Attributes*/
 
 CREATE TABLE DEV_CATEGORY
 (
