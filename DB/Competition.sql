@@ -31,6 +31,7 @@ CREATE TABLE COM_CATEGORY
     Primary key (COM_CAT_Field, COM_CAT_Skill, CAT_Competition_Id),
     Foreign key (CAT_Competition_Id) references COMPETITION
 );
+
 CREATE TABLE COM_PRIZES
 (
     PRZ_Prize varchar(50) not null,
@@ -39,6 +40,7 @@ CREATE TABLE COM_PRIZES
     Primary key (PRZ_Rank, PRZ_Competition_Id),
     Foreign key (PRZ_Competition_Id) references COMPETITION
 );
+
 CREATE TABLE COM_Phases
 (
     PHS_Start DateTime,
