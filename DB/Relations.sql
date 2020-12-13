@@ -65,6 +65,24 @@ CREATE TABLE DEVELOPER_RATES_CLIENT
     Foreign key (CLI_Id) references CLIENT
 );
 
+CREATE TABLE DEVELOPER_PARTICIPATE
+(
+    DEV_Id int not null,
+    COM_Id int not null,
+    Primary key (DEV_Id, COM_Id),
+    Foreign key (DEV_Id) references DEVELOPER,
+    Foreign key (COM_Id) references COMPETITION
+);
+
+CREATE TABLE DEVELOPER_APPLAY
+(
+    DEV_Id int not null,
+    BID_Id int not null,
+    Primary key (DEV_Id, BID_Id),
+    Foreign key (DEV_Id) references DEVELOPER,
+    Foreign key (BID_Id) references BID
+);
+
 ---------------------------- Client Relations ----------------------------
 CREATE TABLE CLIENT_RATES_DEVELOPER
 (
