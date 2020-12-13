@@ -127,3 +127,44 @@ CREATE TABLE POSTS
     Foreign key (CLI_Id) references CLIENT,
     Foreign key (BID_Id) references BID
 );
+
+---------------------------- Team Relations ----------------------------
+CREATE TABLE TEAM_WORKS_ON
+(
+    TEA_Id int not null,
+    PRO_Id in not null,
+    Primary key (TEA_Id, PRO_Id),
+    Foreign key (TEA_Id) references TEAM,
+    Foreign key (PRO_Id) references PROJECT
+);
+
+CREATE TABLE TEAM_RATES_CLIENT
+(
+    TEA_Id int not null,
+    CLI_Id int not null,
+    PRO_Id int not null,
+    RAT_Rating float not null,
+    RAT_Description varchar(500),
+    Primary key (TEA_Id, CLI_Id, PRO_Id),
+    Foreign key (TEA_Id) references TEAM,
+    Foreign key (PRO_Id) references PROJECT,
+    Foreign key (CLI_Id) references CLIENT
+);
+
+CREATE TABLE TEAM_PARTICIPATE
+(
+    TEA_Id int not null,
+    COM_Id int not null,
+    Primary key (TEA_Id, COM_Id),
+    Foreign key (TEA_Id) references TEAM,
+    Foreign key (COM_Id) references COMPETITION
+);
+
+CREATE TABLE TEAM_APPLAY
+(
+    TEA_Id int not null,
+    BID_Id int not null,
+    Primary key (TEA_Id, BID_Id),
+    Foreign key (TEA_Id) references TEAM,
+    Foreign key (BID_Id) references BID
+);
