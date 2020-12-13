@@ -168,3 +168,14 @@ CREATE TABLE TEAM_APPLAY
     Foreign key (TEA_Id) references TEAM,
     Foreign key (BID_Id) references BID
 );
+
+---------------------------- Project Relations ----------------------------
+CREATE TABLE SUBMISSION
+(
+    COM_Id int not null,
+    PRO_Id int not null,
+    SUB_Rating float int not null,
+    Primary key (COM_Id, PRO_Id),
+    Foreign key (COM_Id) references COMPETITION,
+    Foreign key (PRO_Id) references PROJECT
+);

@@ -11,7 +11,9 @@ create table BID
     BID_Price int not null,
     BID_Thumbnail varchar(100),
     BID_Total_Applications int,
-    primary key(BID_ID)
+    BID_Accepted_Participation int,
+    primary key(BID_ID),
+    Foreign key (BID_Accepted_Participation) references PROJECT
 );
 
 create table BID_ATTACHEMENTS
