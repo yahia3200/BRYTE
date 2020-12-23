@@ -1,10 +1,10 @@
-use BRYTE
+use BRYTE;
 
 create table EXPERT
 (
 EXP_Fname varchar(50) not null, EXP_Lname varchar(50) not null,
 EXP_User_Name varchar(50) unique not null,
-EXP_ID int unique not null identity,
+EXP_ID int unique not null auto_increment,
 EXP_Email varchar(50) unique not null,
 EXP_Profile_Picture varchar(500),
 EXP_Phone varchar(50),
@@ -37,7 +37,7 @@ CREATE TABLE EXP_CATEGORY
     CAT_Expert_Id int not null,
     CAT_Verified BIT,
     Primary key (CAT_Field, CAT_Skill, CAT_Expert_Id),
-    Foreign key (CAT_Expert_Id) references EXPERT
+    Foreign key (CAT_Expert_Id) references EXPERT(EXP_ID)
 );
 
 CREATE TABLE EXP_WORKING_EXPERINCE
@@ -49,7 +49,7 @@ CREATE TABLE EXP_WORKING_EXPERINCE
     WOR_Expert_Id int not null,
     WOR_Place varchar(50),
     Primary key (WOR_Expert_Id, WOR_Title, WOR_Place),
-    Foreign key (WOR_Expert_Id) references EXPERT
+    Foreign key (WOR_Expert_Id) references EXPERT(EXP_ID)
 );
 
 CREATE TABLE EXP_DEGREE
@@ -60,7 +60,7 @@ CREATE TABLE EXP_DEGREE
     DEG_Start_Date date not null,
     DEG_End_Date date not null,
     Primary key (DEG_Expert_Id, DEG_Field, DEG_Faculty),
-    Foreign key (DEG_Expert_Id) references EXPERT
+    Foreign key (DEG_Expert_Id) references EXPERT(EXP_ID)
 );
 
 CREATE TABLE EXP_AWARDS
@@ -70,7 +70,7 @@ CREATE TABLE EXP_AWARDS
     AWA_Expert_Id int not null,
     AWA_Date date,
     Primary key (AWA_Expert_Id, AWA_Title, AWA_Date),
-    Foreign key (AWA_Expert_Id) references EXPERT
+    Foreign key (AWA_Expert_Id) references EXPERT(EXP_ID)
 );
 
 CREATE TABLE EXP_Links
@@ -79,5 +79,5 @@ CREATE TABLE EXP_Links
     LIN_Link varchar(50) not null,
     LIN_Expert_Id int not null,
     Primary key (LIN_Expert_Id, LIN_Name),
-    Foreign key (LIN_Expert_Id) references EXPERT
+    Foreign key (LIN_Expert_Id) references EXPERT(EXP_ID)
 );

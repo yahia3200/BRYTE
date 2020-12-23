@@ -1,15 +1,15 @@
-USE BRYTE
+USE BRYTE;
 
----------------------------- Expert Relations ----------------------------
+/*---------------------------- Expert Relations ----------------------------*/
 CREATE TABLE EXPERT_REVIEW_PROJECT
 (
     EXP_Id int not null,
-    PRO_Id in not null,
+    PRO_Id int not null,
     REV_Rating float not null,
     REV_Description varchar(500),
     Primary key (EXP_Id, PRO_Id),
-    Foreign key (EXP_Id) references EXPERT,
-    Foreign key (PRO_Id) references PROJECT
+    Foreign key (EXP_Id) references EXPERT(EXP_ID),
+    Foreign key (PRO_Id) references PROJECT(PRO_ID)
 );
 
 CREATE TABLE EXPERT_REVIEW_DEVELOPER
@@ -19,8 +19,8 @@ CREATE TABLE EXPERT_REVIEW_DEVELOPER
     REV_Rating float not null,
     REV_Description varchar(500),
     Primary key (EXP_Id, DEV_Id),
-    Foreign key (EXP_Id) references EXPERT,
-    Foreign key (DEV_Id) references DEVELOPER
+    Foreign key (EXP_Id) references EXPERT(EXP_ID),
+    Foreign key (DEV_Id) references DEVELOPER(DEV_ID)
 );
 
 CREATE TABLE EXPERT_JUDGE
@@ -29,18 +29,18 @@ CREATE TABLE EXPERT_JUDGE
     COM_Id int not null,
     JUD_Rating int not null,
     Primary key (EXP_Id, COM_Id),
-    Foreign key (EXP_Id) references EXPERT,
-    Foreign key (COM_Id) references COMPETITION 
+    Foreign key (EXP_Id) references EXPERT(EXP_ID),
+    Foreign key (COM_Id) references COMPETITION(COM_ID) 
 );
 
----------------------------- Developer Relations ----------------------------
+/*---------------------------- Developer Relations ----------------------------*/
 CREATE TABLE DEVELOPER_WORKS_ON
 (
     DEV_Id int not null,
-    PRO_Id in not null,
+    PRO_Id int not null,
     Primary key (DEV_Id, PRO_Id),
-    Foreign key (DEV_Id) references DEVELOPER,
-    Foreign key (PRO_Id) references PROJECT
+    Foreign key (DEV_Id) references DEVELOPER(DEV_ID),
+    Foreign key (PRO_Id) references PROJECT(PRO_ID)
 );
 
 CREATE TABLE DEVELOPER_WORKS_IN
@@ -48,8 +48,8 @@ CREATE TABLE DEVELOPER_WORKS_IN
     DEV_Id int not null,
     TEA_Id int not null,
     Primary key (DEV_Id, TEA_Id),
-    Foreign key (DEV_Id) references DEVELOPER,
-    Foreign key (TEA_Id) references TEAM
+    Foreign key (DEV_Id) references DEVELOPER(DEV_ID),
+    Foreign key (TEA_Id) references TEAM(TEA_ID)
 );
 
 CREATE TABLE DEVELOPER_RATES_CLIENT
@@ -60,9 +60,9 @@ CREATE TABLE DEVELOPER_RATES_CLIENT
     RAT_Rating float not null,
     RAT_Description varchar(500),
     Primary key (DEV_Id, CLI_Id, PRO_Id),
-    Foreign key (DEV_Id) references DEVELOPER,
-    Foreign key (PRO_Id) references PROJECT,
-    Foreign key (CLI_Id) references CLIENT
+    Foreign key (DEV_Id) references DEVELOPER(DEV_ID),
+    Foreign key (PRO_Id) references PROJECT(PRO_ID),
+    Foreign key (CLI_Id) references CLIENT(CLI_ID)
 );
 
 CREATE TABLE DEVELOPER_PARTICIPATE
@@ -70,8 +70,8 @@ CREATE TABLE DEVELOPER_PARTICIPATE
     DEV_Id int not null,
     COM_Id int not null,
     Primary key (DEV_Id, COM_Id),
-    Foreign key (DEV_Id) references DEVELOPER,
-    Foreign key (COM_Id) references COMPETITION
+    Foreign key (DEV_Id) references DEVELOPER(DEV_Id),
+    Foreign key (COM_Id) references COMPETITION(COM_Id)
 );
 
 CREATE TABLE DEVELOPER_APPLAY
@@ -79,11 +79,11 @@ CREATE TABLE DEVELOPER_APPLAY
     DEV_Id int not null,
     BID_Id int not null,
     Primary key (DEV_Id, BID_Id),
-    Foreign key (DEV_Id) references DEVELOPER,
-    Foreign key (BID_Id) references BID
+    Foreign key (DEV_Id) references DEVELOPER(DEV_Id),
+    Foreign key (BID_Id) references BID(BID_Id)
 );
 
----------------------------- Client Relations ----------------------------
+/*---------------------------- Client Relations ----------------------------*/
 CREATE TABLE CLIENT_RATES_DEVELOPER
 (
     DEV_Id int not null,
@@ -92,9 +92,9 @@ CREATE TABLE CLIENT_RATES_DEVELOPER
     RAT_Rating float not null,
     RAT_Description varchar(500),
     Primary key (DEV_Id, CLI_Id, PRO_Id),
-    Foreign key (DEV_Id) references DEVELOPER,
-    Foreign key (PRO_Id) references PROJECT,
-    Foreign key (CLI_Id) references CLIENT
+    Foreign key (DEV_Id) references DEVELOPER(DEV_Id),
+    Foreign key (PRO_Id) references PROJECT(PRO_Id),
+    Foreign key (CLI_Id) references CLIENT(CLI_Id)
 );
 
 CREATE TABLE CLIENT_RATES_TEAM
@@ -105,9 +105,9 @@ CREATE TABLE CLIENT_RATES_TEAM
     RAT_Rating float not null,
     RAT_Description varchar(500),
     Primary key (TEA_Id, CLI_Id, PRO_Id),
-    Foreign key (TEA_Id) references TEAM,
-    Foreign key (PRO_Id) references PROJECT,
-    Foreign key (CLI_Id) references CLIENT
+    Foreign key (TEA_Id) references TEAM(TEA_Id),
+    Foreign key (PRO_Id) references PROJECT(PRO_Id),
+    Foreign key (CLI_Id) references CLIENT(CLI_Id)
 );
 
 CREATE TABLE CREATES
@@ -115,8 +115,8 @@ CREATE TABLE CREATES
     CLI_Id int not null,
     COM_Id int not null,
     Primary key (CLI_Id, COM_Id),
-    Foreign key (CLI_Id) references CLIENT,
-    Foreign key (COM_Id) references COMPETITION
+    Foreign key (CLI_Id) references CLIENT(CLI_Id),
+    Foreign key (COM_Id) references COMPETITION(COM_Id)
 );
 
 CREATE TABLE POSTS
@@ -124,18 +124,18 @@ CREATE TABLE POSTS
     CLI_Id int not null,
     BID_Id int not null,
     Primary key (CLI_Id, BID_Id),
-    Foreign key (CLI_Id) references CLIENT,
-    Foreign key (BID_Id) references BID
+    Foreign key (CLI_Id) references CLIENT(CLI_Id),
+    Foreign key (BID_Id) references BID(BID_Id)
 );
 
----------------------------- Team Relations ----------------------------
+/*---------------------------- Team Relations ----------------------------*/
 CREATE TABLE TEAM_WORKS_ON
 (
     TEA_Id int not null,
-    PRO_Id in not null,
+    PRO_Id int not null,
     Primary key (TEA_Id, PRO_Id),
-    Foreign key (TEA_Id) references TEAM,
-    Foreign key (PRO_Id) references PROJECT
+    Foreign key (TEA_Id) references TEAM(TEA_Id),
+    Foreign key (PRO_Id) references PROJECT(PRO_Id)
 );
 
 CREATE TABLE TEAM_RATES_CLIENT
@@ -146,9 +146,9 @@ CREATE TABLE TEAM_RATES_CLIENT
     RAT_Rating float not null,
     RAT_Description varchar(500),
     Primary key (TEA_Id, CLI_Id, PRO_Id),
-    Foreign key (TEA_Id) references TEAM,
-    Foreign key (PRO_Id) references PROJECT,
-    Foreign key (CLI_Id) references CLIENT
+    Foreign key (TEA_Id) references TEAM(TEA_Id),
+    Foreign key (PRO_Id) references PROJECT(PRO_Id),
+    Foreign key (CLI_Id) references CLIENT(CLI_Id)
 );
 
 CREATE TABLE TEAM_PARTICIPATE
@@ -156,8 +156,8 @@ CREATE TABLE TEAM_PARTICIPATE
     TEA_Id int not null,
     COM_Id int not null,
     Primary key (TEA_Id, COM_Id),
-    Foreign key (TEA_Id) references TEAM,
-    Foreign key (COM_Id) references COMPETITION
+    Foreign key (TEA_Id) references TEAM(TEA_Id),
+    Foreign key (COM_Id) references COMPETITION(COM_Id)
 );
 
 CREATE TABLE TEAM_APPLAY
@@ -165,17 +165,17 @@ CREATE TABLE TEAM_APPLAY
     TEA_Id int not null,
     BID_Id int not null,
     Primary key (TEA_Id, BID_Id),
-    Foreign key (TEA_Id) references TEAM,
-    Foreign key (BID_Id) references BID
+    Foreign key (TEA_Id) references TEAM(TEA_Id),
+    Foreign key (BID_Id) references BID(BID_Id)
 );
 
----------------------------- Project Relations ----------------------------
+/*---------------------------- Project Relations ----------------------------*/
 CREATE TABLE SUBMISSION
 (
     COM_Id int not null,
     PRO_Id int not null,
-    SUB_Rating float int not null,
+    SUB_Rating float not null,
     Primary key (COM_Id, PRO_Id),
-    Foreign key (COM_Id) references COMPETITION,
-    Foreign key (PRO_Id) references PROJECT
+    Foreign key (COM_Id) references COMPETITION(COM_Id),
+    Foreign key (PRO_Id) references PROJECT(PRO_Id)
 );

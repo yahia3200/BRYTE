@@ -1,8 +1,8 @@
-USE BRYTE
-----------------------------------------start of Comp section-----------------------------------------------------
+USE BRYTE;
+
 create table COMPETITION
 (
-    COM_ID int unique not null IDENTITY,
+    COM_ID int unique not null auto_increment,
     COM_Name varchar(50) not null,
     COM_Status varchar(10),
     COM_Start_Date date,
@@ -19,7 +19,7 @@ create table COM_ATTACHEMENTS
     COM_ATT_ID int not null,
     COM_ATT_Link varchar(100) not null,
     COM_ATT_Link_Description varchar(20),
-    Foreign KEY (COM_ATT_ID) references COMPETITION,
+    Foreign KEY (COM_ATT_ID) references COMPETITION(COM_ID),
     primary key (COM_ATT_ID, COM_ATT_Link)
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE COM_CATEGORY
     COM_CAT_Skill varchar(50),
     CAT_Competition_Id int not null,
     Primary key (COM_CAT_Field, COM_CAT_Skill, CAT_Competition_Id),
-    Foreign key (CAT_Competition_Id) references COMPETITION
+    Foreign key (CAT_Competition_Id) references COMPETITION(COM_ID)
 );
 
 CREATE TABLE COM_PRIZES
@@ -38,7 +38,7 @@ CREATE TABLE COM_PRIZES
     PRZ_Rank varchar(50) not null,
     PRZ_Competition_Id int not null,
     Primary key (PRZ_Rank, PRZ_Competition_Id),
-    Foreign key (PRZ_Competition_Id) references COMPETITION
+    Foreign key (PRZ_Competition_Id) references COMPETITION(COM_ID)
 );
 
 CREATE TABLE COM_Phases
@@ -49,6 +49,6 @@ CREATE TABLE COM_Phases
 	PHS_Description varchar(100) not null,
 	PHS_Competition_Id int not null,
     Primary key (PHS_Name, 	PHS_Competition_Id),
-    Foreign key (PHS_Competition_Id) references COMPETITION
+    Foreign key (PHS_Competition_Id) references COMPETITION(COM_ID)
 );
 

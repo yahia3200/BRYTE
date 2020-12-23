@@ -1,14 +1,12 @@
 -------------Database creation-------------
---create database CompanyDBLab4
 
-use BRYTE
+use BRYTE;
 
-------------Table Creation-----------------
 create table CLIENT
 (
     CLI_Name varchar(50) not null, 
     CLI_User_Name varchar(50) not null unique, 
-    CLI_ID int unique not null identity,
+    CLI_ID int unique not null auto_increment,
     CLI_Email varchar(50) unique not null,
     CLI_Profile_Picture varchar(500),
     CLI_Phone varchar(50),
@@ -36,7 +34,7 @@ CREATE TABLE CLI_Field
     CLI_CAT_Field varchar(50) not null,
     CAT_Client_Id int not null,
     Primary key (CLI_CAT_Field, CAT_Client_Id),
-    Foreign key (CAT_Client_Id) references Client
+    Foreign key (CAT_Client_Id) references Client(CLI_ID)
 );
 
 CREATE TABLE CLI_Links
@@ -45,5 +43,5 @@ CREATE TABLE CLI_Links
     CLI_LIN_Link varchar(50) not null,
     CLI_LIN_Client_Id int not null,
     Primary key (CLI_LIN_Client_Id, CLI_LIN_Name),
-    Foreign key (CLI_LIN_Client_Id) references Client
+    Foreign key (CLI_LIN_Client_Id) references Client(CLI_ID)
 );

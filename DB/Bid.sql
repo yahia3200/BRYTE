@@ -1,8 +1,8 @@
-USE BRYTE
-----------------------------------------start of bids section-----------------------------------------------------
+USE BRYTE;
+
 create table BID
 (
-    BID_ID int unique not null IDENTITY,
+    BID_ID int unique not null auto_increment,
     BID_Name varchar(50) not null,
     BID_Status varchar(10),
     BID_Start_Date date,
@@ -13,7 +13,7 @@ create table BID
     BID_Total_Applications int,
     BID_Accepted_Participation int,
     primary key(BID_ID),
-    Foreign key (BID_Accepted_Participation) references PROJECT
+    Foreign key (BID_Accepted_Participation) references PROJECT(PRO_ID)
 );
 
 create table BID_ATTACHEMENTS
@@ -21,7 +21,7 @@ create table BID_ATTACHEMENTS
     BID_ATT_ID int not null,
     BID_ATT_Link varchar(100) not null,
     BID_ATT_Link_Description varchar(20),
-    Foreign KEY (BID_ATT_ID) references BID,
+    Foreign KEY (BID_ATT_ID) references BID(BID_ID),
     primary key (BID_ATT_ID, BID_ATT_Link)
 );
 
@@ -31,5 +31,5 @@ CREATE TABLE BID_CATEGORY
     BID_CAT_Skill varchar(50),
     CAT_BID_ID int not null,
     Primary key (BID_CAT_Field, BID_CAT_Skill, CAT_Bid_ID),
-    Foreign key (CAT_BID_ID) references BID
+    Foreign key (CAT_BID_ID) references BID(BID_ID)
 );
