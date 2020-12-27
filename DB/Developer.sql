@@ -1,6 +1,4 @@
 
-use BRYTE
-
 use BRYTE;
 
 create table DEVELOPER
@@ -15,7 +13,7 @@ create table DEVELOPER
     DEV_Creation_Date date not null,
     DEV_Birth_Date date not null,
     DEV_Last_Login date not null,
-    DEV_Hash varchar(50) not null,
+    DEV_Hash varchar(255) not null,
     DEV_Hash_Token varchar(50) not null,
     DEV_Credentials varchar(50) not null,
     DEV_Wallet float not null default 0,
