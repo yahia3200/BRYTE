@@ -63,7 +63,8 @@ CREATE TABLE DEV_DEGREE
     DEV_DEG_Faculty varchar(50) not null,
     DEV_DEG_Developer_Id int not null,
     DEV_DEG_Start_Date date not null,
-    DEV_DEG_End_Date date not null,
+    DEV_DEG_End_Date date,
+    DEV_DEG_Title varchar(50) not null, 
     Primary key (DEV_DEG_Developer_Id, DEV_DEG_Field, DEV_DEG_Faculty),
     Foreign key (DEV_DEG_Developer_Id) references DEVELOPER(DEV_ID)
 );
