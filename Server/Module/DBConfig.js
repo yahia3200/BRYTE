@@ -13,9 +13,8 @@ const pool = createPool({
 /**Inserting a new developer in the database */
 /*(res,body) are the parameters , callback is the function to be executed when Isertdeveloper finishes*/
 /**=>{Here is the Insert_Developer implementation} */
-const Insert_Developer = (res, body, callback) => 
-{
-  /**Reading The JSON data */
+const Insert_Developer = (res, body, callback) => {
+  /**Reading The JSON data, Note that it must be with the same names*/
   const { Fname, Lname, UserName, Email
     , CreationDate, BirthDate, LastLogin
     , Password, HashToken, Credentials, Age } = body;
@@ -61,8 +60,8 @@ const Insert_Developer = (res, body, callback) =>
   /**Hashing the password first(there are multiple ways to do this--> refer to bcrypt documentation) */
   bcrypt.genSalt(saltRounds, (salt_err, salt) => {
     /**When the gen salt is finished start this function */
-    bcrypt.hash(Password, salt, (hash_err,Hash) => {
-    /**When the hash is finished start this function */
+    bcrypt.hash(Password, salt, (hash_err, Hash) => {
+      /**When the hash is finished start this function */
       /**!!!!!!!!!!!!Need to handle any errors in the bcrypt hash*/
 
       /**Execute the insertion Query */
@@ -71,9 +70,9 @@ const Insert_Developer = (res, body, callback) =>
           , CreationDate, BirthDate, LastLogin
           , Hash, HashToken, Credentials, Age
         ]
-        , (sql_error,result) => {
-          
-           /**When the query is executed start this function */
+        , (sql_error, result) => {
+
+          /**When the query is executed start this function */
           if (sql_error) {
             /*Here is the return of the callback function that are parameters when Insertdeveloper finishes*/
             return callback(
@@ -84,8 +83,8 @@ const Insert_Developer = (res, body, callback) =>
             );
           }
           else {
-            /*Here is the return of the callback function that are parameters when Insertdeveloper finishes*/            
-            return callback(result.insertId,0, "", true);
+            /*Here is the return of the callback function that are parameters when Insertdeveloper finishes*/
+            return callback(result.insertId, 0, "", true);
 
           }
         }
@@ -96,8 +95,43 @@ const Insert_Developer = (res, body, callback) =>
 
 }
 
+
+
+/**
+ * 
+ * @param {The Email Entered By the user to login} email 
+ * @param {The input value for the password to be compared with the hashed one in the database} password 
+ * @param {a callback function that returns the ID of the user if he is logged in, -1 if not } callback 
+ * 
+ */
+const Login_Developer = (email, password, callback) => {
+  //Select the Developer with that mail, take only the ID and Password
+  const sql = " Select DEV_ID,DEV_Hash from Developer where DEV_Email= ?";
+
+  //Execute the query
+  pool.query(sql, [email], (sql_error, result) => {
+    //When the query is executed. If there is a row returned, start checking the password.
+    //Note: the DEV_Email attribute is unique so there can't be multiple records of it
+    if (result.length != 0) {
+      //We compare the password against the hashed one in the database
+      bcrypt.compare(password, result[0].DEV_Hash, (compare_error, compare_result) => {
+        //After comparison is finished, we check the result
+        if (compare_result) {
+        //If it is the same password, return the ID and a success message
+          return callback(result[0].DEV_ID, "Logged In, Welcome back ^_^")
+        }
+        else //if the password doesn't match, refuse access
+          return callback(-1, "Access Denied, please try again");  
+      });
+    }
+    else //if the email doesn't match, refuse access
+      return callback(-1, "Access Denied, please try again");
+  })
+}
+
 module.exports =
 {
   pool,
-  Insert_Developer
+  Insert_Developer,
+  Login_Developer
 }

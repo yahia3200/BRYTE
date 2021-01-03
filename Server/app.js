@@ -8,6 +8,9 @@ const authRoutes = require('./Routes/authRoutes');
 //Import Cookies package
 const cookieParser = require('cookie-parser');
 
+//import the authentication verification function
+const {authVerifier} = require('./middleware/authmiddleware');
+
 //Create an instance of express object
 const app = express();
 
@@ -36,7 +39,9 @@ app.use((req, res, next) => {
 
 
 //Routes 
+app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery')});
 app.use(authRoutes);
+
 
 
 //Cookies
