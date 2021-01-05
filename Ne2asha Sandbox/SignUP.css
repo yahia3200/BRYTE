@@ -20,14 +20,18 @@ a:hover {
 
 input:focus,
 textarea:focus,
-select:focus {
+select:focus,
+button:focus {
   outline: none;
 }
 
-input[type=text] {
+input[type="text"],
+.Input-text {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   font-family: sans-serif;
   letter-spacing: 1px;
-  color: #EEEEEE;
+  color: #eeeeee;
   font-size: 1.2rem;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
@@ -36,8 +40,13 @@ input[type=text] {
   border-bottom: 1px solid #183662;
 }
 
+input[type="text"]:focus,
+.Input-text:focus {
+  border-bottom: 1px solid #385e92;
+}
+
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #020f22;
 }
 
@@ -189,8 +198,9 @@ body .signUP.cli:hover {
           filter: brightness(0.8) contrast(1.7);
 }
 
-body #Continue-dev {
-  width: 30%;
+body #Continue-dev,
+body #Complete-dev {
+  min-width: 20%;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -212,7 +222,7 @@ body .sep {
   top: 23%;
 }
 
-body .signUP-form-Cont .Name-Cont {
+body .Name-Cont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -225,8 +235,34 @@ body .signUP-form-Cont .Name-Cont {
           justify-content: space-between;
 }
 
-body .signUP-form-Cont .signUP-form {
-  width: 520px;
+body .Input-Cont,
+body #Continue-dev,
+body #Complete-dev {
+  margin-top: 10px;
+  opacity: 0;
+}
+
+body .signUP-form {
+  width: 600px;
+}
+
+body .signUP-form .Label-text {
+  color: #aeaeae;
+  margin: 2px 0;
+}
+
+body .signUP-form .Input-Stylizer {
+  min-width: 290px;
+  margin: 1px 0 7px 0;
+  background-color: #00122c;
+  padding: 3px 5px;
+}
+
+body .signUP-form-Cont-1 {
+  position: absolute;
+  top: 380px;
+  pointer-events: none;
+  width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,14 +272,54 @@ body .signUP-form-Cont .signUP-form {
           flex-direction: column;
 }
 
-body .signUP-form-Cont .signUP-form .Label-text {
-  color: #aeaeae;
-  margin: 2px 0;
+body .signUP-form-Cont-2 {
+  position: absolute;
+  top: 380px;
+  pointer-events: none;
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-body .signUP-form-Cont .signUP-form .Input-Stylizer {
-  margin: 1px 0 10px 0;
-  background-color: #00122c;
-  padding: 5px;
+body .UnderLineTitle {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 280;
+  font-size: 2rem;
+  color: white;
+}
+
+body .TitleAbove {
+  top: 165px;
+  left: 5px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 1px solid #183662;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(1);
+          filter: invert(1);
 }
 /*# sourceMappingURL=SignUP.css.map */

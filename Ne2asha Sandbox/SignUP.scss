@@ -21,23 +21,29 @@ a {
 
 input:focus,
 textarea:focus,
-select:focus {
+select:focus,
+button:focus {
   outline: none;
 }
-input[type=text]{
-    font-family: sans-serif;
-    letter-spacing: 1px;
-    color: #EEEEEE;
-    font-size: 1.2rem;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    padding: 7px 6px;
-    border-bottom: 1px solid #183662;
+input[type="text"],
+.Input-text {
+  transition: 0.2s;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: #eeeeee;
+  font-size: 1.2rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 7px 6px;
+  border-bottom: 1px solid #183662;
+  &:focus {
+    border-bottom: 1px solid #385e92;
+  }
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: $Back-Color;
   .Nav-Outer-Cont {
     display: flex;
@@ -107,7 +113,6 @@ body {
         line-height: 1.8;
         width: 450px;
       }
-      
     }
   }
 
@@ -131,9 +136,10 @@ body {
     color: white;
     cursor: pointer;
   }
-  #Continue-dev{
-      width: 30%;
-      align-self: flex-end;
+  #Continue-dev,
+  #Complete-dev {
+    min-width: 20%;
+    align-self: flex-end;
   }
 
   footer {
@@ -150,25 +156,78 @@ body {
     transform: translateX(-70%);
     top: 23%;
   }
-  .signUP-form-Cont {
-      .Name-Cont{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-      }
-    .signUP-form {
-      width: 520px;
-      display: flex;
-      flex-direction: column;
-      .Label-text {
-        color: #aeaeae;
-        margin: 2px 0;
-      }
-      .Input-Stylizer {
-        margin: 1px 0 10px 0;
-        background-color: #00122c;
-        padding: 5px;
-      }
+  .Name-Cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Input-Cont,
+  #Continue-dev,
+  #Complete-dev {
+    margin-top: 10px;
+    opacity: 0;
+  }
+  .signUP-form {
+    width: 600px;
+    .Label-text {
+      color: #aeaeae;
+      margin: 2px 0;
+    }
+    .Input-Stylizer {
+      min-width: 290px;
+      margin: 1px 0 7px 0;
+      background-color: #00122c;
+      padding: 3px 5px;
     }
   }
+  .signUP-form-Cont-1 {
+    position: absolute;
+    top: 380px;
+    pointer-events: none;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .signUP-form-Cont-2 {
+    position: absolute;
+    top: 380px;
+    pointer-events: none;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .UnderLineTitle {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 280;
+    font-size: 2rem;
+    color: white;
+  }
+  .TitleAbove {
+    top: 165px;
+    left: 5px;
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 1px solid #183662;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
