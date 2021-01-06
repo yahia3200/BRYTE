@@ -31,6 +31,10 @@ const signup_post = async function (req, res) {
                 else if (sql_errornumber == 1062 && sql_errorMessage.includes("User_Name")) {
                     res.send('User Name is already in use');
                 }
+                else
+                {
+                    res.send('Invalid Data')
+                }
             }
         });
     }
