@@ -1,0 +1,176 @@
+$Back-Color: #020f22;
+$Body-font: Roboto;
+$title-font: "Reem Kufi";
+$title-size: 3.9rem;
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $Body-font;
+}
+a {
+  transition: 0.05s;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: #4b90f7;
+  }
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+input[type="text"],
+.Input-text {
+  transition: 0.2s;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: #eeeeee;
+  font-size: 1.2rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 7px 6px;
+  border-bottom: 1px solid #183662;
+  &:focus {
+    border-bottom: 1px solid #385e92;
+  }
+}
+
+body {
+  overflow: hidden;
+  background-color: $Back-Color;
+  .Nav-Outer-Cont {
+    display: flex;
+    align-self: flex-start;
+    .logo-container {
+      background-color: #10213a;
+      min-width: 320px;
+      padding: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0 40px 0;
+      box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+    }
+    .Nav-inner-Cont {
+      background: linear-gradient(to right, #041a2d, #0e1d33 4%);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      list-style: none;
+      height: 90px;
+      width: 100%;
+      padding-right: 30px;
+      li {
+        font-family: $Body-font;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 0 2%;
+      }
+    }
+  }
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+  .signUP {
+    transition: 0.2s;
+    border: none;
+    &.dev {
+      background: linear-gradient(70deg, #00bae4, #005de8);
+      &:hover {
+        filter: brightness(0.8) contrast(1.7);
+      }
+    }
+    &.cli {
+      background: linear-gradient(70deg, #a5d100, #00c371);
+      &:hover {
+        filter: brightness(0.8) contrast(1.7);
+      }
+    }
+    padding: 18px 32px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+  }
+  #Continue-dev,
+  #Complete-dev {
+    min-width: 30%;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 2%;
+    color: #717171;
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .sep {
+    
+    left: 50%;
+    transform: translateX(-70%);
+    top: 23%;
+  }
+  .Input-Cont,
+  #Continue-dev,
+  #Complete-dev {
+    margin: 0;  
+    margin-top: 10px;
+    align-self: center;  
+    max-width: 400px;
+  }
+    .Label-text {
+      color: #aeaeae;
+      margin: 2px 0;
+    }
+    .Input-Stylizer {
+      min-width: 290px;
+      margin: 1px 0 7px 0;
+      background-color: #00122c;
+      padding: 3px 5px;
+    }
+  .signUP-form-Cont-1 {
+    
+    top: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .UnderLineTitle {
+    left: 0;
+    font-size: 2rem;
+    color: white;
+  }
+  .TitleAbove {
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 1px solid #183662;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
