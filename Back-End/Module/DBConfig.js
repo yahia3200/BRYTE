@@ -5,7 +5,7 @@ const pool = createPool({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: '14916',
+  password: '01229767345Yahia',
   database: 'BRYTE',
   connectionLimit: 10
 });
@@ -15,9 +15,12 @@ const pool = createPool({
 /**=>{Here is the Insert_Developer implementation} */
 const Insert_Developer = (res, body, callback) => {
   /**Reading The JSON data, Note that it must be with the same names*/
-  const { Fname, Lname, UserName, Email
-    , CreationDate, BirthDate, LastLogin
-    , Password, HashToken, Credentials, Age } = body;
+  const  Credentials = "Trial";
+  const  {Fname, Lname, UserName, Email, Password,JobTitle, PhoneNumber,BirthDate,Address} = body;
+
+  const Age =20;
+  const LastLogin = BirthDate;
+  const CreationDate =BirthDate;
   /**The Query to be executed (preventing SQL injection by using ? placeholder as an escape method) */
   const sql = "INSERT INTO developer ( "
     + "  DEV_Fname, "
@@ -28,7 +31,6 @@ const Insert_Developer = (res, body, callback) => {
     + "  DEV_Birth_Date,"
     + "  DEV_Last_Login,"
     + "  DEV_Hash,"
-    + "  DEV_Hash_Token,"
     + "  DEV_Credentials,"
     + "  DEV_Wallet,"
     + "  DEV_Wining_Count,"
@@ -36,7 +38,10 @@ const Insert_Developer = (res, body, callback) => {
     + "  DEV_Pick_Rate,"
     + "  DEV_Bids_Count,"
     + "  DEV_Projects_Count,"
-    + "  DEV_Age"
+    + "  DEV_Age,"
+    + "  DEV_Address,"
+    + "  DEV_Job_Title,"
+    + "  DEV_Phone"
     + " )"
     + " VALUES ("
     + "   ?,"
@@ -48,13 +53,15 @@ const Insert_Developer = (res, body, callback) => {
     + "   ?,"
     + "   ?,"
     + "   ?,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
     + "   ?,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
+    + "   ?,"
+    + "   ?,"
     + "   ?"
     + " );";
   /**Hashing the password first(there are multiple ways to do this--> refer to bcrypt documentation) */
@@ -68,7 +75,7 @@ const Insert_Developer = (res, body, callback) => {
       pool.query(sql,
         [Fname, Lname, UserName, Email
           , CreationDate, BirthDate, LastLogin
-          , Hash, HashToken, Credentials, Age
+          , Hash, Credentials, Age,Address,JobTitle, PhoneNumber
         ]
         , (sql_error, result) => {
 
@@ -112,7 +119,7 @@ const Login_Developer = (email, password, callback) => {
   pool.query(sql, [email], (sql_error, result) => {
     //When the query is executed. If there is a row returned, start checking the password.
     //Note: the DEV_Email attribute is unique so there can't be multiple records of it
-    if (result.length != 0) {
+    if (result) {
       //We compare the password against the hashed one in the database
       bcrypt.compare(password, result[0].DEV_Hash, (compare_error, compare_result) => {
         //After comparison is finished, we check the result
@@ -121,11 +128,11 @@ const Login_Developer = (email, password, callback) => {
           return callback(result[0].DEV_ID, "Logged In, Welcome back ^_^")
         }
         else //if the password doesn't match, refuse access
-          return callback(-1, "Access Denied, please try again");  
+          return callback(-1, "Wrong Passward or Email");  
       });
     }
     else //if the email doesn't match, refuse access
-      return callback(-1, "Access Denied, please try again");
+      return callback(-1, "Wrong Passward or Email");
   })
 }
 
