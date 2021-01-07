@@ -10,8 +10,7 @@ const createToken = (id) => {
 
 
 const signup_get = function (req, res) {
-    console.log("Fuck you");
-    res.send("Getting the signup page");
+    res.render('SignUp');
 
 }
 
