@@ -19,6 +19,7 @@ create table TIMELINE
     PRO_TIM_ID int not null,
     PRO_TIM_Phase_Start_Date Date not null,
     PRO_TIM_Phase_End_Date Date not null,
+    PRO_TIM_Title varchar(30),
     PRO_TIM_Description varchar(100),
     Foreign KEY (PRO_TIM_ID) references PROJECT(PRO_ID),
     PRIMARY KEY (PRO_TIM_ID, PRO_TIM_Phase_Start_Date, PRO_TIM_Phase_End_Date)

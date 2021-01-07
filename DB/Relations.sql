@@ -38,6 +38,7 @@ CREATE TABLE DEVELOPER_WORKS_ON
 (
     DEV_Id int not null,
     PRO_Id int not null,
+    Dev_Role varchar(69),
     Primary key (DEV_Id, PRO_Id),
     Foreign key (DEV_Id) references DEVELOPER(DEV_ID),
     Foreign key (PRO_Id) references PROJECT(PRO_ID)
@@ -74,7 +75,7 @@ CREATE TABLE DEVELOPER_PARTICIPATE
     Foreign key (COM_Id) references COMPETITION(COM_Id)
 );
 
-CREATE TABLE DEVELOPER_APPLAY
+CREATE TABLE DEVELOPER_APPLY
 (
     DEV_Id int not null,
     BID_Id int not null,
@@ -160,7 +161,7 @@ CREATE TABLE TEAM_PARTICIPATE
     Foreign key (COM_Id) references COMPETITION(COM_Id)
 );
 
-CREATE TABLE TEAM_APPLAY
+CREATE TABLE TEAM_APPLY
 (
     TEA_Id int not null,
     BID_Id int not null,
