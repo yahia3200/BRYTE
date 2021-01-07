@@ -7,8 +7,11 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "gsap": "^3.5.1",
     "vue": "^3.0.0",
+    "vue-eslint-parser": "^7.3.0",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
