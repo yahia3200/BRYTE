@@ -136,6 +136,11 @@ const Login_Developer = (email, password, callback) => {
   })
 }
 
+const getDeveloperById = (id)=>{
+  const query = "SELECT * FROM DEVELOPER WHRE DEV_ID = ? ";
+
+}
+
 module.exports =
 {
   pool,
