@@ -41,6 +41,7 @@ body .Nav-Outer-Cont {
   -ms-flex-item-align: start;
   align-self: flex-start;
   width: 100%;
+  z-index: 2;
 }
 
 body .Nav-Outer-Cont .logo-container {
@@ -88,8 +89,10 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 #Head{
     padding-top:170px;
     padding-left: 150px;
+    position: relative !important;
     width: 60vw;
 }
+
 #title{
     display: flex;
 }
@@ -293,6 +296,129 @@ form{
   display:flex;
   margin-top: 10px;
   color:#FFFFFF;
+}
+
+#abbas{
+  display:flex;
+  margin-top: 50px;
+}
+/* Projects */
+
+#projects{
+  width:870px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap : wrap;
+  margin-left: 150px;
+}
+
+.project{
+  margin:15px;
+  width: 259px;
+  display: flex;
+  flex-direction:column;
+  border-radius:20px;
+  overflow: hidden;
+  position: relative;
+}
+.cats{
+  position: absolute;
+  top:107px;
+  right:0px;
+  height:35px;
+  padding:5px;
+  background-color:#2B2F3B;
+  display: flex;
+  align-content: center;
+  border-top-left-radius: 20px;
+}
+.cats:before,
+.cats:after {
+    content: "";
+    position: absolute;
+
+    height: 10px;
+    width: 20px;
+
+    bottom: 0;
+}
+.cats:before {
+  left: -20px;
+
+  border-radius: 0 0 10px 0;
+  -moz-border-radius: 0 0 10px 0;
+  -webkit-border-radius: 0 0 10px 0;
+
+  -webkit-box-shadow: 10px 0 0 0 #2B2F3B;
+  box-shadow: 10px 0 0 0 #2B2F3B;
+}
+.cats svg{
+  margin-left: 5px;
+}
+.MainPic{
+  height:142px;
+  width:259px;
+  object-fit: cover;
+}
+.info{
+  display: flex;
+  flex-grow: 1;
+  justify-content:space-between;
+  background-color: #393F49;
+  padding:0px 12px 10px 12px;
+}
+.main{
+  display: flex;
+  margin-top:5px;
+}
+.info .dev{
+  font-family: Roboto;
+  margin-top: 3px;
+}
+.thumbnail{
+  margin-right: 10px;
+  height:45px;
+  border-radius:50%;
+}
+.info .dev .name{
+  font-weight: bold;
+  font-size: 16px;
+  color:#FFFFFF;
+}
+.info .dev .username{
+  font-size: 12px;
+  color:#66A3FF;
+  font-family: Consolas;
+}
+.sec{
+  margin-top:8px;
+}
+.date{
+  font-family: Gill Sans MT;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: right;
+  color: #A5A5A5;
+}
+.project .rate{
+  display: flex;
+  float:right;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: right;
+
+  color: #FFFFFF;
+}
+#FiltersTab{
+  margin-top: 15px;
+  width:302px;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
 }
 body footer {
     position: fixed;
