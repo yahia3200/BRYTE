@@ -13,7 +13,6 @@ create table CLIENT
 	CLI_Founded_Date date,
     CLI_Last_Login date not null,
     CLI_Hash varchar(255) not null,
-    CLI_Hash_Token varchar(50) not null,
     CLI_Credentials varchar(50) not null,
     CLI_Wallet float not null default 0,
 	CLI_Location varchar(50),

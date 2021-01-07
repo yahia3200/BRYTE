@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+a {
+  -webkit-transition: 0.05s;
+  transition: 0.05s;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #4b90f7;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+input[type="text"],
+.Input-text {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: #eeeeee;
+  font-size: 1.2rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 7px 6px;
+  border-bottom: 1px solid #183662;
+}
+
+input[type="text"]:focus,
+.Input-text:focus {
+  border-bottom: 1px solid #385e92;
+}
+
+body {
+  overflow: hidden;
+  background-color: #020f22;
+}
+
+body .Nav-Outer-Cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+body .Nav-Outer-Cont .logo-container {
+  background-color: #10213a;
+  min-width: 320px;
+  padding: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 0 40px 0;
+  -webkit-box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+}
+
+body .Nav-Outer-Cont .Nav-inner-Cont {
+  background: -webkit-gradient(linear, left top, right top, from(#041a2d), color-stop(4%, #0e1d33));
+  background: linear-gradient(to right, #041a2d, #0e1d33 4%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style: none;
+  height: 90px;
+  width: 100%;
+  padding-right: 30px;
+}
+
+body .Nav-Outer-Cont .Nav-inner-Cont li {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0 2%;
+}
+
+body .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 70px 93px;
+}
+
+body .content .Cont-Block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 520px;
+}
+
+body .content .Cont-Block * {
+  margin: 13px 0px;
+}
+
+body .content .Cont-Block .Head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body .content .Cont-Block .Head img {
+  width: 100px;
+}
+
+body .content .Cont-Block .Head svg {
+  width: 100px;
+}
+
+body .content .Cont-Block .Head .title {
+  margin-left: 20px;
+  font-size: 3.9rem;
+  font-family: "Reem Kufi";
+  color: white;
+}
+
+body .content .Cont-Block .desc {
+  color: #bbbbbb;
+  font-family: Roboto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  width: 450px;
+}
+
+body .signUP {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border: none;
+  padding: 18px 32px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+}
+
+body .signUP.dev {
+  background: linear-gradient(70deg, #00bae4, #005de8);
+}
+
+body .signUP.dev:hover {
+  -webkit-filter: brightness(0.8) contrast(1.7);
+          filter: brightness(0.8) contrast(1.7);
+}
+
+body .signUP.cli {
+  background: linear-gradient(70deg, #a5d100, #00c371);
+}
+
+body .signUP.cli:hover {
+  -webkit-filter: brightness(0.8) contrast(1.7);
+          filter: brightness(0.8) contrast(1.7);
+}
+
+body #Continue-dev,
+body #Complete-dev {
+  min-width: 20%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+body footer {
+  position: fixed;
+  bottom: 2%;
+  color: #717171;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+body .sep {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-70%);
+          transform: translateX(-70%);
+  top: 23%;
+}
+
+body .Name-Cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .Input-Cont,
+body #Continue-dev,
+body #Complete-dev {
+  margin-top: 10px;
+  opacity: 0;
+}
+
+body .signUP-form {
+  width: 600px;
+}
+
+body .signUP-form .Label-text {
+  color: #aeaeae;
+  margin: 2px 0;
+}
+
+body .signUP-form .Input-Stylizer {
+  min-width: 290px;
+  margin: 1px 0 7px 0;
+  background-color: #00122c;
+  padding: 3px 5px;
+}
+
+body .signUP-form-Cont-1 {
+  position: absolute;
+  top: 380px;
+  pointer-events: none;
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .signUP-form-Cont-2 {
+  position: absolute;
+  top: 380px;
+  pointer-events: none;
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .UnderLineTitle {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 280;
+  font-size: 2rem;
+  color: white;
+}
+
+body .TitleAbove {
+  top: 165px;
+  left: 5px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 1px solid #183662;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+/*# sourceMappingURL=SignUP.css.map */
