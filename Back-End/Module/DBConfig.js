@@ -5,7 +5,7 @@ const pool = createPool({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: '14916',
+  password: '01229767345Yahia',
   database: 'BRYTE',
   connectionLimit: 10
 });
@@ -119,7 +119,7 @@ const Login_Developer = (email, password, callback) => {
   pool.query(sql, [email], (sql_error, result) => {
     //When the query is executed. If there is a row returned, start checking the password.
     //Note: the DEV_Email attribute is unique so there can't be multiple records of it
-    if (result.length != 0) {
+    if (result) {
       //We compare the password against the hashed one in the database
       bcrypt.compare(password, result[0].DEV_Hash, (compare_error, compare_result) => {
         //After comparison is finished, we check the result
@@ -128,11 +128,11 @@ const Login_Developer = (email, password, callback) => {
           return callback(result[0].DEV_ID, "Logged In, Welcome back ^_^")
         }
         else //if the password doesn't match, refuse access
-          return callback(-1, "Access Denied, please try again");  
+          return callback(-1, "Wrong Passward or Email");  
       });
     }
     else //if the email doesn't match, refuse access
-      return callback(-1, "Access Denied, please try again");
+      return callback(-1, "Wrong Passward or Email");
   })
 }
 

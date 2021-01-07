@@ -45,8 +45,7 @@ const signup_post = async function (req, res) {
 }
 
 const login_get = function (req, res) {
-
-
+    res.render('LogIn');
 }
 
 const login_post = async function (req, res) {

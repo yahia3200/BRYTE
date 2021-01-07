@@ -39,6 +39,9 @@ app.set('view engine', 'ejs');
 
 
 //Routes 
+app.get('/', (req, res)=>{
+    res.render('home')
+});
 app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery')});
 app.use(authRoutes);
 
