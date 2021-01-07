@@ -41,6 +41,7 @@ body .Nav-Outer-Cont {
   -ms-flex-item-align: start;
   align-self: flex-start;
   width: 100%;
+  z-index: 1;
 }
 
 body .Nav-Outer-Cont .logo-container {
@@ -89,37 +90,40 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 /*End Nav Bar*/
 .main{
     display: flex;
-
 }
 .content{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    border-left: 4px  solid#4B90F6; 
+    
 }
 .side_bar{
     min-width: 320px;
     height: 100vh;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+
 }
 
 .slide_show{
     margin-top: 95px;
     display: flex;
     overflow: hidden;
-    flex-grow: 0;
 }
 
 .slide_show #first-img{
     margin-right: 20px;
     display: inline;
     min-width: 600px;
-    height: 400px;
+    height: 300px;
 }
 
 .slide_show #second-img{
     object-fit: cover;
     display: inline;
-    height: 400px;
+    height: 300px;
     width: 400px;
     flex-grow: 1;
 }
@@ -199,6 +203,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 
 #discreption{
+    position: relative;
     width: 100%;
     padding: 25px;
     margin-top: 33px;
@@ -217,8 +222,60 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     color: #E3E3E3;
 }
 
+#dis-border{
+    position: absolute;
+    top: -29px;
+    left: -27px;
+}
+
+#upper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    max-height: 360px;
+}
+
+#upper h1{
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 45px;
+    text-align: center;
+    color: white;
+    max-width: 200px;
+}
+
+#developers-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    flex-grow: 1;
+    
+}
+
+#developers-container h2{
+    color: white;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 29px;
+    position: absolute;
+}
+
+#side-bar-container{
+    position: relative;
+}
+
+#side-bar-arrow{
+    position: absolute;
+    top: 490px;
+    left: 33px;
+}
+
 body footer {
-    position: fixed;
     bottom: 2%;
     color: #717171;
     width: 100%;
