@@ -15,9 +15,12 @@ const pool = createPool({
 /**=>{Here is the Insert_Developer implementation} */
 const Insert_Developer = (res, body, callback) => {
   /**Reading The JSON data, Note that it must be with the same names*/
-  const { Fname, Lname, UserName, Email
-    , CreationDate, BirthDate, LastLogin
-    , Password, HashToken, Credentials, Age } = body;
+  const  Credentials = "Trial";
+  const  {Fname, Lname, UserName, Email, Password,JobTitle, PhoneNumber,BirthDate,Address} = body;
+
+  const Age =20;
+  const LastLogin = BirthDate;
+  const CreationDate =BirthDate;
   /**The Query to be executed (preventing SQL injection by using ? placeholder as an escape method) */
   const sql = "INSERT INTO developer ( "
     + "  DEV_Fname, "
@@ -28,7 +31,6 @@ const Insert_Developer = (res, body, callback) => {
     + "  DEV_Birth_Date,"
     + "  DEV_Last_Login,"
     + "  DEV_Hash,"
-    + "  DEV_Hash_Token,"
     + "  DEV_Credentials,"
     + "  DEV_Wallet,"
     + "  DEV_Wining_Count,"
@@ -36,7 +38,10 @@ const Insert_Developer = (res, body, callback) => {
     + "  DEV_Pick_Rate,"
     + "  DEV_Bids_Count,"
     + "  DEV_Projects_Count,"
-    + "  DEV_Age"
+    + "  DEV_Age,"
+    + "  DEV_Address,"
+    + "  DEV_Job_Title,"
+    + "  DEV_Phone"
     + " )"
     + " VALUES ("
     + "   ?,"
@@ -48,13 +53,15 @@ const Insert_Developer = (res, body, callback) => {
     + "   ?,"
     + "   ?,"
     + "   ?,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
+    + "   0,"
     + "   ?,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
-    + "   0,"
+    + "   ?,"
+    + "   ?,"
     + "   ?"
     + " );";
   /**Hashing the password first(there are multiple ways to do this--> refer to bcrypt documentation) */
@@ -68,7 +75,7 @@ const Insert_Developer = (res, body, callback) => {
       pool.query(sql,
         [Fname, Lname, UserName, Email
           , CreationDate, BirthDate, LastLogin
-          , Hash, HashToken, Credentials, Age
+          , Hash, Credentials, Age,Address,JobTitle, PhoneNumber
         ]
         , (sql_error, result) => {
 

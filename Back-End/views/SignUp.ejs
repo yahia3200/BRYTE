@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/SignUP.css" />
+    <link rel="stylesheet" href="SignUP.css" />
     <title>Sign Up</title>
   </head>
   <body>
@@ -165,39 +165,39 @@
             <div class="Input-Cont">
               <div class="Label-text">First Name</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required />
+                <input type="text" class="Input-text" required name="Fname"/>
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Last Name</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required />
+                <input type="text" class="Input-text" required name="Lname" />
               </div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Username</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text" required />
+              <input type="text" class="Input-text" required name="UserName" />
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Email</div>
             <div class="Input-Stylizer">
-              <input type="email" class="Input-text" required />
+              <input type="email" class="Input-text" required name="Email" />
             </div>
           </div>
           <div class="Name-Cont">
             <div class="Input-Cont">
               <div class="Label-text">Password</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required />
+                <input type="text" class="Input-text" required name="Password" />
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Confirm Password</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required />
+                <input type="text" class="Input-text" required name="ConfirmPassword" />
               </div>
             </div>
           </div>
@@ -207,25 +207,25 @@
           <div class="Input-Cont">
             <div class="Label-text">Job Title</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text" required />
+              <input type="text" class="Input-text" required name="JobTitle"/>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Phone Number</div>
             <div class="Input-Stylizer">
-              <input type="tel" class="Input-text" required />
+              <input type="tel" class="Input-text" required name="PhoneNumber" />
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Birth Date</div>
             <div class="Input-Stylizer">
-              <input type="date" class="Input-text" required />
+              <input type="date" class="Input-text" required name="BirthDate" />
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Area of Residence</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text" required />
+              <input type="text" class="Input-text" required name="Address" />
             </div>
           </div>
           <button
@@ -295,14 +295,8 @@
     </div>
     <footer>BRYTE© - 2021 Copyrights Reserved</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script src="AnimateSignUP.js"></script>
-  </body>
-</html>
-
-
-
-<script>
-    document.querySelector("#sign-up-dev").addEventListener("click", ()=> {
+    <script>
+      document.querySelector("#sign-up-dev").addEventListener("click", ()=> {
         gsap.to("#sep1", { duration: 0.7, x: 55, y: -200, opacity: 0 });
         gsap.to("#sep2", { duration: 0.7, x: -55, y: 200, opacity: 0 });
         gsap.to(".Cont-Block.cli", { duration: 0.7, x: 500, opacity: 0 });
@@ -323,4 +317,36 @@
         gsap.to("circle", { duration: 0.5, fill: '#4B90F7'});
         document.querySelector(".TitleAbove").innerHTML = "Personal Info";
       });
-</script>
+
+      const form = document.querySelector('form');
+      form.addEventListener('submit',async(e)=>{
+        e.preventDefault();
+        //get the values
+        const Fname = form.Fname.value;
+        const Lname = form.Lname.value;
+        const UserName = form.UserName.value;
+        const Email = form.Email.value;
+        const Password = form.Password.value;
+        const ConfirmPassword = form.ConfirmPassword.value;
+        const JobTitle = form.JobTitle.value;
+        const PhoneNumber = form.PhoneNumber.value;
+        const BirthDate = form.BirthDate.value;
+        const Address = form.Address.value;
+        try{
+          const res = await fetch('/signup',{
+            method: 'POST',
+            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
+            headers: {'Content-Type': 'application/json'}
+          });
+
+          location.assign('/');
+        }
+        catch(err){
+          console.log(err);
+        }
+      })
+
+
+    </script>
+  </body>
+</html>
