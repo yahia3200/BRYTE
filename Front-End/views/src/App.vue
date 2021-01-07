@@ -1,16 +1,9 @@
 <template>
-<Home/>
+<router-view/>
 </template>
 
 <script>
-import Home from './components/Home.vue'
 
-export default {
-  name: 'App',
-  components: {
-    Home
-  }
-}
 </script>
 
 <style>
@@ -19,5 +12,10 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/**Special Class to the element in the route */
+.router-link-exact-active {
+  color: #42b983;
 }
 </style>

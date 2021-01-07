@@ -8,6 +8,7 @@
                 <li><a href="">Gallery</a></li>
                 <li><a href="">Developers</a></li>
                 <li><a href="">Log in</a></li>
+                <li><router-link :to="{ name: 'Hello' }">HelloWorld</router-link></li> <router-view/>
             </ul>
         </nav>
         <a href=""><button>Sign up</button></a>
@@ -666,4 +667,6 @@ img{
     -moz-text-align-last: justify;
     text-align-last: justify;
 }
+
+
 </style>
