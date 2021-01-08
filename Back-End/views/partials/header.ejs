@@ -23,7 +23,12 @@
           <li><a href="">Bids</a></li>
           <li><a href="">Gallery</a></li>
           <li><a href="">Developers</a></li>
+          <% if (user) { %>
+          <li><a href="/logout">Log out</a></li>
+          <% } else { %>
           <li><a href="/login">Log in</a></li>
+          <li><a href="/signup" class="btn">Sign up</a></li>
+          <% } %>
         </ul>
       </div>
 </body>
