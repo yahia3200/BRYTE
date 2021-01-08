@@ -266,12 +266,12 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: column;
   border-radius: 17px 0 0 0;
   margin-left: 34px;
-  margin-top: 23px; 
-  background: linear-gradient(180deg, #13223a 29.48%, rgba(17, 34, 61, 0) 100%);;
+  margin-top: 23px;
+  background: linear-gradient(180deg, #13223a 29.48%, rgba(17, 34, 61, 0) 100%);
 }
 
-#developers-bar{
-    margin-left: 20px;
+#developers-bar {
+  margin-left: 20px;
 }
 
 #developers-container h2 {
@@ -288,7 +288,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 
 #side-bar-arrow {
-    pointer-events: none;
+  pointer-events: none;
   position: absolute;
   top: 490px;
   left: 33px;
@@ -338,11 +338,11 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: row;
 }
 .review-head.dev {
-    background: none;
-    border: none;
-    color: #a5a5a5;
-    box-shadow: none;
-  }
+  background: none;
+  border: none;
+  color: #a5a5a5;
+  box-shadow: none;
+}
 
 .review-tail {
   padding: 12px;
@@ -376,3 +376,79 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 
   color: #ffffff;
 }
+
+.timeline {
+  margin: 10px 80px 10px 160px;
+}
+.phases-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline-cont {
+}
+
+.line-of-time {
+  z-index: 9;
+  margin: 0;
+}
+
+.phasedate-list {
+  margin: 10px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.phase-list {
+  margin: 0 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  transform: translateY(-12px);
+}
+.phase-date {
+  flex: 1 1;
+  margin: 0 10px;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #69a4fc;
+}
+
+.phase-cont {
+  flex: 1 1;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phase-title {
+  margin: 4px 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff; 
+}
+
+.phase-desc {
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 150%;
+/* or 18px */
+
+text-align: center;
+letter-spacing: 0.02em;
+
+color: #B8B8B8;
+}
+

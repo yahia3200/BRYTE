@@ -142,7 +142,7 @@ const Search_Single_Project = (id, callback)=>{
   pool.query(sql,[id],(sql_error, result)=>{
     if(result.length>0){
       const Is_Error = false;
-      var normalObj = Object.assign({}, result[0]);
+      const normalObj = Object.assign({}, result[0]);
       return callback(Is_Error,normalObj);
     }
     else{
