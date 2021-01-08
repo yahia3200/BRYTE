@@ -1,4 +1,6 @@
 
+create schema BRYTE; 
+
 use BRYTE;
 
 create table DEVELOPER
