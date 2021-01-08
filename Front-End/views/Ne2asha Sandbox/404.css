@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Roboto;
+}
+
+a {
+  -webkit-transition: 0.05s;
+  transition: 0.05s;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #4b90f7;
+}
+
+body {
+  overflow: hidden;
+  background-color: #020f22;
+}
+
+body .Nav-Outer-Cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+body .Nav-Outer-Cont .logo-container {
+  background-color: #10213a;
+  min-width: 320px;
+  padding: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 0 40px 0;
+  -webkit-box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+}
+
+body .Nav-Outer-Cont .Nav-inner-Cont {
+  background: -webkit-gradient(linear, left top, right top, from(#041a2d), color-stop(4%, #0e1d33));
+  background: linear-gradient(to right, #041a2d, #0e1d33 4%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style: none;
+  height: 90px;
+  width: 100%;
+  padding-right: 30px;
+}
+
+body .Nav-Outer-Cont .Nav-inner-Cont li {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0 2%;
+}
+
+body .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 80vh;
+}
+.Coming-Soon-Message{
+  width: 35%;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.6rem;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+body footer {
+  position: fixed;
+  bottom: 2%;
+  color: #717171;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+}
