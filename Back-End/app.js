@@ -9,7 +9,7 @@ const authRoutes = require('./Routes/authRoutes');
 const cookieParser = require('cookie-parser');
 
 //import the authentication verification function
-const {authVerifier} = require('./middleware/authmiddleware');
+const {authVerifier, getUser} = require('./middleware/authmiddleware');
 
 //Create an instance of express object
 const app = express();
@@ -38,7 +38,8 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 
-//Routes 
+//Routes
+app.use(getUser);
 app.get('/', (req, res)=>{
     res.render('home')
 });
