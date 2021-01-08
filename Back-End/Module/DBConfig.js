@@ -5,7 +5,7 @@ const pool = createPool({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: '01229767345Yahia',
+  password: '14916',
   database: 'BRYTE',
   connectionLimit: 10
 });
@@ -136,6 +136,22 @@ const Login_Developer = (email, password, callback) => {
   })
 }
 
+
+const Search_Single_Project = (id, callback)=>{
+  const sql = "SELECT * FROM project WHERE PRO_ID = ?";
+  pool.query(sql,[id],(sql_error, result)=>{
+    if(result.length>0){
+      const Is_Error = false;
+      var normalObj = Object.assign({}, result[0]);
+      return callback(Is_Error,normalObj);
+    }
+    else{
+      const Is_Error = true;
+      return callback(Is_Error,result);
+    }
+  })
+}
+
 const getDeveloperById = (id)=>{
   const query = "SELECT DEV_Fname FROM DEVELOPER WHERE DEV_ID= ? ";
   console.log(id);
@@ -156,5 +172,7 @@ module.exports =
   pool,
   Insert_Developer,
   Login_Developer,
-  getDeveloperById
+  getDeveloperById,
+  Search_Single_Project
+
 }

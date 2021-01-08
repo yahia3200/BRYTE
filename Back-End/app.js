@@ -2,8 +2,9 @@
 //Require the express module
 const express = require('express');
 
-//Import the authRoutes file
+//Import the Routes files
 const authRoutes = require('./Routes/authRoutes');
+const projectRoutes = require('./Routes/projectRoutes');
 
 //Import Cookies package
 const cookieParser = require('cookie-parser');
@@ -38,13 +39,22 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 
+<<<<<<< HEAD
 //Routes
 app.use(getUser);
+=======
+//Routes 
+//Home Route
+>>>>>>> 9b826c38ffad45eee7fb1a1c9980eb50be067ab9
 app.get('/', (req, res)=>{
     res.render('home')
 });
+
+//Authentication verifecation
 app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery')});
+
 app.use(authRoutes);
+app.use(projectRoutes);
 
 
 
