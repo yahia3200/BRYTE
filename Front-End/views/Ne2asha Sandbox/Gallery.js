@@ -41,11 +41,39 @@ document.querySelector('#hide2').addEventListener("click",()=>{
         style1.transform= "rotate(180deg)";
     }
 });
-
-document.querySelector("#AI").addEventListener("click",()=>{
-    if(document.querySelector("#AI").checked){
-        document.querySelector("#AISVG").classList.remove("unchecked")
+document.querySelector('#hide3').addEventListener("click",()=>{
+    var style = document.querySelector('#SectionBody3').style;
+    var style1 = document.querySelector('#hide3').style
+    if(style.display=="none"){
+        style.display="block";
+        style1.transform= "rotate(0deg)";
     }else{
-        document.querySelector("#AISVG").classList.add("unchecked")
+        style.display="none";
+        style1.transform= "rotate(180deg)";
     }
+});
+document.querySelector('#hide4').addEventListener("click",()=>{
+    var style = document.querySelector('#SectionBody4').style;
+    var style1 = document.querySelector('#hide4').style
+    if(style.display=="none"){
+        style.display="block";
+        style1.transform= "rotate(0deg)";
+    }else{
+        style.display="none";
+        style1.transform= "rotate(180deg)";
+    }
+});
+document.querySelectorAll(".field").forEach((element)=>{
+element.addEventListener("click",()=>{
+    var id = element.id;
+    id="#"+id;
+    var svgid=id+"SVG";
+    console.log(id);
+    console.log(svgid);
+    if(document.querySelector(id).checked){
+        document.querySelector(svgid).classList.remove("unchecked");
+    }else{
+        document.querySelector(svgid).classList.add("unchecked");
+    }
+});
 });
