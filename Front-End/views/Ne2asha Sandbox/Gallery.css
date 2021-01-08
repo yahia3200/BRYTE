@@ -107,11 +107,13 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     ;
 }
 #search{
+    display: flex;
+    align-items: baseline;
     width:100vw;
     background-color: #101C2F;
     padding-left: 150px;
 }
-form{
+#search form{
   padding:20px 0px;
 
 }
@@ -119,8 +121,10 @@ form{
     border:none;
     border-radius: 50vh;
     background-color:#020F22;
-    width:20vw;
+    width:35vw;
     height:30px;
+    margin-right: 40px;
+    margin-top: 5px;
     
 }
 #cats{
@@ -267,7 +271,8 @@ form{
 }
 
 #grid{
-    margin-left:10px;
+    margin-left:40px;
+    padding: 4px;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
@@ -281,6 +286,7 @@ form{
 #list{
     width:2.5vw; 
     height:2.5vw;
+    padding:4px;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
@@ -288,16 +294,31 @@ form{
 .clicked{
     background-color:#4B90F6;
 }
+
 .unclicked{
     background: rgb(76,87,103);
     background: linear-gradient(0deg, rgba(76,87,103,1) 0%, rgba(95,105,120,1) 50%, rgba(76,87,103,1) 100%);
 }
 #Filters{
   display:flex;
+  align-items:baseline;
   margin-top: 10px;
   color:#FFFFFF;
 }
 
+#and{
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  
+}
+
+#or{
+  padding: 5px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width:2.8vw;
+}
 #abbas{
   display:flex;
   margin-top: 50px;
@@ -414,11 +435,50 @@ form{
   color: #FFFFFF;
 }
 #FiltersTab{
+  font-family:Reem Kufi;
+  color:white;
+  font-size:15px;
   margin-top: 15px;
   width:302px;
-  padding:10px;
   display:flex;
   flex-direction:column;
+  background: #101C2F;
+  border: 1px solid #4C5463;
+  box-shadow: 0px 0px 24px 2px rgba(0, 0, 0, 0.2);
+}
+#FiltersTab button{
+  font-size:13px;
+  font-family: Roboto;
+  border:none;
+  border-radius: 50vh;
+  padding: 3px 8px;
+  color: white;
+}
+.all{
+  background-color:#009E3F;
+}
+.none{
+  background-color:#AD003E;
+}
+.unchecked{
+  filter:saturate(0.5);
+}
+#Top{
+  display: flex;
+  justify-content:space-between;
+  padding: 10px 10px;
+}
+#Top H1{
+  font-size: 24px;
+}
+.SectionHead{
+  display: flex;
+  justify-content:space-between;
+}
+.section{
+  background-color:#252E3D;
+  padding: 10px 10px;
+  margin-bottom: 15px;
 }
 body footer {
     position: fixed;
@@ -427,5 +487,6 @@ body footer {
     width: 100%;
     font-size: 0.8rem;
     text-align: center;
+    z-index:-1;
   }
   

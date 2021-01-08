@@ -2,11 +2,11 @@ const { createPool } = require("mysql2");
 const saltRounds = 10;
 const bcrypt = require("bcrypt");
 const pool = createPool({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '01229767345Yahia',
-  database: 'BRYTE',
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWARD,
+  database: process.env.MYSQL_DB,
   connectionLimit: 10
 });
 

@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 //Require the express module
 const express = require('express');
@@ -23,8 +24,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 //start listening for requests on the server
-app.listen(3000, () => {
-    console.log("server is runing at port 3000")
+app.listen(process.env.APP_PORT, () => {
+    console.log("server is runing at port: ", process.env.APP_PORT);
 });
 
 
