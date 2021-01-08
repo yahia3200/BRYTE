@@ -44,5 +44,5 @@ CREATE TABLE PRO_CATEGORY
     PRO_CAT_Skill varchar(50),
     CAT_PRO_Id int not null,
     Primary key (PRO_CAT_Field, PRO_CAT_Skill, CAT_PRO_Id),
-    Foreign key (CAT_PRO_Id) references DEVELOPER(DEV_ID)
+    Foreign key (CAT_PRO_Id) references PROJECT(PRO_ID)
 );
