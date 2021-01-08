@@ -29,8 +29,8 @@ button:focus {
 
 
 body {
-
   background-color: #020f22;
+  overflow-x: hidden;
 }
 
 body .Nav-Outer-Cont {
@@ -90,6 +90,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     padding-top:170px;
     padding-left: 150px;
     position: relative !important;
+    margin-bottom: 20px;
     width: 60vw;
 }
 
@@ -125,6 +126,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     height:30px;
     margin-right: 40px;
     margin-top: 5px;
+    color: #FFF;
     
 }
 #cats{
@@ -266,6 +268,9 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     z-index : auto;
     
 }
+select{
+  color: #FFF;
+}
 #options{
     display:flex;
 }
@@ -301,12 +306,18 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 #Filters{
   display:flex;
-  align-items:baseline;
+  align-items:center;
+  flex-wrap: wrap;
+  width:870px;
   margin-top: 10px;
   color:#FFFFFF;
 }
-
+#Filters label{
+  margin-top:20px;
+}
 #and{
+  margin-top:20px;
+  margin-left: 20px;
   padding: 5px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -314,10 +325,21 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 
 #or{
+  margin-top:20px;
+  margin-right: 20px;
   padding: 5px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   width:2.8vw;
+}
+.filterIcon{
+  display:flex;
+  align-items:center;
+  height:30px;
+  margin-top:20px;
+  margin-right: 20px;
+  background-color: #393F49;
+  border-radius: 50vh;
 }
 #abbas{
   display:flex;
@@ -434,11 +456,18 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 
   color: #FFFFFF;
 }
+#showMore{
+  display: flex;
+  width: 100%;
+  position: relative
+}
+
 #FiltersTab{
   font-family:Reem Kufi;
   color:white;
   font-size:15px;
   margin-top: 15px;
+  margin-left: 60px;
   width:302px;
   display:flex;
   flex-direction:column;
@@ -461,7 +490,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   background-color:#AD003E;
 }
 .unchecked{
-  filter:saturate(0.5);
+  filter:saturate(0.1);
 }
 #Top{
   display: flex;
@@ -479,6 +508,21 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   background-color:#252E3D;
   padding: 10px 10px;
   margin-bottom: 15px;
+}
+.tex{
+  width:60px;
+  border-radius: 100vh;
+  background-color:#020F22;
+  padding: auto 15px;
+  color:#FFF;
+}
+#timeRange{
+  display: flex;
+  justify-content:space-between;
+}
+#rateRange{
+  display: flex;
+  justify-content:space-between;
 }
 body footer {
     position: fixed;
