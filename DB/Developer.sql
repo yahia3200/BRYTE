@@ -1,4 +1,6 @@
 
+create schema BRYTE; 
+
 use BRYTE;
 
 create table DEVELOPER
@@ -79,7 +81,7 @@ CREATE TABLE DEV_AWARDS
 CREATE TABLE DEV_Links
 (
     DEV_LIN_Name varchar(50) not null,
-    DEV_LIN_Link varchar(50) not null,
+    DEV_LIN_Link varchar(500) not null,
     DEV_LIN_Developer_Id int not null,
     Primary key (DEV_LIN_Developer_Id, DEV_LIN_Name),
     Foreign key (DEV_LIN_Developer_Id) references DEVELOPER(DEV_ID)

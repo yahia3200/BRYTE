@@ -7,12 +7,14 @@ create table PROJECT
     PRO_Start_Date Date,
     PRO_Creation DateTime not null,
     PRO_End_Date Date,
-    PRO_Description varchar(500),
+    PRO_Description varchar(1000),
     PRO_Rate float,
-    check(PRO_Rate <=0 and PRO_Rate <=5),
-    PRO_Thumbnail varchar(100),
+    check(PRO_Rate >0 and PRO_Rate <=5),
+    PRO_Thumbnail varchar(500),
     PRIMARY KEY (PRO_ID)
 );
+
+/* Multivalued Attributes*/
 
 create table TIMELINE
 (
@@ -28,8 +30,19 @@ create table TIMELINE
 create table PRO_MULTIMEDIA
 (
     PRO_MUL_ID int not null,
-    PRO_MUL_Link varchar(200) not null,
+    PRO_MUL_Link varchar(500) not null,
     PRO_MUL_Link_Name varchar(50),
     Foreign KEY (PRO_MUL_ID) references PROJECT(PRO_ID),
     PRIMARY KEY (PRO_MUL_ID, PRO_MUL_Link)
+);
+
+
+
+CREATE TABLE PRO_CATEGORY
+(
+    PRO_CAT_Field varchar(50) not null,
+    PRO_CAT_Skill varchar(50),
+    CAT_PRO_Id int not null,
+    Primary key (PRO_CAT_Field, PRO_CAT_Skill, CAT_PRO_Id),
+    Foreign key (CAT_PRO_Id) references DEVELOPER(DEV_ID)
 );
