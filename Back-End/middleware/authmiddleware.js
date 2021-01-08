@@ -11,7 +11,6 @@ const authVerifier = (req, res,next)=> {
         jwt.verify(token,'BRYTE Secret',(err,decodedToken)=>{
                 if (err)
                 {
-                    console.log(err);
                     res.redirect('/login');
                 }
                 else //the token is verified 
