@@ -15,8 +15,6 @@ sql = 'Select distinct PRO_CAT_Field from pro_category where CAT_PRO_Id=1;';
 rows = rows.map(v => Object.assign({}, v));
 container['Fields'] = Object.assign({}, rows);
 
-
-
 sql = 'Select distinct PRO_CAT_Skill from pro_category where CAT_PRO_Id=1;';
 [rows, fields,sql_error] = await pool.promise().query(sql, [id]);
 rows = rows.map(v => Object.assign({}, v));
@@ -58,7 +56,6 @@ else {
 
     container['Is_Bid'] = false;        
 }
-
 
 
 sql = 'select * from submission where PRO_Id = ? ;';
