@@ -38,7 +38,7 @@ CREATE TABLE CLI_Field
 CREATE TABLE CLI_Links
 (
     CLI_LIN_Name varchar(50) not null,
-    CLI_LIN_Link varchar(50) not null,
+    CLI_LIN_Link varchar(500) not null,
     CLI_LIN_Client_Id int not null,
     Primary key (CLI_LIN_Client_Id, CLI_LIN_Name),
     Foreign key (CLI_LIN_Client_Id) references Client(CLI_ID)
