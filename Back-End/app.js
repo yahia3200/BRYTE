@@ -1,15 +1,17 @@
+require('dotenv').config();
 
 //Require the express module
 const express = require('express');
 
-//Import the authRoutes file
+//Import the Routes files
 const authRoutes = require('./Routes/authRoutes');
+const projectRoutes = require('./Routes/projectRoutes');
 
 //Import Cookies package
 const cookieParser = require('cookie-parser');
 
 //import the authentication verification function
-const {authVerifier} = require('./middleware/authmiddleware');
+const {authVerifier, getUser} = require('./middleware/authmiddleware');
 
 //Create an instance of express object
 const app = express();
@@ -22,8 +24,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 //start listening for requests on the server
-app.listen(3000, () => {
-    console.log("server is runing at port 3000")
+app.listen(process.env.APP_PORT, () => {
+    console.log("server is runing at port: ", process.env.APP_PORT);
 });
 
 
@@ -38,13 +40,19 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 
-//Routes 
-app.get('/', (req, res)=>{
-    res.render('home')
-});
-app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery')});
-app.use(authRoutes);
+//Routes
+app.get('*', getUser);
 
+//Home Route
+app.get('/', (req, res)=>{
+    res.render('home', {style: "home"})
+});
+
+//Authentication verifecation
+//app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery', {style: "gallery"})});
+
+app.use(authRoutes);
+app.use(projectRoutes);
 
 
 //Cookies
