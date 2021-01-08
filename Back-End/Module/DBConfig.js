@@ -136,22 +136,6 @@ const Login_Developer = (email, password, callback) => {
   })
 }
 
-
-const Search_Single_Project = (id, callback)=>{
-  const sql = "SELECT * FROM project WHERE PRO_ID = ?";
-  pool.query(sql,[id],(sql_error, result)=>{
-    if(result.length>0){
-      const Is_Error = false;
-      const normalObj = Object.assign({}, result[0]);
-      return callback(Is_Error,normalObj);
-    }
-    else{
-      const Is_Error = true;
-      return callback(Is_Error,result);
-    }
-  })
-}
-
 const getDeveloperById = (id, callback)=>{
   const query = "SELECT DEV_Fname FROM DEVELOPER WHERE DEV_ID= ? ";
   pool.query(query, [id], (err, res)=>{
@@ -169,7 +153,5 @@ module.exports =
   pool,
   Insert_Developer,
   Login_Developer,
-  getDeveloperById,
-  Search_Single_Project
-
+  getDeveloperById
 }
