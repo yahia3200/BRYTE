@@ -41,3 +41,11 @@ document.querySelector('#hide2').addEventListener("click",()=>{
         style1.transform= "rotate(180deg)";
     }
 });
+
+document.querySelector("#AI").addEventListener("click",()=>{
+    if(document.querySelector("#AI").checked){
+        document.querySelector("#AISVG").classList.remove("unchecked")
+    }else{
+        document.querySelector("#AISVG").classList.add("unchecked")
+    }
+});

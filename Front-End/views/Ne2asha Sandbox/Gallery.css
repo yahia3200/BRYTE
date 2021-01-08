@@ -460,6 +460,9 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 .none{
   background-color:#AD003E;
 }
+.unchecked{
+  filter:saturate(0.5);
+}
 #Top{
   display: flex;
   justify-content:space-between;

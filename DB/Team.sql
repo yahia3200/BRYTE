@@ -46,7 +46,7 @@ CREATE TABLE TEA_AWARDS
 CREATE TABLE TEA_Links
 (
     TEA_LIN_Name varchar(50) not null,
-    TEA_LIN_Link varchar(50) not null,
+    TEA_LIN_Link varchar(500) not null,
     TEA_LIN_TEA_Id int not null,
     Primary key (TEA_LIN_TEA_Id, TEA_LIN_Name),
     Foreign key (TEA_LIN_TEA_Id) references TEAM(TEA_ID)

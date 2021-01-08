@@ -9,7 +9,7 @@
             "port": 3306,
             "askForPassword": true,
             "driver": "MySQL",
-            "name": "BRYTE_CONNECTION",
+            "name": "BRYTE",
             "database": "BRYTE",
             "username": "root"
         }
