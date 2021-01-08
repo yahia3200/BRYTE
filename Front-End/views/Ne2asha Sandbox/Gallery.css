@@ -533,7 +533,8 @@ body footer {
     font-size: 0.8rem;
     text-align: center;
     z-index:-1;
-  }
+}
+
   
   #projectsList{
     margin: 10px 0px 10px 160px;
