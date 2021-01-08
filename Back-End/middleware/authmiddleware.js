@@ -8,7 +8,6 @@ const authVerifier = (req, res, next) => {
 
     // check json web token exists & is verified
     if (token) {
-<<<<<<< HEAD
         jwt.verify(token, 'BRYTE Secret', (err, decodedToken) => {
             if (err) {
                 console.log(err);
@@ -20,19 +19,6 @@ const authVerifier = (req, res, next) => {
                 //next() will make you apple to porceed with the function called this Auth confirmation
                 next();
             }
-=======
-        jwt.verify(token,'BRYTE Secret',(err,decodedToken)=>{
-                if (err)
-                {
-                    res.redirect('/login');
-                }
-                else //the token is verified 
-                {
-                    console.log(decodedToken);
-                    //next() will make you apple to porceed with the function called this Auth confirmation
-                    next();
-                }
->>>>>>> 9b826c38ffad45eee7fb1a1c9980eb50be067ab9
         })
 
     }

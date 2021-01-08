@@ -39,13 +39,10 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 
-<<<<<<< HEAD
 //Routes
 app.use(getUser);
-=======
-//Routes 
+
 //Home Route
->>>>>>> 9b826c38ffad45eee7fb1a1c9980eb50be067ab9
 app.get('/', (req, res)=>{
     res.render('home')
 });
