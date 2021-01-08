@@ -6,6 +6,7 @@ const express = require('express');
 //Import the Routes files
 const authRoutes = require('./Routes/authRoutes');
 const projectRoutes = require('./Routes/projectRoutes');
+const devRoutes = require("./Routes/devRoutes");
 
 //Import Cookies package
 const cookieParser = require('cookie-parser');
@@ -53,6 +54,7 @@ app.get('/', (req, res)=>{
 
 app.use(authRoutes);
 app.use(projectRoutes);
+app.use(devRoutes);
 
 
 //Cookies
