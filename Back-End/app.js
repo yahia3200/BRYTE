@@ -10,7 +10,7 @@ const projectRoutes = require('./Routes/projectRoutes');
 const cookieParser = require('cookie-parser');
 
 //import the authentication verification function
-const {authVerifier} = require('./middleware/authmiddleware');
+const {authVerifier, getUser} = require('./middleware/authmiddleware');
 
 //Create an instance of express object
 const app = express();
@@ -39,18 +39,19 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 
-//Routes 
+//Routes
+app.use(getUser);
+
 //Home Route
 app.get('/', (req, res)=>{
-    res.render('home')
+    res.render('home', {style: "home"})
 });
 
 //Authentication verifecation
-app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery')});
+//app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery', {style: "gallery"})});
 
 app.use(authRoutes);
 app.use(projectRoutes);
-
 
 
 //Cookies

@@ -153,8 +153,18 @@ const Search_Single_Project = (id, callback)=>{
 }
 
 const getDeveloperById = (id)=>{
-  const query = "SELECT * FROM DEVELOPER WHRE DEV_ID = ? ";
-
+  const query = "SELECT DEV_Fname FROM DEVELOPER WHERE DEV_ID= ? ";
+  console.log(id);
+  pool.query(query, [id], (err, res)=>{
+    if (res){
+      console.log(res);
+        return res;
+    }
+    else{
+      console.log(err);
+      return ("No Developer Found");
+    }
+  })
 }
 
 module.exports =
@@ -162,5 +172,7 @@ module.exports =
   pool,
   Insert_Developer,
   Login_Developer,
+  getDeveloperById,
   Search_Single_Project
+
 }
