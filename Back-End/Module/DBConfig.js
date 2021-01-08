@@ -119,7 +119,7 @@ const Login_Developer = (email, password, callback) => {
   pool.query(sql, [email], (sql_error, result) => {
     //When the query is executed. If there is a row returned, start checking the password.
     //Note: the DEV_Email attribute is unique so there can't be multiple records of it
-    if (result) {
+    if (result.length>0) {
       //We compare the password against the hashed one in the database
       bcrypt.compare(password, result[0].DEV_Hash, (compare_error, compare_result) => {
         //After comparison is finished, we check the result
