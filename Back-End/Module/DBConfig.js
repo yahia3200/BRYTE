@@ -5,7 +5,7 @@ const pool = createPool({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: '14916',
+  password: '01229767345Yahia',
   database: 'BRYTE',
   connectionLimit: 10
 });
@@ -152,17 +152,14 @@ const Search_Single_Project = (id, callback)=>{
   })
 }
 
-const getDeveloperById = (id)=>{
+const getDeveloperById = (id, callback)=>{
   const query = "SELECT DEV_Fname FROM DEVELOPER WHERE DEV_ID= ? ";
-  console.log(id);
   pool.query(query, [id], (err, res)=>{
-    if (res){
-      console.log(res);
-        return res;
+    if (res.length > 0){
+      return callback({UserName :res[0].DEV_Fname});
     }
     else{
-      console.log(err);
-      return ("No Developer Found");
+      return callback({errpe : "No Developer Found"});
     }
   })
 }

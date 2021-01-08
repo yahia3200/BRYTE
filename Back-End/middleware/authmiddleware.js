@@ -36,9 +36,12 @@ const getUser = (req, res, next) => {
                 res.locals.user = null;
                 next();
             } else {
-                let user = await poolconnection.getDeveloperById(decodedToken.id);
-                res.locals.user = user;
-                next();
+                poolconnection.getDeveloperById(decodedToken.id, (user, error)=> {
+                    console.log(user.UserName);
+                    res.locals.user = user.UserName;
+                    next();
+                })
+                
             }
         });
     } else {

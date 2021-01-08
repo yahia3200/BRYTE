@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 
 
 //Routes
-app.use(getUser);
+app.get('*', getUser);
 
 //Home Route
 app.get('/', (req, res)=>{
