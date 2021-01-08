@@ -9,13 +9,14 @@ const get_project_by_id = function(req, res) {
     try {
         const id = req.params.id
         poolconnection.Search_Single_Project(id,(Is_Error,result)=>{
-           if (Is_Error) 
+                      
+            if (Is_Error) 
            {
-               res.render('LogIn');
+               res.render('LogIn', {style: "Login"});
            }
            else
             {
-                res.render('Project', {project:result})
+                res.render('Project', {project:result,style: "Project"});
             } 
         })
     } 

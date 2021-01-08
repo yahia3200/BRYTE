@@ -10,7 +10,7 @@ const createToken = (id) => {
 
 
 const signup_get = function (req, res) {
-    res.render('SignUp');
+    res.render('SignUp', {style: "SignUp"});
 
 }
 
@@ -45,7 +45,7 @@ const signup_post = async function (req, res) {
 }
 
 const login_get = function (req, res) {
-    res.render('LogIn');
+    res.render('LogIn', {style: "Login"});
 }
 
 const login_post = async function (req, res) {

@@ -44,15 +44,14 @@ app.use(getUser);
 
 //Home Route
 app.get('/', (req, res)=>{
-    res.render('home')
+    res.render('home', {style: "home"})
 });
 
 //Authentication verifecation
-app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery')});
+//app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery', {style: "gallery"})});
 
 app.use(authRoutes);
 app.use(projectRoutes);
-
 
 
 //Cookies
