@@ -40,5 +40,4 @@ document.querySelector('#hide2').addEventListener("click",()=>{
         style.display="none";
         style1.transform= "rotate(180deg)";
     }
-
 });
