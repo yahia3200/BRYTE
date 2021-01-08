@@ -32,6 +32,7 @@ button:focus {
 
 body {
   background-color: #020f22;
+  overflow-x: hidden;
 }
 
 body .Nav-Outer-Cont {
@@ -116,13 +117,17 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   margin-top: 120px;
 }
 
+.slide_show {
+  margin-top: 95px;
+  display: flex;
+  overflow: hidden;
+}
 
 .slide_show #first-img {
   margin-right: 20px;
   display: inline;
-  width: 100%;
+  min-width: 600px;
   height: 300px;
-  object-fit: cover;
 }
 
 .slide_show #second-img {
