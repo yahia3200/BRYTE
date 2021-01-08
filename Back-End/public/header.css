@@ -1,0 +1,63 @@
+a {
+    -webkit-transition: 0.05s;
+    transition: 0.05s;
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:hover {
+    color: #4b90f7;
+  }
+  
+
+  
+.Nav-Outer-Cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  
+.Nav-Outer-Cont .logo-container {
+    background-color: #10213a;
+    min-width: 320px;
+    padding: 40px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 0 0 40px 0;
+    -webkit-box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+.Nav-Outer-Cont .Nav-inner-Cont {
+    background: -webkit-gradient(linear, left top, right top, from(#041a2d), color-stop(4%, #0e1d33));
+    background: linear-gradient(to right, #041a2d, #0e1d33 4%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    list-style: none;
+    height: 90px;
+    width: 100%;
+    padding-right: 30px;
+  }
+  
+.Nav-Outer-Cont .Nav-inner-Cont li {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0 2%;
+  }

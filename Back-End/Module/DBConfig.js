@@ -136,7 +136,6 @@ const Login_Developer = (email, password, callback) => {
   })
 }
 
-/********************************************************************** */
 
 const Search_Single_Project = (id, callback)=>{
   const sql = "SELECT * FROM project WHERE PRO_ID = ?";
@@ -153,6 +152,10 @@ const Search_Single_Project = (id, callback)=>{
   })
 }
 
+const getDeveloperById = (id)=>{
+  const query = "SELECT * FROM DEVELOPER WHRE DEV_ID = ? ";
+
+}
 
 module.exports =
 {
