@@ -12,8 +12,4 @@ const router = Router();
 //Single Project Route
 router.get('/project/:id',projectController.get_project_by_id)
 
-router.get('/project',(req, res)=>{
-    res.render('LogIn');
-})
-
 module.exports = router;
