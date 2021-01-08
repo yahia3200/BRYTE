@@ -9,12 +9,14 @@ create table BID
     BID_End_Date date,
     BID_Description varchar(500),
     BID_Price int not null,
-    BID_Thumbnail varchar(100),
+    BID_Thumbnail varchar(500),
     BID_Total_Applications int,
     BID_Accepted_Participation int,
     primary key(BID_ID),
     Foreign key (BID_Accepted_Participation) references PROJECT(PRO_ID)
 );
+
+/*Multivalued Attributes*/
 
 create table BID_ATTACHEMENTS
 (

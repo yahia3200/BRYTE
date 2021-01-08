@@ -75,7 +75,7 @@ CREATE TABLE EXP_AWARDS
 CREATE TABLE EXP_Links
 (
     LIN_Name varchar(50) not null,
-    LIN_Link varchar(50) not null,
+    LIN_Link varchar(500) not null,
     LIN_Expert_Id int not null,
     Primary key (LIN_Expert_Id, LIN_Name),
     Foreign key (LIN_Expert_Id) references EXPERT(EXP_ID)

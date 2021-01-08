@@ -6,7 +6,9 @@ CREATE TABLE EXPERT_REVIEW_PROJECT
     EXP_Id int not null,
     PRO_Id int not null,
     REV_Rating float not null,
-    REV_Description varchar(500),
+    REV_Title varchar(50) not null,
+    REV_Description varchar(500) not null,
+	check(REV_Rating >0 and REV_Rating <=5),
     Primary key (EXP_Id, PRO_Id),
     Foreign key (EXP_Id) references EXPERT(EXP_ID),
     Foreign key (PRO_Id) references PROJECT(PRO_ID)
@@ -18,6 +20,7 @@ CREATE TABLE EXPERT_REVIEW_DEVELOPER
     DEV_Id int not null,
     REV_Rating float not null,
     REV_Description varchar(500),
+    check(REV_Rating >0 and REV_Rating <=5),
     Primary key (EXP_Id, DEV_Id),
     Foreign key (EXP_Id) references EXPERT(EXP_ID),
     Foreign key (DEV_Id) references DEVELOPER(DEV_ID)
@@ -27,7 +30,8 @@ CREATE TABLE EXPERT_JUDGE
 (
     EXP_Id int not null,
     COM_Id int not null,
-    JUD_Rating int not null,
+    JUD_Rating int not null,  
+    check(JUD_Rating >0 and JUD_Rating <=5),
     Primary key (EXP_Id, COM_Id),
     Foreign key (EXP_Id) references EXPERT(EXP_ID),
     Foreign key (COM_Id) references COMPETITION(COM_ID) 
@@ -38,7 +42,7 @@ CREATE TABLE DEVELOPER_WORKS_ON
 (
     DEV_Id int not null,
     PRO_Id int not null,
-    Dev_Role varchar(69),
+    Dev_Role varchar(50),
     Primary key (DEV_Id, PRO_Id),
     Foreign key (DEV_Id) references DEVELOPER(DEV_ID),
     Foreign key (PRO_Id) references PROJECT(PRO_ID)
@@ -60,6 +64,7 @@ CREATE TABLE DEVELOPER_RATES_CLIENT
     PRO_Id int not null,
     RAT_Rating float not null,
     RAT_Description varchar(500),
+    check(RAT_Rating >0 and RAT_Rating <=5),
     Primary key (DEV_Id, CLI_Id, PRO_Id),
     Foreign key (DEV_Id) references DEVELOPER(DEV_ID),
     Foreign key (PRO_Id) references PROJECT(PRO_ID),
@@ -92,7 +97,8 @@ CREATE TABLE CLIENT_RATES_DEVELOPER
     PRO_Id int not null,
     RAT_Rating float not null,
     RAT_Description varchar(500),
-    Primary key (DEV_Id, CLI_Id, PRO_Id),
+	check(RAT_Rating >0 and RAT_Rating <=5),
+	Primary key (DEV_Id, CLI_Id, PRO_Id),
     Foreign key (DEV_Id) references DEVELOPER(DEV_Id),
     Foreign key (PRO_Id) references PROJECT(PRO_Id),
     Foreign key (CLI_Id) references CLIENT(CLI_Id)
@@ -104,7 +110,8 @@ CREATE TABLE CLIENT_RATES_TEAM
     CLI_Id int not null,
     PRO_Id int not null,
     RAT_Rating float not null,
-    RAT_Description varchar(500),
+    RAT_Description varchar(500),    
+    check(RAT_Rating >0 and RAT_Rating <=5),
     Primary key (TEA_Id, CLI_Id, PRO_Id),
     Foreign key (TEA_Id) references TEAM(TEA_Id),
     Foreign key (PRO_Id) references PROJECT(PRO_Id),
@@ -134,6 +141,7 @@ CREATE TABLE TEAM_WORKS_ON
 (
     TEA_Id int not null,
     PRO_Id int not null,
+    TEA_Role varchar(50),
     Primary key (TEA_Id, PRO_Id),
     Foreign key (TEA_Id) references TEAM(TEA_Id),
     Foreign key (PRO_Id) references PROJECT(PRO_Id)
@@ -145,7 +153,8 @@ CREATE TABLE TEAM_RATES_CLIENT
     CLI_Id int not null,
     PRO_Id int not null,
     RAT_Rating float not null,
-    RAT_Description varchar(500),
+    RAT_Description varchar(500),    
+    check(RAT_Rating >0 and RAT_Rating <=5),
     Primary key (TEA_Id, CLI_Id, PRO_Id),
     Foreign key (TEA_Id) references TEAM(TEA_Id),
     Foreign key (PRO_Id) references PROJECT(PRO_Id),
