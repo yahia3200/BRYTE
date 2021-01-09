@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Roboto;
+}
+
+a {
+  -webkit-transition: 0.05s;
+  transition: 0.05s;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #4b90f7;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+input[type="text"],
+{
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: #eeeeee;
+  font-size: 1.2rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 7px 6px;
+  border-bottom: 1px solid #183662;
+}
+
+input[type="text"]:focus,
+{
+  border-bottom: 1px solid #385e92;
+}
+
+body {
+  margin-top: 160px;
+  overflow: hidden;
+  background-color: #020f22;
+}
+
+.Container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
