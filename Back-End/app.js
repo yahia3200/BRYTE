@@ -70,6 +70,7 @@ app.use(projectRoutes);
 
 app.use(devRoutes);
 
+app.get('/coming_soon', (req, res)=>{res.render('Comming Soon', {style: "404"})});
 app.get('*', (req, res)=>{res.render('404', {style: "404"})});
 
 //Cookies
