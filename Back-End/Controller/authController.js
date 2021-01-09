@@ -25,14 +25,14 @@ const signup_post = async function (req, res) {
             else {
                 console.log(sql_errorMessage);
                 if (sql_errornumber == 1062 && sql_errorMessage.includes("Email")) {
-                    res.send('Email is already in use');
+                    res.status(400).json({errorcause:'email' , message:"Email is already in use"});
                 }
                 else if (sql_errornumber == 1062 && sql_errorMessage.includes("User_Name")) {
-                    res.send('User Name is already in use');
+                    res.status(400).json({errorcause:'username', message:"Username is already in use"});
                 }
                 else
                 {
-                    res.send('Invalid Data')
+                    res.status(400).json({errorcause:'data', message:"You entered an invalid data"});
                 }
             }
         });
