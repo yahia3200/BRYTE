@@ -540,8 +540,8 @@ body footer {
   display: flex;
   flex-direction: column;
   }
-  .review-instance {
-    width: 845px;
+  .project-instance {
+    width: 800px;
     margin: 20px 0;
     border-radius: 21px;
     background: #2b2f3b;
@@ -554,7 +554,7 @@ body footer {
     letter-spacing: 0.03em;
     color: #a5a5a5;
   }
-  .review-head {
+  .project-head {
     border-radius: 21px 21px 0 0;
     padding: 12px;
     border-bottom: 1px solid #4874b8;
@@ -563,27 +563,27 @@ body footer {
     display: flex;
     flex-direction: row;
   }
-  .review-head.dev {
+  .project-head.dev {
     background: none;
     border: none;
     color: #a5a5a5;
     box-shadow: none;
   }
   
-  .review-tail {
+  .project-tail {
     padding: 12px;
   }
-  .review-avatar {
+  .project-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
   }
-  .reviewer-cont {
+  .projecter-cont {
     padding: 5px 20px;
     flex-grow: 1;
   }
-  .review-date {
+  .project-date {
     font-family: Roboto;
     font-style: italic;
     font-weight: normal;
@@ -593,7 +593,7 @@ body footer {
     color: #a5a5a5;
   }
   
-  .review-title {
+  .project-title {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;

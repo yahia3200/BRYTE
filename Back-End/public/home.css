@@ -64,19 +64,22 @@ article p{
 
 /* #########################################################Section 2################################################################### */ 
 #section2{
+    padding:100px;
     display: flex;
     justify-content:center;
     height:100vh;
     background-color:#020F22;
 }
 #section2 #content{
-    margin:auto auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height:72vh;
-    width:70vw;
+    width: 1025px;
 }
 #section2 #line1,#line2,#line3{
     font-family: Reem Kufi;
-    width:68vw;
+    width:59vw;
     letter-spacing: 0.001rem;
     line-height: 95.25%;
     -moz-text-align-last: justify;
@@ -106,12 +109,12 @@ article p{
 #icons{
     margin-top:5%;
     display: flex;
+    width:100%;
     justify-content:space-between;
 }
 #icon{
-    display: flex;
-    
-    width:25%;
+    display: flex; 
+    width:240px;
 }
 #info{
     flex-direction:column;
@@ -303,7 +306,7 @@ img{
 #section5 #line1,#section5 #line2,#section5 #line3{
     margin:auto;
     font-family: Reem Kufi;
-    width:48vw;
+    width:40vw;
     letter-spacing: 0.001rem;
     line-height: 95.25%;
     -moz-text-align-last: justify;
@@ -315,11 +318,11 @@ img{
     color: #04F38D;
 }
 #section5 #line2{
-    font-size: 140px;
+    font-size: 150px;
     color: #edf0f1;
 }
 #section5 #line3{
-    font-size:57px;
+    font-size:65px;
     color: #04F38D;
 }
 #Text{
