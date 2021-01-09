@@ -187,7 +187,6 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-grow: 1;
 }
 
 #upper img {
@@ -222,13 +221,13 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   font-size: 20px;
   line-height: 23px;
   text-align: center;
-
   color: #66a3ff;
 }
 
 #developers-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   border-radius: 17px 0 0 0;
   margin-left: 34px;
   margin-top: 30px;
@@ -623,4 +622,17 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   background-color:#252E3D;
   padding: 10px 10px;
   margin-bottom: 15px;
+}
+
+.contact{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon{
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+  fill: #4084da;
 }
