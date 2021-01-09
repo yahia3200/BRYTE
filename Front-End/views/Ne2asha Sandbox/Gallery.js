@@ -5,6 +5,8 @@ document.querySelector("#grid").addEventListener("click",()=>{
         document.getElementById("grid").classList.add('clicked');
         document.getElementById("list").classList.remove('clicked');
         document.getElementById("list").classList.add('unclicked');
+        document.getElementById("projects").style.display="flex";
+        document.getElementById("projectsList").style.display="none";
         
     }
 });
@@ -15,7 +17,8 @@ document.querySelector("#list").addEventListener("click",()=>{
         document.getElementById("list").classList.add('clicked');
         document.getElementById("grid").classList.remove('clicked');
         document.getElementById("grid").classList.add('unclicked');
-        document.querySelector("line").style.stroke="#8F9EB4"
+        document.getElementById("projects").style.display="none";
+        document.getElementById("projectsList").style.display="flex";
     }
 });
 document.querySelector('#hide1').addEventListener("click",()=>{
