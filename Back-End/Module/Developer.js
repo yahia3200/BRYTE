@@ -36,6 +36,13 @@ const getPortofiloInfo = async (id)=>{
          skills = skills.map(v => Object.assign({}, v));
          skills = skills.map(v => v['PRO_CAT_Skill']);
          info['skills'] = skills;
+
+         
+         // change date format
+       
+            info['PRO_Start_Date'] = (info['PRO_Start_Date'].getDate()-1).toString()+ "/" + (info['PRO_Start_Date'].getMonth()+1).toString() + "/" + (info['PRO_Start_Date'].getFullYear()).toString();
+            info['PRO_End_Date'] = (info['PRO_End_Date'].getDate()-1).toString()+ "/" + (info['PRO_End_Date'].getMonth()+1).toString() + "/" + (info['PRO_End_Date'].getFullYear()).toString();
+            info['PRO_Creation'] = (info['PRO_Creation'].getDate()-1).toString()+ "/" + (info['PRO_Creation'].getMonth()+1).toString() + "/" + (info['PRO_Creation'].getFullYear()).toString();
  
          res['projects'].push(info);
     }
@@ -64,6 +71,12 @@ const getPortofiloInfo = async (id)=>{
     query = "SELECT * FROM dev_degree WHERE DEV_DEG_Developer_Id = ?";
     let [degrees] = await pool.promise().query(query, [id]);
     degrees = degrees.map(v => Object.assign({}, v));
+
+    // cahnge foramt of date
+    degrees.forEach(degree => {
+        degree['DEV_DEG_Start_Date'] = (degree['DEV_DEG_Start_Date'].getDate()-1).toString()+ "/" + (degree['DEV_DEG_Start_Date'].getMonth()+1).toString() + "/" + (degree['DEV_DEG_Start_Date'].getFullYear()).toString();
+        degree['DEV_DEG_End_Date'] = (degree['DEV_DEG_End_Date'].getDate()-1).toString()+ "/" + (degree['DEV_DEG_End_Date'].getMonth()+1).toString() + "/" + (degree['DEV_DEG_End_Date'].getFullYear()).toString();
+    });
     res['degrees'] = degrees;
 
     // Get developer links 

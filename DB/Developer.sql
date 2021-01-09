@@ -18,6 +18,7 @@ create table DEVELOPER
     DEV_Wallet float not null default 0,
     DEV_Address varchar(200),
     DEV_Job_Title varchar(50),
+    DEV_About varchar(1000),
 
     /*Derived Attributes*/
     DEV_Wining_Count int default 0 not null,
@@ -58,6 +59,7 @@ CREATE TABLE DEV_DEGREE
 (
     DEV_DEG_Field varchar(50) not null,
     DEV_DEG_Faculty varchar(50) not null,
+    DEV_DEG_University varchar(50) not null,
     DEV_DEG_Developer_Id int not null,
     DEV_DEG_Start_Date date not null,
     DEV_DEG_End_Date date,

@@ -7,7 +7,7 @@ CREATE TABLE EXPERT_REVIEW_PROJECT
     REV_Rating float not null,
     REV_Title varchar(50) not null,
     REV_Description varchar(500) not null,
-	REV_Date date not null
+	REV_Date date not null,
 	check(REV_Rating >0 and REV_Rating <=5),
     Primary key (EXP_Id, PRO_Id),
     Foreign key (EXP_Id) references EXPERT(EXP_ID),

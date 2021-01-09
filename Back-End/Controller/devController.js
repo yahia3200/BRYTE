@@ -2,10 +2,16 @@ const poolconnection = require('../Module/Developer');
 
 const developerInfo = async (req, res) => {
 
-    const id = req.params.id
+    try {
+        const id = req.params.id
+        const dev = await poolconnection.getPortofiloInfo(id);
+        console.log(dev);
+        res.render('Portfolio', {style: "Portfolio", devCont : dev});
 
-    const dev = await poolconnection.getPortofiloInfo(id);
-    res.send(dev);
+    } catch (error) {
+        res.render('404',{style:"404"});
+    }
+    
 }
 
 module.exports = {
