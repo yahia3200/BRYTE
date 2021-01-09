@@ -37,7 +37,7 @@ const getUser = (req, res, next) => {
                 next();
             } else {
                 poolconnection.getDeveloperById(decodedToken.id, (user, error)=> {
-                    res.locals.user = user.UserName;
+                    res.locals.user = user;
                     next();
                 })
                 

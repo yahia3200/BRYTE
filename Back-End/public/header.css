@@ -12,6 +12,13 @@ a {
     color: #4b90f7;
   }
   
+  /***Important****/
+  #userfuckenname{
+    color: #4feea0;
+  }
+  #userfuckenname:hover{
+    color: #4b90f7 ;
+  }
 
   
 .Nav-Outer-Cont {
