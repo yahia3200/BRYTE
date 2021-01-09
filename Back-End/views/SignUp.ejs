@@ -147,12 +147,14 @@
             <div class="Label-text">Username</div>
             <div class="Input-Stylizer">
               <input type="text" class="Input-text" required name="UserName" />
+              <div id="username_error"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Email</div>
             <div class="Input-Stylizer">
               <input type="email" class="Input-text" required name="Email" />
+              <div id="email_error"></div>
             </div>
           </div>
           <div class="Name-Cont">
@@ -160,12 +162,14 @@
               <div class="Label-text">Password</div>
               <div class="Input-Stylizer">
                 <input type="text" class="Input-text" required name="Password" />
+                <div id="password_error"></div>
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Confirm Password</div>
               <div class="Input-Stylizer">
                 <input type="text" class="Input-text" required name="ConfirmPassword" />
+                <div id="password_confirm_error"></div>
               </div>
             </div>
           </div>
@@ -300,20 +304,43 @@
         const PhoneNumber = form.PhoneNumber.value;
         const BirthDate = form.BirthDate.value;
         const Address = form.Address.value;
-        try{
-          const res = await fetch('/signup',{
-            method: 'POST',
-            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
-            headers: {'Content-Type': 'application/json'}
-          });
+        
+        //Error messages
+        const username_error = document.querySelector('#username_error');
+        const email_error = document.querySelector('#email_error');
+        const password_error = document.querySelector('#password_error');
+        const password_confirm_error = document.querySelector('#password_confirm_error');
 
-          location.assign('/');
+        console.log('Password');
+        if (Password){
+          try{
+            const res = await fetch('/signup',{
+              method: 'POST',
+              body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
+              headers: {'Content-Type': 'application/json'}
+            });
+            
+            const data = await res.json();
+            if(data.status == 201)
+            {
+              window.prompt("Successfully authenticated");
+              location.assign('/');
+            }
+            else{
+              window.prompt("Not Successfully authenticated");
+              location.assign('/signup');
+              
+            }
+          }
+          catch(err){
+            console.log(err);
+          }
         }
-        catch(err){
-          console.log(err);
-        }
-      })
-
-
-    </script>
+        else {
+                  password_error.textContent = "Password must be of 6 chars at least";
+                  console.error(password_error.textContent);
+                }
+      }
+      )
+      </script>
   </body>
