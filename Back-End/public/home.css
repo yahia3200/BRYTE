@@ -79,7 +79,6 @@ article p{
 }
 #section2 #line1,#line2,#line3{
     font-family: Reem Kufi;
-    width:59vw;
     letter-spacing: 0.001rem;
     line-height: 95.25%;
     -moz-text-align-last: justify;
@@ -131,90 +130,133 @@ img{
 }
 /* #########################################################Section 3################################################################### */ 
 #section3{
-    display: grid;
+    display: flex;
     height:100vh;
-    padding:0 10%;
+    padding:0 9%;
     background-color:#020F22;
 }
-#section3 article{
-    display: inline;
-}
-.ProjectCard{
-    height:60%;
-    grid-column:1;
-    grid-row:1 ;
+#projectsList{ 
+    margin: 10px 0px 10px 0px;
     display: flex;
-    flex-direction:row;
-    background-color:ivory;
-    border-radius: 3vh;
-    overflow:hidden;
-    width:55%;
-}
-.ProjectCard .MainPic{
-    width:30%;
-}
-.ProjectHead{
+    flex-direction: column;
+  }
+  .project-head {
+    padding: 12px;
+    border-bottom: 1px solid #4874b8;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    background: #393f49;
     display: flex;
-    justify-content:space-between;
-    background-color: #484848;
-    width:inherit;
-}
-.ProjectBody{
-    background-color: #3B3B3B;
-}
-
-#project1{
-    grid-column:1;
-    grid-row:1 ;
-}
-#project2{
-    grid-column:1;
-    grid-row:2 ;
-}
-#project3{
-    grid-column:1;
-    grid-row:3 ;
-}
-#column2{
-    
-    grid-column:2;
-    grid-row:3 ;
-}
-#Pinfo{
-    vertical-align:top;
-    display:inline-block;
-    width:40%;
-}
-
-#thumbnail{
-    grid-column:1;
-    border-radius:50%;
-}
-#title{
-    grid-column:2;
-    grid-row:1;
-}
-#date{
-    grid-column:5;
-    grid-row:1;
-    padding-right:5px;
+    flex-direction: row;
+  }
+  .project-head.dev {
+    background: none;
+    border: none;
+    color: #a5a5a5;
+    box-shadow: none;
+  }
+  
+  .project-tail {
+    padding: 10px;
+  }
+  .project-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .projecter-cont {
+    padding: 5px 20px;
+    flex-grow: 1;
+  }
+  .project-date {
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
     text-align: right;
-}
-#rate{
-    grid-column:2;
-    grid-row:2;
-}
-#Dev{
-    grid-column:3;
-    grid-row:2;
-}
-#head{
-    background-color: #484848;
-}
-#body{
-    background-color: #3B3B3B;
-    height:4rem
-}
+    color: #a5a5a5;
+  }
+  
+  .project-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+  }
+
+  .ProjectInst{
+    margin: 20px 0;
+    border-radius: 21px;
+    overflow: hidden;
+    background: #2b2f3b;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 127%;
+    /* or 18px */
+    text-align: justify;
+    letter-spacing: 0.03em;
+    color: #a5a5a5;
+    display: flex;
+    width:600px;
+  }
+  .ListMainPic{
+    height: inherit;
+    width: 25%;
+    object-fit: cover;
+  }
+  .icons{
+    display: flex;
+    margin-top: 5px;
+  }
+  .ProFields{
+    font-size: 12px;
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+  }
+  .icons svg{
+    margin: auto 2px;
+  }
+  .ProSkills{
+    border-left: 2px #FFFFFF solid;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+  }
+  #ProRight{
+      display: flex;
+      flex-grow: 5;
+      flex-direction: column;
+  }
+  #toBeAdded{
+      flex-grow: 1;
+  }
+  #Intro{
+      margin:25px;
+      padding: 5px;
+      border-left: #BBBBBB 1px solid;
+      font-family: Reem Kufi;
+      color: #fff;
+  }
+  #Intro .line1{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 55px;
+    line-height: 95.25%;
+    color: #4B90F6;
+    font-weight:900;
+  }
+  #Intro .line2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 95.25%;
+    font-weight:900;
+  }
 /* #########################################################Section 4################################################################### */ 
 #section4{
     display: flex;
@@ -291,6 +333,7 @@ img{
 
 /* #########################################################Section 5################################################################### */ 
 #section5{
+    padding:100px;
     display: flex;
     justify-content:center;
     height:100vh;
@@ -298,15 +341,15 @@ img{
 }
 
 #section5 #content{
-    margin:auto auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height:72vh;
-    width:70vw;
+    width: 1025px;
     
 }
 #section5 #line1,#section5 #line2,#section5 #line3{
-    margin:auto;
     font-family: Reem Kufi;
-    width:40vw;
     letter-spacing: 0.001rem;
     line-height: 95.25%;
     -moz-text-align-last: justify;
@@ -361,6 +404,7 @@ img{
     height:100vh;
     background-color:#020F22;
     font-family: Reem Kufi;
+    font-weight:900;
     }
 #section6 #title{
     grid-row: 1;
