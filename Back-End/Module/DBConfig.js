@@ -119,7 +119,7 @@ const Login_Developer = (email, password, callback) => {
   pool.query(sql, [email], (sql_error, result) => {
     //When the query is executed. If there is a row returned, start checking the password.
     //Note: the DEV_Email attribute is unique so there can't be multiple records of it
-    if (result) {
+    if (result.length>0) {
       //We compare the password against the hashed one in the database
       bcrypt.compare(password, result[0].DEV_Hash, (compare_error, compare_result) => {
         //After comparison is finished, we check the result
@@ -133,22 +133,6 @@ const Login_Developer = (email, password, callback) => {
     }
     else //if the email doesn't match, refuse access
       return callback(-1, "Wrong Passward or Email");
-  })
-}
-
-
-const Search_Single_Project = (id, callback)=>{
-  const sql = "SELECT * FROM project WHERE PRO_ID = ?";
-  pool.query(sql,[id],(sql_error, result)=>{
-    if(result.length>0){
-      const Is_Error = false;
-      const normalObj = Object.assign({}, result[0]);
-      return callback(Is_Error,normalObj);
-    }
-    else{
-      const Is_Error = true;
-      return callback(Is_Error,result);
-    }
   })
 }
 
@@ -169,7 +153,5 @@ module.exports =
   pool,
   Insert_Developer,
   Login_Developer,
-  getDeveloperById,
-  Search_Single_Project
-
+  getDeveloperById
 }

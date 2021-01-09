@@ -1,3 +1,4 @@
 node_modules/
 BRYTE_CONNECTION.session.sql
 .env
+Back-End/.vscode/settings.json
