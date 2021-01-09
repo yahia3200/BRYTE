@@ -932,3 +932,10 @@ INSERT INTO expert_review_project (
       5,
       'Great'
     );
+
+Insert into dev_links values ("facebook", "facebook.com", 1);
+Insert into dev_links values ("youtube", "youtube.com", 1); 
+
+insert into dev_degree values ("Computer Science", "Cairo", 1, "2020-2-2", "2020-2-2", "BCS");
+
+insert dev_category values ("Back-End Development", "Node.js", 1, true);
