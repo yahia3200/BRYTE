@@ -123,22 +123,27 @@
             </div>
             <div id="info-bar">
               <div id="project-title">
-                <h1><%= project.PRO_Name %></h1>
+                <h1><%= project_container.project.PRO_Name %></h1>
                 <span>
-                  <%= project.PRO_Start_Date %> - <%= project.PRO_End_Date %>
+                  <%= project_container.project.PRO_Start_Date %> - <%= project_container.project.PRO_End_Date %>
             </span>
               </div>
               <div id="rate-bar">
                 <div id="rate">
-                  <p><%= project.PRO_Rate %></p>
+                  <p><%= project_container.project.PRO_Rate %></p>
                 </div>
                 <div id="categories-bar">
                   <div id="categories">
-                    <p>Computer Graphics</p>
-                    <p>Game Development |</p>
+                    <% for(x in project_container.Fields) {%>
+                      <p><%= project_container.Fields[x].PRO_CAT_Field %></p> &ensp;
+                   <% } %>
+                   
                   </div>
+                  <span style="color: white;"> | </span>
                   <div id="skills">
-                    <p>Unity</p>
+                    <% for(x in project_container.Skills) {%>
+                      <p><%= project_container.Skills[x].PRO_CAT_Skill %></p>  &ensp;
+                   <% } %>
                   </div>
                 </div>
               </div>
@@ -263,20 +268,7 @@
                   </defs>
                 </svg>
                 <pre>
-Build your own battle bot and unleash its power in this stylish PvP game!
-
-From the creators of the hit games Cut the Rope and King of Thieves, comes the most ingenious and stylish battle bot constructor! Join more than 150 million players from all over the world and become the star of the Arena!
-
-Features:
-• Be a master engineer: design, craft, upgrade, and improve the Ultimate battle bot!
-• Take the role of a mean street cat and fight against other players in fast and hilarious PvP action!
-• Discover dozens of crazy weapons, gadgets and body shapes, including Ultimate Machines! Outsmart your opponents with your unique battle bot design!
-• Create a powerful gang and rule the streets! Participate in gang battles to win unique parts, make new friends and share your secrets in your gang’s chat.
-• City Kings: Fight against real gangs from around the globe to conquer the city in cooperative mode.
-• Battle against real players and fight your way to the top of the World Championship!
-• Bet on other bots and share replays of your best fights!
-
-Get the game now for free and become the star of the Crash Arena!.
+  <%= project_container.project.PRO_Description %>
                 </pre>
               </div>
             </div>
@@ -304,13 +296,9 @@ Get the game now for free and become the star of the Crash Arena!.
             </div>
             <div class="timeline">
               <div class="phasedate-list">
-                <div class="phase-date">Dec2019 - Jul2020</div>
-                <div class="phase-date">
-                  Dec2019 - Julwgawiwagnwali lwignaw2020
-                </div>
-                <div class="phase-date">Dec2019 - Jul2020</div>
-                <div class="phase-date">Dec2019 - Jul2020</div>
-                <div class="phase-date">Dec2019 - Jul2020</div>
+                <% for(x in project_container.timeline) {%>
+                  <div class="phase-date"><%= project_container.timeline[x].PRO_TIM_Phase_Start_Date %> - <%= project_container.timeline[x].PRO_TIM_Phase_End_Date %></div>
+               <% } %>
               </div>
               <svg
                 class="line-of-time"
@@ -380,67 +368,19 @@ Get the game now for free and become the star of the Crash Arena!.
                 </defs>
               </svg>
               <div class="phase-list">
+                <% for(x in project_container.timeline) {%>
                 <div class="phase-cont">
                   <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
                     <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
                     <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
                     </svg>  
-                  <div class="phase-title">Start: Idea and early sketches</div>
+                  <div class="phase-title"><%= project_container.timeline[x].PRO_TIM_Title %></div>
                   <div class="phase-desc">
-                    • Battle against real players and fight your way to the top
-                    of the World Championship!
+                    <%= project_container.timeline[x].PRO_TIM_Description %>
                   </div>
                 </div>
-                <div class="phase-cont">
-                  <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
-                    <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
-                    <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                    </svg>  
-                    
-                  <div class="phase-title">Start: Idea and early sketches</div>
-                  <div class="phase-desc">
-                    • Battle against real players and fight your way to the top
-                    of the World Championship!
-                  </div>
-                </div>
-                <div class="phase-cont">
-                  <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
-                    <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
-                    <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                    </svg>  
-                  <div class="phase-title">Start: Idea and early sketches</div>
-                  <div class="phase-desc">
-                    • Battle against real players and fight your way to the top
-                    of the World Championship!
-                  </div>
-                </div>
-                <div class="phase-cont">
-                  <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
-                    <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
-                    <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                    </svg>  
-                  <div class="phase-title">Start: Idea and early sketches</div>
-                  <div class="phase-desc">
-                    • Battle against real players and fight your way to the top
-                    of the World Championship!
-                  </div>
-                </div>
-                <div class="phase-cont">
-                  <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
-                    <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
-                    <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                    </svg>  
-                  <div class="phase-title">Start: Idea and early sketches</div>
-                  <div class="phase-desc">
-                    • Battle against real players and fight your way to the top
-                    of the World Championship!
-                  </div>
-                </div>
+                <% } %>
               </div>
             </div>
           </div>

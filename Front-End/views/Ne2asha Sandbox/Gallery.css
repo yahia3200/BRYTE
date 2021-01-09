@@ -29,8 +29,8 @@ button:focus {
 
 
 body {
-
   background-color: #020f22;
+  overflow-x: hidden;
 }
 
 body .Nav-Outer-Cont {
@@ -90,6 +90,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     padding-top:170px;
     padding-left: 150px;
     position: relative !important;
+    margin-bottom: 20px;
     width: 60vw;
 }
 
@@ -125,6 +126,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     height:30px;
     margin-right: 40px;
     margin-top: 5px;
+    color: #FFF;
     
 }
 #cats{
@@ -266,6 +268,9 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
     z-index : auto;
     
 }
+select{
+  color: #FFF;
+}
 #options{
     display:flex;
 }
@@ -301,12 +306,18 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 #Filters{
   display:flex;
-  align-items:baseline;
+  align-items:center;
+  flex-wrap: wrap;
+  width:870px;
   margin-top: 10px;
   color:#FFFFFF;
 }
-
+#Filters label{
+  margin-top:20px;
+}
 #and{
+  margin-top:20px;
+  margin-left: 20px;
   padding: 5px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -314,10 +325,21 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 
 #or{
+  margin-top:20px;
+  margin-right: 20px;
   padding: 5px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   width:2.8vw;
+}
+.filterIcon{
+  display:flex;
+  align-items:center;
+  height:30px;
+  margin-top:20px;
+  margin-right: 20px;
+  background-color: #393F49;
+  border-radius: 50vh;
 }
 #abbas{
   display:flex;
@@ -331,6 +353,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: row;
   flex-wrap : wrap;
   margin-left: 150px;
+  display: none;
 }
 
 .project{
@@ -434,11 +457,18 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 
   color: #FFFFFF;
 }
+#showMore{
+  display: flex;
+  width: 100%;
+  position: relative
+}
+
 #FiltersTab{
   font-family:Reem Kufi;
   color:white;
   font-size:15px;
   margin-top: 15px;
+  margin-left: 60px;
   width:302px;
   display:flex;
   flex-direction:column;
@@ -461,7 +491,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   background-color:#AD003E;
 }
 .unchecked{
-  filter:saturate(0.5);
+  filter:saturate(0.1);
 }
 #Top{
   display: flex;
@@ -480,6 +510,21 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   padding: 10px 10px;
   margin-bottom: 15px;
 }
+.tex{
+  width:60px;
+  border-radius: 100vh;
+  background-color:#020F22;
+  padding: auto 15px;
+  color:#FFF;
+}
+#timeRange{
+  display: flex;
+  justify-content:space-between;
+}
+#rateRange{
+  display: flex;
+  justify-content:space-between;
+}
 body footer {
     position: fixed;
     bottom: 2%;
@@ -488,5 +533,73 @@ body footer {
     font-size: 0.8rem;
     text-align: center;
     z-index:-1;
+}
+
+  
+  #projectsList{
+    margin: 10px 0px 10px 160px;
+  display: flex;
+  flex-direction: column;
+  }
+  .review-instance {
+    width: 845px;
+    margin: 20px 0;
+    border-radius: 21px;
+    background: #2b2f3b;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 127%;
+    /* or 18px */
+    text-align: justify;
+    letter-spacing: 0.03em;
+    color: #a5a5a5;
+  }
+  .review-head {
+    border-radius: 21px 21px 0 0;
+    padding: 12px;
+    border-bottom: 1px solid #4874b8;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    background: #393f49;
+    display: flex;
+    flex-direction: row;
+  }
+  .review-head.dev {
+    background: none;
+    border: none;
+    color: #a5a5a5;
+    box-shadow: none;
   }
   
+  .review-tail {
+    padding: 12px;
+  }
+  .review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .reviewer-cont {
+    padding: 5px 20px;
+    flex-grow: 1;
+  }
+  .review-date {
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: right;
+    color: #a5a5a5;
+  }
+  
+  .review-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+  
+    color: #ffffff;
+  }
