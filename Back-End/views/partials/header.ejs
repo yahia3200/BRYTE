@@ -19,11 +19,11 @@
               <rect x="216" y="5" width="28" height="41" fill="#4B90F7" /></svg></a>
         </div>
         <ul class="Nav-inner-Cont">
-          <li><a href=""> Competitions</a></li>
-          <li><a href="">Bids</a></li>
-          <li><a href="">Gallery</a></li>
-          <li><a href="">Developers</a></li>
+          <li><a href="/coming_soon"> Competitions</a></li>
+          <li><a href="/coming_soon">Bids</a></li>
+          <li><a href="/coming_soon">Gallery</a></li>
           <% if (user) { %>
+          <li><a id="userfuckenname" href="/developer/<%= user.DEV_ID %>"><%= user.DEV_User_Name %></a></li>  
           <li><a href="/logout">Log out</a></li>
           <% } else { %>
           <li><a href="/login">Log in</a></li>

@@ -15,7 +15,7 @@ a {
   -webkit-transition: 0.05s;
   transition: 0.05s;
   text-decoration: none;
-  color: white;
+  color: white; 
 }
 
 a:hover {
@@ -386,8 +386,6 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: row;
 }
 
-.timeline-cont {
-}
 
 .line-of-time {
   z-index: 9;

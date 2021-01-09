@@ -137,10 +137,10 @@ const Login_Developer = (email, password, callback) => {
 }
 
 const getDeveloperById = (id, callback)=>{
-  const query = "SELECT DEV_Fname FROM DEVELOPER WHERE DEV_ID= ? ";
+  const query = "SELECT DEV_ID, DEV_User_Name FROM DEVELOPER WHERE DEV_ID= ? ";
   pool.query(query, [id], (err, res)=>{
     if (res.length > 0){
-      return callback({UserName :res[0].DEV_Fname});
+      return callback(Object.assign({}, res[0]));
     }
     else{
       return callback({errpe : "No Developer Found"});

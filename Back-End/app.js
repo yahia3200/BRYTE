@@ -48,14 +48,30 @@ app.get('*', getUser);
 app.get('/', (req, res)=>{
     res.render('home', {style: "home"})
 });
+app.get('/bids',(req, res)=>{
+    res.render('comingsoon', {style: "comingsoon"});
+});
+
+app.get('/gallery',(req, res)=>{
+    res.render('comingsoon', {style: "comingsoon"});
+});
+
+
+app.get('/developers',(req, res)=>{
+    res.render('comingsoon', {style: "comingsoon"});
+});
+
 
 //Authentication verifecation
 //app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery', {style: "gallery"})});
 
 app.use(authRoutes);
 app.use(projectRoutes);
+
 app.use(devRoutes);
 
+app.get('/coming_soon', (req, res)=>{res.render('Comming Soon', {style: "404"})});
+app.get('*', (req, res)=>{res.render('404', {style: "404"})});
 
 //Cookies
 app.get('/set-cookie', (req, res) => {

@@ -77,33 +77,17 @@
           <div id="developers-container">
             <h2>Developers:</h2>
             <div id="developers-bar">
+            <% for(x in project_container.devs) { %>  
               <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
+                <img class="review-avatar dev" src="<%= project_container.devs[x].DEV_Profile_Picture %>" />
                 <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
+                  <a href="#" class="review-title dev"><%= project_container.devs[x].DEV_Fname %> <%= project_container.devs[x].DEV_Lname %></a>
                   <div class="reviewer dev" style="font-family: sans-serif">
-                    <span style="color: #66a3ff">Game Art</span>
+                    <span style="color: #66a3ff"><%= project_container.devs[x].DEV_Role %></span>
                   </div>
                 </div>
               </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                    <span style="color: #66a3ff">Game Art</span>
-                  </div>
-                </div>
-              </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                    <span style="color: #66a3ff">Game Art</span>
-                  </div>
-                </div>
-              </div>
+            <% } %>
             </div>
           </div>
         </div>
@@ -113,13 +97,13 @@
           <div class="slide_show">
             <img
               id="first-img"
-              src="assets/og-ba95d791dacf713de66d6d4c955a76b05141352b4d3a7ceda252cb23197d1805.png"
+              src="<%= project_container.media[0].PRO_MUL_Link %>"
             />
-            <img id="second-img" src="assets/2.jpg" />
+            <img id="second-img" src="<%= project_container.media[1].PRO_MUL_Link %>" />
           </div>
           <div class="project-info">
             <div id="logo-bar">
-              <img src="assets/logo.jpg" />
+              <img src="<%= project_container.project.PRO_Thumbnail %>" />
             </div>
             <div id="info-bar">
               <div id="project-title">
@@ -404,52 +388,28 @@
               &nbsp; Reviews
             </div>
             <div class="review-list">
+              <% for(x in project_container.reviews) {%>
               <div class="review-instance">
                 <div class="review-head">
-                  <img class="review-avatar" src="assets/logo.jpg" />
+                  <img class="review-avatar" src="<%=project_container.reviews[x].EXP_Profile_Picture %>" />
                   <div class="reviewer-cont">
-                    <div class="review-title">Gaymed</div>
+                    <div class="review-title"><%=project_container.reviews[x].REV_Title %></div>
                     <div class="reviewer" style="font-family: sans-serif">
                       <span
                         >| by:
-                        <a href="" style="color: #66a3ff">Weam Gamed</a></span
+                        <a href="" style="color: #66a3ff"><%=project_container.reviews[x].EXP_Fname %> <%=project_container.reviews[x].EXP_Lname %></a></span
                       >
                     </div>
                   </div>
-                  <div class="review-date">Dec2019</div>
+                  <div class="review-date"><%=project_container.reviews[x].REV_Date %></div>
                 </div>
                 <div>
                   <div class="review-tail">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco.
+                    <%=project_container.reviews[x].REV_Description %>
                   </div>
                 </div>
               </div>
-              <div class="review-instance">
-                <div class="review-head">
-                  <img class="review-avatar" src="assets/logo.jpg" />
-                  <div class="reviewer-cont">
-                    <div class="review-title">Gaymed</div>
-                    <div class="reviewer" style="font-family: sans-serif">
-                      <span
-                        >| by:
-                        <a href="" style="color: #66a3ff">Weam Gamed</a></span
-                      >
-                    </div>
-                  </div>
-                  <div class="review-date">Dec2019</div>
-                </div>
-                <div>
-                  <div class="review-tail">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco.
-                  </div>
-                </div>
-              </div>
+              <% } %>
             </div>
           </div>
         </div>

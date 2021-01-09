@@ -3,12 +3,22 @@ a {
     transition: 0.05s;
     text-decoration: none;
     color: white;
+    font-family: Consolas;
+  font-style: normal;
+  font-weight: normal; 
   }
   
   a:hover {
     color: #4b90f7;
   }
   
+  /***Important****/
+  #userfuckenname{
+    color: #4feea0;
+  }
+  #userfuckenname:hover{
+    color: #4b90f7 ;
+  }
 
   
 .Nav-Outer-Cont {

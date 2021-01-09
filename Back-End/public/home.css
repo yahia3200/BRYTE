@@ -9,6 +9,15 @@
 
 /* #########################################################Section 1################################################################### */ 
 
+a {
+    -webkit-transition: 0.05s;
+    transition: 0.05s;
+    text-decoration: none;
+    color: white;
+    font-family: Consolas;
+  font-style: normal;
+  font-weight: normal; 
+  }
 
 header{
     
