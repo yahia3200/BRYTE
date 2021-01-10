@@ -10,6 +10,7 @@ create table DEVELOPER
     DEV_ID int unique not null auto_increment,
     DEV_Email varchar(50) unique not null,
     DEV_Profile_Picture varchar(500),
+    DEV_Cover varchar(500),
     DEV_Is_Pro BIT default 0,
     DEV_Phone varchar(50),
     DEV_Creation_Date date not null,
@@ -20,7 +21,7 @@ create table DEVELOPER
     DEV_Wallet float not null default 0,
     DEV_Address varchar(200),
     DEV_Job_Title varchar(50),
-    DEV_About varchar(1000),
+    DEV_About varchar(5000),
 
     /*Derived Attributes*/
     DEV_Wining_Count int default 0 not null,
@@ -177,7 +178,7 @@ create table PROJECT
     PRO_Start_Date Date,
     PRO_Creation DateTime not null,
     PRO_End_Date Date,
-    PRO_Description varchar(1000),
+    PRO_Description varchar(5000),
     PRO_Rate float,
     check(PRO_Rate >0 and PRO_Rate <=5),
     PRO_Thumbnail varchar(500),
@@ -617,7 +618,8 @@ INSERT INTO developer (
     DEV_Job_Title,
     DEV_Phone,
     DEV_Profile_Picture,
-    DEV_About
+    DEV_About,
+    DEV_Cover
      )
     VALUES (
     "Yahia",
@@ -640,7 +642,12 @@ INSERT INTO developer (
     "Computer Engineer",
 	"01023071750",
     "https://i.pinimg.com/originals/0b/65/e9/0b65e97d2a0f95782bc06642236cb2d2.png",
-    "Gamed Gamed Gamed  Gamed  Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed"
+    "Stephen William Hawking CH CBE FRS FRSA (8 January 1942 – 14 March 2018) was an English theoretical physicist, cosmologist, and author who was director of research at the Centre for Theoretical Cosmology at the University of Cambridge at the time of his death.[18][19][8] He was the Lucasian Professor of Mathematics at the University of Cambridge between 1979 and 2009.
+
+Hawking was born in Oxford into a family of doctors. Hawking began his university education at University College, Oxford in October 1959 at the age of 17, where he received a first-class BA (Hons.) degree in physics. He began his graduate work at Trinity Hall, Cambridge in October 1962, where he obtained his PhD degree in applied mathematics and theoretical physics, specialising in general relativity and cosmology in March 1966. During this period—in 1963—Hawking was diagnosed with an early-onset slow-progressing form of motor neurone disease (also known as amyotrophic lateral sclerosis (ALS) or Lou Gehrig's disease) that gradually paralysed him over the decades.[20][21] After the loss of his speech, he was able to communicate through a speech-generating device—initially through use of a handheld switch, and eventually by using a single cheek muscle.
+
+",
+    "https://cdn6.aptoide.com/imgs/e/5/6/e569aa780874adf71b4c1f913babf231_screen.png?h=500"
     );
 
 INSERT INTO developer (
@@ -811,7 +818,7 @@ INSERT INTO pro_category (
   )
     VALUES (
     'Game Development',
-    'Node.js',
+    'Nodejs',
     1
   );
 
@@ -950,3 +957,5 @@ Insert into dev_links values ("youtube", "youtube.com", 1);
 insert into dev_degree values ("Computer Science","Engineering", "Cairo", 1, "2020-2-2", "2020-2-2", "BCS");
 
 insert dev_category values ("Back-End Development", "Nodejs", 1, true);
+
+/*insert into dev_working_experince values ("Frond-End Developer", "Gammmmmmmmmmmmed", "2020-02-02", "2020-02-02", 1, "Google");*/
