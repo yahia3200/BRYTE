@@ -432,97 +432,32 @@
             <div class="timeline">
               <div id="project-title2">
                 <span>Field:</span>
-              <select class="field-phase date-input">
+              <select class="field-phase date-input" >
                 <option selected disabled value>choose field first</option>
                 <option value="AI">Artificial Intelligence</option>
-                <option value="AI">Back-end Development</option>
-                <option value="AI">Cloud Computing</option>
-                <option value="AI">Computer Graphics</option>
-                <option value="AI">Cybersecurity</option>
-                <option value="AI">Deep Learning</option>
-                <option value="AI">Embedded Systems</option>
-                <option value="AI">Front-end Development</option>
-                <option value="AI">Machine Learning</option>
+                <option value="BE">Back-end Development</option>
+                <option value="CC">Cloud Computing</option>
+                <option value="CG">Computer Graphics</option>
+                <option value="CS">Cybersecurity</option>
+                <option value="DL">Deep Learning</option>
+                <option value="ES">Embedded Systems</option>
+                <option value="FE">Front-end Development</option>
+                <option value="ML">Machine Learning</option>
               </select>
               <span>Skill:</span>
               <select class="skill-phase date-input">
+              </select>
               <div onclick="addSkill()">Add skill</div>
             </div>
-
-              <div class="phasedate-list">
-              </div>
-              <svg
-                class="line-of-time"
-                width="957"
-                height="3"
-                viewBox="0 0 957 3"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g filter="url(#filter5_d)">
-                  <line
-                    x1="953"
-                    y1="1.5"
-                    x2="4"
-                    y2="1.5"
-                    stroke="url(#paint7_linear)"
-                    stroke-width="3"
-                  />
-                </g>
-                <defs>
-                  <filter
-                    id="filter5_d"
-                    x="0"
-                    y="0"
-                    width="957"
-                    height="3"
-                    filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
-                  >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix
-                      in="SourceAlpha"
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    />
-                    <feOffset dy="4" />
-                    <feGaussianBlur stdDeviation="2" />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                    />
-                    <feBlend
-                      mode="normal"
-                      in2="BackgroundImageFix"
-                      result="effect1_dropShadow"
-                    />
-                    <feBlend
-                      mode="normal"
-                      in="SourceGraphic"
-                      in2="effect1_dropShadow"
-                      result="shape"
-                    />
-                  </filter>
-                  <linearGradient
-                    id="paint7_linear"
-                    x1="953"
-                    y1="-0.992664"
-                    x2="4"
-                    y2="-0.992794"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stop-color="#4B90F7" stop-opacity="0" />
-                    <stop offset="0.148958" stop-color="#4B90F7" />
-                    <stop offset="0.836458" stop-color="#4B90F7" />
-                    <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="phase-list">
+              <div class="skill-list">
+                <div class="filterIcon">
+                  <div>Deep Learning</div>
+                </div>
+                <div class="filterIcon">
+                  <div>Deep Learning</div>
+                </div>
               </div>
             </div>
-            
-          </div>
           </div>
         </div>
       </div>
@@ -550,6 +485,9 @@
       </div></div>`;
       document.querySelector(".title-phase").value = "";
       document.querySelector(".desc-phase").value = "";
+    }
+    function addSkill(){
+
     }
     </script>
   </body>
