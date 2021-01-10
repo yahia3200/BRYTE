@@ -23,7 +23,7 @@
           <li><a href="/coming_soon">Bids</a></li>
           <li><a href="/gallery">Gallery</a></li>
           <% if (user) { %>
-          <li><a id="userfuckenname" href="/developer/<%= user.DEV_ID %>"><%= user.DEV_User_Name %></a></li>  
+          <li><a id="userfuckenname" href="/developer/<%= user.DEV_ID %>"><%= user %></a></li>  
           <li><a href="/logout">Log out</a></li>
           <% } else { %>
           <li><a href="/login">Log in</a></li>

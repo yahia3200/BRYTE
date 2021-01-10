@@ -7,6 +7,7 @@ const express = require('express');
 const authRoutes = require('./Routes/authRoutes');
 const projectRoutes = require('./Routes/projectRoutes');
 const devRoutes = require("./Routes/devRoutes");
+const clientRoutes = require('./Routes/clientRoutes');
 
 //Import Cookies package
 const cookieParser = require('cookie-parser');
@@ -52,15 +53,13 @@ app.get('/bids',(req, res)=>{
     res.render('comingsoon', {style: "comingsoon"});
 });
 
-app.get('/developers',(req, res)=>{
-    res.render('comingsoon', {style: "comingsoon"});
-});
 
 
 //Authentication verifecation
 //app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery', {style: "gallery"})});
 
 app.use(authRoutes);
+app.use(clientRoutes);
 app.use(projectRoutes);
 
 app.use(devRoutes);

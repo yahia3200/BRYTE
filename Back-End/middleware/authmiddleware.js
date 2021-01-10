@@ -34,17 +34,23 @@ const getUser = (req, res, next) => {
         jwt.verify(token, 'BRYTE Secret', async (err, decodedToken) => {
             if (err) {
                 res.locals.user = null;
+                res.locals.id = null;
+                res.locals.role = null;
                 next();
-            } else {
-                poolconnection.getDeveloperById(decodedToken.id, (user, error)=> {
-                    res.locals.user = user;
-                    next();
-                })
-                
+            }
+            else {
+
+                res.locals.user = decodedToken.userName;
+                res.locals.id = decodedToken.id;
+                res.locals.role = decodedToken.role;
+                next();
+
             }
         });
     } else {
         res.locals.user = null;
+        res.locals.id = null;
+        res.locals.role = null;
         next();
     }
 
