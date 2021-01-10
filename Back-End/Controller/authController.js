@@ -3,9 +3,9 @@ const jwt = require('jsonwebtoken');
 
 /**Age of the token in seconds*/
 const mymaxAge = 1 * 24 * 60 * 60;
-const createToken = (id) => {
+const createToken = (id, userName, role) => {
     /**ًWhen this is released to production, 'BRYTE Secret should be not uploaded to public' */
-    return jwt.sign({ id }, 'BRYTE Secret', { expiresIn: mymaxAge });
+    return jwt.sign({ id, userName, role }, 'BRYTE Secret', { expiresIn: mymaxAge });
 }
 
 
@@ -16,9 +16,9 @@ const signup_get = function (req, res) {
 
 const signup_post = async function (req, res) {
     try {
-        poolconnection.Insert_Developer(res, req.body, (id, sql_errornumber, sql_errorMessage, compleated) => {
+        poolconnection.Insert_Developer(res, req.body, (id, userName ,sql_errornumber, sql_errorMessage, compleated) => {
             if (compleated) {
-                const token = createToken(id);
+                const token = createToken(id, userName, "Dev");
                 res.cookie('jwt', token, { httpOnly: true, maxAge: mymaxAge * 1000 });/*maxAge is in milliseconds , mymaxAge is in seconds*/
                 res.status(201).json({ user: id });
             }
@@ -50,10 +50,11 @@ const login_get = function (req, res) {
 
 const login_post = async function (req, res) {
     const { email, password } = req.body;
-    poolconnection.Login_Developer(email, password, (result, result_message) => {
+    poolconnection.Login_Developer(email, password, (result, userName,result_message) => {
 
         if (result > -1) {
-            const token = createToken(result);
+            const token = createToken(result, userName, "dev");
+            console.log(jwt.verify(token, 'BRYTE Secret'));
             res.cookie('jwt', token, { httpOnly: true, maxAge: mymaxAge * 1000 });/*maxAge is in milliseconds , mymaxAge is in seconds*/
             res.status(200).json({result , result_message});
         } else {
