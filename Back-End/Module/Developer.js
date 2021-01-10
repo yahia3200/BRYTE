@@ -92,7 +92,6 @@ const getPortofiloInfo = async (id)=>{
     links = links.map(v => Object.assign({}, v));
     res['links'] = links;
 
-    console.log(res);
     return res;
 
 }
