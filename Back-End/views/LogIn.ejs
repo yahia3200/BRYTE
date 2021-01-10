@@ -69,7 +69,10 @@
         </div>
 
         <button type="submit" form="form" value="Submit" class="signUP dev" id="Complete-dev">
-          Login
+          Login as developer
+        </button>
+        <button  class="signUP cli" id="Complete-cli">
+          Login as client
         </button>
         <div id="invlaid"></div>
       </div>
@@ -90,7 +93,7 @@
   email_errors.textContent = "";
   invalid.textContent = "";
 
-  form.addEventListener('submit', async (e) => {
+  document.querySelector("#Complete-dev").addEventListener("click" ,async (e) => {
     e.preventDefault();
 
     const email = form.email.value;

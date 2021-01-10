@@ -96,8 +96,11 @@ body .signUP.cli:hover {
 }
 
 body #Continue-dev,
-body #Complete-dev {
-  min-width: 30%;
+body #Complete-dev,
+body #Continue-cli,
+body #Complete-cli {
+  margin: 10px;
+  min-width: 50%;
 }
 
 body footer {

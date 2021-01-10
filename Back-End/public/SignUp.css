@@ -149,7 +149,9 @@ body .signUP.cli:hover {
 }
 
 body #Continue-dev,
-body #Complete-dev {
+body #Complete-dev,
+body #Continue-cli,
+body #Complete-cli {
   min-width: 20%;
   -ms-flex-item-align: end;
       align-self: flex-end;

@@ -133,14 +133,14 @@
             <div class="Input-Cont">
               <div class="Label-text">First Name</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required name="Fname"/>
+                <input type="text" class="Input-text"  name="Fname"/>
                 <div class="error-msg" id="Fname-error"></div>
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Last Name</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required name="Lname" />
+                <input type="text" class="Input-text"  name="Lname" />
                 <div class="error-msg" id="Lname-error"></div>
               </div>
             </div>
@@ -148,14 +148,14 @@
           <div class="Input-Cont">
             <div class="Label-text">Username</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text" required name="UserName" />
-              <div id="username_error" class="error-msg""></div>
+              <input type="text" class="Input-text"  name="UserName" />
+              <div id="username_error" class="error-msg"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Email</div>
             <div class="Input-Stylizer">
-              <input type="email" class="Input-text" required name="Email" />
+              <input type="email" class="Input-text"  name="Email" />
               <div class="error-msg" id="email_error"></div>
             </div>
           </div>
@@ -163,14 +163,14 @@
             <div class="Input-Cont">
               <div class="Label-text">Password</div>
               <div class="Input-Stylizer">
-                <input type="password" class="Input-text" required name="Password" />
+                <input type="password" class="Input-text" name="Password" />
                 <div class="error-msg" id="password_error"></div>
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Confirm Password</div>
               <div class="Input-Stylizer">
-                <input type="password" class="Input-text" required name="ConfirmPassword" />
+                <input type="password" class="Input-text" name="ConfirmPassword" />
                 <div class="error-msg" id="password_confirm_error"></div>
               </div>
             </div>
@@ -445,23 +445,52 @@
       });
 
       document.querySelector("#sign-up-client").addEventListener("click", ()=> {
+        console.log()
+        document.querySelector(".Name-cont").outerHTML = ` <div class="Input-Cont">
+              <div class="Label-text">Company Name</div>
+              <div class="Input-Stylizer">
+                <input type="text" class="Input-text" name="Name"/>
+                <div class="error-msg" id="Name-error"></div>
+              </div>`;
+        document.querySelector("#Continue-dev").id = "Continue-cli";
+        document.querySelector("#Complete-dev").id = "Complete-cli";
+        document.querySelector("#Continue-cli").addEventListener("click", async()=> {
+
+            ///////////////////////First Form Validations for client goes here\\\\\\\\\\\\\\\
+
+
+              gsap.to(".signUP-form-Cont-1", { delay: 0, duration: 0.4, y: 80});
+              gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-cli", { delay: 0, duration: 0.4, y:80, opacity: 0});
+              document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'none';
+              gsap.to(".signUP-form-Cont-2", { delay: 0.5, duration: 0.4, y: -80});
+              gsap.to(".signUP-form-Cont-2 .Input-Cont, #Complete-dev", { delay: 0.4, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
+              document.querySelector(".signUP-form-Cont-2").style.pointerEvents = 'all';
+              gsap.to("circle", { duration: 0.5, fill: '#4B90F7'});
+              document.querySelector(".TitleAbove").innerHTML = "Personal Info";
+      });
+
+        document.querySelector('input[name="UserName"]').name = "clientUserName"; 
+        document.querySelector('input[name="Email"]').name = "clientEmail"; 
+        document.querySelector('input[name="Password"]').name = "clientPassword"; 
+        document.querySelector('input[name="ConfirmPassword"]').name = "clientConfirmPassword"; 
+                
         document.querySelector(".signUP-form-Cont-2").innerHTML = `
           <div class="Input-Cont">
             <div class="Label-text">Profile Picture Link</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text"  name="ProfilePicture"/>
+              <input type="text" class="Input-text"  name="clientProfilePicture"/>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Cover Link</div>
             <div class="Input-Stylizer">
-              <input type="tel" class="Input-text"  name="Cover" />
+              <input type="tel" class="Input-text"  name="clientCover" />
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Founded Date</div>
             <div class="Input-Stylizer">
-              <input type="date" class="Input-text"  name="BirthDate" />
+              <input type="date" class="Input-text"  name="clientBirthDate" />
               <div class="error-msg" id="birth_date_error"></div>
             </div>
           </div>
