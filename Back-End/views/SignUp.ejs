@@ -134,12 +134,14 @@
               <div class="Label-text">First Name</div>
               <div class="Input-Stylizer">
                 <input type="text" class="Input-text" required name="Fname"/>
+                <div class="error-msg" id="Fname-error"></div>
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Last Name</div>
               <div class="Input-Stylizer">
                 <input type="text" class="Input-text" required name="Lname" />
+                <div class="error-msg" id="Lname-error"></div>
               </div>
             </div>
           </div>
@@ -147,29 +149,29 @@
             <div class="Label-text">Username</div>
             <div class="Input-Stylizer">
               <input type="text" class="Input-text" required name="UserName" />
-              <div id="username_error"></div>
+              <div id="username_error" class="error-msg""></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Email</div>
             <div class="Input-Stylizer">
               <input type="email" class="Input-text" required name="Email" />
-              <div id="email_error"></div>
+              <div class="error-msg" id="email_error"></div>
             </div>
           </div>
           <div class="Name-Cont">
             <div class="Input-Cont">
               <div class="Label-text">Password</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required name="Password" />
-                <div id="password_error"></div>
+                <input type="password" class="Input-text" required name="Password" />
+                <div class="error-msg" id="password_error"></div>
               </div>
             </div>
             <div class="Input-Cont">
               <div class="Label-text">Confirm Password</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required name="ConfirmPassword" />
-                <div id="password_confirm_error"></div>
+                <input type="password" class="Input-text" required name="ConfirmPassword" />
+                <div class="error-msg" id="password_confirm_error"></div>
               </div>
             </div>
           </div>
@@ -268,6 +270,11 @@
     <footer>BRYTE© - 2021 Copyrights Reserved</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
+      document.querySelector("#sign-up-client").addEventListener("click", ()=> {
+        location.assign("/coming_soon");
+      });
+
+
       document.querySelector("#sign-up-dev").addEventListener("click", ()=> {
         gsap.to("#sep1", { duration: 0.7, x: 55, y: -200, opacity: 0 });
         gsap.to("#sep2", { duration: 0.7, x: -55, y: 200, opacity: 0 });
@@ -279,15 +286,93 @@
         gsap.to(".UnderLineTitle", { delay: 1, duration: 0.3, x:80, opacity: 1});
         document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'all';
       });
-      document.querySelector("#Continue-dev").addEventListener("click", ()=> {
-        gsap.to(".signUP-form-Cont-1", { delay: 0, duration: 0.4, y: 80});
-        gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-dev", { delay: 0, duration: 0.4, y:80, opacity: 0});
-        document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'none';
-        gsap.to(".signUP-form-Cont-2", { delay: 0.5, duration: 0.4, y: -80});
-        gsap.to(".signUP-form-Cont-2 .Input-Cont, #Complete-dev", { delay: 0.4, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
-        document.querySelector(".signUP-form-Cont-2").style.pointerEvents = 'all';
-        gsap.to("circle", { duration: 0.5, fill: '#4B90F7'});
-        document.querySelector(".TitleAbove").innerHTML = "Personal Info";
+      document.querySelector("#Continue-dev").addEventListener("click", async()=> {
+
+        //Error messages
+        const Fname_error = document.querySelector('#Fname-error');
+        const Lname_error = document.querySelector('#Lname-error'); 
+        const username_error = document.querySelector('#username_error');
+        const email_error = document.querySelector('#email_error');
+        const password_error = document.querySelector('#password_error');
+        const password_confirm_error = document.querySelector('#password_confirm_error');
+
+        Fname_error.textContent = "";
+        Lname_error.textContent = "";
+        username_error.textContent = "";
+        email_error.textContent = "";
+        password_error.textContent= "";
+        password_confirm_error.textContent = "";
+
+        const Fname = form.Fname.value;
+        const Lname = form.Lname.value;
+        const UserName = form.UserName.value;
+        const Email = form.Email.value;
+        const Password = form.Password.value;
+        const ConfirmPassword = form.ConfirmPassword.value;
+
+        if (!Fname)
+          Fname_error.textContent = "This filed is required";
+
+        else if(!Lname)
+          Lname_error.textContent = "This filed is required";
+
+        else if(!UserName)
+          username_error.textContent = "This filed is required";
+
+        else if(!Email)
+          email_error.textContent = "This filed is required";
+
+        else if(!Password)
+          password_error.textContent = "This filed is required";
+
+        else if(!ConfirmPassword)
+          password_confirm_error.textContent = "This filed is required";
+        else if (Password != ConfirmPassword)
+          password_error.textContent = "Password and Confirm Password Must Have Same Value";
+        else
+        {
+          let res = await fetch('/check_new_user_name',{
+              method: 'POST',
+              body: JSON.stringify({UserName}),
+              headers: {'Content-Type': 'application/json'}
+            }).then(res => res.json());
+            
+          if (res.found == true)
+          {
+            username_error.textContent = "This Username is already used";
+          }
+
+          else
+          {
+            let res2 = await fetch('/check_new_email',{
+              method: 'POST',
+              body: JSON.stringify({Email}),
+              headers: {'Content-Type': 'application/json'}
+            }).then(res2 => res2.json());
+            
+            if (res2.found == true)
+            {
+              email_error.textContent = "This Email is already used";
+            }
+
+            else
+            {
+              gsap.to(".signUP-form-Cont-1", { delay: 0, duration: 0.4, y: 80});
+              gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-dev", { delay: 0, duration: 0.4, y:80, opacity: 0});
+              document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'none';
+              gsap.to(".signUP-form-Cont-2", { delay: 0.5, duration: 0.4, y: -80});
+              gsap.to(".signUP-form-Cont-2 .Input-Cont, #Complete-dev", { delay: 0.4, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
+              document.querySelector(".signUP-form-Cont-2").style.pointerEvents = 'all';
+              gsap.to("circle", { duration: 0.5, fill: '#4B90F7'});
+              document.querySelector(".TitleAbove").innerHTML = "Personal Info";
+            }
+
+            
+          }
+
+          
+        }
+        
       });
 
       const form = document.querySelector('form');
@@ -304,14 +389,7 @@
         const PhoneNumber = form.PhoneNumber.value;
         const BirthDate = form.BirthDate.value;
         const Address = form.Address.value;
-        
-        //Error messages
-        const username_error = document.querySelector('#username_error');
-        const email_error = document.querySelector('#email_error');
-        const password_error = document.querySelector('#password_error');
-        const password_confirm_error = document.querySelector('#password_confirm_error');
 
-        console.log('Password');
         if (Password){
           try{
             const res = await fetch('/signup',{

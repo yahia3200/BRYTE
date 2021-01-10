@@ -5,7 +5,6 @@ const developerInfo = async (req, res) => {
     try {
         const id = req.params.id
         const dev = await poolconnection.getPortofiloInfo(id);
-        console.log(dev);
         res.render('Portfolio', {style: "Portfolio", devCont : dev});
 
     } catch (error) {
@@ -14,6 +13,29 @@ const developerInfo = async (req, res) => {
     
 }
 
+const checkNewUser = async(req, res)=>{
+    try {
+        const userName = req.body.UserName;
+        const found =  await poolconnection.isUsedUserName(userName);
+        res.send({found});
+        
+    } catch (error) {
+        res.send('error');
+    }
+}
+
+const checkEmail = async (req, res)=>{
+    try {
+        const email = req.body.Email;
+        const found =  await poolconnection.isUsedEmail(email);
+        res.send({found});
+        
+    } catch (error) {
+        res.send('error');
+    }
+}
 module.exports = {
-    developerInfo
+    developerInfo,
+    checkNewUser,
+    checkEmail
 }

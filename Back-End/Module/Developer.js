@@ -90,7 +90,35 @@ const getPortofiloInfo = async (id)=>{
 
 }
 
+const isUsedUserName = async(userName)=>{
+    const query = "SELECT * FROM DEVELOPER WHERE DEV_User_Name = ?";
+    const [res] = await pool.promise().query(query, [userName]);
+
+    if (res.length > 0)
+    {
+        return true;
+    }
+
+    else
+        return false;
+}
+
+const isUsedEmail = async(email)=>{
+    const query = "SELECT * FROM DEVELOPER WHERE DEV_Email = ?";
+    const [res] = await pool.promise().query(query, [email]);
+
+    if (res.length > 0)
+    {
+        return true;
+    }
+
+    else
+        return false;
+}
+
 module.exports =
 {
-    getPortofiloInfo
+    getPortofiloInfo,
+    isUsedUserName,
+    isUsedEmail
 }
