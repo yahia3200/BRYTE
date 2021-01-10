@@ -104,8 +104,9 @@ article p{
     color: #edf0f1;
 }
 #section2 #line3{
-    font-size:53px;
+    font-size:55px;
     color: #4B90F7;
+    margin-bottom: 10px;
 }
 #Text{
     font-family: Roboto;
@@ -253,18 +254,19 @@ img{
   }
   #Intro .line1{
     font-style: normal;
-    font-weight: normal;
-    font-size: 55px;
+    font-weight: bolder;
+    font-size: 55px; 
     line-height: 95.25%;
     color: #4B90F6;
-    font-weight:900;
+    font-family: 'Reem kufi';
   }
   #Intro .line2{
     font-style: normal;
-    font-weight: normal;
+    font-weight: bolder;
     font-size: 100px;
     line-height: 95.25%;
-    font-weight:900;
+    font-family: 'Reem kufi';
+
   }
 /* #########################################################Section 4################################################################### */ 
 #section4{
@@ -305,20 +307,19 @@ img{
 #section4 .line1{
     font-family: Reem Kufi;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bolder;
     font-size: 140px;
     line-height: 93.25%;
     /* or 55px */
 
     display: flex;
     align-items: center;
-
     color: #FFFFFF;
 }
 #section4 .line2{
     font-family: Reem Kufi;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bolder;
     font-size: 35px;
     line-height: 93.25%;
     /* or 55px */
@@ -332,13 +333,19 @@ img{
     color:#BBBBBB;
     font-size:24px;
     text-align: justify;
-    margin-bottom:5%;
+    margin-bottom: 10%;
 }
-#section4 button{
+#section4 a{
     width:50%;
     height: 10%;
-    background-color: #4B90F6;
+    font-size: 1.4rem;
+    background-color: #3E7FE0;
+    padding: 20px 40px;
 }
+#section4 a:hover{
+    filter: brightness(0.9) saturate(1.1) contrast(1.5) ;
+}
+
 
 /* #########################################################Section 5################################################################### */ 
 #section5{
@@ -347,6 +354,8 @@ img{
     justify-content:center;
     height:100vh;
     background-color:#06162D;
+    border: 3px solid #393f59;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 #section5 #content{
@@ -425,20 +434,31 @@ img{
     color:#FFFFFF;
 }
 #section6 #title #part2{
-    font-size:130px
+    font-size: 140px;
+    font-family: 'Reem Kufi';
 }
 #section6 #title #part1{
-    font-size:40px;
+    margin-top: 16px;
+    font-family: 'Reem Kufi';
+    font-size: 40px;
     color: #04F38D;
+    line-height: 70px;
 }
 #section6 #title #part1 p{
+    font-family: 'Reem Kufi';
     font-size:85px
 }
 #company{
-    margin:auto auto;
+    margin: 0 170px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 #company svg{
     margin:5px 20px;
+    flex-grow: 1;
 }
 /* #########################################################Section 7################################################################### */ 
 #section7{
@@ -459,17 +479,15 @@ img{
 #section7 #col2{
     grid-column: 5/7;
     grid-row: 1;
-    background-color:#fff;
 }
 
 #section7 .line1{
     font-family: Reem Kufi;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bolder;
     font-size: 59px;
     line-height: 93.25%;
     /* or 55px */
-
     display: flex;
     align-items: center;
 
@@ -478,8 +496,8 @@ img{
 #section7 .line2{
     font-family: Reem Kufi;
     font-style: normal;
-    font-weight: normal;
-    font-size: 90px;
+    font-weight: bolder;
+    font-size: 88px;
     line-height: 93.25%;
     /* or 55px */
     display: flex;
@@ -491,12 +509,17 @@ img{
     color:#BBBBBB;
     font-size:24px;
     text-align: justify;
-    margin-bottom:5%;
+    margin-bottom: 10%;
 }
-#section7 button{
+#section7 a{
     width:50%;
     height: 10%;
-    background-color: #04F38D;
+    font-size: 1.4rem;
+    background-color: #03e37D;
+    padding: 20px 40px;
+}
+#section7 a:hover{
+    filter: brightness(0.9) saturate(1.1) contrast(1.5) ;
 }
 
 
