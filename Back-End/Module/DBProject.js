@@ -79,8 +79,36 @@ else {
 console.log(container);
 return container;
 }
-  
+
+/************************ Searching All projects for the gallery   ****************************************** */
+
+const Search_all_Projects = async(num_of_loads)=>{
+    let sql = "select distinct Proj.* from project as Proj where Proj.PRO_ID >= 1+9* ? and Proj.PRO_ID <= 9+9* ? ; ";
+    let [projects] = await pool.promise().query(sql, [num_of_loads,num_of_loads]);
+    projects = projects.map(v=> Object.assign({}, v));
+
+    //this is the number of projects
+    let i =0;
+    for (const project of projects)
+    {        
+        sql = "select distinct Cat.* from project as Proj , pro_category as Cat where Proj.PRO_ID = ? and Cat.CAT_PRO_Id = Proj.PRO_ID ; ";
+        let [categories] = await pool.promise().query(sql, [project['PRO_ID']]);
+        categories = categories.map(v => Object.assign({}, v));
+        projects[i]['categories'] = categories;
+        
+        sql = " select Dev.* from project as Proj , Developer as Dev , developer_works_on as work_on where Proj.PRO_ID = ? and Proj.PRO_ID = work_on.PRO_Id and Dev.DEV_ID = work_on.DEV_Id ;" ;
+        let [developers] = await pool.promise().query(sql, [project['PRO_ID']]);
+        developers = developers.map(v => Object.assign({}, v));
+        projects[i]['developers'] =developers;
+        console.log(projects[i]);
+        i++;
+    }
+
+    return projects;
+    
+} 
 module.exports =
 {
-    Search_Single_Project
+    Search_Single_Project,
+    Search_all_Projects
 }
