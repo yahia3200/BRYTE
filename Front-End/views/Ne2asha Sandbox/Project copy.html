@@ -119,6 +119,11 @@
                 </div>
               </div>
             </div>
+            <div class="project-title4">
+              <input class="dev-input" type="text"placeholder="Username">
+              <input class="role-input" type="text"placeholder="Role">
+              <div onclick="addDev()">Add Developer</div>
+            </div>
           </div>
         </div>
       </div>
@@ -448,6 +453,20 @@
     function adjustSkill(){
                   ExtraForm.innerHTML = SkillsOfField[document.querySelector(".field-phase").value].reduce(
                           (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
+    }
+
+    function addDev(){
+      document.querySelector("#developers-bar").innerHTML +=
+      `<div class="review-head dev">
+      <div class="reviewer-cont dev">
+        <div class="review-title dev">${document.querySelector(".dev-input").value}</div>
+        <div class="reviewer dev" style="font-family: sans-serif">
+          <span class="creating-developer-role" style="color: #66a3ff">${document.querySelector(".role-input").value}</span>
+        </div>
+      </div>
+    </div>`;
+      document.querySelector(".dev-input").value = "";
+      document.querySelector(".role-input").value = "";
     }
     function addPhase(){
       document.querySelector(".phasedate-list").innerHTML +=

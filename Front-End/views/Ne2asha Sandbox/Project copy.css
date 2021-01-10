@@ -111,7 +111,8 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 .side_bar {
   min-width: 320px;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 400vh;
   display: flex;
   flex-direction: column;
   margin-top: 120px;
@@ -182,7 +183,21 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   justify-content: space-between;
 }
 
-.project-title span, .project-title2 span, .project-title3 span {
+.project-title4{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.project-title4 input, .project-title4 div
+{
+  margin: 5px 0;
+  width: 200px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+.project-title span, .project-title2 span, .project-title3 span, .project-title4 span {
   font-size: 1rem;
   color: #69a4fc;
 }
@@ -281,8 +296,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  max-height: 360px;
+  margin-top: 40px;
 }
 
 #upper h1 {
@@ -301,7 +315,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   flex-direction: column;
   border-radius: 17px 0 0 0;
   margin-left: 34px;
-  margin-top: 23px;
+  margin-top: 78px;
   background: linear-gradient(180deg, #13223a 29.48%, rgba(17, 34, 61, 0) 100%);
 }
 
@@ -526,7 +540,8 @@ textarea:focus {
 }
 
 div[onclick="addPhase()"],
-div[onclick="addSkill()"] {
+div[onclick="addSkill()"],
+div[onclick="addDev()"] {
   background: linear-gradient(70deg, #00bae4, #005de8);
   padding: 10px;
   cursor: pointer;
@@ -534,7 +549,8 @@ div[onclick="addSkill()"] {
   font-weight: 500;
 }
 div[onclick="addPhase()"]:hover,
-div[onclick="addSkill()"]:hover {
+div[onclick="addSkill()"]:hover,
+div[onclick="addDev()"]:hover {
   -webkit-filter: brightness(0.8) contrast(1.7);
   filter: brightness(0.8) contrast(1.7);
 }
