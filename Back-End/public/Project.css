@@ -32,6 +32,7 @@ button:focus {
 
 body {
   background-color: #020f22;
+  overflow-x: hidden;
 }
 
 body .Nav-Outer-Cont {
@@ -107,6 +108,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 .content {
   background: #020f22;
+  min-height: 150vh;
 }
 .side_bar {
   min-width: 320px;
@@ -178,7 +180,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   margin-top: 10px;
 }
 
-#rate p {
+#rate  {
   font-size: 20px;
   color: white;
 }
@@ -294,6 +296,9 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   top: 490px;
   left: 33px;
 }
+.timeline-cont{
+  margin: 60px 0 0 0;
+}
 
 .review-cont {
   /*margin: 15px;*/
@@ -379,7 +384,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 
 .timeline {
-  margin: 10px 80px 10px 160px;
+  margin: 40px 80px 10px 160px;
 }
 .phases-list {
   display: flex;
