@@ -199,12 +199,14 @@
             <div class="Label-text">Profile Picture Link</div>
             <div class="Input-Stylizer">
               <input type="text" class="Input-text"  name="ProfilePicture"/>
+              <div class="error-msg" id="profile_picture_error"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Cover Link</div>
             <div class="Input-Stylizer">
-              <input type="tel" class="Input-text"  name="Cover" />
+              <input type="text" class="Input-text"  name="Cover" />
+              <div class="error-msg" id="cover_error"></div>
             </div>
           </div>
         </div>
@@ -386,7 +388,6 @@
             } 
           } 
         }
-        
       });
 
       const form = document.querySelector('#form1');
@@ -403,10 +404,14 @@
         const JobTitle = form1.JobTitle.value;
         const PhoneNumber = form1.PhoneNumber.value;
         const BirthDate = form1.BirthDate.value;
+        const ProfilePicture = form1.ProfilePicture.value;
+        const Cover = form1.Cover.value;
         const Address = form1.Address.value;
 
         const job_title_error = document.querySelector('#job_title_error');
         const phone_number_error = document.querySelector('#phone_number_error');
+        const profile_picture_error = document.querySelector('#profile_picture_error');
+        const cover_error = document.querySelector('#cover_error');
         const birth_date_error = document.querySelector('#birth_date_error');
         const area_error = document.querySelector('#area_error');
 
@@ -419,6 +424,13 @@
         else if (!BirthDate)
           birth_date_error.textContent = "This filed is required";
         
+        else if (!ProfilePicture)
+        profile_picture_error.textContent = "This filed is required";
+        
+        else if (!Cover)
+        cover_error.textContent = "This filed is required";
+        
+
         else if(!Address)
           area_error.textContent = "This filed is required";
 
@@ -444,53 +456,125 @@
           
       });
 
+      form.addEventListener('submit',async(e)=>{
+        e.preventDefault();
+        console.log("De7k")
+        //get the values
+        
+          
+      });
+
+
       document.querySelector("#sign-up-client").addEventListener("click", ()=> {
-        console.log()
         document.querySelector(".Name-cont").outerHTML = ` <div class="Input-Cont">
               <div class="Label-text">Company Name</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" name="Name"/>
+                <input type="text" class="Input-text" name="ClientName"/>
                 <div class="error-msg" id="Name-error"></div>
               </div>`;
         document.querySelector("#Continue-dev").id = "Continue-cli";
         document.querySelector("#Complete-dev").id = "Complete-cli";
+
         document.querySelector("#Continue-cli").addEventListener("click", async()=> {
 
-            ///////////////////////First Form Validations for client goes here\\\\\\\\\\\\\\\
+        const name_error = document.querySelector('#Name-error');
+        const username_error = document.querySelector('#username_error');
+        const email_error = document.querySelector('#email_error');
+        const password_error = document.querySelector('#password_error');
+        const password_confirm_error = document.querySelector('#password_confirm_error');
 
+        name_error.textContent = "";
+        username_error.textContent = "";
+        email_error.textContent = "";
+        password_error.textContent= "";
+        password_confirm_error.textContent = "";
 
+        const Name = form1.ClientName.value;
+        const UserName = form1.ClientUserName.value;
+        const Email = form1.ClientEmail.value;
+        const Password = form1.ClientPassword.value;
+        const ConfirmPassword = form1.ClientConfirmPassword.value;
+
+        if (!Name)
+          name_error.textContent = "This filed is required";
+        else if(!UserName)
+          username_error.textContent = "This filed is required";
+
+        else if(!Email)
+          email_error.textContent = "This filed is required";
+
+        else if(!Password)
+          password_error.textContent = "This filed is required";
+
+        else if(!ConfirmPassword)
+          password_confirm_error.textContent = "This filed is required";
+        else if (Password != ConfirmPassword)
+          password_error.textContent = "Password and Confirm Password Must Have Same Value";
+        else
+        {
+          let res = await fetch('/check_new_user_name',{
+              method: 'POST',
+              body: JSON.stringify({UserName}),
+              headers: {'Content-Type': 'application/json'}
+            }).then(res => res.json());
+            
+          if (res.found == true)
+          {
+            username_error.textContent = "This Username is already used";
+          }
+
+          else
+          {
+            let res2 = await fetch('/check_new_email',{
+              method: 'POST',
+              body: JSON.stringify({Email}),
+              headers: {'Content-Type': 'application/json'}
+            }).then(res2 => res2.json());
+
+            if (res2.found == true)
+            {
+              email_error.textContent = "This Email is already used";
+            }
+
+            else
+            {
               gsap.to(".signUP-form-Cont-1", { delay: 0, duration: 0.4, y: 80});
               gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-cli", { delay: 0, duration: 0.4, y:80, opacity: 0});
               document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'none';
               gsap.to(".signUP-form-Cont-2", { delay: 0.5, duration: 0.4, y: -80});
-              gsap.to(".signUP-form-Cont-2 .Input-Cont, #Complete-dev", { delay: 0.4, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
+              gsap.to(".signUP-form-Cont-2 .Input-Cont, #Complete-cli", { delay: 0.4, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
               document.querySelector(".signUP-form-Cont-2").style.pointerEvents = 'all';
               gsap.to("circle", { duration: 0.5, fill: '#4B90F7'});
               document.querySelector(".TitleAbove").innerHTML = "Personal Info";
+            } 
+          } 
+        }
       });
 
-        document.querySelector('input[name="UserName"]').name = "clientUserName"; 
-        document.querySelector('input[name="Email"]').name = "clientEmail"; 
-        document.querySelector('input[name="Password"]').name = "clientPassword"; 
-        document.querySelector('input[name="ConfirmPassword"]').name = "clientConfirmPassword"; 
+        document.querySelector('input[name="UserName"]').name = "ClientUserName"; 
+        document.querySelector('input[name="Email"]').name = "ClientEmail"; 
+        document.querySelector('input[name="Password"]').name = "ClientPassword"; 
+        document.querySelector('input[name="ConfirmPassword"]').name = "ClientConfirmPassword"; 
                 
         document.querySelector(".signUP-form-Cont-2").innerHTML = `
           <div class="Input-Cont">
             <div class="Label-text">Profile Picture Link</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text"  name="clientProfilePicture"/>
-            </div>
+              <input type="text" class="Input-text"  name="ClientProfilePicture"/>
+              <div class="error-msg" id="profile_picture_error"></div>
+              </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Cover Link</div>
             <div class="Input-Stylizer">
-              <input type="tel" class="Input-text"  name="clientCover" />
+              <input type="text" class="Input-text"  name="ClientCover" />
+              <div class="error-msg" id="cover_error"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Founded Date</div>
             <div class="Input-Stylizer">
-              <input type="date" class="Input-text"  name="clientBirthDate" />
+              <input type="date" class="Input-text"  name="ClientBirthDate" />
               <div class="error-msg" id="birth_date_error"></div>
             </div>
           </div>
