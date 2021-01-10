@@ -8,6 +8,7 @@ create table DEVELOPER
     DEV_ID int unique not null auto_increment,
     DEV_Email varchar(50) unique not null,
     DEV_Profile_Picture varchar(500),
+    DEV_Cover varchar(500),
     DEV_Is_Pro BIT default 0,
     DEV_Phone varchar(50),
     DEV_Creation_Date date not null,

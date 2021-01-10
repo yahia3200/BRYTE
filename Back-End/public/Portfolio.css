@@ -161,6 +161,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 
 #discreption {
   padding: 30px;
+  padding-right: 70px;
 }
 
 #discreption pre {
@@ -465,6 +466,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  color: white;
 }
 
 .skill-instance {
@@ -672,4 +674,18 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   width: 30px;
   margin: 10px;
   fill: #4084da;
+} 
+
+.cats-img{
+  width: 25px;
+  margin: 2px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.no-content{
+  color: gray;
+  font-size: 30px;
+  margin: 20px;
+  text-align: center;
 }
