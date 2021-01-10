@@ -12,6 +12,7 @@ const get_project_by_id = async function(req, res) {
         res.render('Project',{style: "Project" , project_container: Project_Container});
     }
     catch (err) {
+        console.log(err);
         res.render('404',{style:"404"});
   
     }

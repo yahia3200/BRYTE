@@ -273,3 +273,11 @@ select:-webkit-autofill:focus {
           filter: invert(1);
 }
 /*# sourceMappingURL=SignUP.css.map */
+
+.error-msg{
+  color:red;
+  margin: 4px;
+  font-family: Consolas;
+  font-style: normal;
+  font-weight: normal; 
+}

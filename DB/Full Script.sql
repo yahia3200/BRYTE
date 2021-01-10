@@ -20,6 +20,7 @@ create table DEVELOPER
     DEV_Wallet float not null default 0,
     DEV_Address varchar(200),
     DEV_Job_Title varchar(50),
+    DEV_About varchar(1000),
 
     /*Derived Attributes*/
     DEV_Wining_Count int default 0 not null,
@@ -60,6 +61,7 @@ CREATE TABLE DEV_DEGREE
 (
     DEV_DEG_Field varchar(50) not null,
     DEV_DEG_Faculty varchar(50) not null,
+    DEV_DEG_University varchar(50) not null,
     DEV_DEG_Developer_Id int not null,
     DEV_DEG_Start_Date date not null,
     DEV_DEG_End_Date date,
@@ -408,6 +410,7 @@ CREATE TABLE EXPERT_REVIEW_PROJECT
     REV_Rating float not null,
     REV_Title varchar(50) not null,
     REV_Description varchar(500) not null,
+	REV_Date date not null,
 	check(REV_Rating >0 and REV_Rating <=5),
     Primary key (EXP_Id, PRO_Id),
     Foreign key (EXP_Id) references EXPERT(EXP_ID),
@@ -612,7 +615,9 @@ INSERT INTO developer (
     DEV_Age,
     DEV_Address,
     DEV_Job_Title,
-    DEV_Phone
+    DEV_Phone,
+    DEV_Profile_Picture,
+    DEV_About
      )
     VALUES (
     "Yahia",
@@ -633,7 +638,9 @@ INSERT INTO developer (
     20,
     "Haram Street",
     "Computer Engineer",
-	"01023071750"
+	"01023071750",
+    "https://i.pinimg.com/originals/0b/65/e9/0b65e97d2a0f95782bc06642236cb2d2.png",
+    "Gamed Gamed Gamed  Gamed  Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed Gamed"
     );
 
 INSERT INTO developer (
@@ -655,7 +662,8 @@ INSERT INTO developer (
     DEV_Age,
     DEV_Address,
     DEV_Job_Title,
-    DEV_Phone
+    DEV_Phone,
+    DEV_Profile_Picture
      )
     VALUES (
     "Hossam",
@@ -676,7 +684,8 @@ INSERT INTO developer (
     19,
     "Fisal Street",
     "Computer Graphics Engineer",
-	"01222051750"
+	"01222051750",
+    "https://i.pinimg.com/originals/0b/65/e9/0b65e97d2a0f95782bc06642236cb2d2.png"
     );
 
 INSERT INTO developer (
@@ -923,19 +932,21 @@ INSERT INTO expert_review_project (
       EXP_Id,
       PRO_Id,
       REV_Rating,
-      REV_Description
+      REV_Description,
+      REV_Date
     )
   VALUES (
       "Gamed", 
       1,
       1,
       5,
-      'Great'
+      'Great',
+      '2020-2-2'
     );
 
 Insert into dev_links values ("facebook", "facebook.com", 1);
 Insert into dev_links values ("youtube", "youtube.com", 1); 
 
-insert into dev_degree values ("Computer Science", "Cairo", 1, "2020-2-2", "2020-2-2", "BCS");
+insert into dev_degree values ("Computer Science","Engineering", "Cairo", 1, "2020-2-2", "2020-2-2", "BCS");
 
-insert dev_category values ("Back-End Development", "Node.js", 1, true);
+insert dev_category values ("Back-End Development", "Nodejs", 1, true);
