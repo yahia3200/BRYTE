@@ -127,7 +127,7 @@
           </linearGradient>
         </defs>
       </svg>
-      <form class="signUP-form dev" id="form">
+      <form class="signUP-form dev" id="form1">
         <div class="signUP-form-Cont-1">
           <div class="Name-Cont">
             <div class="Input-Cont">
@@ -208,7 +208,7 @@
           </div>
           <button
             type="submit"
-            form="form"
+            form="form1"
             value="Submit"
             class="signUP dev"
             id="Complete-dev"
@@ -274,9 +274,7 @@
     <footer>BRYTE© - 2021 Copyrights Reserved</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-      document.querySelector("#sign-up-client").addEventListener("click", ()=> {
-        location.assign("/coming_soon");
-      });
+      
 
 
       document.querySelector("#sign-up-dev").addEventListener("click", ()=> {
@@ -307,12 +305,12 @@
         password_error.textContent= "";
         password_confirm_error.textContent = "";
 
-        const Fname = form.Fname.value;
-        const Lname = form.Lname.value;
-        const UserName = form.UserName.value;
-        const Email = form.Email.value;
-        const Password = form.Password.value;
-        const ConfirmPassword = form.ConfirmPassword.value;
+        const Fname = form1.Fname.value;
+        const Lname = form1.Lname.value;
+        const UserName = form1.UserName.value;
+        const Email = form1.Email.value;
+        const Password = form1.Password.value;
+        const ConfirmPassword = form1.ConfirmPassword.value;
 
         if (!Fname)
           Fname_error.textContent = "This filed is required";
@@ -369,31 +367,27 @@
               document.querySelector(".signUP-form-Cont-2").style.pointerEvents = 'all';
               gsap.to("circle", { duration: 0.5, fill: '#4B90F7'});
               document.querySelector(".TitleAbove").innerHTML = "Personal Info";
-            }
-
-            
-          }
-
-          
+            } 
+          } 
         }
         
       });
 
-      const form = document.querySelector('form');
+      const form = document.querySelector('#form1');
       form.addEventListener('submit',async(e)=>{
         e.preventDefault();
         //get the values
-        const Fname = form.Fname.value;
-        const Lname = form.Lname.value;
-        const UserName = form.UserName.value;
-        const Email = form.Email.value;
-        const Password = form.Password.value;
-        const ConfirmPassword = form.ConfirmPassword.value;
+        const Fname = form1.Fname.value;
+        const Lname = form1.Lname.value;
+        const UserName = form1.UserName.value;
+        const Email = form1.Email.value;
+        const Password = form1.Password.value;
+        const ConfirmPassword = form1.ConfirmPassword.value;
 
-        const JobTitle = form.JobTitle.value;
-        const PhoneNumber = form.PhoneNumber.value;
-        const BirthDate = form.BirthDate.value;
-        const Address = form.Address.value;
+        const JobTitle = form1.JobTitle.value;
+        const PhoneNumber = form1.PhoneNumber.value;
+        const BirthDate = form1.BirthDate.value;
+        const Address = form1.Address.value;
 
         const job_title_error = document.querySelector('#job_title_error');
         const phone_number_error = document.querySelector('#phone_number_error');
@@ -433,5 +427,14 @@
         } 
           
       });
+
+      document.querySelector("#sign-up-client").addEventListener("click", ()=> {
+        gsap.to("#sep1", { duration: 0.7, x: 55, y: -200, opacity: 0 });
+        gsap.to("#sep2", { duration: 0.7, x: -55, y: 200, opacity: 0 });
+        gsap.to(".Cont-Block.dev", { duration: 0.7, x: -500, opacity: 0 });
+        gsap.to(`#${event.target.id}`, { duration: 0.1, y: 20, opacity: 0 });
+        gsap.to(".Cont-Block.cli", { delay: 0.5, duration: 1, x: -840, y: 40 });
+      });
+
       </script>
   </body>

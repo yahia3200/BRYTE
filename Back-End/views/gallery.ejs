@@ -1,0 +1,469 @@
+<%- include('partials/header'); -%>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects Gallery</title>
+</head>
+<body>
+<div id="Head">
+            <div id="title">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="100" height="100" fill="url(#pattern0)" />
+                    <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0" transform="scale(0.00666667)" /></pattern>
+                        <image
+                            id="image0"
+                            width="150"
+                            height="150"
+                            xlink:href="data:image/png;base64,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"
+                        />
+                    </defs>
+                </svg>
+                <h1>GALLERY</h1>
+            </div>
+            <p>Explore thousands of projects in various compuer science & eingineering fields. Here you can find personal projects, team projects, submissions on compettions & accepted bids.</p>
+        </div>
+        <div id="search">
+            <form action="">
+                <div id="options">
+                    <input type="search" id="SearchBar" />
+                    <select id="cats" name="cats" class="unclicked">
+                        <option value="" disabled selected hidden>
+                            Sort Projects By<svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 15L20.4593 0.75H0.540708L10.5 15Z" fill="#8F9EB4" /></svg>
+                        </option>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                    <div id="grid" class="clicked">
+                        <div class="row">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.269226" y="0.0769196" width="9.69231" height="9.69231" fill="white" /></svg>
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.269226" y="0.0769196" width="9.69231" height="9.69231" fill="white" /></svg>
+                        </div>
+                        <div class="row">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.269226" y="0.0769196" width="9.69231" height="9.69231" fill="white" /></svg>
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.269226" y="0.0769196" width="9.69231" height="9.69231" fill="white" /></svg>
+                        </div>
+                    </div>
+                    <div id="list" class="unclicked">
+                        <div class="row">
+                            <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.461532" y1="4.24038" x2="6.95192" y2="4.24038" stroke="#8F9EB4" stroke-width="7" />
+                            </svg>
+                            <svg width="23" height="4" viewBox="0 0 23 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.394226" y1="1.79808" x2="22.0288" y2="1.79808" stroke="#8F9EB4"  stroke-width="3" />
+                            </svg>
+                        </div>
+                        <div class="row">
+                            <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.461532" y1="4.24038" x2="6.95192" y2="4.24038" stroke="#8F9EB4" stroke-width="7" />
+                            </svg>
+                            <svg width="23" height="4" viewBox="0 0 23 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.394226" y1="1.79808" x2="22.0288" y2="1.79808" stroke="#8F9EB4" stroke-width="3" />
+                            </svg>
+                        </div>
+                        <div class="row">
+                            <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.461532" y1="4.24038" x2="6.95192" y2="4.24038" stroke="#8F9EB4" stroke-width="7" />
+                            </svg>
+                            <svg width="23" height="4" viewBox="0 0 23 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.394226" y1="1.79808" x2="22.0288" y2="1.79808" stroke="#8F9EB4" stroke-width="3" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div id="Filters">
+                    <label>Filters:</label>
+                    <div id="and" class="unclicked">AND</div>
+                    <div id="or" class="clicked">OR</div>
+                    <div class="filterIcon">
+                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
+                        <div>Deep Learning</div>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
+                    </div>
+                    <div class="filterIcon">
+                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
+                        <div>Deep Learning</div>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
+                    </div>
+                    <div class="filterIcon">
+                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
+                        <div>Deep Learning</div>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
+                    </div>
+                    <div class="filterIcon">
+                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
+                        <div>Deep Learning</div>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
+                    </div>
+                    <div class="filterIcon">
+                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
+                        <div>Deep Learning</div>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
+                    </div>
+                    <div class="filterIcon">
+                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
+                        <div>Deep Learning</div>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="abbas">
+            <div id="projects">
+                
+                <% for (var i = 0; i < 20; i++) {%>
+                <div>
+                    <div class="project">
+                        <img src="./assets/Rectangle 20.jpg" alt="Project" class="MainPic" />
+                        <div class="cats">
+                            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <circle cx="13.5" cy="13.5" r="13.5" fill="url(#pattern0)" />
+                                <defs>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0" transform="scale(0.004)" /></pattern>
+                                    <image
+                                        id="image0"
+                                        width="250"
+                                        height="250"
+                                        xlink:href="data:image/png;base64,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"
+                                    />
+                                </defs>
+                            </svg>
+                            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <circle cx="13.5" cy="13.5" r="13.5" fill="url(#pattern0)" />
+                                <defs>
+                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0" transform="scale(0.004)" /></pattern>
+                                    <image
+                                        id="image0"
+                                        width="250"
+                                        height="250"
+                                        xlink:href="data:image/png;base64,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"
+                                    />
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="info">
+                            <div class="main">
+                                <img class="thumbnail" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" alt="" />
+                                <div class="dev">
+                                    <p class="name">Gayaya</p>
+                                    <p class="username">Gayaya420</p>
+                                </div>
+                            </div>
+                            <div class="sec">
+                                <p class="date">Dec2019</p>
+                                <div class="rate">
+                                    <p>4.9</p>
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#4B90F7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <div id="showMore">
+                    <button>Show More</button>
+                </div>
+            </div>
+            <div id="projectsList">
+                <% for(var i = 0; i <20 ; i++) { %>
+                <div class="ProjectInst">
+                    <img src="./assets/af77320980d8b8cde78915f4a90e64ee.jpg" class="ListMainPic" alt="">
+                    <div class ="details">
+                        <div class="project-head">
+                            <img class="project-avatar" src="assets/logo.jpg" />
+                            <div class="projecter-cont">
+                              <div class="project-title">Gaymed</div>
+                              <div style="font-family: sans-serif">
+                                    <span>
+                                        3.9
+                                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.55193 6.10352e-05L10.3652 5.52793H16.2331L11.4859 8.94433L13.2992 14.4722L8.55193 11.0558L3.8047 14.4722L5.61798 8.94433L0.870754 5.52793H6.73865L8.55193 6.10352e-05Z" fill="#4B90F7"/> </svg> 
+                                    </span>
+                                    <span>| by:<a href="" style="color: #66a3ff">Weam Gamed</a></span>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="project-date">Dec2019</div>
+                              <div class="icons">
+                                <div class="ProFields">
+                                    <svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg"> <line y1="-0.75" x2="11.799" y2="-0.75" transform="matrix(0.911839 0.410548 -0.417073 0.908873 3.19983 2.6378)" stroke="#00A3FF" stroke-width="1.5"/> <ellipse cx="2.60829" cy="1.81372" rx="1.56764" ry="1.55279" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line y1="-0.75" x2="9.97079" y2="-0.75" transform="matrix(0.980936 -0.19433 0.197918 0.980219 3.19983 9.41949)" stroke="#00A3FF" stroke-width="1.5"/> <ellipse rx="1.56764" ry="1.55279" transform="matrix(1 0 0 -1 2.60829 9.0601)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line y1="-0.75" x2="11.1445" y2="-0.75" transform="matrix(0.965394 0.260797 -0.265456 0.964123 2.2218 14.2635)" stroke="#00A3FF" stroke-width="1.5"/> <ellipse cx="2.60829" cy="14.2361" rx="1.56764" ry="1.55279" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line y1="-0.75" x2="10.5204" y2="-0.75" transform="matrix(0.929686 -0.368354 0.374445 0.927249 4.17786 21.0452)" stroke="#00A3FF" stroke-width="1.5"/> <ellipse rx="1.56764" ry="1.55279" transform="matrix(1 0 0 -1 2.60829 20.4473)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line y1="-0.75" x2="10.0475" y2="-0.75" transform="matrix(0.876107 0.482118 -0.489178 0.872184 12.9805 6.78159)" stroke="#00A3FF" stroke-width="1.5"/> <line y1="-0.75" x2="9.6179" y2="-0.75" transform="matrix(0.915235 -0.40292 0.409372 0.912367 14.9366 16.2012)" stroke="#00A3FF" stroke-width="1.5"/> <ellipse cx="22.465" cy="11.4654" rx="2.61273" ry="2.58799" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="10.4464" y="3.36652" width="5.22546" height="5.17598" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="10.4464" y="13.7185" width="5.22546" height="5.17598" fill="#00F0FF" stroke="white" stroke-width="0.5"/> </svg>
+                                    <svg width="40" height="21" viewBox="0 0 40 21" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M34.6105 19.0001C34.6105 10.9282 28.0044 4.3847 19.8554 4.3847C11.7064 4.3847 5.10034 10.9282 5.10034 19.0001" stroke="#CF47FF" stroke-width="4" stroke-linecap="round"/> <line x1="6.57593" y1="3.8847" x2="33.1351" y2="3.8847" stroke="white"/> <path d="M32.0148 3.65391L35.3483 0.351945L38.6818 3.65391L35.3483 6.95587L32.0148 3.65391Z" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <path d="M1.02908 3.65391L4.3626 0.351945L7.69612 3.65391L4.3626 6.95587L1.02908 3.65391Z" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <ellipse cx="19.8554" cy="3.65391" rx="3.68877" ry="3.65385" fill="white"/> </svg> 
+                                    <svg width="40" height="21" viewBox="0 0 40 21" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M34.6105 19.0001C34.6105 10.9282 28.0044 4.3847 19.8554 4.3847C11.7064 4.3847 5.10034 10.9282 5.10034 19.0001" stroke="#CF47FF" stroke-width="4" stroke-linecap="round"/> <line x1="6.57593" y1="3.8847" x2="33.1351" y2="3.8847" stroke="white"/> <path d="M32.0148 3.65391L35.3483 0.351945L38.6818 3.65391L35.3483 6.95587L32.0148 3.65391Z" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <path d="M1.02908 3.65391L4.3626 0.351945L7.69612 3.65391L4.3626 6.95587L1.02908 3.65391Z" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <ellipse cx="19.8554" cy="3.65391" rx="3.68877" ry="3.65385" fill="white"/> </svg> 
+                                    
+                                </div>
+                                <div class="ProSkills">
+                                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <rect x="0.642822" y="6.10352e-05" width="23.2198" height="23" fill="url(#pattern0)"/> <defs> <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"> <use xlink:href="#image0" transform="translate(0 -0.00477899) scale(0.004)"/> </pattern> <image id="image0" width="250" height="250" xlink:href="data:image/png;base64,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"/> </defs> </svg> 
+                                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <rect x="0.642822" y="6.10352e-05" width="23.2198" height="23" fill="url(#pattern0)"/> <defs> <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"> <use xlink:href="#image0" transform="translate(0 -0.00477899) scale(0.004)"/> </pattern> <image id="image0" width="250" height="250" xlink:href="data:image/png;base64,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"/> </defs> </svg> 
+                                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <rect x="0.642822" y="6.10352e-05" width="23.2198" height="23" fill="url(#pattern0)"/> <defs> <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"> <use xlink:href="#image0" transform="translate(0 -0.00477899) scale(0.004)"/> </pattern> <image id="image0" width="250" height="250" xlink:href="data:image/png;base64,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"/> </defs> </svg> 
+
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="project-tail">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                            do eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco.
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <div id="showMore">
+                    <button>Show More</button>
+                </div>
+            </div>
+            <div id="FiltersTab">
+                <form action="">
+                    <div id="Top">
+                        <h1>Filters</h1>
+                        <button class="all">Apply</button>
+                    </div>
+                    <div class="section">
+                        <div class="SectionHead">
+                            <div>
+                                <p>By Project Name</p>
+                            </div>
+                            <div>
+                                <button class="all">All</button>
+                                <button class="none">None</button>
+                                <svg id="hide1" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.5 -8.30516e-07L0.272759 11.25L16.7272 11.25L8.5 -8.30516e-07Z" fill="#C4C4C4"/> </svg> 
+                            </div>
+                        </div>
+                        <div id="SectionBody1">
+                            <div>
+                                <input type="checkbox">
+                                <label for=""> Personal Projects</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for=""> Team/Collaboration Projects</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for=""> Competition submittions</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for=""> Competition winning projects</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for=""> Bid Projects</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="SectionHead">
+                            <div>
+                                <p>By Fields</p>
+                            </div>
+                            <div>
+                                <button class="all">All</button>
+                                <button class="none">None</button>
+                                <svg id="hide2" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.5 -8.30516e-07L0.272759 11.25L16.7272 11.25L8.5 -8.30516e-07Z" fill="#C4C4C4"/> </svg> 
+                            </div>
+                        </div>
+                        <div id="SectionBody2">
+                            <div>
+                                <input type="checkbox" id="AI" class="field" name="AI">
+                                <svg id="AISVG" class="unchecked" width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="13.92" y1="12.0664" x2="13.92" y2="14.2467" stroke="#00F0FF" stroke-width="3" stroke-linecap="round"/> <line x1="10.129" y1="10.5664" x2="10.129" y2="5.19409" stroke="white" stroke-width="2"/> <line x1="6.56775" y1="12.2932" x2="6.56775" y2="7.11292" stroke="white" stroke-width="2"/> <line x1="13.6903" y1="10.5664" x2="13.6903" y2="3.65936" stroke="white" stroke-width="2"/> <line x1="17.2516" y1="10.5664" x2="17.2516" y2="5.19409" stroke="white" stroke-width="2"/> <line x1="20.813" y1="12.2932" x2="20.813" y2="7.11292" stroke="white" stroke-width="2"/> <line x1="6.41028" y1="8.11292" x2="3.7393" y2="8.11292" stroke="white" stroke-width="2"/> <line x1="24.2168" y1="8.11292" x2="21.5458" y2="8.11292" stroke="white" stroke-width="2"/> <rect x="3.29416" y="16.3968" width="21.3678" height="5.34195" fill="#00A3FF"/> <circle cx="10.2388" cy="3.48704" r="2.22581" fill="#00A3FF"/> <circle cx="17.3613" cy="3.48704" r="2.22581" fill="#00A3FF"/> <circle cx="13.8001" cy="2.59672" r="1.72581" fill="#00F0FF" stroke="#00F0FF"/> <circle cx="25.3743" cy="7.93867" r="2.22581" fill="#00A3FF"/> <circle cx="2.22581" cy="7.93867" r="2.22581" fill="#00A3FF"/> <path d="M6.93124 15.5064C2.99108 15.5064 2.40384 17.1009 2.40384 19.0677C2.40384 21.0346 4.38842 22.629 6.83653 22.629H21.1196C23.5677 22.629 25.5523 21.0346 25.5523 19.0677C25.5523 17.1009 24.9651 15.5064 21.0249 15.5064" stroke="#00A3FF" stroke-width="3" stroke-linecap="round"/> <path d="M13.3604 12.1788C12.4297 10.5668 10.3685 10.0145 8.75656 10.9452C7.14461 11.8759 6.59231 13.9371 7.52297 15.549" stroke="#00A3FF" stroke-width="3" stroke-linecap="round"/> <path d="M20.5759 15.8004C21.5944 14.0362 20.99 11.7804 19.2258 10.7619C17.4617 9.74332 15.2058 10.3478 14.1873 12.1119" stroke="#00A3FF" stroke-width="3" stroke-linecap="round"/> <circle cx="11.3071" cy="15.5064" r="4.45163" fill="#00F0FF"/> <circle cx="16.649" cy="15.5064" r="4.45163" fill="#00F0FF"/> <circle cx="21.991" cy="19.0677" r="3.5613" fill="#00F0FF"/> <circle cx="5.96514" cy="19.0677" r="3.5613" fill="#00F0FF"/> </svg> 
+                                <label for="AI"> Artificial Intelligence</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="BED" class="field" name="BED">
+                                <svg id="BEDSVG" class="unchecked" width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect y="8" width="19" height="6" fill="#FF5247"/> <path d="M9.5 16.4237C14.7467 16.4237 19 14.9041 19 13.0296C19 11.1551 14.7467 9.63556 9.5 9.63556C4.25329 9.63556 0 11.1551 0 13.0296C0 14.9041 4.25329 16.4237 9.5 16.4237Z" fill="#FF5247"/> <path d="M9.5 10.6053C14.7467 10.6053 19 9.30279 19 7.69608C19 6.08936 14.7467 4.78687 9.5 4.78687C4.25329 4.78687 0 6.08936 0 7.69608C0 9.30279 4.25329 10.6053 9.5 10.6053Z" fill="#FF9447"/> <path d="M22 4.24968C20.8142 3.81099 19.4109 4.516 18.8658 5.82393L18.3676 7.01919C18.2884 7.20915 18.1324 7.3617 17.9339 7.4433C17.7353 7.5249 17.5105 7.52888 17.3089 7.45435L14.0915 6.26368C13.9917 6.22675 13.9006 6.17165 13.8233 6.10153C13.7461 6.03141 13.6843 5.94764 13.6414 5.85502C13.5986 5.76239 13.5755 5.66271 13.5736 5.56169C13.5716 5.46066 13.5908 5.36025 13.63 5.26621L14.1279 4.07095C14.6734 2.76408 14.1541 1.34665 12.9687 0.907959C12.9687 0.907959 11.1443 4.52129 11.1845 5.18815C11.2248 5.85502 12.2286 8.03608 12.2286 8.03608C12.2672 8.14126 12.3295 8.23731 12.4112 8.31762C12.493 8.39792 12.5922 8.46058 12.7021 8.50126C12.802 8.53833 12.8932 8.59357 12.9704 8.66385C13.0476 8.73412 13.1093 8.81804 13.1521 8.9108C13.1948 9.00357 13.2177 9.10337 13.2195 9.20449C13.2213 9.30561 13.202 9.40608 13.1625 9.50014L10.0565 16.9546C9.97735 17.1446 9.98151 17.3563 10.0681 17.5434C10.1546 17.7304 10.3164 17.8774 10.518 17.9521L11.4852 18.3099C11.5851 18.3468 11.6916 18.3649 11.7989 18.363C11.9061 18.3612 12.012 18.3394 12.1103 18.299C12.2086 18.2586 12.2975 18.2003 12.3719 18.1275C12.4463 18.0547 12.5048 17.9688 12.5439 17.8747L15.6511 10.422C15.7303 10.2321 15.8864 10.0797 16.0849 9.99812C16.2834 9.91659 16.5082 9.91266 16.7098 9.98721C16.8197 10.0278 16.9376 10.0455 17.0555 10.0391C17.1733 10.0327 17.2883 10.0024 17.3925 9.95013C17.3925 9.95013 19.7742 8.9108 20.2159 8.53058C20.6575 8.15035 22 4.24968 22 4.24968Z" fill="white"/> </svg> 
+                                <label for="BED"> Back-end Development</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M7.14894 5.57446C3.40426 5.57446 2 7.46058 2 9.78723C2 12.1139 3.88612 14 6.21277 14H19.7872C22.1139 14 24 12.1139 24 9.78723C24 7.46058 22.5957 5.57446 18.8511 5.57446" stroke="#36E367" stroke-width="3"/> <path d="M18 7C18 4.23858 15.7614 2 13 2C10.2386 2 8 4.23858 8 7" stroke="#7EFF8B" stroke-width="3" stroke-linecap="square"/> </svg> 
+                                <label for=""> Cloud Computing</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23 13C23 7.47715 18.5228 3 13 3C7.47715 3 3 7.47715 3 13" stroke="#CF47FF" stroke-width="4" stroke-linecap="round"/> <line x1="4" y1="2.5" x2="22" y2="2.5" stroke="white"/> <path d="M21.3536 2.5L23.5 0.353553L25.6464 2.5L23.5 4.64645L21.3536 2.5Z" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <path d="M0.353553 2.5L2.5 0.353553L4.64645 2.5L2.5 4.64645L0.353553 2.5Z" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <circle cx="13" cy="2.5" r="2.5" fill="white"/> </svg> 
+                                <label for=""> Computer Graphics</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3.5 6C3.5 3.51472 5.51472 1.5 8 1.5C10.4853 1.5 12.5 3.51472 12.5 6V17C12.5 17.8284 11.8284 18.5 11 18.5H5C4.17157 18.5 3.5 17.8284 3.5 17V6Z" stroke="white" stroke-width="3"/> <path d="M0 12C0 9.79086 1.79086 8 4 8H12C14.2091 8 16 9.79086 16 12V17C16 18.6569 14.6569 20 13 20H3C1.34315 20 0 18.6569 0 17V12Z" fill="#36E367"/> <line x1="3" y1="11" x2="13" y2="11" stroke="#00AA63" stroke-width="2" stroke-linecap="round"/> <line x1="3" y1="14" x2="13" y2="14" stroke="#00AA63" stroke-width="2" stroke-linecap="round"/> <line x1="3" y1="17" x2="13" y2="17" stroke="#00AA63" stroke-width="2" stroke-linecap="round"/> <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="7" width="16" height="13"> <path d="M0 11C0 8.79086 1.79086 7 4 7H12C14.2091 7 16 8.79086 16 11V17C16 18.6569 14.6569 20 13 20H3C1.34315 20 0 18.6569 0 17V11Z" fill="#29FF7F"/> </mask> <g mask="url(#mask0)"> <path d="M10.0001 12C10.0001 13.1046 9.10462 14 8.00005 14C6.89548 14 6.00005 13.1046 6.00005 12C6.00005 10.8954 6.89548 10 8.00005 10C9.10462 10 10.0001 10.8954 10.0001 12Z" fill="#252E3D"/> <path d="M8.00005 12L10.5981 17.25H5.40198L8.00005 12Z" fill="#252E3D"/> </g> </svg> 
+                                <label for=""> Cybersecurity</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <line x1="3.20842" y1="2.27169" x2="13.1407" y2="6.78634" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="2.35199" cy="2.1864" r="1.4472" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="2.75098" y1="8.53947" x2="11.7803" y2="6.73361" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.4472" transform="matrix(1 0 0 -1 2.35199 8.94001)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="2.19255" y1="13.066" x2="12.1248" y2="15.7748" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="2.35199" cy="13.764" r="1.4472" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="3.52248" y1="19.4137" x2="12.5518" y2="15.802" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.4472" transform="matrix(1 0 0 -1 2.35199 19.5528)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.2916" y1="6.16079" x2="20.418" y2="10.6754" stroke="#00A3FF" stroke-width="1.5"/> <line x1="13.4286" y1="14.9101" x2="21.555" y2="11.2984" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="20.6832" cy="11.1817" r="2.412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="9.58798" y="3.63361" width="4.824" height="4.824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="9.58798" y="13.2816" width="4.824" height="4.824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> </svg> 
+                                <label for=""> Deep Learning</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <line y1="4.25" x2="19" y2="4.25" stroke="white"/> <line y1="7.8125" x2="19" y2="7.8125" stroke="white"/> <line y1="11.375" x2="19" y2="11.375" stroke="white"/> <line x1="11.1875" y1="1.54275e-08" x2="11.1875" y2="15.4375" stroke="white"/> <line x1="7.625" y1="1.54275e-08" x2="7.625" y2="15.4375" stroke="white"/> <line x1="14.75" y1="1.54275e-08" x2="14.75" y2="15.4375" stroke="white"/> <line x1="4.0625" y1="1.54275e-08" x2="4.0625" y2="15.4375" stroke="white"/> <rect x="2.375" y="2.375" width="14.25" height="10.6875" fill="#36E367"/> <rect x="4.75" y="4.75" width="9.5" height="5.9375" fill="#00AA63"/> </svg> 
+                                <label for=""> Embedded Systems</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.04492 14.082L5.60352 14.1602L0.857422 9.21875L5.58398 4.41406L8.04492 4.49219L4.02148 9.29688L8.04492 14.082ZM15.584 14.082L19.5879 9.29688L15.5449 4.49219L18.0059 4.41406L22.7129 9.21875L18.0059 14.1602L15.584 14.082Z" fill="#FF5247"/> <path d="M7.88867 17.9883L14.0801 0.859375L16.4824 1.34766L10.3105 18.457L7.88867 17.9883Z" fill="#FF9447"/> <path d="M8.04492 14.082L8.06091 14.5818L9.09066 14.5488L8.42762 13.7603L8.04492 14.082ZM5.60352 14.1602L5.24291 14.5065L5.39707 14.667L5.61951 14.6599L5.60352 14.1602ZM0.857422 9.21875L0.500982 8.86811L0.160143 9.21458L0.496814 9.5651L0.857422 9.21875ZM5.58398 4.41406L5.59985 3.91431L5.38106 3.90737L5.22754 4.06342L5.58398 4.41406ZM8.04492 4.49219L8.42826 4.8132L9.08825 4.02506L8.06079 3.99244L8.04492 4.49219ZM4.02148 9.29688L3.63814 8.97586L3.36878 9.29753L3.63879 9.61865L4.02148 9.29688ZM8.02893 13.5823L5.58752 13.6604L5.61951 14.6599L8.06091 14.5818L8.02893 13.5823ZM5.96412 13.8138L1.21803 8.8724L0.496814 9.5651L5.24291 14.5065L5.96412 13.8138ZM1.21386 9.56939L5.94042 4.76471L5.22754 4.06342L0.500982 8.86811L1.21386 9.56939ZM5.56812 4.91381L8.02906 4.99194L8.06079 3.99244L5.59985 3.91431L5.56812 4.91381ZM7.66158 4.17118L3.63814 8.97586L4.40483 9.61789L8.42826 4.8132L7.66158 4.17118ZM3.63879 9.61865L7.66222 14.4038L8.42762 13.7603L4.40418 8.9751L3.63879 9.61865ZM7.88867 17.9883L7.41845 17.8183L7.21973 18.3681L7.79366 18.4792L7.88867 17.9883ZM14.0801 0.859375L14.1797 0.369394L13.7566 0.283406L13.6099 0.689408L14.0801 0.859375ZM16.4824 1.34766L16.9528 1.51732L17.1491 0.972943L16.582 0.857675L16.4824 1.34766ZM10.3105 18.457L10.2155 18.9479L10.6357 19.0292L10.7809 18.6267L10.3105 18.457ZM8.3589 18.1582L14.5503 1.02934L13.6099 0.689408L7.41845 17.8183L8.3589 18.1582ZM13.9805 1.34936L16.3828 1.83764L16.582 0.857675L14.1797 0.369394L13.9805 1.34936ZM16.0121 1.17799L9.84021 18.2874L10.7809 18.6267L16.9528 1.51732L16.0121 1.17799ZM10.4056 17.9661L7.98368 17.4974L7.79366 18.4792L10.2155 18.9479L10.4056 17.9661ZM15.584 14.082L15.2005 13.7612L14.5416 14.5487L15.5679 14.5818L15.584 14.082ZM19.5879 9.29688L19.9714 9.61774L20.2406 9.29597L19.9705 8.97495L19.5879 9.29688ZM15.5449 4.49219L15.5291 3.99244L14.4985 4.02516L15.1623 4.81411L15.5449 4.49219ZM18.0059 4.41406L18.363 4.06416L18.2094 3.90735L17.99 3.91431L18.0059 4.41406ZM22.7129 9.21875L23.0749 9.56361L23.4081 9.21388L23.0701 8.86884L22.7129 9.21875ZM18.0059 14.1602L17.9897 14.6599L18.2135 14.6671L18.3679 14.505L18.0059 14.1602ZM15.9675 14.4029L19.9714 9.61774L19.2044 8.97601L15.2005 13.7612L15.9675 14.4029ZM19.9705 8.97495L15.9275 4.17026L15.1623 4.81411L19.2053 9.6188L19.9705 8.97495ZM15.5608 4.99194L18.0217 4.91381L17.99 3.91431L15.5291 3.99244L15.5608 4.99194ZM17.6487 4.76397L22.3557 9.56866L23.0701 8.86884L18.363 4.06416L17.6487 4.76397ZM22.3509 8.87389L17.6438 13.8153L18.3679 14.505L23.0749 9.56361L22.3509 8.87389ZM18.022 13.6604L15.6001 13.5823L15.5679 14.5818L17.9897 14.6599L18.022 13.6604Z" fill="white"/> </svg> 
+                                <label for=""> Front-end Development</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 3.49994C0 2.39537 0.895431 1.49994 2 1.49994H8.81821C9.37049 1.49994 9.81821 1.94765 9.81821 2.49994V12.5909C9.81821 13.6954 8.92278 14.5909 7.81821 14.5909H4C1.79086 14.5909 0 12.8 0 10.5909V3.49994Z" fill="#E28FFF"/> <rect x="9.81821" y="2.59088" width="4.36365" height="5.45456" fill="#AD00FF"/> <path d="M24.0001 3.49994C24.0001 2.39537 23.1046 1.49994 22.0001 1.49994H15.1819C14.6296 1.49994 14.1819 1.94765 14.1819 2.49994V12.5909C14.1819 13.6954 15.0773 14.5909 16.1819 14.5909H20.0001C22.2092 14.5909 24.0001 12.8 24.0001 10.5909V3.49994Z" fill="#E28FFF"/> <circle cx="4.9091" cy="6.40907" r="3.81819" fill="#252E3D"/> <circle cx="19.091" cy="6.40907" r="3.81819" fill="#252E3D"/> <rect x="4.36365" y="3.68182" width="1.09091" height="5.45456" rx="0.545456" fill="white"/> <rect x="2.18182" y="6.95453" width="1.09091" height="5.45456" rx="0.545456" transform="rotate(-90 2.18182 6.95453)" fill="white"/> <path d="M2.18182 1.49994L2.18182 1.40903C2.18182 0.856743 2.62954 0.409027 3.18182 0.409027L7.72729 0.409027C8.27958 0.409027 8.72729 0.856742 8.72729 1.40903L8.72729 1.49994L2.18182 1.49994Z" fill="#AD00FF"/> <path d="M15.2728 1.49994L15.2728 1.40903C15.2728 0.856743 15.7205 0.409027 16.2728 0.409027L20.8182 0.409027C21.3705 0.409027 21.8182 0.856742 21.8182 1.40903L21.8182 1.49994L15.2728 1.49994Z" fill="#AD00FF"/> <circle cx="19.091" cy="4.22728" r="0.795456" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <circle cx="19.091" cy="8.59093" r="0.795456" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <circle cx="16.9091" cy="6.40907" r="0.795456" transform="rotate(-90 16.9091 6.40907)" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> <path d="M14.1819 9.13638C14.1819 8.40145 13.4546 8.06461 13.0909 8.04547L14.1819 8.04547L14.1819 9.13638Z" fill="#AD00FF"/> <path d="M10.9091 8.04547C10.1742 8.04547 9.83735 8.77275 9.81821 9.13638V8.04547H10.9091Z" fill="#AD00FF"/> <circle cx="21.2728" cy="6.40907" r="0.795456" transform="rotate(-90 21.2728 6.40907)" fill="#FC6FC4" stroke="white" stroke-width="0.5"/> </svg> 
+                                <label for=""> Game Development</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="3" width="2" height="16" rx="1" fill="#00A3FF"/> <rect x="24.0222" y="1.01465" width="2" height="25.119" rx="1" transform="rotate(71.9526 24.0222 1.01465)" fill="white"/> <rect x="24" y="14" width="2" height="20" rx="1" transform="rotate(90 24 14)" fill="#00A3FF"/> <circle cx="12" cy="2" r="2" fill="#00F0FF"/> <circle cx="9" cy="11" r="2" fill="#00F0FF"/> <circle cx="21" cy="7" r="2" fill="#00F0FF"/> </svg> 
+                                <label for=""> Machine Learning</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="SectionHead">
+                            <div>
+                                <p>By Skills & Technologies</p>
+                            </div>
+                            <div>
+                                <button class="all">All</button>
+                                <button class="none">None</button>
+                                <svg id="hide3" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.5 -8.30516e-07L0.272759 11.25L16.7272 11.25L8.5 -8.30516e-07Z" fill="#C4C4C4"/> </svg> 
+                            </div>
+                        </div>
+                        <div id="SectionBody3">
+                            
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="SectionHead">
+                            <div>
+                                <p>Other Filters</p>
+                            </div>
+                            <div>
+                                <button class="all">All</button>
+                                <button class="none">None</button>
+                                <svg id="hide4" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.5 -8.30516e-07L0.272759 11.25L16.7272 11.25L8.5 -8.30516e-07Z" fill="#C4C4C4"/> </svg> 
+                            </div>
+                        </div>
+                        <div id="SectionBody4">
+                            <div>
+                                <input type="checkbox">
+                                <label for=""> Pro projects only</label>
+                            </div>
+                            <div id="timeRange">
+                                <div>
+                                    <input type="checkbox">
+                                    <label for=""> Time range: </label>
+                                </div>
+                                <div>
+                                    <input type="text" class="tex">
+                                    <span>:</span>
+                                    <input type="text" class="tex">
+                                </div>
+                            </div>
+                            <div id="rateRange">
+                                <div>
+                                    <input type="checkbox">
+                                    <label for=""> Rating range: </label>
+                                </div>
+                                <div>
+                                    <input type="text" class="tex">
+                                    <span>:</span>
+                                    <input type="text" class="tex">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer>BRYTE© - 2021 Copyrights Reserved</footer>
+    </body>
+
+
+<script>
+    document.querySelector("#grid").addEventListener("click",()=>{
+    if( document.querySelector("#grid").classList.contains('unclicked'))
+    {
+        document.getElementById("grid").classList.remove('unclicked');
+        document.getElementById("grid").classList.add('clicked');
+        document.getElementById("list").classList.remove('clicked');
+        document.getElementById("list").classList.add('unclicked');
+        document.getElementById("projects").style.display="flex";
+        document.getElementById("projectsList").style.display="none";
+        
+    }
+});
+document.querySelector("#list").addEventListener("click",()=>{
+    if( document.querySelector("#list").classList.contains('unclicked'))
+    {
+        document.getElementById("list").classList.remove('unclicked');
+        document.getElementById("list").classList.add('clicked');
+        document.getElementById("grid").classList.remove('clicked');
+        document.getElementById("grid").classList.add('unclicked');
+        document.getElementById("projects").style.display="none";
+        document.getElementById("projectsList").style.display="flex";
+    }
+});
+document.querySelector('#hide1').addEventListener("click",()=>{
+    var style = document.querySelector('#SectionBody1').style;
+    var style1 = document.querySelector('#hide1').style
+    if(style.display=="none"){
+        style.display="block";
+        style1.transform= "rotate(0deg)";
+    }else{
+        style.display="none";
+        style1.transform= "rotate(180deg)";
+    }
+
+});
+document.querySelector('#hide2').addEventListener("click",()=>{
+    var style = document.querySelector('#SectionBody2').style;
+    var style1 = document.querySelector('#hide2').style
+    if(style.display=="none"){
+        style.display="block";
+        style1.transform= "rotate(0deg)";
+    }else{
+        style.display="none";
+        style1.transform= "rotate(180deg)";
+    }
+});
+document.querySelector('#hide3').addEventListener("click",()=>{
+    var style = document.querySelector('#SectionBody3').style;
+    var style1 = document.querySelector('#hide3').style
+    if(style.display=="none"){
+        style.display="block";
+        style1.transform= "rotate(0deg)";
+    }else{
+        style.display="none";
+        style1.transform= "rotate(180deg)";
+    }
+});
+document.querySelector('#hide4').addEventListener("click",()=>{
+    var style = document.querySelector('#SectionBody4').style;
+    var style1 = document.querySelector('#hide4').style
+    if(style.display=="none"){
+        style.display="block";
+        style1.transform= "rotate(0deg)";
+    }else{
+        style.display="none";
+        style1.transform= "rotate(180deg)";
+    }
+});
+document.querySelectorAll(".field").forEach((element)=>{
+element.addEventListener("click",()=>{
+    var id = element.id;
+    id="#"+id;
+    var svgid=id+"SVG";
+    console.log(id);
+    console.log(svgid);
+    if(document.querySelector(id).checked){
+        document.querySelector(svgid).classList.remove("unchecked");
+    }else{
+        document.querySelector(svgid).classList.add("unchecked");
+    }
+});
+});
+
+</script>
