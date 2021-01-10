@@ -178,6 +178,7 @@
           <div class="signUP dev" id="Continue-dev">Continue</div>
         </div>
         <div class="signUP-form-Cont-2">
+          <div class="Name-cont">
           <div class="Input-Cont">
             <div class="Label-text">Job Title</div>
             <div class="Input-Stylizer">
@@ -192,6 +193,21 @@
               <div class="error-msg" id="phone_number_error"></div>
             </div>
           </div>
+        </div>
+        <div class="Name-cont">
+          <div class="Input-Cont">
+            <div class="Label-text">Profile Picture Link</div>
+            <div class="Input-Stylizer">
+              <input type="text" class="Input-text"  name="ProfilePicture"/>
+            </div>
+          </div>
+          <div class="Input-Cont">
+            <div class="Label-text">Cover Link</div>
+            <div class="Input-Stylizer">
+              <input type="tel" class="Input-text"  name="Cover" />
+            </div>
+          </div>
+        </div>
           <div class="Input-Cont">
             <div class="Label-text">Birth Date</div>
             <div class="Input-Stylizer">
@@ -429,11 +445,47 @@
       });
 
       document.querySelector("#sign-up-client").addEventListener("click", ()=> {
+        document.querySelector(".signUP-form-Cont-2").innerHTML = `
+          <div class="Input-Cont">
+            <div class="Label-text">Profile Picture Link</div>
+            <div class="Input-Stylizer">
+              <input type="text" class="Input-text"  name="ProfilePicture"/>
+            </div>
+          </div>
+          <div class="Input-Cont">
+            <div class="Label-text">Cover Link</div>
+            <div class="Input-Stylizer">
+              <input type="tel" class="Input-text"  name="Cover" />
+            </div>
+          </div>
+          <div class="Input-Cont">
+            <div class="Label-text">Founded Date</div>
+            <div class="Input-Stylizer">
+              <input type="date" class="Input-text"  name="BirthDate" />
+              <div class="error-msg" id="birth_date_error"></div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            form="form1"
+            value="Submit"
+            class="signUP dev"
+            id="Complete-dev"
+          >
+            Complete Sign up
+          </button>
+        `
+
+        document.querySelector("*").classList.add('greenify');
+        document.querySelector(".Head.cli").classList.add('dont-greenify');
         gsap.to("#sep1", { duration: 0.7, x: 55, y: -200, opacity: 0 });
         gsap.to("#sep2", { duration: 0.7, x: -55, y: 200, opacity: 0 });
         gsap.to(".Cont-Block.dev", { duration: 0.7, x: -500, opacity: 0 });
         gsap.to(`#${event.target.id}`, { duration: 0.1, y: 20, opacity: 0 });
-        gsap.to(".Cont-Block.cli", { delay: 0.5, duration: 1, x: -840, y: 40 });
+        gsap.to(".signUP-form-Cont-1", { delay: 1, duration: 0.4, y: -80});
+        gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-dev", { delay: 1, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
+        gsap.to(".UnderLineTitle", { delay: 1, duration: 0.3, x:80, opacity: 1});
+        document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'all'; 
       });
       
       </script>
