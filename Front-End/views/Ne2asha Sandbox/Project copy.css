@@ -160,14 +160,21 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   color: white;
 }
 
-#project-title {
+.project-title {
   margin-left: 20px;
   margin-top: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-#project-title2 {
+.project-title3 {
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.project-title2 {
   margin-left: 20px;
   margin-bottom: 25px;
   display: flex;
@@ -175,16 +182,12 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   justify-content: space-between;
 }
 
-#project-title span {
-  font-size: 1rem;
-  color: #69a4fc;
-}
-#project-title2 span {
+.project-title span, .project-title2 span, .project-title3 span {
   font-size: 1rem;
   color: #69a4fc;
 }
 
-.title-input {
+.title-input, .role-input {
   flex-grow: 4;
   margin: 0px 10px;
 }
@@ -196,6 +199,10 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   color: #a5a5a5;
   background-color: #121c36;
   border: none;
+}
+
+.creating-developer-role{
+  word-break: break-all;
 }
 
 .desc-phase {
@@ -242,7 +249,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   position: relative;
   width: 100%;
   padding: 25px;
-  margin-top: 33px;
+  margin-top: 18px;
   background: linear-gradient(180deg, #13223a 29.48%, rgba(17, 34, 61, 0) 100%);
 }
 

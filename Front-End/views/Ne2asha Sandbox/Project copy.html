@@ -111,29 +111,10 @@
             <h2>Developers:</h2>
             <div id="developers-bar">
               <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
                 <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
+                  <div class="review-title dev">Gaymed</div>
                   <div class="reviewer dev" style="font-family: sans-serif">
-                    <span style="color: #66a3ff">Game Art</span>
-                  </div>
-                </div>
-              </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                    <span style="color: #66a3ff">Game Art</span>
-                  </div>
-                </div>
-              </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                    <span style="color: #66a3ff">Game Art</span>
+                    <span class="creating-developer-role" style="color: #66a3ff"></span>
                   </div>
                 </div>
               </div>
@@ -155,27 +136,17 @@
               <img src="assets/logo.jpg" />
             </div>
             <div id="info-bar">
-              <div id="project-title">
+              <div class="project-title">
                 <input class="title-input" type="text"placeholder="Project title">
+                <input class="role-input" type="text"placeholder="Your role" onkeyup="changeRole(this)">
+              </div>
+              <div class="project-title3">
                 <span>Start date:</span>
                 <input class="date-input" type="date" >
                 <span>End date:</span>
                 <input class="date-input" type="date"  >
               </div>
-              <div id="rate-bar"> 
-                <div id="rate">
 
-                </div>
-                <div id="categories-bar">
-                  <div id="categories">
-                    <p>Computer Graphics</p>
-                    <p>Game Development |</p>
-                  </div>
-                  <div id="skills">
-                    <p>Unity</p>
-                  </div>
-                </div>
-              </div>
               <div id="discreption">
                 <svg
                   id="dis-border"
@@ -322,11 +293,11 @@
               &nbsp; Timeline
             </div>
             <div class="timeline">
-              <div id="project-title2">
+              <div class="project-title2">
                 <input class="title-phase title-input" type="text"placeholder="Phase">
                 <input class="desc-phase title-input" type="text"placeholder="Description">
               </div>
-              <div id="project-title2">
+              <div class="project-title2">
                 <span>Start date:</span>
 
               <input class="start-phase date-input" type="date" >
@@ -430,19 +401,20 @@
               &nbsp; Fields & Skills
             </div>
             <div class="timeline">
-              <div id="project-title2">
+              <div class="project-title2">
                 <span>Field:</span>
-              <select class="field-phase date-input" >
+              <select class="field-phase date-input" onchange="adjustSkill()">
                 <option selected disabled value>choose field first</option>
-                <option value="AI">Artificial Intelligence</option>
-                <option value="BE">Back-end Development</option>
-                <option value="CC">Cloud Computing</option>
-                <option value="CG">Computer Graphics</option>
-                <option value="CS">Cybersecurity</option>
-                <option value="DL">Deep Learning</option>
-                <option value="ES">Embedded Systems</option>
-                <option value="FE">Front-end Development</option>
-                <option value="ML">Machine Learning</option>
+                <option value="Artificial_Intelligence">Artificial-Intelligence</option>
+                <option value="Back_end_Development">Back-end-Development</option>
+                <option value="Cloud_Computing">Cloud-Computing</option>
+                <option value="Computer_Graphics">Computer-Graphics</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Deep_Learning">Deep-Learning</option>
+                <option value="Embedded_Systems">Embedded-Systems</option>
+                <option value="Front_end_Development">Front-end-Development</option>
+                <option value="Game_Development">Game-Development</option>
+                <option value="Machine_Learning">Machine-Learning</option>
               </select>
               <span>Skill:</span>
               <select class="skill-phase date-input">
@@ -450,12 +422,6 @@
               <div onclick="addSkill()">Add skill</div>
             </div>
               <div class="skill-list">
-                <div class="filterIcon">
-                  <div>Deep Learning</div>
-                </div>
-                <div class="filterIcon">
-                  <div>Deep Learning</div>
-                </div>
               </div>
             </div>
           </div>
@@ -465,6 +431,23 @@
     <script>
       function adjustHeight(el){
         el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
+    }
+    const SkillsOfField = {
+      Artificial_Intelligence: ["SearchAlgorithms"], 
+      Back_end_Development: ["NodeJs", "PHP", "FireBase"],
+      Cloud_Computing: ["GoogleCloud", "Azure"],
+      Computer_Graphics: ["OpenGL"],
+      Cybersecurity: [""],  
+      Deep_Learning: ["OpenCV", "Tensorflow"],
+      Embedded_Systems: ["AVR", "ARM"],
+      Front_end_Development: ["VueJS", "React", "Angular", "UI/UX", "Sass", "Flutter"],
+      Game_Development: ["Unity", "Unreal"],
+      Machine_Learning: ["Python"]
+    };
+    const ExtraForm = document.querySelector(".skill-phase");
+    function adjustSkill(){
+                  ExtraForm.innerHTML = SkillsOfField[document.querySelector(".field-phase").value].reduce(
+                          (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
     }
     function addPhase(){
       document.querySelector(".phasedate-list").innerHTML +=
@@ -487,7 +470,11 @@
       document.querySelector(".desc-phase").value = "";
     }
     function addSkill(){
-
+      document.querySelector(".skill-list").innerHTML +=
+      `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
+    }
+    function changeRole(el){
+      document.querySelector(".creating-developer-role").innerHTML = el.value;
     }
     </script>
   </body>
