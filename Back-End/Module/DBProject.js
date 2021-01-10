@@ -76,7 +76,6 @@ else {
     container['Is_Comp'] = false;        
 }
 
-console.log(container);
 return container;
 }
 
