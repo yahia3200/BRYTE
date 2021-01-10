@@ -65,6 +65,13 @@ const getPortofiloInfo = async (id)=>{
     query = "SELECT * FROM dev_working_experince WHERE DEV_WOR_Developer_Id = ?";
     let [experince] = await pool.promise().query(query, [id]);
     experince = experince.map(v => Object.assign({}, v));
+
+    // change format of date
+    experince.forEach(exp => {
+        exp['DEV_WOR_Start_Date'] = (exp['DEV_WOR_Start_Date'].getDate()-1).toString()+ "/" + (exp['DEV_WOR_Start_Date'].getMonth()+1).toString() + "/" + (exp['DEV_WOR_Start_Date'].getFullYear()).toString();
+        exp['DEV_WOR_End_Date'] = (exp['DEV_WOR_End_Date'].getDate()-1).toString()+ "/" + (exp['DEV_WOR_End_Date'].getMonth()+1).toString() + "/" + (exp['DEV_WOR_End_Date'].getFullYear()).toString();
+    });
+
     res['experince'] = experince;
 
     // Get developer degrees 

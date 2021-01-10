@@ -12,4 +12,9 @@ const router = Router();
 //Single Project Route
 router.get('/project/:id',projectController.get_project_by_id)
 
+
+//Projects Gallery Route
+router.get('/gallery',(req, res)=>{res.render('gallery',{style: "gallery"});});
+
+
 module.exports = router;

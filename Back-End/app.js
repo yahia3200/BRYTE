@@ -52,11 +52,6 @@ app.get('/bids',(req, res)=>{
     res.render('comingsoon', {style: "comingsoon"});
 });
 
-app.get('/gallery',(req, res)=>{
-    res.render('comingsoon', {style: "comingsoon"});
-});
-
-
 app.get('/developers',(req, res)=>{
     res.render('comingsoon', {style: "comingsoon"});
 });
