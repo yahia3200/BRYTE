@@ -149,7 +149,9 @@ body .signUP.cli:hover {
 }
 
 body #Continue-dev,
-body #Complete-dev {
+body #Complete-dev,
+body #Continue-cli,
+body #Complete-cli {
   min-width: 20%;
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -282,4 +284,14 @@ select:-webkit-autofill:focus {
   font-family: Consolas;
   font-style: normal;
   font-weight: normal; 
+}
+
+.greenify{
+  filter: hue-rotate(240deg) brightness(1.1) saturate(1.1);
+}
+.dont-greenify{
+  filter: hue-rotate(-240deg);
+}
+footer{
+  pointer-events: none;
 }

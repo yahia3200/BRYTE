@@ -69,7 +69,10 @@
         </div>
 
         <button type="submit" form="form" value="Submit" class="signUP dev" id="Complete-dev">
-          Login
+          Login as developer
+        </button>
+        <button  class="signUP cli" id="Complete-cli">
+          Login as client
         </button>
         <div id="invlaid"></div>
       </div>
@@ -90,7 +93,45 @@
   email_errors.textContent = "";
   invalid.textContent = "";
 
-  form.addEventListener('submit', async (e) => {
+  document.querySelector("#Complete-cli").addEventListener("click", async(e)=>{
+    e.preventDefault();
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (!email)
+      email_errors.textContent = "Must Enter Username or Email"
+
+    else if (!password)
+      pass_errors.textContent = "Must Enter Passward"
+
+    else{
+      try {
+        const res = await fetch('/client-login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      const data = await res.json();
+      console.log(data)
+      if (data.user) {
+        location.assign('/');
+      }
+
+      else {
+        invalid.textContent = "Envalid Username or Passward";
+      }
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+
+  });
+
+
+  document.querySelector("#Complete-dev").addEventListener("click" ,async (e) => {
     e.preventDefault();
 
     const email = form.email.value;

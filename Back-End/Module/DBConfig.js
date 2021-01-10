@@ -91,7 +91,7 @@ const Insert_Developer = (res, body, callback) => {
           }
           else {
             /*Here is the return of the callback function that are parameters when Insertdeveloper finishes*/
-            return callback(result.insertId, 0, "", true);
+            return callback(result.insertId, UserName,0, "", true);
 
           }
         }
@@ -113,7 +113,7 @@ const Insert_Developer = (res, body, callback) => {
  */
 const Login_Developer = (email, password, callback) => {
   //Select the Developer with that mail, take only the ID and Password
-  const sql = " Select DEV_ID,DEV_Hash from Developer where DEV_Email = ? OR DEV_User_Name = ?";
+  const sql = " Select DEV_ID,DEV_Hash,DEV_User_Name from Developer where DEV_Email = ? OR DEV_User_Name = ?";
 
   //Execute the query
   pool.query(sql, [email, email], (sql_error, result) => {
@@ -125,7 +125,7 @@ const Login_Developer = (email, password, callback) => {
         //After comparison is finished, we check the result
         if (compare_result) {
         //If it is the same password, return the ID and a success message
-          return callback(result[0].DEV_ID, "Logged In, Welcome back ^_^")
+          return callback(result[0].DEV_ID, result[0].DEV_User_Name,"Logged In, Welcome back ^_^")
         }
         else //if the password doesn't match, refuse access
           return callback(-1, "Wrong Passward or Email");  
