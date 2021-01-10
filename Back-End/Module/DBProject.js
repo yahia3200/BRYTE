@@ -90,6 +90,9 @@ const Search_all_Projects = async(num_of_loads)=>{
     let i =0;
     for (const project of projects)
     {        
+
+        projects[i].PRO_End_Date = (projects[i].PRO_End_Date.getDate()-1).toString()+ "/" + (projects[i].PRO_End_Date.getMonth()+1).toString() + "/" + (projects[i].PRO_End_Date.getFullYear()).toString();
+
         sql = "select distinct Cat.* from project as Proj , pro_category as Cat where Proj.PRO_ID = ? and Cat.CAT_PRO_Id = Proj.PRO_ID ; ";
         let [categories] = await pool.promise().query(sql, [project['PRO_ID']]);
         categories = categories.map(v => Object.assign({}, v));
@@ -99,7 +102,6 @@ const Search_all_Projects = async(num_of_loads)=>{
         let [developers] = await pool.promise().query(sql, [project['PRO_ID']]);
         developers = developers.map(v => Object.assign({}, v));
         projects[i]['developers'] =developers;
-        console.log(projects[i]);
         i++;
     }
 
