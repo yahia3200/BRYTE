@@ -523,6 +523,7 @@
               headers: {'Content-Type': 'application/json'}
             }).then(res2 => res2.json());
 
+
             if (res2.found == true)
             {
               email_error.textContent = "This Email is already used";
@@ -541,6 +542,7 @@
             } 
           } 
         }
+
       });
 
         document.querySelector('input[name="UserName"]').name = "ClientUserName"; 

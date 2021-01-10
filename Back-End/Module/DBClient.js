@@ -2,7 +2,7 @@ const { pool } = require('./DBConfig');
 const saltRounds = 10;
 const bcrypt = require("bcrypt");
 
-const insertClient =  (body, callback) => {
+const insertClient = (body, callback) => {
     const { name, userName, email, profilePicture } = body;
     const { phone, passward, foundedDate, location } = body;
 
@@ -21,18 +21,18 @@ const insertClient =  (body, callback) => {
     //console.log(year + "-" + month + "-" + date);
 
     const query = "insert into "
-    + "bryte.client ("
-    + "CLI_Name, " 
-    + "CLI_User_Name,"  
-    + "CLI_Email, "
-    + "CLI_Profile_Picture," 
-    + "CLI_Phone," 
-    + "CLI_Creation_Date," 
-    + "CLI_Founded_Date," 
-    + "CLI_Last_Login," 
-    + "CLI_Hash,"  
-    + "CLI_Location) "
-    + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        + "bryte.client ("
+        + "CLI_Name, "
+        + "CLI_User_Name,"
+        + "CLI_Email, "
+        + "CLI_Profile_Picture,"
+        + "CLI_Phone,"
+        + "CLI_Creation_Date,"
+        + "CLI_Founded_Date,"
+        + "CLI_Last_Login,"
+        + "CLI_Hash,"
+        + "CLI_Location) "
+        + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 
     bcrypt.genSalt(saltRounds, (salt_err, salt) => {
 
@@ -40,21 +40,41 @@ const insertClient =  (body, callback) => {
             pool.query(query, [name, userName, email, profilePicture,
                 phone, currentDate, foundedDate, currentDate,
                 hash, location], (sql_err, sql_res) => {
-                    if (sql_err){
+                    if (sql_err) {
                         console.log(sql_err);
-                        return callback({error : sql_err});
+                        return callback({ error: sql_err });
                     }
 
-                    else{
-                        return callback({sql_res : sql_res.insertId});
+                    else {
+                        return callback({ sql_res: sql_res.insertId });
                     }
-                    
+
                 });
         });
     });
 
 }
 
-    module.exports = {
-        insertClient
-    }
+const clientLogin = (email, password, callback) => {
+    const query = "SELECT CLI_User_Name, CLI_ID, CLI_Hash from client where CLI_Email = ? or CLI_User_Name = ?";
+
+    pool.query(query, [email, email], (sql_err, sql_res)=>{
+        if (sql_res.length > 0)
+        {
+            bcrypt.compare(password, sql_res[0].CLI_Hash, (compare_error, compare_res)=>{
+                if (compare_res)
+                    return callback({userName : sql_res[0].CLI_User_Name, id : sql_res[0].CLI_ID});
+                else
+                    return callback({error : "wrong password"});
+            })
+        }
+        else
+            return callback({error : "wrong email"});
+
+    });
+}
+
+module.exports = {
+    insertClient,
+    clientLogin
+}
