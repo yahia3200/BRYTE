@@ -113,10 +113,10 @@ const Insert_Developer = (res, body, callback) => {
  */
 const Login_Developer = (email, password, callback) => {
   //Select the Developer with that mail, take only the ID and Password
-  const sql = " Select DEV_ID,DEV_Hash from Developer where DEV_Email= ?";
+  const sql = " Select DEV_ID,DEV_Hash from Developer where DEV_Email = ? OR DEV_User_Name = ?";
 
   //Execute the query
-  pool.query(sql, [email], (sql_error, result) => {
+  pool.query(sql, [email, email], (sql_error, result) => {
     //When the query is executed. If there is a row returned, start checking the password.
     //Note: the DEV_Email attribute is unique so there can't be multiple records of it
     if (result.length>0) {

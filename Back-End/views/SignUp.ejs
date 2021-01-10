@@ -181,25 +181,29 @@
           <div class="Input-Cont">
             <div class="Label-text">Job Title</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text" required name="JobTitle"/>
+              <input type="text" class="Input-text"  name="JobTitle"/>
+              <div class="error-msg" id="job_title_error"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Phone Number</div>
             <div class="Input-Stylizer">
-              <input type="tel" class="Input-text" required name="PhoneNumber" />
+              <input type="tel" class="Input-text"  name="PhoneNumber" />
+              <div class="error-msg" id="phone_number_error"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Birth Date</div>
             <div class="Input-Stylizer">
-              <input type="date" class="Input-text" required name="BirthDate" />
+              <input type="date" class="Input-text"  name="BirthDate" />
+              <div class="error-msg" id="birth_date_error"></div>
             </div>
           </div>
           <div class="Input-Cont">
             <div class="Label-text">Area of Residence</div>
             <div class="Input-Stylizer">
-              <input type="text" class="Input-text" required name="Address" />
+              <input type="text" class="Input-text"  name="Address" />
+              <div class="error-msg" id="area_error"></div>
             </div>
           </div>
           <button
@@ -349,7 +353,7 @@
               body: JSON.stringify({Email}),
               headers: {'Content-Type': 'application/json'}
             }).then(res2 => res2.json());
-            
+
             if (res2.found == true)
             {
               email_error.textContent = "This Email is already used";
@@ -385,40 +389,49 @@
         const Email = form.Email.value;
         const Password = form.Password.value;
         const ConfirmPassword = form.ConfirmPassword.value;
+
         const JobTitle = form.JobTitle.value;
         const PhoneNumber = form.PhoneNumber.value;
         const BirthDate = form.BirthDate.value;
         const Address = form.Address.value;
 
-        if (Password){
-          try{
-            const res = await fetch('/signup',{
-              method: 'POST',
-              body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
-              headers: {'Content-Type': 'application/json'}
-            });
+        const job_title_error = document.querySelector('#job_title_error');
+        const phone_number_error = document.querySelector('#phone_number_error');
+        const birth_date_error = document.querySelector('#birth_date_error');
+        const area_error = document.querySelector('#area_error');
+
+        if (!JobTitle)
+          job_title_error.textContent = "This filed is required";
+
+        else if (!PhoneNumber)
+          phone_number_error.textContent = "This filed is required";
+        
+        else if (!BirthDate)
+          birth_date_error.textContent = "This filed is required";
+        
+        else if(!Address)
+          area_error.textContent = "This filed is required";
+
+        else{
+  
+          try {
+            let res = await fetch('/signup',{
+            method: 'POST',
+            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
+            headers: {'Content-Type': 'application/json'}
+          }).then(res => res.json());
+          
+          console.log(res)
+          if(res.user) {
+            location.assign('/');
+          }  
             
-            const data = await res.json();
-            if(data.status == 201)
-            {
-              window.prompt("Successfully authenticated");
-              location.assign('/');
-            }
-            else{
-              window.prompt("Not Successfully authenticated");
-              location.assign('/signup');
-              
-            }
-          }
-          catch(err){
+          } 
+          catch (error) {
             console.log(err);
           }
-        }
-        else {
-                  password_error.textContent = "Password must be of 6 chars at least";
-                  console.error(password_error.textContent);
-                }
-      }
-      )
+        } 
+          
+      });
       </script>
   </body>
