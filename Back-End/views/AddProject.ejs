@@ -82,7 +82,7 @@
             <div id="developers-bar">
               <div class="review-head dev">
                 <div class="reviewer-cont dev">
-                  <div class="review-title dev">Gaymed</div>
+                  <div class="review-title dev"><%= user %></div>
                   <div class="reviewer dev" style="font-family: sans-serif">
                     <span class="creating-developer-role" style="color: #66a3ff"></span>
                   </div>
@@ -101,10 +101,10 @@
         <div class="content">
           <div class="slide_show">
             <div id="first-img"/>
-              <input class="title-input" type="text" placeholder="first image link"">
+              <input class="title-input" type="text" placeholder="first image link" id="projectFirstImg">
             </div>
             <div id="second-img" />
-              <input class="title-input" type="text" placeholder="second image link">
+              <input class="title-input" type="text" placeholder="second image link" id = "projectSecondImg">
            </div>
           </div>
           <div class="project-info">
@@ -113,14 +113,14 @@
             </div>
             <div id="info-bar">
               <div class="project-title">
-                <input class="title-input" type="text"placeholder="Project title">
+                <input class="title-input" type="text"placeholder="Project title" id="projectName">
                 <input class="role-input" type="text"placeholder="Your role" onkeyup="changeRole(this)">
               </div>
               <div class="project-title3">
                 <span>Start date:</span>
-                <input class="date-input" type="date" >
+                <input class="date-input" type="date" id = "startDate">
                 <span>End date:</span>
-                <input class="date-input" type="date"  >
+                <input class="date-input" type="date"  id = "endDate">
               </div>
 
               <div id="discreption">
@@ -243,10 +243,10 @@
                     </linearGradient>
                   </defs>
                 </svg>
-                <div id="first-img"/>
-                 <input class="image-input" type="text" placeholder="project image link"">
+                <div id="third-img">
+                 <input class="image-input" type="text" placeholder="project image link" id="#logo">
                 </div>
-                <textarea onkeyup="adjustHeight(this)" placeholder="Project description" style="overflow:hidden"></textarea>
+                <textarea onkeyup="adjustHeight(this)" placeholder="Project description" style="overflow:hidden" id="description"></textarea>
               </div>
             </div>
           </div>
@@ -412,6 +412,10 @@
       </div>
     </div>
     <script>
+      let timeline = [];
+      let skills = [];
+      let developers = [];
+      
       function adjustHeight(el){
         el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
     }
@@ -476,6 +480,14 @@
     }
     function addWholeProject(){
 
+      const projectName = document.querySelector("#projectName").value;
+      const startDate = document.querySelector("#startDate").value;
+      const endDate = document.querySelector("#endDate").value;
+      const description = document.querySelector("#description").value;
+      const logo = document.querySelector("logo");
+
+      const projectFirstImg = document.querySelector("#projectFirstImg");
+      const projectSecondImg = document.querySelector("#projectSecondImg");
     }
 
     

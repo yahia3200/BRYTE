@@ -30,7 +30,13 @@
             </div>
           </li>
           <li class="dropdown">
-            <a href="/gallery">Gallery</a>
+            <a class="dropbtn" herf="">Projects</a>
+            <div class="dropdown-content">
+              <a href="/projects"> Projects Gallery</a>
+              <% if (role == "dev") {%>
+              <a href="/addProject"> Create Project</a>
+              <% } %>
+            </div>
           </li>
           <% if (role == 'dev') {%>
           <li><a id="userfuckenname" href="/developer/<%= id %>"><%= user %></a></li>

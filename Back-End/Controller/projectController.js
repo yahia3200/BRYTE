@@ -26,8 +26,15 @@ const get_gallery = async function(req, res) {
 
 }
 
+const addProject = (req, res)=>{
+    console.log(req);
+    res.render('AddProject', {style : "AddProject"});
+
+}
+
 
 module.exports = {
     get_project_by_id,
-    get_gallery
+    get_gallery,
+    addProject
 }
