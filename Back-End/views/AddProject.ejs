@@ -413,7 +413,7 @@
     </div>
     <script>
       let timeline = [];
-      let fields = [];
+      let category = [];
       let developers = [];
 
       function adjustHeight(el){
@@ -495,7 +495,7 @@
     function addSkill(){
       if(document.querySelector(".skill-phase").value.length > 0)
       {
-        fields.push({category : document.querySelector(".field-phase").value, skill : document.querySelector(".skill-phase").value});
+        category.push({field : document.querySelector(".field-phase").value, skill : document.querySelector(".skill-phase").value});
         document.querySelector(".skill-list").innerHTML +=
       `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
       }
@@ -514,19 +514,23 @@
 
       const projectFirstImg = document.querySelector("#projectFirstImg").value;
       const projectSecondImg = document.querySelector("#projectSecondImg").value;
+      const media = [];
+      media.push({link : projectFirstImg, name : "image"});
+      media.push({link : projectSecondImg, name : "image"});
 
       const userRole = document.querySelector("#userRole").value;
       const user = document.querySelector("#user").textContent;
       developers.push({UserName : user, role : userRole})
-      console.log(developers);
-      console.log(fields);
+      
 
       const res = await fetch('/addProject', {
         method: 'POST',
         body: JSON.stringify({ projectName, startDate, endDate, description, logo,
-                               projectFirstImg, projectSecondImg, developers , fields, }),
+                               projectFirstImg, projectSecondImg, developers , category, media, developers, timeline}),
         headers: { 'Content-Type': 'application/json' }
       });
+
+      location.assign('/');
     }
 
     

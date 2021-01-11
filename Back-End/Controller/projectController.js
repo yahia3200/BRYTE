@@ -9,10 +9,11 @@ const get_project_by_id = async function(req, res) {
     try {
         const id = req.params.id
         const Project_Container = await poolconnection.Search_Single_Project(id);
+        console.log(Project_Container);
         res.render('Project',{style: "Project" , project_container: Project_Container});
     }
     catch (err) {
-        console.log(err);
+         console.log(err);
         res.render('404',{style:"404"});
   
     }
@@ -47,9 +48,17 @@ const addProject = async(req, res)=>{
 
     const { media } = req.body;
     const media_res = await poolconnection.insertToMedia(id, media);
+    const {developers} = req.body;
+    const devs_res = await poolconnection.insertToWorksOn(id, developers);
+
+    const { category } = req.body;
+    const cat_res = await poolconnection.insertIntoCategory(id, category);
+
+    const { timeline } = req.body;
+    const timeline_res = await poolconnection.insertIntoTimeline(id, timeline);
     
 
-    res.send(media_res);
+    res.send(devs_res);
 
 }
 

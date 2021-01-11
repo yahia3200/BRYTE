@@ -7,6 +7,7 @@ a {
     font-style: normal;
     font-weight: normal; 
   }
+
   
   a:hover {
     color: #4b90f7;
@@ -63,6 +64,8 @@ a {
     height: 90px;
     width: 100%;
     padding-right: 30px;
+    -webkit-box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
   }
   
 .Nav-Outer-Cont .Nav-inner-Cont li {
