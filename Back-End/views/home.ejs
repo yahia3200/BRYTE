@@ -15,8 +15,13 @@
                     <li><a href="/coming_soon">Competitions</a></li>
                     <li><a href="/coming_soon">Bids</a></li>
                     <li><a href="/gallery">Gallery</a></li>
-                    <% if (user) { %>
-                    <li><a id="userfuckenname" href="/developer/<%= user.DEV_ID %>"><%= user %></a></li> 
+                   
+                    <% if (role == 'dev') {%>
+                    <li><a id="userfuckenname" href="/developer/<%= id %>"><%= user %></a></li> 
+                    <% } else {%>
+                    <li><a id="clientfuckenname" href="/client/<%= id %>"><%= user %></a></li>
+                    <% } %>
+                    <% if (user) { %> 
                     <li><a href="/logout">Log out</a></li>
                     <% } else { %>
                     <li><a href="/login">Login</a></li>
