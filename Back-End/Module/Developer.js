@@ -1,5 +1,8 @@
 const { pool } = require('./DBConfig');
 
+const saltRounds = 10;
+const bcrypt = require("bcrypt");
+
 const getPortofiloInfo = async (id)=>{
     res = {};
 
@@ -122,9 +125,30 @@ const isUsedEmail = async(email)=>{
         return false;
 }
 
+const changeDevPass = async(user, newPass)=>{
+    const query1 = "Select DEV_Hash from developer where DEV_User_Name = ? "
+    const res1 = await pool.promise().query(query1, [user]);
+
+    if (res[0].length > 0)
+    {
+        bcrypt.genSalt(saltRounds, (salt_err, salt) => {
+            /**When the gen salt is finished start this function */
+            bcrypt.hash(newPass, salt, async(hash_err, Hash) => {
+                const query2 = "update developer set DEV_Hash = ? where DEV_User_Name = ?"
+                const res2 = await pool.promise().query(query2, [Hash,user]);
+                return true;
+            });
+        });
+    }
+
+    else
+        return false;
+}
+
 module.exports =
 {
     getPortofiloInfo,
     isUsedUserName,
-    isUsedEmail
+    isUsedEmail,
+    changeDevPass
 }
