@@ -17,4 +17,8 @@ router.get('/project/:id',projectController.get_project_by_id)
 router.get('/gallery',projectController.get_gallery);
 
 
+
+//Projects Gallery Route with Filters
+router.post('/gallery', projectController.get_gallery_filtered);
+
 module.exports = router;
