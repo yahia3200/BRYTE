@@ -47,9 +47,17 @@ const addProject = async(req, res)=>{
 
     const { media } = req.body;
     const media_res = await poolconnection.insertToMedia(id, media);
+    const {developers} = req.body;
+    const devs_res = await poolconnection.insertToWorksOn(id, developers);
+
+    const { category } = req.body;
+    const cat_res = await poolconnection.insertIntoCategory(id, category);
+
+    const { timeline } = req.body;
+    const timeline_res = await poolconnection.insertIntoTimeline(id, timeline);
     
 
-    res.send(media_res);
+    res.send(devs_res);
 
 }
 

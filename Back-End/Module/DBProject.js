@@ -130,7 +130,6 @@ const insertProject = async(projectName, startDate, endDate, description, logo, 
     );`
 
     const [res] = await await pool.promise().query(query, [projectName, startDate, date, endDate, description, logo]);
-    console.log(res);
     if (res.insertId)
         return res.insertId;
     else
@@ -148,15 +147,101 @@ const insertToMedia = async(id, media)=>{
     )
   values
     (
-      $PRO_MUL_ID, 
-      $PRO_MUL_Link, 
-      $PRO_MUL_Link_Name
+      ?, 
+      ?, 
+      ?
     );`
 
     for (let index = 0; index < media.length; index++) {
-        const [result] = await  pool.promise().query(query, [id, media['link'], media['name']]);
+        const [result] = await  pool.promise().query(query, [id, media[index]['link'], media[index]['name']]);
         
-        if (!result.insertId){
+        if (result.affectedRows < 1){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const insertToWorksOn = async(id, developers)=>{
+    const query1 = `insert into 
+    bryte.developer_works_on (
+      DEV_Id, 
+      PRO_Id, 
+      Dev_Role
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?
+    );`
+
+    const query2 = `select DEV_ID from developer where DEV_User_Name = ?`;
+
+    for (let index = 0; index < developers.length; index++) {
+        const [res] = await  pool.promise().query(query2, [developers[index]['UserName']]);
+        console.log(res[0]['DEV_ID']);
+        const [res2] = await  pool.promise().query(query1, [res[0]['DEV_ID'], id, developers[index]['role']]);
+
+        if (res2.affectedRows < 1)
+            return false;
+        
+    }
+    
+    return true;
+}
+
+const insertIntoCategory = async(id, category)=>{
+    const query = `insert into 
+    bryte.pro_category (
+      PRO_CAT_Field, 
+      PRO_CAT_Skill, 
+      CAT_PRO_Id
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?
+    );`
+
+        
+    for (let index = 0; index < category.length; index++) {
+        const [result] = await  pool.promise().query(query, [category[index]['field'], category[index]['skill'], id]);
+        
+        if (result.affectedRows < 1){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const insertIntoTimeline = async(id, timeline)=>{
+    const query = `insert into 
+    bryte.timeline (
+      PRO_TIM_ID, 
+      PRO_TIM_Phase_Start_Date, 
+      PRO_TIM_Phase_End_Date, 
+      PRO_TIM_Title, 
+      PRO_TIM_Description
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?
+    );`
+
+    for (let index = 0; index < timeline.length; index++) {
+        
+        const [result] = await  pool.promise().query(query, [ id, timeline[index]['startDate'], timeline[index]['endDate'], 
+                                                              timeline[index]['phase'], timeline[index]['description']]);
+        
+        if (result.affectedRows < 1){
             return false;
         }
     }
@@ -164,10 +249,14 @@ const insertToMedia = async(id, media)=>{
     return true;
 
 }
+
 module.exports =
 {
     Search_Single_Project,
     Search_all_Projects,
     insertProject,
-    insertToMedia
+    insertToMedia,
+    insertToWorksOn,
+    insertIntoCategory,
+    insertIntoTimeline
 }
