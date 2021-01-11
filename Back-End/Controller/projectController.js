@@ -20,12 +20,21 @@ const get_project_by_id = async function(req, res) {
 
 
 const get_gallery = async function(req, res) {
+
      const projects = await poolconnection.Search_all_Projects(0);
      res.render('gallery',{style: "gallery" , projects: projects});     
+
+}
+
+const addProject = (req, res)=>{
+    console.log(req);
+    res.render('AddProject', {style : "AddProject"});
+
 }
 
 
 module.exports = {
     get_project_by_id,
-    get_gallery
+    get_gallery,
+    addProject
 }
