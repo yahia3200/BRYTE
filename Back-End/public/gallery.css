@@ -366,10 +366,10 @@ select{
 }
 .cats{
   position: absolute;
-  top:107px;
+  top:117px;
   right:0px;
-  height:35px;
-  padding:5px;
+  height:25px;
+  padding:4px;
   background-color:#2B2F3B;
   display: flex;
   align-content: center;
@@ -547,6 +547,10 @@ body footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     background: #393f49;
     display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-grow: 1;
+    flex-basis: 100%;
     flex-direction: row;
   }
   .project-head.dev {
@@ -631,4 +635,9 @@ body footer {
   }
   .icon{
     padding:10px;
+  }
+  .cat{
+    margin:0 3px;
+    height: 17px;
+    object-fit: cover;
   }

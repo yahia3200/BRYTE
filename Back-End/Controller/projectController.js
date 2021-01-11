@@ -20,7 +20,10 @@ const get_project_by_id = async function(req, res) {
 
 
 const get_gallery = async function(req, res) {
-     const projects = poolconnection.Search_all_Projects(0);
+
+     const projects = await poolconnection.Search_all_Projects(0);
+     res.render('gallery',{style: "gallery" , projects: projects});     
+
 }
 
 
