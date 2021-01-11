@@ -557,7 +557,7 @@ div[onclick="addDegree()"]:hover {
   filter: brightness(0.8) contrast(1.7);
 }
 
-div[onclick="addWholeProject()"] {
+div[onclick="saveProfile()"] {
   background: linear-gradient(70deg, #00bae4, #005de8);
   padding: 10px;
   font-size: 1.3rem;
@@ -570,7 +570,7 @@ div[onclick="addWholeProject()"] {
   margin-left: 50%;
   transform: translateX(-50%);
 }
-div[onclick="addWholeProject()"]:hover {
+div[onclick="saveProfile()"]:hover {
   -webkit-filter: brightness(0.8) contrast(1.7);
   filter: brightness(0.8) contrast(1.7);
 }
