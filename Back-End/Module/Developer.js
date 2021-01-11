@@ -126,10 +126,12 @@ const isUsedEmail = async(email)=>{
 }
 
 const changeDevPass = async(user, newPass)=>{
+    console.log("A7A");
     const query1 = "Select DEV_Hash from developer where DEV_User_Name = ? "
     const res1 = await pool.promise().query(query1, [user]);
+    console.log(res1);
 
-    if (res[0].length > 0)
+    if (res1[0].length > 0)
     {
         bcrypt.genSalt(saltRounds, (salt_err, salt) => {
             /**When the gen salt is finished start this function */
