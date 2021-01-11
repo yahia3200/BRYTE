@@ -541,7 +541,8 @@ textarea:focus {
 
 div[onclick="addPhase()"],
 div[onclick="addSkill()"],
-div[onclick="addDev()"] {
+div[onclick="addDev()"],
+div[onclick="addDegree()"] {
   background: linear-gradient(70deg, #00bae4, #005de8);
   padding: 10px;
   cursor: pointer;
@@ -550,7 +551,8 @@ div[onclick="addDev()"] {
 }
 div[onclick="addPhase()"]:hover,
 div[onclick="addSkill()"]:hover,
-div[onclick="addDev()"]:hover {
+div[onclick="addDev()"]:hover,
+div[onclick="addDegree()"]:hover {
   -webkit-filter: brightness(0.8) contrast(1.7);
   filter: brightness(0.8) contrast(1.7);
 }
@@ -590,4 +592,8 @@ select {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+.degree-type
+{
+  max-width: 130px;
 }
