@@ -11,12 +11,12 @@ rows[0].PRO_End_Date = (rows[0].PRO_End_Date.getDate()-1).toString()+ "/" + (row
 rows[0].PRO_Creation = (rows[0].PRO_Creation.getDate()-1).toString()+ "/" + (rows[0].PRO_Creation.getMonth()+1).toString() + "/" + (rows[0].PRO_Creation.getFullYear()).toString();
 container['project'] = Object.assign({}, rows[0]);
 
-sql = 'Select distinct PRO_CAT_Field from pro_category where CAT_PRO_Id=1;';
+sql = 'Select distinct PRO_CAT_Field from pro_category where CAT_PRO_Id = ?;';
 [rows, fields,sql_error] = await pool.promise().query(sql, [id]);
 rows = rows.map(v => Object.assign({}, v));
 container['Fields'] = Object.assign({}, rows);
 
-sql = 'Select distinct PRO_CAT_Skill from pro_category where CAT_PRO_Id=1;';
+sql = 'Select distinct PRO_CAT_Skill from pro_category where CAT_PRO_Id = ?;';
 [rows, fields,sql_error] = await pool.promise().query(sql, [id]);
 rows = rows.map(v => Object.assign({}, v));
 container['Skills'] = Object.assign({}, rows);
@@ -138,7 +138,7 @@ const Search_all_filtered_Projects = async(Fields)=>{
     }
         final_projects[field] = projects;
     }
-    console.log(final_projects);
+
     return final_projects;
 
 }
@@ -216,7 +216,6 @@ const insertToWorksOn = async(id, developers)=>{
 
     for (let index = 0; index < developers.length; index++) {
         const [res] = await  pool.promise().query(query2, [developers[index]['UserName']]);
-        console.log(res[0]['DEV_ID']);
         const [res2] = await  pool.promise().query(query1, [res[0]['DEV_ID'], id, developers[index]['role']]);
 
         if (res2.affectedRows < 1)
@@ -276,10 +275,8 @@ const insertIntoTimeline = async(id, timeline)=>{
         const [result] = await  pool.promise().query(query, [ id, timeline[index]['startDate'], timeline[index]['endDate'], 
                                                               timeline[index]['phase'], timeline[index]['description']]);
         
-        if (result.affectedRows < 1){
-            return false;
         }
-    }
+    
 
     return true;
 
