@@ -103,10 +103,10 @@
         <div class="content">
           <div class="slide_show">
             <div id="first-img"/>
-              <input class="title-input" type="text" placeholder="first image link"">
+              <input id="bidFirstImg" class="title-input" type="text" placeholder="first image link"">
             </div>
             <div id="second-img" />
-              <input class="title-input" type="text" placeholder="second image link">
+              <input id="bidSecondImg" class="title-input" type="text" placeholder="second image link">
            </div>
           </div>
           <div class="project-info">
@@ -115,14 +115,14 @@
             </div>
             <div id="info-bar">
               <div class="project-title">
-                <input class="title-input" type="text"placeholder="Bid title">
-                <input class="role-input" type="text"placeholder="Payement Price" onkeyup="changeRole(this)">
+                <input id="bidName" class="title-input" type="text"placeholder="Bid title">
+                <input id="price" class="role-input" type="text"placeholder="Payement Price" onkeyup="changeRole(this)">
               </div>
               <div class="project-title3">
                 <span>Start date:</span>
-                <input class="date-input" type="date" >
+                <input class="date-input" type="date" id="startDate" >
                 <span>End date:</span>
-                <input class="date-input" type="date"  >
+                <input class="date-input" type="date" id="endDate" >
               </div>
 
               <div id="discreption">
@@ -246,9 +246,9 @@
                   </defs>
                 </svg>
                 <div id="third-img"/>
-                 <input class="image-input" type="text" placeholder="Bid image link"">
+                 <input id="logo" class="image-input" type="text" placeholder="Bid image link"">
                 </div>
-                <textarea onkeyup="adjustHeight(this)" placeholder="Bid description" style="overflow:hidden"></textarea>
+                <textarea id="description" onkeyup="adjustHeight(this)" placeholder="Bid description" style="overflow:hidden"></textarea>
               </div>
             </div>
           </div>   
@@ -296,7 +296,7 @@
             </div>
               <div class="skill-list">
               </div>
-              <div onclick="addWholeProject()">Submit Bid</div>
+              <div onclick="addWholeBid()">Submit Bid</div>
 
             </div>
             
@@ -306,6 +306,7 @@
       </div>
     </div>
     <script>
+      let fields = [];
       function adjustHeight(el){
         el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
     }
@@ -326,51 +327,34 @@
                   ExtraForm.innerHTML = SkillsOfField[document.querySelector(".field-phase").value].reduce(
                           (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
     }
-
-    function addDev(){
-      document.querySelector("#developers-bar").innerHTML +=
-      `<div class="review-head dev">
-      <div class="reviewer-cont dev">
-        <div class="review-title dev">${document.querySelector(".dev-input").value}</div>
-        <div class="reviewer dev" style="font-family: sans-serif">
-          <span class="creating-developer-role" style="color: #66a3ff">${document.querySelector(".role-input").value}</span>
-        </div>
-      </div>
-    </div>`;
-      document.querySelector(".dev-input").value = "";
-      document.querySelector(".role-input").value = "";
-    }
-    function addPhase(){
-      document.querySelector(".phasedate-list").innerHTML +=
-      `<div class="phase-date">${document.querySelector(".start-phase").value} - ${document.querySelector(".end-phase").value}</div>`;
-      document.querySelector(".start-phase").value = "";
-      document.querySelector(".end-phase").value = "";
-      document.querySelector(".phase-list").innerHTML +=
-      `<div class="phase-cont">
-        <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
-          <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
-          <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
-          </svg>  
-        <div class="phase-title">${document.querySelector(".title-phase").value}</div>
-        <div class="phase-desc">
-          ${document.querySelector(".desc-phase").value}
-        </div>
-      </div></div>`;
-      document.querySelector(".title-phase").value = "";
-      document.querySelector(".desc-phase").value = "";
-    }
     function addSkill(){
       if(document.querySelector(".skill-phase").value.length > 0)
+      {
+        fields.push({category : document.querySelector(".field-phase").value, skill : document.querySelector(".skill-phase").value});
       document.querySelector(".skill-list").innerHTML +=
       `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
     }
-    function changeRole(el){
-      document.querySelector(".creating-developer-role").innerHTML = el.value;
-    }
-    function addWholeProject(){
+  }
+  addWholeBid  = async()=>{
+  
+    const bidName = document.querySelector("#bidName").value;
+    const startDate = document.querySelector("#startDate").value;
+    const endDate = document.querySelector("#endDate").value;
+    const description = document.querySelector("#description").value;
+    const logo = document.querySelector("#logo").value;
 
-    }
+    const bidFirstImg = document.querySelector("#bidFirstImg").value;
+    const bidSecondImg = document.querySelector("#bidSecondImg").value;
+
+    const price = document.querySelector("#price").textContent;
+
+    const res = await fetch('/addBid', {
+      method: 'POST',
+      body: JSON.stringify({ bidName, startDate, endDate, description, logo,
+                             bidFirstImg, bidSecondImg, price, fields}),
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
     </script>
   </body>
 </html>
