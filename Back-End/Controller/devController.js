@@ -1,4 +1,5 @@
 const poolconnection = require('../Module/Developer');
+const jwt = require('jsonwebtoken');
 
 const developerInfo = async (req, res) => {
 
@@ -37,11 +38,22 @@ const checkEmail = async (req, res)=>{
 
 const changePassword = async(req, res)=>{
     try {
-        const {oldPass, newPass} = req.body
-        console.log(oldPass, newPass);
-        const res = await poolconnection.changeDevPass(res.locals.user,oldPass, newPass);
-        console.log(res);
-        res.send(res);
+        const token = req.cookies.jwt;
+        if (token) {
+            jwt.verify(token, 'BRYTE Secret', async (err, decodedToken) => {
+                if (err) {
+                    return "error";
+                }
+                else {
+                    const {newPass} = req.body;
+                    user = decodedToken.userName;
+                    const res2 = await poolconnection.changeDevPass(user, newPass);
+                    //console.log("a");
+                    res.send(res2);
+                }
+            });
+        }
+
     } catch (error) {
         res.send("error");
     }

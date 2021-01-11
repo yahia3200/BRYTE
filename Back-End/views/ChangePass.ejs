@@ -66,7 +66,7 @@
 
               <div class="Label-text">Confirm new assword</div>
               <div class="Input-Stylizer">
-                <input type="text" class="Input-text" required  id="confirmPass"/>
+                <input type="password" class="Input-text" required  id="confirmPass"/>
               </div>
             </div>
 
@@ -95,16 +95,17 @@
 
         if (newPass == confirmPass)
         {
+
           const res = await fetch('/change-password', {
           method: 'POST',
           body: JSON.stringify({ oldPass, newPass }),
           headers: { 'Content-Type': 'application/json' }
         });
 
-          const data = await res.json();
+
           location.assign('/');
         }
-      })
+      });
     </script>
   </body>
 
