@@ -11,6 +11,8 @@ const createToken = (id, userName, role) => {
 const signUpPost = (req, res)=>{
     try {
         poolconnection.insertClient(req.body, (sql_res)=>{
+            console.log(req.body);
+            console.log(sql_res);
             if (sql_res['error'])
             {
                 res.send('not inserted');
@@ -45,7 +47,31 @@ const singInPost = (req, res)=>{
     });
 }
 
+const checkNewUser = async(req, res)=>{
+    try {
+        const userName = req.body.UserName;
+        const found =  await poolconnection.isUsedUserName(userName);
+        res.send({found});
+        
+    } catch (error) {
+        res.send('error');
+    }
+}
+
+const checkEmail = async (req, res)=>{
+    try {
+        const email = req.body.Email;
+        const found =  await poolconnection.isUsedEmail(email);
+        res.send({found});
+        
+    } catch (error) {
+        res.send('error');
+    }
+
+}
 module.exports = {
     signUpPost,
-    singInPost
+    singInPost,
+    checkNewUser,
+    checkEmail
 }

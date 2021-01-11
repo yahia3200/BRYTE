@@ -293,7 +293,70 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
       
+      const abbas = async(e)=>{
+        e.preventDefault();
+        //get the values
+        const Fname = form1.Fname.value;
+        const Lname = form1.Lname.value;
+        const UserName = form1.UserName.value;
+        const Email = form1.Email.value;
+        const Password = form1.Password.value;
+        const ConfirmPassword = form1.ConfirmPassword.value;
 
+        const JobTitle = form1.JobTitle.value;
+        const PhoneNumber = form1.PhoneNumber.value;
+        const BirthDate = form1.BirthDate.value;
+        const ProfilePicture = form1.ProfilePicture.value;
+        const Cover = form1.Cover.value;
+        const Address = form1.Address.value;
+
+        const job_title_error = document.querySelector('#job_title_error');
+        const phone_number_error = document.querySelector('#phone_number_error');
+        const profile_picture_error = document.querySelector('#profile_picture_error');
+        const cover_error = document.querySelector('#cover_error');
+        const birth_date_error = document.querySelector('#birth_date_error');
+        const area_error = document.querySelector('#area_error');
+
+        if (!JobTitle)
+          job_title_error.textContent = "This filed is required";
+
+        else if (!PhoneNumber)
+          phone_number_error.textContent = "This filed is required";
+        
+        else if (!BirthDate)
+          birth_date_error.textContent = "This filed is required";
+        
+        else if (!ProfilePicture)
+        profile_picture_error.textContent = "This filed is required";
+        
+        else if (!Cover)
+        cover_error.textContent = "This filed is required";
+        
+
+        else if(!Address)
+          area_error.textContent = "This filed is required";
+
+        else{
+  
+          try {
+            let res = await fetch('/signup',{
+            method: 'POST',
+            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
+            headers: {'Content-Type': 'application/json'}
+          }).then(res => res.json());
+          
+          console.log(res)
+          if(res.user) {
+            location.assign('/');
+          }  
+            
+          } 
+          catch (error) {
+            console.log(err);
+          }
+        } 
+          
+      };
 
       document.querySelector("#sign-up-dev").addEventListener("click", ()=> {
         gsap.to("#sep1", { duration: 0.7, x: 55, y: -200, opacity: 0 });
@@ -391,70 +454,7 @@
       });
 
       const form = document.querySelector('#form1');
-      form.addEventListener('submit',async(e)=>{
-        e.preventDefault();
-        //get the values
-        const Fname = form1.Fname.value;
-        const Lname = form1.Lname.value;
-        const UserName = form1.UserName.value;
-        const Email = form1.Email.value;
-        const Password = form1.Password.value;
-        const ConfirmPassword = form1.ConfirmPassword.value;
-
-        const JobTitle = form1.JobTitle.value;
-        const PhoneNumber = form1.PhoneNumber.value;
-        const BirthDate = form1.BirthDate.value;
-        const ProfilePicture = form1.ProfilePicture.value;
-        const Cover = form1.Cover.value;
-        const Address = form1.Address.value;
-
-        const job_title_error = document.querySelector('#job_title_error');
-        const phone_number_error = document.querySelector('#phone_number_error');
-        const profile_picture_error = document.querySelector('#profile_picture_error');
-        const cover_error = document.querySelector('#cover_error');
-        const birth_date_error = document.querySelector('#birth_date_error');
-        const area_error = document.querySelector('#area_error');
-
-        if (!JobTitle)
-          job_title_error.textContent = "This filed is required";
-
-        else if (!PhoneNumber)
-          phone_number_error.textContent = "This filed is required";
-        
-        else if (!BirthDate)
-          birth_date_error.textContent = "This filed is required";
-        
-        else if (!ProfilePicture)
-        profile_picture_error.textContent = "This filed is required";
-        
-        else if (!Cover)
-        cover_error.textContent = "This filed is required";
-        
-
-        else if(!Address)
-          area_error.textContent = "This filed is required";
-
-        else{
-  
-          try {
-            let res = await fetch('/signup',{
-            method: 'POST',
-            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
-            headers: {'Content-Type': 'application/json'}
-          }).then(res => res.json());
-          
-          console.log(res)
-          if(res.user) {
-            location.assign('/');
-          }  
-            
-          } 
-          catch (error) {
-            console.log(err);
-          }
-        } 
-          
-      });
+      form.addEventListener('submit', abbas);
 
 
       document.querySelector("#sign-up-client").addEventListener("click", ()=> {
@@ -465,7 +465,6 @@
                 <div class="error-msg" id="Name-error"></div>
               </div>`;
         document.querySelector("#Continue-dev").id = "Continue-cli";
-        document.querySelector("#Complete-dev").id = "Complete-cli";
 
         document.querySelector("#Continue-cli").addEventListener("click", async()=> {
 
@@ -545,6 +544,7 @@
 
       });
 
+        document.querySelector('#form1').removeEventListener("submit", abbas);
         document.querySelector('input[name="UserName"]').name = "ClientUserName"; 
         document.querySelector('input[name="Email"]').name = "ClientEmail"; 
         document.querySelector('input[name="Password"]').name = "ClientPassword"; 
@@ -577,12 +577,14 @@
             form="form1"
             value="Submit"
             class="signUP dev"
-            id="Complete-dev"
+            id="Complete-cli"
           >
             Complete Sign up
           </button>
-        `
+        `;
 
+
+        
         document.querySelector("*").classList.add('greenify');
         document.querySelector(".Head.cli").classList.add('dont-greenify');
         gsap.to("#sep1", { duration: 0.7, x: 55, y: -200, opacity: 0 });
@@ -590,9 +592,46 @@
         gsap.to(".Cont-Block.dev", { duration: 0.7, x: -500, opacity: 0 });
         gsap.to(`#${event.target.id}`, { duration: 0.1, y: 20, opacity: 0 });
         gsap.to(".signUP-form-Cont-1", { delay: 1, duration: 0.4, y: -80});
-        gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-dev", { delay: 1, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
+        gsap.to(".signUP-form-Cont-1 .Input-Cont, #Continue-cli", { delay: 1, duration: 0.4, y:-80, opacity: 1, stagger: 0.1});
         gsap.to(".UnderLineTitle", { delay: 1, duration: 0.3, x:80, opacity: 1});
         document.querySelector(".signUP-form-Cont-1").style.pointerEvents = 'all'; 
+
+        document.querySelector("#Complete-cli").addEventListener("click", async(e)=>{
+          e.preventDefault();
+
+          const name = form1.ClientName.value;
+          const userName = form1.ClientUserName.value;
+          const email = form1.ClientEmail.value;
+          const password = form1.ClientPassword.value;
+          const confirmPassword = form1.ClientConfirmPassword.value;
+          const profilePicture = form1.ClientProfilePicture.value;
+          const coverPicture = form1.ClientCover.value;
+          const foundedDate = form1.ClientBirthDate.value;
+
+          const profile_picture_error = document.querySelector("#profile_picture_error");
+          const cover_error = document.querySelector("#cover_error");
+          const birth_date_error = document.querySelector("#birth_date_error");
+
+          console.log(profilePicture);
+          if (!profilePicture)
+            profile_picture_error.textContent = "This field is required";
+          else if (!coverPicture)
+            cover_error.textContent = "This field is required";
+          else if (!foundedDate)
+            birth_date_error.textContent = "This field is required";
+
+          else {
+
+            let res = await fetch('/client-signup',{
+              method: 'POST',
+              body: JSON.stringify({name, userName, email, profilePicture, 
+                                    phone : "01000", password, foundedDate, location : "test"}),
+              headers: {'Content-Type': 'application/json'}
+            }).then(res => res.json());
+            console.log(res);
+          }
+
+        })
       });
       
       </script>

@@ -1,0 +1,484 @@
+<%- include('partials/header'); -%>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Project</title>
+  </head>
+
+  <body>
+
+    <div class="main">
+      <div id="side-bar-container">
+        <div class="side_bar">
+          <div id="upper">
+            <svg
+              width="197"
+              height="144"
+              viewBox="0 0 197 144"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M139.937 110.353L181 76.5216L141.22 45.9126M57.0633 110.353L16 76.5216L55.7801 45.9126M76.4213 134L128.408 10"
+                stroke="#48CC75"
+                stroke-width="19"
+                stroke-linecap="round"
+              />
+            </svg>
+            <h1>Personal Project</h1>
+          </div>
+          <svg
+            id="side-bar-arrow"
+            width="313"
+            height="119"
+            viewBox="0 0 313 119"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278 12H19.3309C9.20702 12 1 20.0589 1 30V119"
+              stroke="url(#paint0_linear)"
+              stroke-width="2"
+            />
+            <circle
+              cx="288.5"
+              cy="11.5"
+              r="11.5"
+              fill="#020f22"
+              stroke-width="2"
+            />
+            <circle
+              cx="288.5"
+              cy="11.5"
+              r="5.5"
+              transform="rotate(90 288.5 11.5)"
+              stroke="white"
+              stroke-width="2"
+            />
+            <path
+              d="M296 22L309 11.5L296.406 2"
+              stroke="white"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear"
+                x1="274.945"
+                y1="12"
+                x2="5.87031"
+                y2="118.306"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" />
+                <stop offset="1" stop-color="#4B90F6" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div id="developers-container">
+            <h2>Developers:</h2>
+            <div id="developers-bar">
+              <div class="review-head dev">
+                <div class="reviewer-cont dev">
+                  <div class="review-title dev">Gaymed</div>
+                  <div class="reviewer dev" style="font-family: sans-serif">
+                    <span class="creating-developer-role" style="color: #66a3ff"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-title4">
+              <input class="dev-input" type="text"placeholder="Username">
+              <input class="role-input" type="text"placeholder="Role">
+              <div onclick="addDev()">Add Developer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-border">
+        <div class="content">
+          <div class="slide_show">
+            <div id="first-img"/>
+              <input class="title-input" type="text" placeholder="first image link"">
+            </div>
+            <div id="second-img" />
+              <input class="title-input" type="text" placeholder="second image link">
+           </div>
+          </div>
+          <div class="project-info">
+            <div id="logo-bar">
+              <img src="assets/img placeholder.svg" />
+            </div>
+            <div id="info-bar">
+              <div class="project-title">
+                <input class="title-input" type="text"placeholder="Project title">
+                <input class="role-input" type="text"placeholder="Your role" onkeyup="changeRole(this)">
+              </div>
+              <div class="project-title3">
+                <span>Start date:</span>
+                <input class="date-input" type="date" >
+                <span>End date:</span>
+                <input class="date-input" type="date"  >
+              </div>
+
+              <div id="discreption">
+                <svg
+                  id="dis-border"
+                  width="157"
+                  height="112"
+                  viewBox="0 0 157 112"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d)">
+                    <line
+                      x1="26.5"
+                      y1="1"
+                      x2="26.5"
+                      y2="103"
+                      stroke="url(#paint3_linear)"
+                    />
+                  </g>
+                  <g filter="url(#filter1_d)">
+                    <line
+                      x1="5"
+                      y1="28.5"
+                      x2="152"
+                      y2="28.5"
+                      stroke="url(#paint1_linear)"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_d"
+                      x="21"
+                      y="0"
+                      width="11"
+                      height="112"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2.5" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow"
+                        result="shape"
+                      />
+                    </filter>
+                    <filter
+                      id="filter1_d"
+                      x="0"
+                      y="27"
+                      width="157"
+                      height="11"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2.5" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow"
+                        result="shape"
+                      />
+                    </filter>
+                    <linearGradient
+                      id="paint3_linear"
+                      x1="25.0073"
+                      y1="1"
+                      x2="25.0073"
+                      y2="103"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#4B90F7" stop-opacity="0" />
+                      <stop offset="0.190625" stop-color="#4B90F7" />
+                      <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                    </linearGradient>
+                    <linearGradient
+                      id="paint1_linear"
+                      x1="5"
+                      y1="29.9927"
+                      x2="152"
+                      y2="29.9927"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#4B90F7" stop-opacity="0" />
+                      <stop offset="0.190625" stop-color="#4B90F7" />
+                      <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div id="first-img"/>
+                 <input class="image-input" type="text" placeholder="project image link"">
+                </div>
+                <textarea onkeyup="adjustHeight(this)" placeholder="Project description" style="overflow:hidden"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-cont">
+            <div class="left-title">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="18" cy="18" r="18" fill="#020F22" />
+                <path
+                  d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                  fill="white"
+                />
+                <path
+                  d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                  fill="white"
+                />
+              </svg>
+              &nbsp; Timeline
+            </div>
+            <div class="timeline">
+              <div class="project-title2">
+                <input class="title-phase title-input" type="text"placeholder="Phase">
+                <input class="desc-phase title-input" type="text"placeholder="Description">
+              </div>
+              <div class="project-title2">
+                <span>Start date:</span>
+
+              <input class="start-phase date-input" type="date" >
+              <span>End date:</span>
+              <input class="end-phase date-input" type="date" >
+              <div onclick="addPhase()">Add phase</div>
+            </div>
+
+              <div class="phasedate-list">
+              </div>
+              <svg
+                class="line-of-time"
+                width="957"
+                height="3"
+                viewBox="0 0 957 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g filter="url(#filter5_d)">
+                  <line
+                    x1="953"
+                    y1="1.5"
+                    x2="4"
+                    y2="1.5"
+                    stroke="url(#paint7_linear)"
+                    stroke-width="3"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter5_d"
+                    x="0"
+                    y="0"
+                    width="957"
+                    height="3"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow"
+                      result="shape"
+                    />
+                  </filter>
+                  <linearGradient
+                    id="paint7_linear"
+                    x1="953"
+                    y1="-0.992664"
+                    x2="4"
+                    y2="-0.992794"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#4B90F7" stop-opacity="0" />
+                    <stop offset="0.148958" stop-color="#4B90F7" />
+                    <stop offset="0.836458" stop-color="#4B90F7" />
+                    <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="phase-list">
+              </div>
+            </div>
+            
+          <div class="timeline-cont">
+            <div class="left-title">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="18" cy="18" r="18" fill="#020F22" />
+                <path
+                  d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                  fill="white"
+                />
+                <path
+                  d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                  fill="white"
+                />
+              </svg>
+              &nbsp; Fields & Skills
+            </div>
+            <div class="timeline">
+              <div class="project-title2">
+                <span>Field:</span>
+              <select class="field-phase date-input" onchange="adjustSkill()">
+                <option selected disabled value>choose field first</option>
+                <option value="Artificial_Intelligence">Artificial-Intelligence</option>
+                <option value="Back_end_Development">Back-end-Development</option>
+                <option value="Cloud_Computing">Cloud-Computing</option>
+                <option value="Computer_Graphics">Computer-Graphics</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Deep_Learning">Deep-Learning</option>
+                <option value="Embedded_Systems">Embedded-Systems</option>
+                <option value="Front_end_Development">Front-end-Development</option>
+                <option value="Game_Development">Game-Development</option>
+                <option value="Machine_Learning">Machine-Learning</option>
+              </select>
+              <span>Skill:</span>
+              <select class="skill-phase date-input">
+              </select>
+              <div onclick="addSkill()">Add skill</div>
+            </div>
+              <div class="skill-list">
+              </div>
+              <div onclick="addWholeProject()">Submit Project</div>
+
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      function adjustHeight(el){
+        el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
+    }
+    const SkillsOfField = {
+      Artificial_Intelligence: ["SearchAlgorithms"], 
+      Back_end_Development: ["NodeJs", "PHP", "FireBase"],
+      Cloud_Computing: ["GoogleCloud", "Azure"],
+      Computer_Graphics: ["OpenGL"],
+      Cybersecurity: [""],  
+      Deep_Learning: ["OpenCV", "Tensorflow"],
+      Embedded_Systems: ["AVR", "ARM"],
+      Front_end_Development: ["VueJS", "React", "Angular", "UI/UX", "Sass", "Flutter"],
+      Game_Development: ["Unity", "Unreal"],
+      Machine_Learning: ["Python"]
+    };
+    const ExtraForm = document.querySelector(".skill-phase");
+    function adjustSkill(){
+                  ExtraForm.innerHTML = SkillsOfField[document.querySelector(".field-phase").value].reduce(
+                          (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
+    }
+
+    function addDev(){
+      document.querySelector("#developers-bar").innerHTML +=
+      `<div class="review-head dev">
+      <div class="reviewer-cont dev">
+        <div class="review-title dev">${document.querySelector(".dev-input").value}</div>
+        <div class="reviewer dev" style="font-family: sans-serif">
+          <span class="creating-developer-role" style="color: #66a3ff">${document.querySelector(".role-input").value}</span>
+        </div>
+      </div>
+    </div>`;
+      document.querySelector(".dev-input").value = "";
+      document.querySelector(".role-input").value = "";
+    }
+    function addPhase(){
+      document.querySelector(".phasedate-list").innerHTML +=
+      `<div class="phase-date">${document.querySelector(".start-phase").value} - ${document.querySelector(".end-phase").value}</div>`;
+      document.querySelector(".start-phase").value = "";
+      document.querySelector(".end-phase").value = "";
+      document.querySelector(".phase-list").innerHTML +=
+      `<div class="phase-cont">
+        <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
+          <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
+          <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          </svg>  
+        <div class="phase-title">${document.querySelector(".title-phase").value}</div>
+        <div class="phase-desc">
+          ${document.querySelector(".desc-phase").value}
+        </div>
+      </div></div>`;
+      document.querySelector(".title-phase").value = "";
+      document.querySelector(".desc-phase").value = "";
+    }
+    function addSkill(){
+      if(document.querySelector(".skill-phase").value.length > 0)
+      document.querySelector(".skill-list").innerHTML +=
+      `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
+    }
+    function changeRole(el){
+      document.querySelector(".creating-developer-role").innerHTML = el.value;
+    }
+    function addWholeProject(){
+
+    }
+
+    
+    </script>
+  </body>
+</html>
