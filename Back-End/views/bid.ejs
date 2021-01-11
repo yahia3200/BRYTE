@@ -1,9 +1,8 @@
-<html lang="en">
+<%- include('partials/header'); -%>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Bid.css" />
-    <title>Project</title>
+    <title>Bid</title>
   </head>
 
   <body>
@@ -97,30 +96,16 @@
           <div id="developers-container">
             <h2>Applicants:</h2>
             <div id="developers-bar">
+               <% for(x in bid.Devs) { %>
               <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
+                <img class="review-avatar dev" src="..\assets\Fields\<%= bid.Devs[x].thumbnail" />
                 <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
+                  <a href="#" class="review-title dev"><%= bid.Devs[x].DevName%></a>
                   <div class="reviewer dev" style="font-family: sans-serif">
                   </div>
                 </div>
               </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                  </div>
-                </div>
-              </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                  </div>
-                </div>
-              </div>
+              <% } %>
             </div>
           </div>
         </div>
@@ -140,12 +125,12 @@
             </div>
             <div id="info-bar">
               <div id="project-title">
-                <h1>C.A.T.S: Crash Arena Turbo Stars</h1>
-                <span>Dec2019 - Jul2020</span>
+                <h1><%= bid.bidName %></h1>
+                <span><%= bid.startDate %> - <%= bid.endDate %></span>
               </div>
-              <div id="rate-bar">
-                <div id="rate">
-                  <p>24800 $</p>
+              <div id="price-bar">
+                <div id="price">
+                  <p><%= bid.price %>$</p>
                 </div>
                 <div id="categories-bar">
                   <div id="categories">
@@ -278,20 +263,7 @@
                   </defs>
                 </svg>
                 <pre>
-Build your own battle bot and unleash its power in this stylish PvP game!
-
-From the creators of the hit games Cut the Rope and King of Thieves, comes the most ingenious and stylish battle bot constructor! Join more than 150 million players from all over the world and become the star of the Arena!
-
-Features:
-• Be a master engineer: design, craft, upgrade, and improve the Ultimate battle bot!
-• Take the role of a mean street cat and fight against other players in fast and hilarious PvP action!
-• Discover dozens of crazy weapons, gadgets and body shapes, including Ultimate Machines! Outsmart your opponents with your unique battle bot design!
-• Create a powerful gang and rule the streets! Participate in gang battles to win unique parts, make new friends and share your secrets in your gang’s chat.
-• City Kings: Fight against real gangs from around the globe to conquer the city in cooperative mode.
-• Battle against real players and fight your way to the top of the World Championship!
-• Bet on other bots and share replays of your best fights!
-
-Get the game now for free and become the star of the Crash Arena!.
+<%= bid.Desc %>
                 </pre>
               </div>
             </div>
