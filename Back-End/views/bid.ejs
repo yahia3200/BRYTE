@@ -58,11 +58,11 @@
           <div id="developers-container">
             <h2>Applicants:</h2>
             <div id="developers-bar">
-               <% for(x in BID.Devs) { %>
+               <% for(x in container.applicants) { %>
               <div class="review-head dev">
-                <img class="review-avatar dev" src="<%= BID.Devs[x].thumbnail %>" />
+                <img class="review-avatar dev" src="<%= container.applicants[x].DEV_Profile_Picture  %>" />
                 <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev"><%= BID.Devs[x].DevName%></a>
+                  <a href="#" class="review-title dev"><%= container.applicants[x].DEV_User_Name %></a>
                   <div class="reviewer dev" style="font-family: sans-serif">
                   </div>
                 </div>
