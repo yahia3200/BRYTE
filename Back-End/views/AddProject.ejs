@@ -82,7 +82,7 @@
             <div id="developers-bar">
               <div class="review-head dev">
                 <div class="reviewer-cont dev">
-                  <div class="review-title dev"><%= user %></div>
+                  <div class="review-title dev" id="user"><%= user %></div>
                   <div class="reviewer dev" style="font-family: sans-serif">
                     <span class="creating-developer-role" style="color: #66a3ff"></span>
                   </div>
@@ -114,7 +114,7 @@
             <div id="info-bar">
               <div class="project-title">
                 <input class="title-input" type="text"placeholder="Project title" id="projectName">
-                <input class="role-input" type="text"placeholder="Your role" onkeyup="changeRole(this)">
+                <input id="userRole" class="role-input" type="text"placeholder="Your role" onkeyup="changeRole(this)">
               </div>
               <div class="project-title3">
                 <span>Start date:</span>
@@ -244,7 +244,7 @@
                   </defs>
                 </svg>
                 <div id="third-img">
-                 <input class="image-input" type="text" placeholder="project image link" id="#logo">
+                 <input class="image-input" type="text" placeholder="project image link" id="logo">
                 </div>
                 <textarea onkeyup="adjustHeight(this)" placeholder="Project description" style="overflow:hidden" id="description"></textarea>
               </div>
@@ -413,9 +413,9 @@
     </div>
     <script>
       let timeline = [];
-      let skills = [];
+      let fields = [];
       let developers = [];
-      
+
       function adjustHeight(el){
         el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
     }
@@ -437,8 +437,22 @@
                           (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
     }
 
-    function addDev(){
-      document.querySelector("#developers-bar").innerHTML +=
+    async function addDev(){
+      const UserName = document.querySelector(".dev-input").value;
+      const role = document.querySelector(".role-input").value;
+
+      const res = await fetch('/check_new_user_name', {
+        method: 'POST',
+        body: JSON.stringify({ UserName}),
+        headers: { 'Content-Type': 'application/json' }
+      }); 
+
+      const data = await res.json();
+      
+      if (data.found) {
+        developers.push({UserName, role});
+
+        document.querySelector("#developers-bar").innerHTML +=
       `<div class="review-head dev">
       <div class="reviewer-cont dev">
         <div class="review-title dev">${document.querySelector(".dev-input").value}</div>
@@ -449,8 +463,16 @@
     </div>`;
       document.querySelector(".dev-input").value = "";
       document.querySelector(".role-input").value = "";
+      }
     }
     function addPhase(){
+      const phase = document.querySelector(".title-phase").value;
+      const startDate = document.querySelector(".start-phase").value;
+      const endDate = document.querySelector(".end-phase").value;
+      const description = document.querySelector(".title-phase").value;
+
+      timeline.push({phase, startDate, endDate, description});
+
       document.querySelector(".phasedate-list").innerHTML +=
       `<div class="phase-date">${document.querySelector(".start-phase").value} - ${document.querySelector(".end-phase").value}</div>`;
       document.querySelector(".start-phase").value = "";
@@ -472,22 +494,39 @@
     }
     function addSkill(){
       if(document.querySelector(".skill-phase").value.length > 0)
-      document.querySelector(".skill-list").innerHTML +=
+      {
+        fields.push({category : document.querySelector(".field-phase").value, skill : document.querySelector(".skill-phase").value});
+        document.querySelector(".skill-list").innerHTML +=
       `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
+      }
+      
     }
     function changeRole(el){
       document.querySelector(".creating-developer-role").innerHTML = el.value;
     }
-    function addWholeProject(){
-
+     addWholeProject  = async()=>{
+  
       const projectName = document.querySelector("#projectName").value;
       const startDate = document.querySelector("#startDate").value;
       const endDate = document.querySelector("#endDate").value;
       const description = document.querySelector("#description").value;
-      const logo = document.querySelector("logo");
+      const logo = document.querySelector("#logo").value;
 
-      const projectFirstImg = document.querySelector("#projectFirstImg");
-      const projectSecondImg = document.querySelector("#projectSecondImg");
+      const projectFirstImg = document.querySelector("#projectFirstImg").value;
+      const projectSecondImg = document.querySelector("#projectSecondImg").value;
+
+      const userRole = document.querySelector("#userRole").value;
+      const user = document.querySelector("#user").textContent;
+      developers.push({UserName : user, role : userRole})
+      console.log(developers);
+      console.log(fields);
+
+      const res = await fetch('/addProject', {
+        method: 'POST',
+        body: JSON.stringify({ projectName, startDate, endDate, description, logo,
+                               projectFirstImg, projectSecondImg, developers , fields, }),
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     
