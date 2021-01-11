@@ -34,8 +34,21 @@ const checkEmail = async (req, res)=>{
         res.send('error');
     }
 }
+
+const changePassword = async(req, res)=>{
+    try {
+        const {oldPass, newPass} = req.body
+        console.log(oldPass, newPass);
+        const res = await poolconnection.changeDevPass(res.locals.user,oldPass, newPass);
+        console.log(res);
+        res.send(res);
+    } catch (error) {
+        res.send("error");
+    }
+}
 module.exports = {
     developerInfo,
     checkNewUser,
-    checkEmail
+    checkEmail,
+    changePassword
 }

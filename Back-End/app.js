@@ -8,6 +8,7 @@ const authRoutes = require('./Routes/authRoutes');
 const projectRoutes = require('./Routes/projectRoutes');
 const devRoutes = require("./Routes/devRoutes");
 const clientRoutes = require('./Routes/clientRoutes');
+const bidRoutes = require('./Routes/bidRoutes');
 
 //Import Cookies package
 const cookieParser = require('cookie-parser');
@@ -61,6 +62,7 @@ app.get('/bids',(req, res)=>{
 app.use(authRoutes);
 app.use(clientRoutes);
 app.use(projectRoutes);
+app.use(bidRoutes);
 
 app.use(devRoutes);
 
