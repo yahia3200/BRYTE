@@ -190,7 +190,11 @@ body .Name-Cont {
 
 body .Input-Cont,
 body #Continue-dev,
-body #Complete-dev {
+body #Complete-dev,
+body #Continue-cli,
+body #Complete-cli
+
+ {
   margin-top: 10px;
   opacity: 0;
 }

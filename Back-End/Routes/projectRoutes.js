@@ -16,6 +16,9 @@ router.get('/project/:id',projectController.get_project_by_id)
 //Projects Gallery Route
 router.get('/gallery',projectController.get_gallery);
 
+router.get('/addProject', (req, res)=>{res.render('AddProject', {style:"AddProject"})});
+router.post('/addProject',projectController.addProject);
+
 
 
 //Projects Gallery Route with Filters

@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 const insertClient = (body, callback) => {
     const { name, userName, email, profilePicture } = body;
-    const { phone, passward, foundedDate, location } = body;
+    const { phone, password, foundedDate, location } = body;
 
     let date_ob = new Date();
 
@@ -36,7 +36,7 @@ const insertClient = (body, callback) => {
 
     bcrypt.genSalt(saltRounds, (salt_err, salt) => {
 
-        bcrypt.hash(passward, salt, (hash_err, hash) => {
+        bcrypt.hash(password, salt, (hash_err, hash) => {
             pool.query(query, [name, userName, email, profilePicture,
                 phone, currentDate, foundedDate, currentDate,
                 hash, location], (sql_err, sql_res) => {
@@ -74,7 +74,35 @@ const clientLogin = (email, password, callback) => {
     });
 }
 
+const isUsedUserName = async(userName)=>{
+    const query = "SELECT * FROM client WHERE CLI_User_Name = ?";
+    const [res] = await pool.promise().query(query, [userName]);
+
+    if (res.length > 0)
+    {
+        return true;
+    }
+
+    else
+        return false;
+}
+
+const isUsedEmail = async(email)=>{
+    const query = "SELECT * FROM client WHERE CLI_Email = ?";
+    const [res] = await pool.promise().query(query, [email]);
+
+    if (res.length > 0)
+    {
+        return true;
+    }
+
+    else
+        return false;
+}
+
 module.exports = {
     insertClient,
-    clientLogin
+    clientLogin,
+    isUsedUserName,
+    isUsedEmail
 }

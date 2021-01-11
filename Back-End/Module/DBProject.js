@@ -144,9 +144,66 @@ const Search_all_filtered_Projects = async(Fields)=>{
 }
 
 
+const insertProject = async(projectName, startDate, endDate, description, logo, date) =>{
+    const query = `insert into 
+    bryte.project ( 
+      PRO_Name, 
+      PRO_Start_Date, 
+      PRO_Creation, 
+      PRO_End_Date, 
+      PRO_Description,  
+      PRO_Thumbnail
+    )
+  values
+    ( 
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?,  
+      ?
+    );`
+
+    const [res] = await await pool.promise().query(query, [projectName, startDate, date, endDate, description, logo]);
+    console.log(res);
+    if (res.insertId)
+        return res.insertId;
+    else
+        return "error";
+
+}
+
+const insertToMedia = async(id, media)=>{
+
+    const query = `insert into 
+    bryte.pro_multimedia (
+      PRO_MUL_ID, 
+      PRO_MUL_Link, 
+      PRO_MUL_Link_Name
+    )
+  values
+    (
+      $PRO_MUL_ID, 
+      $PRO_MUL_Link, 
+      $PRO_MUL_Link_Name
+    );`
+
+    for (let index = 0; index < media.length; index++) {
+        const [result] = await  pool.promise().query(query, [id, media['link'], media['name']]);
+        
+        if (!result.insertId){
+            return false;
+        }
+    }
+
+    return true;
+
+}
 module.exports =
 {
     Search_Single_Project,
     Search_all_Projects,
-    Search_all_filtered_Projects
+    Search_all_filtered_Projects,
+    insertProject,
+    insertToMedia
 }

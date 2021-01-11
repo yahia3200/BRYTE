@@ -20,8 +20,37 @@ const get_project_by_id = async function(req, res) {
 
 
 const get_gallery = async function(req, res) {
+
      const projects = await poolconnection.Search_all_Projects(0);
      res.render('gallery',{style: "gallery" , projects: projects});     
+
+}
+
+const addProject = async(req, res)=>{
+    const {projectName, startDate, endDate, description, logo} = req.body;
+
+    let date_ob = new Date();
+
+    let date = ("0" + date_ob.getDate()).slice(-2);
+
+    // current month
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+    // current year
+    let year = date_ob.getFullYear();
+
+    date = year + "-" + month + "-" + date;
+
+    const id = await poolconnection.insertProject(projectName, startDate, endDate, description, logo, date);
+    if (id == "error")
+        res.send("error");
+
+    const { media } = req.body;
+    const media_res = await poolconnection.insertToMedia(id, media);
+    
+
+    res.send(media_res);
+
 }
 
 
@@ -34,5 +63,6 @@ const get_gallery_filtered = async function(req, res) {
 module.exports = {
     get_project_by_id,
     get_gallery,
-    get_gallery_filtered
+    get_gallery_filtered,
+    addProject
 }

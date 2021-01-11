@@ -2,8 +2,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Bid.css" />
-    <title>Project</title>
+    <link rel="stylesheet" href="AddBid.css" />
+    <title>New Bid</title>
   </head>
 
   <body>
@@ -95,68 +95,36 @@
             </defs>
           </svg>
           <div id="developers-container">
-            <h2>Applicants:</h2>
-            <div id="developers-bar">
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                  </div>
-                </div>
-              </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                  </div>
-                </div>
-              </div>
-              <div class="review-head dev">
-                <img class="review-avatar dev" src="assets/logo.jpg" />
-                <div class="reviewer-cont dev">
-                  <a href="#" class="review-title dev">Gaymed</a>
-                  <div class="reviewer dev" style="font-family: sans-serif">
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2>Applicants would <br> be added here:</h2>
           </div>
         </div>
       </div>
       <div class="content-border">
         <div class="content">
           <div class="slide_show">
-            <img
-              id="first-img"
-              src="assets/og-ba95d791dacf713de66d6d4c955a76b05141352b4d3a7ceda252cb23197d1805.png"
-            />
-            <img id="second-img" src="assets/2.jpg" />
+            <div id="first-img"/>
+              <input class="title-input" type="text" placeholder="first image link"">
+            </div>
+            <div id="second-img" />
+              <input class="title-input" type="text" placeholder="second image link">
+           </div>
           </div>
           <div class="project-info">
             <div id="logo-bar">
-              <img src="assets/logo.jpg" />
+              <img src="assets/img placeholder.svg" />
             </div>
             <div id="info-bar">
-              <div id="project-title">
-                <h1>C.A.T.S: Crash Arena Turbo Stars</h1>
-                <span>Dec2019 - Jul2020</span>
+              <div class="project-title">
+                <input class="title-input" type="text"placeholder="Bid title">
+                <input class="role-input" type="text"placeholder="Payement Price" onkeyup="changeRole(this)">
               </div>
-              <div id="rate-bar">
-                <div id="rate">
-                  <p>24800 $</p>
-                </div>
-                <div id="categories-bar">
-                  <div id="categories">
-                    <p>Computer Graphics</p>
-                    <p>Game Development |</p>
-                  </div>
-                  <div id="skills">
-                    <p>Unity</p>
-                  </div>
-                </div>
+              <div class="project-title3">
+                <span>Start date:</span>
+                <input class="date-input" type="date" >
+                <span>End date:</span>
+                <input class="date-input" type="date"  >
               </div>
+
               <div id="discreption">
                 <svg
                   id="dis-border"
@@ -277,27 +245,132 @@
                     </linearGradient>
                   </defs>
                 </svg>
-                <pre>
-Build your own battle bot and unleash its power in this stylish PvP game!
-
-From the creators of the hit games Cut the Rope and King of Thieves, comes the most ingenious and stylish battle bot constructor! Join more than 150 million players from all over the world and become the star of the Arena!
-
-Features:
-• Be a master engineer: design, craft, upgrade, and improve the Ultimate battle bot!
-• Take the role of a mean street cat and fight against other players in fast and hilarious PvP action!
-• Discover dozens of crazy weapons, gadgets and body shapes, including Ultimate Machines! Outsmart your opponents with your unique battle bot design!
-• Create a powerful gang and rule the streets! Participate in gang battles to win unique parts, make new friends and share your secrets in your gang’s chat.
-• City Kings: Fight against real gangs from around the globe to conquer the city in cooperative mode.
-• Battle against real players and fight your way to the top of the World Championship!
-• Bet on other bots and share replays of your best fights!
-
-Get the game now for free and become the star of the Crash Arena!.
-                </pre>
+                <div id="third-img"/>
+                 <input class="image-input" type="text" placeholder="Bid image link"">
+                </div>
+                <textarea onkeyup="adjustHeight(this)" placeholder="Bid description" style="overflow:hidden"></textarea>
               </div>
             </div>
+          </div>   
+          <div class="timeline-cont">
+            <div class="left-title">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="18" cy="18" r="18" fill="#020F22" />
+                <path
+                  d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                  fill="white"
+                />
+                <path
+                  d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                  fill="white"
+                />
+              </svg>
+              &nbsp; Fields & Skills
+            </div>
+            <div class="timeline">
+              <div class="project-title2">
+                <span>Field:</span>
+              <select class="field-phase date-input" onchange="adjustSkill()">
+                <option selected disabled value>choose field first</option>
+                <option value="Artificial_Intelligence">Artificial-Intelligence</option>
+                <option value="Back_end_Development">Back-end-Development</option>
+                <option value="Cloud_Computing">Cloud-Computing</option>
+                <option value="Computer_Graphics">Computer-Graphics</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Deep_Learning">Deep-Learning</option>
+                <option value="Embedded_Systems">Embedded-Systems</option>
+                <option value="Front_end_Development">Front-end-Development</option>
+                <option value="Game_Development">Game-Development</option>
+                <option value="Machine_Learning">Machine-Learning</option>
+              </select>
+              <span>Skill:</span>
+              <select class="skill-phase date-input">
+              </select>
+              <div onclick="addSkill()">Add skill</div>
+            </div>
+              <div class="skill-list">
+              </div>
+              <div onclick="addWholeProject()">Submit Bid</div>
+
+            </div>
+            
           </div>
         </div>
+
       </div>
     </div>
+    <script>
+      function adjustHeight(el){
+        el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
+    }
+    const SkillsOfField = {
+      Artificial_Intelligence: ["SearchAlgorithms"], 
+      Back_end_Development: ["NodeJs", "PHP", "FireBase"],
+      Cloud_Computing: ["GoogleCloud", "Azure"],
+      Computer_Graphics: ["OpenGL"],
+      Cybersecurity: [""],  
+      Deep_Learning: ["OpenCV", "Tensorflow"],
+      Embedded_Systems: ["AVR", "ARM"],
+      Front_end_Development: ["VueJS", "React", "Angular", "UI/UX", "Sass", "Flutter"],
+      Game_Development: ["Unity", "Unreal"],
+      Machine_Learning: ["Python"]
+    };
+    const ExtraForm = document.querySelector(".skill-phase");
+    function adjustSkill(){
+                  ExtraForm.innerHTML = SkillsOfField[document.querySelector(".field-phase").value].reduce(
+                          (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
+    }
+
+    function addDev(){
+      document.querySelector("#developers-bar").innerHTML +=
+      `<div class="review-head dev">
+      <div class="reviewer-cont dev">
+        <div class="review-title dev">${document.querySelector(".dev-input").value}</div>
+        <div class="reviewer dev" style="font-family: sans-serif">
+          <span class="creating-developer-role" style="color: #66a3ff">${document.querySelector(".role-input").value}</span>
+        </div>
+      </div>
+    </div>`;
+      document.querySelector(".dev-input").value = "";
+      document.querySelector(".role-input").value = "";
+    }
+    function addPhase(){
+      document.querySelector(".phasedate-list").innerHTML +=
+      `<div class="phase-date">${document.querySelector(".start-phase").value} - ${document.querySelector(".end-phase").value}</div>`;
+      document.querySelector(".start-phase").value = "";
+      document.querySelector(".end-phase").value = "";
+      document.querySelector(".phase-list").innerHTML +=
+      `<div class="phase-cont">
+        <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
+          <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
+          <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          </svg>  
+        <div class="phase-title">${document.querySelector(".title-phase").value}</div>
+        <div class="phase-desc">
+          ${document.querySelector(".desc-phase").value}
+        </div>
+      </div></div>`;
+      document.querySelector(".title-phase").value = "";
+      document.querySelector(".desc-phase").value = "";
+    }
+    function addSkill(){
+      if(document.querySelector(".skill-phase").value.length > 0)
+      document.querySelector(".skill-list").innerHTML +=
+      `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
+    }
+    function changeRole(el){
+      document.querySelector(".creating-developer-role").innerHTML = el.value;
+    }
+    function addWholeProject(){
+
+    }
+    </script>
   </body>
 </html>

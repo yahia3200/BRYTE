@@ -19,18 +19,31 @@
               <rect x="216" y="5" width="28" height="41" fill="#4B90F7" /></svg></a>
         </div>
         <ul class="Nav-inner-Cont">
+          <li class="dropdown"><a href="/coming_soon"> Competitions</a></li>
           <li class="dropdown">
-            <a href="/coming_soon" class="dropbtn"> Competitions</a>
+            <a class="dropbtn" herf="">Bids</a>
             <div class="dropdown-content">
-              <a href="/coming_soon"> Competitions</a>
-              <a href="/coming_soon"> Competitions</a>
-              <a href="/coming_soon"> Competitions</a>
+              <a href="/coming_soon"> Bids Gallery</a>
+              <% if (role == "client") {%>
+              <a href="/coming_soon"> Create Bid</a>
+              <% } %>
             </div>
           </li>
-          <li><a href="/coming_soon">Bids</a></li>
-          <li><a href="/gallery">Gallery</a></li>
+          <li class="dropdown">
+            <a class="dropbtn" herf="">Projects</a>
+            <div class="dropdown-content">
+              <a href="/projects"> Projects Gallery</a>
+              <% if (role == "dev") {%>
+              <a href="/addProject"> Create Project</a>
+              <% } %>
+            </div>
+          </li>
+          <% if (role == 'dev') {%>
+          <li><a id="userfuckenname" href="/developer/<%= id %>"><%= user %></a></li>
+          <% } else { %>  
+          <li><a id="clientfuckenname" href="/client/<%= id %>"><%= user %></a></li>
+          <% } %>
           <% if (user) { %>
-          <li><a id="userfuckenname" href="/developer/<%= id %>"><%= user %></a></li>  
           <li><a href="/logout">Log out</a></li>
           <% } else { %>
           <li><a href="/login">Log in</a></li>
