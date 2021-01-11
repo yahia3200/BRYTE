@@ -9,6 +9,10 @@
 
 /* #########################################################Section 1################################################################### */ 
 
+body{
+    position: relative !important;
+}
+
 a {
     -webkit-transition: 0.05s;
     transition: 0.05s;
@@ -18,9 +22,16 @@ a {
   font-style: normal;
   font-weight: normal; 
   }
+.Nav-Outer-Cont{
+  position: fixed !important;
+  top: 0% !important;
+  z-index: 5 !important;
+  width: 100%;
+}
+
+
 
 header{
-    
     width:100%;
     display: flex;
     justify-content: flex-end;
@@ -59,7 +70,10 @@ li, a, button{
     margin-right: auto;
 }
 article{
-    margin:10% auto 0px 10%;
+    margin:0 auto 0px 10%;
+}
+article svg{
+    margin-top:200px;
 }
 article h1{
     font-size:80px;
