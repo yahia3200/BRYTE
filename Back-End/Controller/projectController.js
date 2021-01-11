@@ -62,8 +62,15 @@ const addProject = async(req, res)=>{
 }
 
 
+const get_gallery_filtered = async function(req, res) {
+    const projects = await poolconnection.Search_all_filtered_Projects(req.body);
+    res.send(projects);
+}
+
+
 module.exports = {
     get_project_by_id,
     get_gallery,
+    get_gallery_filtered,
     addProject
 }
