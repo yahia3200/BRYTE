@@ -106,7 +106,7 @@
                                 <img class="thumbnail" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" alt="" />
                                 <div class="dev">
                                     <p class="name"><%= projects[x].PRO_Name %></p>
-                                    <p class="username"><%= projects[1].developers[0].DEV_Fname %> <%= projects[1].developers[0].DEV_Lname %> </p>
+                                    <p class="username"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %> </p>
                                 </div>
                             </div>
                             <div class="sec">
@@ -140,7 +140,7 @@
                                         <%= projects[x].PRO_Rate %>
                                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.55193 6.10352e-05L10.3652 5.52793H16.2331L11.4859 8.94433L13.2992 14.4722L8.55193 11.0558L3.8047 14.4722L5.61798 8.94433L0.870754 5.52793H6.73865L8.55193 6.10352e-05Z" fill="#4B90F7"/> </svg> 
                                     </span>
-                                    <span>| by:<a href="" style="color: #66a3ff"><%= projects[1].developers[0].DEV_Fname %> <%= projects[1].developers[0].DEV_Lname %></a></span>
+                                    <span>| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %></a></span>
                               </div>
                             </div>
                             <div>
@@ -531,13 +531,14 @@ document.querySelector("#none4").addEventListener("click",(e)=>{
 document.querySelector("#Apply").addEventListener("click",async(e)=>{{
     e.preventDefault();
     var Fields=[];
-    document.querySelectorAll('input[type="checkbox"]').forEach((box)=>{
+    document.querySelectorAll('.field2').forEach((box)=>{
         if(box.checked){   
             Fields.push(box.name);
         }
     })
     console.log(Fields);
     try{
+        console.log(Fields);
         let res = await fetch('/gallery',{
             method: 'POST',
             body: JSON.stringify(Fields),
@@ -545,6 +546,7 @@ document.querySelector("#Apply").addEventListener("click",async(e)=>{{
           }).then(res => res.json());
           console.log(res)
           if(res.user) {
+
           } 
 
     }

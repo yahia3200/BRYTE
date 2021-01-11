@@ -20,4 +20,8 @@ router.get('/addProject', (req, res)=>{res.render('AddProject', {style:"AddProje
 router.post('/addProject',projectController.addProject);
 
 
+
+//Projects Gallery Route with Filters
+router.post('/gallery', projectController.get_gallery_filtered);
+
 module.exports = router;
