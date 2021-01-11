@@ -310,25 +310,6 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   color: #ffffff;
 }
 
-.review-list {
-  margin: 10px 80px 10px 160px;
-  display: flex;
-  flex-direction: column;
-}
-
-.review-instance {
-  margin: 20px 0;
-  border-radius: 21px;
-  background: #2b2f3b;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 127%;
-  /* or 18px */
-  text-align: justify;
-  letter-spacing: 0.03em;
-  color: #a5a5a5;
-}
 .review-head {
   border-radius: 21px 21px 0 0;
   padding: 12px;
@@ -344,7 +325,6 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   color: #a5a5a5;
   box-shadow: none;
 }
-
 .review-tail {
   padding: 12px;
 }
@@ -358,98 +338,7 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   padding: 5px 20px;
   flex-grow: 1;
 }
-.review-date {
-  font-family: Roboto;
-  font-style: italic;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 15px;
-  text-align: right;
-  color: #a5a5a5;
-}
 
-.review-title {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
 
-  color: #ffffff;
-}
 
-.timeline {
-  margin: 10px 80px 10px 160px;
-}
-.phases-list {
-  display: flex;
-  flex-direction: row;
-}
-
-.timeline-cont {
-}
-
-.line-of-time {
-  z-index: 9;
-  margin: 0;
-}
-
-.phasedate-list {
-  margin: 10px 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-.phase-list {
-  margin: 0 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  transform: translateY(-12px);
-}
-.phase-date {
-  flex: 1 1;
-  margin: 0 10px;
-  font-style: italic;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 19px;
-  text-align: center;
-
-  color: #69a4fc;
-}
-
-.phase-cont {
-  flex: 1 1;
-  margin: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.phase-title {
-  margin: 4px 0;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-
-  color: #ffffff; 
-}
-
-.phase-desc {
-  font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 150%;
-/* or 18px */
-
-text-align: center;
-letter-spacing: 0.02em;
-
-color: #B8B8B8;
-}
 
