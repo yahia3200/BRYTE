@@ -90,19 +90,20 @@
                 <h1><%= container.BID.BID_Name %></h1>
                 <span><%= container.BID.BID_Start_Date  %> - <%= container.BID.BID_End_Date  %></span>
               </div>
-              <div id="price-bar">
-                <div id="price">
-                  <p><%= container.BID.BID_Price %>$</p>
+              <div id="rate-bar">
+                <div id="rate">
+                  <p><%= container.BID.BID_Price %> $ </p>
                 </div>
                 <div id="categories-bar">
                   <div id="categories">
                     <% for(x in container.Fields) {%>
-                      <p><%= container.Fields[x].PRO_CAT_Field %></p> &ensp;
+                      <p><%= container.Fields[x].BID_CAT_Field %></p> &ensp;
                    <% } %>
                   </div>
+                  <span style="color: white;"> | </span>
                   <div id="skills">
-                    <% for(x in project_container.Skills) {%>
-                      <p><%= project_container.Skills[x].PRO_CAT_Skill %></p>  &ensp;
+                    <% for(x in container.Skills) {%>
+                      <p><%= container.Skills[x].BID_CAT_Skill %></p>  &ensp;
                    <% } %>
                   </div>
                 </div>
