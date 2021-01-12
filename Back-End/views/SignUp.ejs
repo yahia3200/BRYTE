@@ -341,7 +341,8 @@
           try {
             let res = await fetch('/signup',{
             method: 'POST',
-            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,PhoneNumber,BirthDate,Address}),
+            body: JSON.stringify({Fname,Lname,UserName,Email,Password,ConfirmPassword,JobTitle,
+              PhoneNumber,BirthDate,Address, ProfilePicture, Cover}),
             headers: {'Content-Type': 'application/json'}
           }).then(res => res.json());
           
@@ -503,7 +504,7 @@
           password_error.textContent = "Password and Confirm Password Must Have Same Value";
         else
         {
-          let res = await fetch('/check_new_user_name',{
+          let res = await fetch('/client-check_new_user_name',{
               method: 'POST',
               body: JSON.stringify({UserName}),
               headers: {'Content-Type': 'application/json'}
@@ -516,7 +517,7 @@
 
           else
           {
-            let res2 = await fetch('/check_new_email',{
+            let res2 = await fetch('/client-check_new_email',{
               method: 'POST',
               body: JSON.stringify({Email}),
               headers: {'Content-Type': 'application/json'}
@@ -628,7 +629,11 @@
                                     phone : "01000", password, foundedDate, location : "test"}),
               headers: {'Content-Type': 'application/json'}
             }).then(res => res.json());
-            console.log(res);
+            
+            if (res['user'])
+              location.assign('/');
+            else
+              console.log("error");
           }
 
         })

@@ -3,6 +3,7 @@ const Router = require('express');
 
 /*Require the controller functions for authentication*/
 const projectController = require('../Controller/projectController');
+const { isDev } = require("../middleware/authmiddleware");
 /**
  * creating an instance of a router to apply requests to it
  */
@@ -16,7 +17,7 @@ router.get('/project/:id',projectController.get_project_by_id)
 //Projects Gallery Route
 router.get('/projects',projectController.get_gallery);
 
-router.get('/addProject', (req, res)=>{res.render('AddProject', {style:"AddProject"})});
+router.get('/addProject', isDev, (req, res)=>{res.render('AddProject', {style:"AddProject"})});
 router.post('/addProject',projectController.addProject);
 
 

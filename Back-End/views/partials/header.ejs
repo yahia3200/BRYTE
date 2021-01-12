@@ -47,9 +47,15 @@
               </div>
             </li>
           
+          <% } else if (role == 'client') { %>  
+            <li class="dropdown">
+              <a class="dropbtn" herf=""><%= user %></a>
+              <div class="dropdown-content">
+                <a id="clientfuckenname" href="/client/<%= id %>">Profile</a>
+                <a href="/client-change-password">Change Password</a>
+              </div>
+            </li>
           
-          <% } else { %>  
-          <li><a id="clientfuckenname" href="/client/<%= id %>"><%= user %></a></li>
           <% } %>
           <% if (user) { %>
           <li><a href="/logout">Log out</a></li>
