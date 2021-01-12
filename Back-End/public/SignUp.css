@@ -282,13 +282,6 @@ select:-webkit-autofill:focus {
 }
 /*# sourceMappingURL=SignUP.css.map */
 
-.error-msg{
-  color:red;
-  margin: 4px;
-  font-family: Consolas;
-  font-style: normal;
-  font-weight: normal; 
-}
 
 .greenify{
   filter: hue-rotate(240deg) brightness(1.1) saturate(1.1);

@@ -1,4 +1,5 @@
 <%- include('partials/header'); -%>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,7 +57,7 @@
           <div class="Label-text">Email or Username</div>
           <div class="Input-Stylizer">
             <input class="Input-text" name="email" required />
-            <div id="email_errors"></div>
+            <div id="email_errors" class="error-msg"></div>
           </div>
         </div>
         <div class="Input-Cont">
@@ -64,17 +65,17 @@
           <div class="Label-text">Password</div>
           <div class="Input-Stylizer">
             <input type="password" class="Input-text" name="password" required />
-            <div id="pass_errors"></div>
+            <div id="pass_errors" class="error-msg"></div>
           </div>
         </div>
 
         <button type="submit" form="form" value="Submit" class="signUP dev" id="Complete-dev">
           Login as developer
         </button>
-        <button  class="signUP cli" id="Complete-cli">
+        <button class="signUP cli" id="Complete-cli">
           Login as client
         </button>
-        <div id="invlaid"></div>
+        <div id="invlaid" class="error-msg"></div>
       </div>
 
     </form>
@@ -89,12 +90,15 @@
   const email_errors = document.querySelector('#email_errors');
   const invalid = document.querySelector("#invlaid");
 
-  pass_errors.textContent = "";
-  email_errors.textContent = "";
-  invalid.textContent = "";
 
-  document.querySelector("#Complete-cli").addEventListener("click", async(e)=>{
+  document.querySelector("#Complete-cli").addEventListener("click", async (e) => {
     e.preventDefault();
+
+    pass_errors.textContent = "";
+    email_errors.textContent = "";
+    invalid.textContent = "";
+
+
     const email = form.email.value;
     const password = form.password.value;
 
@@ -104,23 +108,23 @@
     else if (!password)
       pass_errors.textContent = "Must Enter Passward"
 
-    else{
+    else {
       try {
         const res = await fetch('/client-login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' }
-      });
+          method: 'POST',
+          body: JSON.stringify({ email, password }),
+          headers: { 'Content-Type': 'application/json' }
+        });
 
-      const data = await res.json();
-      if (data.user) {
-        location.assign('/');
-      }
+        const data = await res.json();
+        if (data.user) {
+          location.assign('/');
+        }
 
-      else {
-        invalid.textContent = "Envalid Username or Passward";
-      }
-        
+        else {
+          invalid.textContent = "Envalid Username or Passward";
+        }
+
       } catch (error) {
         console.log(error);
       }
@@ -130,36 +134,51 @@
   });
 
 
-  document.querySelector("#Complete-dev").addEventListener("click" ,async (e) => {
+  document.querySelector("#Complete-dev").addEventListener("click", async (e) => {
     e.preventDefault();
+
+    pass_errors.textContent = "";
+    email_errors.textContent = "";
+    invalid.textContent = "";
 
     const email = form.email.value;
     const password = form.password.value;
 
-    try {
+    if (!email)
+      email_errors.textContent = "Must Enter Username or Email"
 
-      const res = await fetch('/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' }
-      });
+    else if (!password)
+      pass_errors.textContent = "Must Enter Passward"
 
-      const data = await res.json();
-      if (data.result > -1) {
-        location.assign('/');
+    else {
+      try {
+
+        const res = await fetch('/login', {
+          method: 'POST',
+          body: JSON.stringify({ email, password }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        const data = await res.json();
+        if (data.result > -1) {
+          location.assign('/');
+        }
+
+        else {
+          invalid.textContent = data.userName;
+        }
+
+
       }
 
-      else {
-        invalid.textContent = data.result_message;
-        console.log(result_message);
+      catch (err) {
+        console.log(err);
       }
-
-
     }
 
-    catch (err) {
-      console.log(err);
-    }
+
+
+
   });
 
 </script>

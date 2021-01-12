@@ -125,22 +125,34 @@ const isUsedEmail = async(email)=>{
         return false;
 }
 
-const changeDevPass = async(user, newPass)=>{
-    console.log("A7A");
+const changeDevPass = async(user, oldPass, newPass)=>{
     const query1 = "Select DEV_Hash from developer where DEV_User_Name = ? "
     const res1 = await pool.promise().query(query1, [user]);
-    console.log(res1);
-
     if (res1[0].length > 0)
     {
-        bcrypt.genSalt(saltRounds, (salt_err, salt) => {
-            /**When the gen salt is finished start this function */
-            bcrypt.hash(newPass, salt, async(hash_err, Hash) => {
-                const query2 = "update developer set DEV_Hash = ? where DEV_User_Name = ?"
+        const match = await bcrypt.compare(oldPass, res1[0][0].DEV_Hash);
+        if (match)
+        {
+            try {
+
+                const salt = await bcrypt.genSalt(saltRounds);
+                const Hash = await bcrypt.hash(newPass, salt);
+
+                const query2 = "update developer set DEV_Hash = ? where DEV_User_Name = ?";
                 const res2 = await pool.promise().query(query2, [Hash,user]);
                 return true;
-            });
-        });
+                
+            } 
+            catch (error) {
+                console.log(error);
+                return false;
+            }
+
+        }
+
+        else
+            return false;
+        
     }
 
     else

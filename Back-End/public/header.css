@@ -133,3 +133,11 @@ a {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .error-msg{
+    color:red;
+    margin: 4px;
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal; 
+  }

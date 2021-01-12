@@ -39,12 +39,19 @@
             </div>
           </li>
           <% if (role == 'dev') {%>
-          <li><a id="userfuckenname" href="/developer/<%= id %>"><%= user %></a></li>
+            <li class="dropdown">
+              <a class="dropbtn" herf=""><%= user %></a>
+              <div class="dropdown-content">
+                <a id="userfuckenname" href="/developer/<%= id %>">Portfolio</a>
+                <a href="/change-password">Change Password</a>
+              </div>
+            </li>
+          
+          
           <% } else { %>  
           <li><a id="clientfuckenname" href="/client/<%= id %>"><%= user %></a></li>
           <% } %>
           <% if (user) { %>
-          <li><a href="/change-password">Change Password</a></li>
           <li><a href="/logout">Log out</a></li>
           <% } else { %>
           <li><a href="/login">Log in</a></li>

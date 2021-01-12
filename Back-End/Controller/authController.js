@@ -54,11 +54,11 @@ const login_post = async function (req, res) {
 
         if (result > -1) {
             const token = createToken(result, userName, "dev");
-            console.log(jwt.verify(token, 'BRYTE Secret'));
             res.cookie('jwt', token, { httpOnly: true, maxAge: mymaxAge * 1000 });/*maxAge is in milliseconds , mymaxAge is in seconds*/
-            res.status(200).json({result , result_message});
+            res.status(200).json({result , userName});
         } else {
-            res.status(400).json({result , result_message});
+            console.log()
+            res.status(400).json({result , userName});
         }
 
 
