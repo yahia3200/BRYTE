@@ -135,7 +135,7 @@ article p{
     width:100%;
     justify-content:space-between;
 }
-#icon{
+.icon{
     display: flex;
     align-items: center; 
     width:240px;
@@ -533,14 +533,12 @@ img{
     width:50%;
     height: 10%;
     font-size: 1.4rem;
-    background-color: #03e37D;
+    background-color: #00b664;
     padding: 20px 40px;
 }
 #section7 a:hover{
-    filter: brightness(0.9) saturate(1.1) contrast(1.5) ;
+    filter: brightness(1.1) saturate(1.1) contrast(1.2) ;
 }
-
-
 
 
 .container{
@@ -551,3 +549,7 @@ img{
     text-align-last: justify;
 }
 
+
+a.Button:hover{
+    color: white;
+}
