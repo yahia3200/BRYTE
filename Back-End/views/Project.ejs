@@ -80,7 +80,7 @@
             <% for(x in project_container.devs) { %>  
               <a href="/developer/<%= project_container.devs[x].DEV_ID %>">
               <div class="review-head dev">
-                <img class="review-avatar dev" src="<%= project_container.devs[x].DEV_Profile_Picture %>" />
+                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="review-avatar dev" src="<%= project_container.devs[x].DEV_Profile_Picture %>" />
                 <div class="reviewer-cont dev">
                   <a href="#" class="review-title dev"><%= project_container.devs[x].DEV_Fname %> <%= project_container.devs[x].DEV_Lname %></a>
                   <div class="reviewer dev" style="font-family: sans-serif">
@@ -98,13 +98,13 @@
         <div class="content">
           <div class="slide_show">
             <% if (Object.keys(container['media']).length > 1) { %>
-            <img id="first-img" src="<%= project_container.media[0].PRO_MUL_Link %>"/>
-            <img id="second-img" src="<%= project_container.media[1].PRO_MUL_Link %>" />
+            <img id="first-img" src="<%= project_container.media[0].PRO_MUL_Link %>" onerror="this.onerror=null;this.src='assets/img placeholder.svg';"/>
+            <img  id="second-img" src="<%= project_container.media[1].PRO_MUL_Link %>" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
             <% } %>
           </div>
           <div class="project-info">
             <div id="logo-bar">
-              <img src="<%= project_container.project.PRO_Thumbnail %>" />
+              <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="<%= project_container.project.PRO_Thumbnail %>" />
             </div>
             <div id="info-bar">
               <div id="project-title">
@@ -407,7 +407,7 @@
               <% for(x in project_container.reviews) {%>
               <div class="review-instance">
                 <div class="review-head">
-                  <img class="review-avatar" src="<%=project_container.reviews[x].EXP_Profile_Picture %>" />
+                  <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="review-avatar" src="<%=project_container.reviews[x].EXP_Profile_Picture %>" />
                   <div class="reviewer-cont">
                     <div class="review-title"><%=project_container.reviews[x].REV_Title %></div>
                     <div class="reviewer" style="font-family: sans-serif">

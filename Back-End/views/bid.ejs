@@ -60,7 +60,7 @@
             <div id="developers-bar">
                <% for(x in container.applicants) { %>
               <div class="review-head dev">
-                <img class="review-avatar dev" src="<%= container.applicants[x].DEV_Profile_Picture  %>" />
+                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="review-avatar dev" src="<%= container.applicants[x].DEV_Profile_Picture  %>" />
                 <div class="reviewer-cont dev">
                   <a href="#" class="review-title dev"><%= container.applicants[x].DEV_User_Name %></a>
                   <div class="reviewer dev" style="font-family: sans-serif">
@@ -79,11 +79,11 @@
               id="first-img"
               src="<%= container.media[0].BID_ATT_Link %>"
             />
-            <img id="second-img" src="<%= container.media[1].BID_ATT_Link %>" />
+            <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" id="second-img" src="<%= container.media[1].BID_ATT_Link %>" />
           </div>
           <div class="project-info">
             <div id="logo-bar">
-              <img src="<%= container.BID.BID_Thumbnail %>" />
+              <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="<%= container.BID.BID_Thumbnail %>" />
             </div>
             <div id="info-bar">
               <div id="project-title">

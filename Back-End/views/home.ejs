@@ -62,19 +62,19 @@
         </p>
         <div id="icons">
           <span class="icon" id="PP"
-            ><img class="PP0000"
+            ><img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="PP0000"
               src="Morph Animations\PP\PP0000.png"
               alt=""
             /><span id="info">Post Projects</span></span
           >
           <span class="icon" id="VYS"
-            ><img class="VYS0000"
+            ><img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="VYS0000"
               src="Morph Animations\VYS\VYS0000.png"
               alt=""
             /><span id="info">Get Reviewed</span></span
           >
           <span class="icon" id="AFW"
-            ><img class="AFW0000"
+            ><img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="AFW0000"
               src="Morph Animations\AFW\AFW0000.png"
               alt=""
             /><span id="info">Apply for Work</span></span
@@ -87,14 +87,14 @@
         <% for(x in projects) { %>
           <a href="/project/<%= projects[x].PRO_ID %>">
         <div class="ProjectInst">
-            <img
+            <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';"
             src="<%= projects[x].PRO_Thumbnail%>"
             class="ListMainPic"
             alt=""
           />
           <div class="details">
             <div class="project-head">
-              <img class="project-avatar" src="assets/logo.jpg" />
+              <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="project-avatar" src="assets/logo.jpg" />
               <div class="projecter-cont">
                 <div class="project-title"><%= projects[x].PRO_Name %></div>
                 <div style="font-family: sans-serif">
@@ -112,7 +112,7 @@
                         fill="#4B90F7"
                       />
                     </svg>
-                  </span> <% if(projects[x].developers[0].DEV_Fname){ %>
+                  </span> <% if(projects[x].developers[0]){ %>
                   <span 
                     >| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %> </a></span
                   > <% } %>
@@ -123,13 +123,13 @@
                 <div class="icons">
                   <div class="ProFields">
                     <% for(y in projects[x].categories) { %>
-                      <img class="cat" src="..\assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
+                      <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="cat" src="..\assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
                   <% } %>
 
                   </div>
                   <div class="ProSkills">
                     <% for(y in projects[x].categories) { %>
-                      <img class="cat" src="..\assets\Skills\<%= projects[x].categories[y].PRO_CAT_Skill%>.png" alt="">                     
+                      <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="cat" src="..\assets\Skills\<%= projects[x].categories[y].PRO_CAT_Skill%>.png" alt="">                     
                   <% } %>
                   </div>
                 </div>
@@ -167,14 +167,14 @@
         <div id="col2">
           <div id="row1">
             <div>
-                <img class="JT0000"
+                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="JT0000"
               src="Morph Animations\JT\JT0000.png"
               alt=""
             />
               <p>Join Teams</p>
             </div>
             <div>
-                <img class="VYS0000"
+                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="VYS0000"
                 src="Morph Animations\VYS\VYS0000.png"
                 alt=""
               />
@@ -195,19 +195,19 @@
         </p>
         <div id="icons">
           <span id="icon"
-            ><img class="VYS0000"
+            ><img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="VYS0000"
             src="Morph Animations\VYSVYS0000.png"
             alt=""
           /><span id="info">Explore Projects & Portfolios</span></span
           >
           <span id="icon"
-            ><img class="PP0000"
+            ><img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="PP0000"
             src="Morph Animations\PP\PP0000.png"
             alt=""
           /><span id="info">Post bids & pick the right developer</span></span
           >
           <span id="icon"
-            ><img class="AFW0000"
+            ><img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="AFW0000"
             src="Morph Animations\AFW\AFW0000.png"
             alt=""
           />
