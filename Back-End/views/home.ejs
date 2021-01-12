@@ -111,11 +111,11 @@
                         fill="#4B90F7"
                       />
                     </svg>
-                  </span>
-                  <span
+                  </span> <% if(projects[x].developers[0].DEV_Fname){ %>
+                  <span 
                     >| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %> </a></span
-                  >
-                </div>
+                  > <% } %>
+                </div> 
               </div>
               <div>
                 <div class="project-date"><%= projects[x].PRO_End_Date %></div>
