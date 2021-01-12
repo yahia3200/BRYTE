@@ -421,6 +421,7 @@ select{
 .thumbnail{
   margin-right: 10px;
   height:45px;
+  width: 45px;
   border-radius:50%;
 }
 .info .dev .name{
