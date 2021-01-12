@@ -46,7 +46,7 @@ const insertClient = (body, callback) => {
                     }
 
                     else {
-                        return callback({ sql_res: sql_res.insertId });
+                        return callback({ id: sql_res.insertId , userName});
                     }
 
                 });
@@ -100,9 +100,44 @@ const isUsedEmail = async(email)=>{
         return false;
 }
 
+const changeClientPass = async(user, oldPass, newPass)=>{
+    const query1 = "Select CLI_Hash from client where CLI_User_Name = ? "
+    const res1 = await pool.promise().query(query1, [user]);
+    if (res1[0].length > 0)
+    {
+        const match = await bcrypt.compare(oldPass, res1[0][0].CLI_Hash);
+        if (match)
+        {
+            try {
+
+                const salt = await bcrypt.genSalt(saltRounds);
+                const Hash = await bcrypt.hash(newPass, salt);
+
+                const query2 = "update client set CLI_Hash = ? where CLI_User_Name = ?";
+                const res2 = await pool.promise().query(query2, [Hash,user]);
+                return true;
+                
+            } 
+            catch (error) {
+                console.log(error);
+                return false;
+            }
+
+        }
+
+        else
+            return false;
+        
+    }
+
+    else
+        return false;
+}
+
 module.exports = {
     insertClient,
     clientLogin,
     isUsedUserName,
-    isUsedEmail
+    isUsedEmail,
+    changeClientPass
 }

@@ -17,6 +17,7 @@ const Insert_Developer = (res, body, callback) => {
   /**Reading The JSON data, Note that it must be with the same names*/
   const  Credentials = "Trial";
   const  {Fname, Lname, UserName, Email, Password,JobTitle, PhoneNumber,BirthDate,Address} = body;
+  const  { ProfilePicture, Cover } = body; 
 
   const Age =20;
   const LastLogin = BirthDate;
@@ -41,7 +42,7 @@ const Insert_Developer = (res, body, callback) => {
     + "  DEV_Age,"
     + "  DEV_Address,"
     + "  DEV_Job_Title,"
-    + "  DEV_Phone"
+    + "  DEV_Phone, DEV_Profile_Picture, DEV_Cover"
     + " )"
     + " VALUES ("
     + "   ?,"
@@ -62,7 +63,7 @@ const Insert_Developer = (res, body, callback) => {
     + "   ?,"
     + "   ?,"
     + "   ?,"
-    + "   ?"
+    + "   ?, ?, ?"
     + " );";
   /**Hashing the password first(there are multiple ways to do this--> refer to bcrypt documentation) */
   bcrypt.genSalt(saltRounds, (salt_err, salt) => {
@@ -75,9 +76,9 @@ const Insert_Developer = (res, body, callback) => {
       pool.query(sql,
         [Fname, Lname, UserName, Email
           , CreationDate, BirthDate, LastLogin
-          , Hash, Credentials, Age,Address,JobTitle, PhoneNumber
+          , Hash, Credentials, Age,Address,JobTitle, PhoneNumber, ProfilePicture, Cover
         ]
-        , (sql_error, result) => {
+        , (sql_error, result) => {console.log(sql_error);
 
           /**When the query is executed start this function */
           if (sql_error) {

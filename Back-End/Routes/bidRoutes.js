@@ -11,5 +11,22 @@ const router = Router();
 //Single bid Route
 router.get('/bid/:id',bidController.get_bid_by_id)
 
+router.get('/addBid',(req,res) => {
+    res.render('AddBid',{style:"AddBid"})
+})
+
+router.post('/addBid', async (req,res) => {
+    const {status , id } = await bidController.addBid(req,res);
+    if (status == "Done") {
+        
+        console.log(id);
+        res.redirect('/bid/'+id);
+        
+    } else {
+      res.send("error"); 
+    }
+});
+
+
 
 module.exports = router;

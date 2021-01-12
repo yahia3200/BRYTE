@@ -53,6 +53,7 @@
             <div class="Label-text">Old Password</div>
             <div class="Input-Stylizer">
               <input type="password" class="Input-text" required id="oldPass"/>
+              <div id="oldPassError" class="error-msg"></div>
             </div>
           </div>
           <div class="Input-Cont">
@@ -67,6 +68,7 @@
               <div class="Label-text">Confirm new assword</div>
               <div class="Input-Stylizer">
                 <input type="password" class="Input-text" required  id="confirmPass"/>
+                <div id="confirmPassError" class="error-msg"></div>
               </div>
             </div>
 
@@ -77,13 +79,14 @@
             class="signUP dev"
             id="Complete-dev">
             Change Password
+            
           </button>
         </div>
-
       </form>
     </div>
     <footer>BRYTE© - 2021 Copyrights Reserved</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <% if (role == "div") { %>
     <script>
       document.querySelector("#form").addEventListener("submit", async(e)=>{
         e.preventDefault();
@@ -91,21 +94,81 @@
         const oldPass = document.querySelector("#oldPass").value;
         const newPass = document.querySelector("#newPass").value;
         const confirmPass = document.querySelector("#confirmPass").value;
-        console.log("a");
+
+        const oldPassError = document.querySelector('#oldPassError');
+        const confirmPassError = document.querySelector("#confirmPassError");
+        
+        oldPassError.textContent = "";
+        confirmPassError.textContent = "";
 
         if (newPass == confirmPass)
         {
 
-          const res = await fetch('/change-password', {
+          let res = await fetch('/change-password', {
           method: 'POST',
           body: JSON.stringify({ oldPass, newPass }),
           headers: { 'Content-Type': 'application/json' }
         });
 
+          res = await res.json();
 
-          location.assign('/');
+          if (res)
+          {
+            location.assign('/');
+          }
+
+          else
+          {
+            oldPassError.textContent = "Incorrect Password";
+          }
+          
+        }
+        else{
+          confirmPassError.textContent = "Password and Confirm Passward Don't Match";
         }
       });
     </script>
+    <% } else {%>
+      <script>
+        document.querySelector("#form").addEventListener("submit", async(e)=>{
+        e.preventDefault();
+
+        const oldPassError = document.querySelector('#oldPassError');
+        const confirmPassError = document.querySelector("#confirmPassError");
+        
+        oldPassError.textContent = "";
+        confirmPassError.textContent = "";
+
+        const oldPass = document.querySelector("#oldPass").value;
+        const newPass = document.querySelector("#newPass").value;
+        const confirmPass = document.querySelector("#confirmPass").value;
+
+        if (newPass == confirmPass)
+        {
+
+          let res = await fetch('/client-change-password', {
+          method: 'POST',
+          body: JSON.stringify({ oldPass, newPass }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+          res = await res.json();
+          if (res)
+          {
+            location.assign('/');
+          }
+          else
+          {
+            oldPassError.textContent = "Incorrect Password";
+          }
+          
+        }
+        else{
+          confirmPassError.textContent = "Password and Confirm Passward Don't Match";
+        }
+
+        });
+        </script>
+        <% } %>
   </body>
 
