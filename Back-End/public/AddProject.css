@@ -602,3 +602,7 @@ select {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.error-msg{
+  text-align: center;
+}
