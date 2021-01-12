@@ -539,7 +539,7 @@ document.querySelector("#Apply").addEventListener("click",async(e)=>{{
     console.log(Fields);
     try{
         console.log(Fields);
-        let res = await fetch('/gallery',{
+        let res = await fetch('/projects',{
             method: 'POST',
             body: JSON.stringify(Fields),
             headers: {'Content-Type': 'application/json'}

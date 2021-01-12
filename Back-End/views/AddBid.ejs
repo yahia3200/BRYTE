@@ -1,0 +1,329 @@
+<%- include('partials/header'); -%>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Bid</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <div id="side-bar-container">
+        <div class="side_bar">
+          <div id="upper">
+            <svg id="Layer_1" enable-background="new 0 0 511.709 511.709" height="150" viewBox="0 0 511.709 511.709" width="150" xmlns="http://www.w3.org/2000/svg"><g><path d="m496.709 199.298h-47.39c-3.255-10.658-7.387-21.023-12.356-30.994l37.176-37.177c2.813-2.813 4.394-6.628 4.394-10.606 0-3.979-1.58-7.793-4.394-10.606l-66.149-66.149c-5.857-5.858-15.355-5.858-21.213 0l-36.002 36.001c-10.123-5.393-20.684-9.908-31.574-13.501v-51.102c0-8.284-6.716-15-15-15h-93.548c-8.284 0-15 6.716-15 15v50.013c-11.408 3.54-22.478 8.091-33.096 13.605l-32.405-32.405c-5.857-5.858-15.355-5.857-21.213 0l-66.148 66.148c-5.858 5.857-5.858 15.355 0 21.213l32.654 32.655c-5.416 10.573-9.878 21.579-13.341 32.905h-47.104c-8.284 0-15 6.716-15 15v93.548c0 8.284 6.716 15 15 15h48.738c3.547 10.595 7.969 20.874 13.223 30.737l-34.823 34.822c-2.813 2.813-4.394 6.628-4.394 10.607 0 3.978 1.58 7.793 4.394 10.606l66.148 66.148c5.857 5.858 15.355 5.858 21.213 0l35.996-35.996c9.123 4.549 18.57 8.397 28.259 11.51v45.265c0 8.284 6.716 15 15 15h93.548c8.284 0 15-6.716 15-15v-45.15c10.495-3.351 20.709-7.565 30.543-12.603l37.301 37.3c5.856 5.857 15.354 5.858 21.213 0l66.149-66.148c2.813-2.813 4.394-6.628 4.394-10.607 0-3.978-1.58-7.793-4.394-10.606l-37.053-37.053c4.819-9.284 8.908-18.924 12.228-28.833h49.026c8.284 0 15-6.716 15-15v-93.548c0-8.283-6.716-14.999-15-14.999zm-15 93.548h-45.146c-6.768 0-12.696 4.531-14.474 11.061-4.075 14.974-10.176 29.34-18.133 42.699-3.513 5.898-2.573 13.428 2.281 18.282l34.45 34.45-44.937 44.935-34.649-34.649c-4.832-4.831-12.314-5.788-18.203-2.328-13.89 8.158-28.799 14.308-44.315 18.276-6.639 1.698-11.282 7.68-11.282 14.532v41.44h-63.548v-41.533c0-6.841-4.629-12.815-11.253-14.524-14.775-3.812-29.007-9.601-42.298-17.207-5.873-3.362-13.271-2.374-18.057 2.413l-33.254 33.253-44.936-44.935 32.312-32.31c4.899-4.899 5.806-12.515 2.193-18.427-8.443-13.82-14.88-28.748-19.13-44.367-1.776-6.53-7.706-11.062-14.474-11.062h-44.856v-63.548h43.546c6.926 0 12.951-4.742 14.58-11.474 3.942-16.301 10.273-31.941 18.815-46.485 3.46-5.89 2.503-13.373-2.327-18.203l-30.004-30.004 44.936-44.935 29.803 29.802c4.854 4.855 12.383 5.794 18.282 2.281 14.546-8.664 30.23-15.107 46.617-19.151 6.698-1.653 11.405-7.663 11.405-14.563v-46.401h63.548v47.276c0 6.793 4.565 12.739 11.129 14.492 15.9 4.248 31.086 10.754 45.137 19.338 5.912 3.611 13.528 2.705 18.427-2.194l33.49-33.49 44.936 44.935-34.434 34.434c-4.786 4.786-5.774 12.183-2.412 18.057 8.025 14.023 14.021 29.101 17.823 44.813 1.628 6.731 7.653 11.473 14.579 11.473h43.833z" fill="#48CC75"/><path d="m142.404 236.42c3.081 4.825 9.663 8.186 16.273 6.409l26.568-6.712c8.032-2.029 12.898-10.185 10.869-18.217-1.742-6.896-8.005-11.446-14.823-11.313 16.242-24.174 43.84-39.583 74.093-39.583 38.881 0 72.994 24.844 84.888 61.82 2.537 7.886 10.982 12.225 18.872 9.687 7.887-2.537 12.224-10.986 9.687-18.872-15.897-49.426-61.488-82.635-113.446-82.635-43.021 0-82.044 23.314-103.021 59.266-4.705-5.953-13.242-7.507-19.793-3.352-6.996 4.437-9.07 13.706-4.633 20.701l14.398 22.701c.022.034.046.066.068.1z" fill="#48CC75"/><path d="m369.514 275.613c-3.065-4.894-9.498-8.594-16.483-6.733l-26.568 6.711c-8.032 2.029-12.898 10.185-10.869 18.217 1.718 6.799 7.825 11.33 14.532 11.33.095 0 .191-.007.286-.009-16.243 24.17-43.839 39.575-74.088 39.575-38.88 0-72.993-24.844-84.888-61.82-2.537-7.886-10.987-12.225-18.873-9.686-7.886 2.537-12.223 10.986-9.686 18.873 15.898 49.426 61.489 82.634 113.446 82.634 43.021 0 82.044-23.314 103.021-59.265 4.705 5.953 13.243 7.506 19.793 3.352 6.996-4.438 9.07-13.706 4.633-20.701z" fill="#48CC75"/></g></svg>
+            <h1>Ongoing Bid</h1>
+          </div>
+          <svg
+            id="side-bar-arrow"
+            width="313"
+            height="119"
+            viewBox="0 0 313 119"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278 12H19.3309C9.20702 12 1 20.0589 1 30V119"
+              stroke="url(#paint0_linear)"
+              stroke-width="2"
+            />
+            <circle
+              cx="288.5"
+              cy="11.5"
+              r="11.5"
+              fill="#020f22"
+              stroke-width="2"
+            />
+            <circle
+              cx="288.5"
+              cy="11.5"
+              r="5.5"
+              transform="rotate(90 288.5 11.5)"
+              stroke="white"
+              stroke-width="2"
+            />
+            <path
+              d="M296 22L309 11.5L296.406 2"
+              stroke="white"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear"
+                x1="274.945"
+                y1="12"
+                x2="5.87031"
+                y2="118.306"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" />
+                <stop offset="1" stop-color="#4B90F6" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div id="developers-container">
+            <h2>Applicants would <br> be added here:</h2>
+          </div>
+        </div>
+      </div>
+      <div class="content-border">
+        <div class="content">
+          <div class="slide_show">
+            <div id="first-img"/>
+              <input id="bidFirstImg" class="title-input" type="text" placeholder="first image link"">
+            </div>
+            <div id="second-img" />
+              <input id="bidSecondImg" class="title-input" type="text" placeholder="second image link">
+           </div>
+          </div>
+          <div class="project-info">
+            <div id="logo-bar">
+              <img src="assets/img placeholder.svg" />
+            </div>
+            <div id="info-bar">
+              <div class="project-title">
+                <input id="bidName" class="title-input" type="text"placeholder="Bid title">
+                <input id="price" class="role-input" type="text"placeholder="Payement Price" onkeyup="changeRole(this)">
+              </div>
+              <div class="project-title3">
+                <span>Start date:</span>
+                <input class="date-input" type="date" id="startDate" >
+                <span>End date:</span>
+                <input class="date-input" type="date" id="endDate" >
+              </div>
+
+              <div id="discreption">
+                <svg
+                  id="dis-border"
+                  width="157"
+                  height="112"
+                  viewBox="0 0 157 112"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d)">
+                    <line
+                      x1="26.5"
+                      y1="1"
+                      x2="26.5"
+                      y2="103"
+                      stroke="url(#paint3_linear)"
+                    />
+                  </g>
+                  <g filter="url(#filter1_d)">
+                    <line
+                      x1="5"
+                      y1="28.5"
+                      x2="152"
+                      y2="28.5"
+                      stroke="url(#paint1_linear)"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_d"
+                      x="21"
+                      y="0"
+                      width="11"
+                      height="112"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2.5" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow"
+                        result="shape"
+                      />
+                    </filter>
+                    <filter
+                      id="filter1_d"
+                      x="0"
+                      y="27"
+                      width="157"
+                      height="11"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2.5" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow"
+                        result="shape"
+                      />
+                    </filter>
+                    <linearGradient
+                      id="paint3_linear"
+                      x1="25.0073"
+                      y1="1"
+                      x2="25.0073"
+                      y2="103"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#4B90F7" stop-opacity="0" />
+                      <stop offset="0.190625" stop-color="#4B90F7" />
+                      <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                    </linearGradient>
+                    <linearGradient
+                      id="paint1_linear"
+                      x1="5"
+                      y1="29.9927"
+                      x2="152"
+                      y2="29.9927"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#4B90F7" stop-opacity="0" />
+                      <stop offset="0.190625" stop-color="#4B90F7" />
+                      <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div id="third-img"/>
+                 <input id="logo" class="image-input" type="text" placeholder="Bid image link"">
+                </div>
+                <textarea id="description" onkeyup="adjustHeight(this)" placeholder="Bid description" style="overflow:hidden"></textarea>
+              </div>
+            </div>
+          </div>   
+          <div class="timeline-cont">
+            <div class="left-title">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="18" cy="18" r="18" fill="#020F22" />
+                <path
+                  d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                  fill="white"
+                />
+                <path
+                  d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                  fill="white"
+                />
+              </svg>
+              &nbsp; Fields & Skills
+            </div>
+            <div class="timeline">
+              <div class="project-title2">
+                <span>Field:</span>
+              <select class="field-phase date-input" onchange="adjustSkill()">
+                <option selected disabled value>choose field first</option>
+                <option value="Artificial_Intelligence">Artificial-Intelligence</option>
+                <option value="Back_end_Development">Back-end-Development</option>
+                <option value="Cloud_Computing">Cloud-Computing</option>
+                <option value="Computer_Graphics">Computer-Graphics</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Deep_Learning">Deep-Learning</option>
+                <option value="Embedded_Systems">Embedded-Systems</option>
+                <option value="Front_end_Development">Front-end-Development</option>
+                <option value="Game_Development">Game-Development</option>
+                <option value="Machine_Learning">Machine-Learning</option>
+              </select>
+              <span>Skill:</span>
+              <select class="skill-phase date-input">
+              </select>
+              <div onclick="addSkill()">Add skill</div>
+            </div>
+              <div class="skill-list">
+              </div>
+              <div onclick="addWholeBid()">Submit Bid</div>
+
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      let fields = [];
+      function adjustHeight(el){
+        el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
+    }
+    const SkillsOfField = {
+      Artificial_Intelligence: ["SearchAlgorithms"], 
+      Back_end_Development: ["NodeJs", "PHP", "FireBase"],
+      Cloud_Computing: ["GoogleCloud", "Azure"],
+      Computer_Graphics: ["OpenGL"],
+      Cybersecurity: [""],  
+      Deep_Learning: ["OpenCV", "Tensorflow"],
+      Embedded_Systems: ["AVR", "ARM"],
+      Front_end_Development: ["VueJS", "React", "Angular", "UI/UX", "Sass", "Flutter"],
+      Game_Development: ["Unity", "Unreal"],
+      Machine_Learning: ["Python"]
+    };
+    const ExtraForm = document.querySelector(".skill-phase");
+    function adjustSkill(){
+                  ExtraForm.innerHTML = SkillsOfField[document.querySelector(".field-phase").value].reduce(
+                          (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,"");
+    }
+    function addSkill(){
+      if(document.querySelector(".skill-phase").value.length > 0)
+      {
+        fields.push({category : document.querySelector(".field-phase").value, skill : document.querySelector(".skill-phase").value});
+      document.querySelector(".skill-list").innerHTML +=
+      `<div class="filterIcon"><div>${document.querySelector(".field-phase").value} | ${document.querySelector(".skill-phase").value}</div></div>`;
+    }
+  }
+  addWholeBid  = async()=>{
+  
+    const bidName = document.querySelector("#bidName").value;
+    const startDate = document.querySelector("#startDate").value;
+    const endDate = document.querySelector("#endDate").value;
+    const description = document.querySelector("#description").value;
+    const logo = document.querySelector("#logo").value;
+
+    const bidFirstImg = document.querySelector("#bidFirstImg").value;
+    const bidSecondImg = document.querySelector("#bidSecondImg").value;
+
+    const price = document.querySelector("#price").textContent;
+
+    const res = await fetch('/addBid', {
+      method: 'POST',
+      body: JSON.stringify({ bidName, startDate, endDate, description, logo,
+                             bidFirstImg, bidSecondImg, price, fields}),
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+    </script>
+</body>
+</html>
