@@ -1,0 +1,615 @@
+<%- include('partials/header'); -%>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Settings</title>
+</head>
+
+<body>
+  
+  <div class="main">
+    <div id="side-bar-container">
+      <div class="side_bar">
+        <div id="upper">
+          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" enable-background="new 0 0 512 512" height="145"
+            viewBox="0 0 512 512" width="145">
+            <path fill="#48CC75"
+              d="m272.066 512h-32.133c-25.989 0-47.134-21.144-47.134-47.133v-10.871c-11.049-3.53-21.784-7.986-32.097-13.323l-7.704 7.704c-18.659 18.682-48.548 18.134-66.665-.007l-22.711-22.71c-18.149-18.129-18.671-48.008.006-66.665l7.698-7.698c-5.337-10.313-9.792-21.046-13.323-32.097h-10.87c-25.988 0-47.133-21.144-47.133-47.133v-32.134c0-25.989 21.145-47.133 47.134-47.133h10.87c3.531-11.05 7.986-21.784 13.323-32.097l-7.704-7.703c-18.666-18.646-18.151-48.528.006-66.665l22.713-22.712c18.159-18.184 48.041-18.638 66.664.006l7.697 7.697c10.313-5.336 21.048-9.792 32.097-13.323v-10.87c0-25.989 21.144-47.133 47.134-47.133h32.133c25.989 0 47.133 21.144 47.133 47.133v10.871c11.049 3.53 21.784 7.986 32.097 13.323l7.704-7.704c18.659-18.682 48.548-18.134 66.665.007l22.711 22.71c18.149 18.129 18.671 48.008-.006 66.665l-7.698 7.698c5.337 10.313 9.792 21.046 13.323 32.097h10.87c25.989 0 47.134 21.144 47.134 47.133v32.134c0 25.989-21.145 47.133-47.134 47.133h-10.87c-3.531 11.05-7.986 21.784-13.323 32.097l7.704 7.704c18.666 18.646 18.151 48.528-.006 66.665l-22.713 22.712c-18.159 18.184-48.041 18.638-66.664-.006l-7.697-7.697c-10.313 5.336-21.048 9.792-32.097 13.323v10.871c0 25.987-21.144 47.131-47.134 47.131zm-106.349-102.83c14.327 8.473 29.747 14.874 45.831 19.025 6.624 1.709 11.252 7.683 11.252 14.524v22.148c0 9.447 7.687 17.133 17.134 17.133h32.133c9.447 0 17.134-7.686 17.134-17.133v-22.148c0-6.841 4.628-12.815 11.252-14.524 16.084-4.151 31.504-10.552 45.831-19.025 5.895-3.486 13.4-2.538 18.243 2.305l15.688 15.689c6.764 6.772 17.626 6.615 24.224.007l22.727-22.726c6.582-6.574 6.802-17.438.006-24.225l-15.695-15.695c-4.842-4.842-5.79-12.348-2.305-18.242 8.473-14.326 14.873-29.746 19.024-45.831 1.71-6.624 7.684-11.251 14.524-11.251h22.147c9.447 0 17.134-7.686 17.134-17.133v-32.134c0-9.447-7.687-17.133-17.134-17.133h-22.147c-6.841 0-12.814-4.628-14.524-11.251-4.151-16.085-10.552-31.505-19.024-45.831-3.485-5.894-2.537-13.4 2.305-18.242l15.689-15.689c6.782-6.774 6.605-17.634.006-24.225l-22.725-22.725c-6.587-6.596-17.451-6.789-24.225-.006l-15.694 15.695c-4.842 4.843-12.35 5.791-18.243 2.305-14.327-8.473-29.747-14.874-45.831-19.025-6.624-1.709-11.252-7.683-11.252-14.524v-22.15c0-9.447-7.687-17.133-17.134-17.133h-32.133c-9.447 0-17.134 7.686-17.134 17.133v22.148c0 6.841-4.628 12.815-11.252 14.524-16.084 4.151-31.504 10.552-45.831 19.025-5.896 3.485-13.401 2.537-18.243-2.305l-15.688-15.689c-6.764-6.772-17.627-6.615-24.224-.007l-22.727 22.726c-6.582 6.574-6.802 17.437-.006 24.225l15.695 15.695c4.842 4.842 5.79 12.348 2.305 18.242-8.473 14.326-14.873 29.746-19.024 45.831-1.71 6.624-7.684 11.251-14.524 11.251h-22.148c-9.447.001-17.134 7.687-17.134 17.134v32.134c0 9.447 7.687 17.133 17.134 17.133h22.147c6.841 0 12.814 4.628 14.524 11.251 4.151 16.085 10.552 31.505 19.024 45.831 3.485 5.894 2.537 13.4-2.305 18.242l-15.689 15.689c-6.782 6.774-6.605 17.634-.006 24.225l22.725 22.725c6.587 6.596 17.451 6.789 24.225.006l15.694-15.695c3.568-3.567 10.991-6.594 18.244-2.304z" />
+            <path fill="#48CC75"
+              d="m256 367.4c-61.427 0-111.4-49.974-111.4-111.4s49.973-111.4 111.4-111.4 111.4 49.974 111.4 111.4-49.973 111.4-111.4 111.4zm0-192.8c-44.885 0-81.4 36.516-81.4 81.4s36.516 81.4 81.4 81.4 81.4-36.516 81.4-81.4-36.515-81.4-81.4-81.4z" />
+          </svg>
+          <h1>Profile Settings</h1>
+        </div>
+        <svg id="side-bar-arrow" width="313" height="119" viewBox="0 0 313 119" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M278 12H19.3309C9.20702 12 1 20.0589 1 30V119" stroke="url(#paint0_linear)" stroke-width="2" />
+          <circle cx="288.5" cy="11.5" r="11.5" fill="#020f22" stroke-width="2" />
+          <circle cx="288.5" cy="11.5" r="5.5" transform="rotate(90 288.5 11.5)" stroke="white" stroke-width="2" />
+          <path d="M296 22L309 11.5L296.406 2" stroke="white" stroke-width="4" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="paint0_linear" x1="274.945" y1="12" x2="5.87031" y2="118.306"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" />
+              <stop offset="1" stop-color="#4B90F6" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div id="developers-container">
+          <h2>Links:</h2>
+          <div id="developers-bar">
+            <div class="review-head dev">
+              <div class="reviewer-cont dev">
+                <div class="reviewer dev" style="font-family: sans-serif">
+                  <span class="creating-developer-role" style="color: #66a3ff"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-title4">
+            <input class="dev-input" type="text" placeholder="Website name" />
+            <input class="role-input" type="text" placeholder="link" />
+            <div onclick="addDev()">Add Link</div>
+            <div class="error-msg" id="links_error"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-border">
+      <div class="content">
+        <div class="slide_show">
+          <div id="first-img" />
+          <input id="coverPicture" class="title-input" type="text" placeholder="Cover picture link" value="<%= devCont.dev['DEV_Cover'] %>">
+          </div>
+        </div>
+        <div class=" project-info">
+          <div id="logo-bar">
+            <img src="<%= devCont.dev['DEV_Profile_Picture'] %>"" />
+          </div>
+          <div id="info-bar">
+            <div class="project-title">
+              <input id="fname" class="title-input Fname" type="text" placeholder="First name" value="<%= devCont.dev['DEV_Fname'] %>"/>
+              <input id="lname" class="title-input Lname" type="text" placeholder="Last name" value="<%= devCont.dev['DEV_Lname'] %>"/>
+              
+              <input id="phone" class="title-input Lname" type="text" placeholder="Phone Number" value="<%= devCont.dev['DEV_Phone'] %>"/>
+              
+            </div>
+            <div class="project-title3">
+              <input id="address" class="role-input Address" type="text" placeholder="Address" value="<%= devCont.dev['DEV_Address'] %>"/>
+              <span>Birth date:</span>
+              <input id="birthdate" class="date-input" type="date" value="<%= devCont.dev['DEV_Birth_Date'] %>"/>
+            </div>
+
+            <div id="discreption">
+              <svg id="dis-border" width="157" height="112" viewBox="0 0 157 112" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d)">
+                  <line x1="26.5" y1="1" x2="26.5" y2="103" stroke="url(#paint3_linear)" />
+                </g>
+                <g filter="url(#filter1_d)">
+                  <line x1="5" y1="28.5" x2="152" y2="28.5" stroke="url(#paint1_linear)" />
+                </g>
+                <defs>
+                  <filter id="filter0_d" x="21" y="0" width="11" height="112" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2.5" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                  </filter>
+                  <filter id="filter1_d" x="0" y="27" width="157" height="11" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2.5" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                  </filter>
+                  <linearGradient id="paint3_linear" x1="25.0073" y1="1" x2="25.0073" y2="103"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B90F7" stop-opacity="0" />
+                    <stop offset="0.190625" stop-color="#4B90F7" />
+                    <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="paint1_linear" x1="5" y1="29.9927" x2="152" y2="29.9927"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B90F7" stop-opacity="0" />
+                    <stop offset="0.190625" stop-color="#4B90F7" />
+                    <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div id="first-img" />
+              <input id="logo" class="image-input" type="text" placeholder="Profile Picture link" value="<%= devCont.dev['DEV_Profile_Picture'] %>">
+            </div>
+            <textarea
+              onkeyup=" adjustHeight(this)" placeholder="About you" style="overflow: hidden" id="about"><%= devCont.dev['DEV_About'] %></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-cont">
+          <div class="left-title">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="18" fill="#020F22" />
+              <path
+                d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                fill="white" />
+              <path
+                d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                fill="white" />
+            </svg>
+            &nbsp; Working Experience
+          </div>
+          <div class="review-list">
+            <% for (x in devCont['experince']) {%>
+            <div class="review-instance">
+              <div class="review-head">
+                <div class="reviewer-cont">
+                  <div class="review-title"><%= devCont['experince'][x]['DEV_WOR_Title']%></div>
+                  <div class="reviewer" style="font-family: sans-serif">
+                    <span>
+                      <a href="" style="color: #66a3ff"><%= devCont['experince'][x]['DEV_WOR_Place']%></a></span>
+                  </div>
+                </div>
+                <div class="review-date"><%= devCont['experince'][x]['DEV_WOR_Start_Date']%> | <%= devCont['experince'][x]['DEV_WOR_End_Date']%></div>
+              </div>
+              <div>
+                <div class="review-tail">
+                  <%= devCont['experince'][x]['DEV_WOR_Descreption']%>
+                </div>
+              </div>
+            </div>
+            <% } %>
+            
+          </div>
+          <div class="timeline">
+            <div class="project-title2">
+              <input class="title-phase-company title-input" type="text" placeholder="Company" />
+              <input class="title-phase-role title-input" type="text" placeholder="Role" />
+              <input class="title-phase-desc title-input" type="text" placeholder="Description" id="description" />
+            </div>
+            <div class="project-title2">
+              <span>Start date:</span>
+
+              <input class="start-phase date-input" type="date" />
+              <span>End date:</span>
+              <input class="end-phase date-input" type="date" />
+              <div onclick="addPhase()">Add</div>
+            </div>
+            <div class="error-msg" id="work_error"></div>
+            <div class="phasedate-list"></div>
+            <svg class="line-of-time" width="957" height="3" viewBox="0 0 957 3" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter5_d)">
+                <line x1="953" y1="1.5" x2="4" y2="1.5" stroke="url(#paint7_linear)" stroke-width="3" />
+              </g>
+              <defs>
+                <filter id="filter5_d" x="0" y="0" width="957" height="3" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                </filter>
+                <linearGradient id="paint7_linear" x1="953" y1="-0.992664" x2="4" y2="-0.992794"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4B90F7" stop-opacity="0" />
+                  <stop offset="0.148958" stop-color="#4B90F7" />
+                  <stop offset="0.836458" stop-color="#4B90F7" />
+                  <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="phase-list"></div>
+          </div>
+
+          <div class="timeline-cont">
+            <div class="left-title">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="18" fill="#020F22" />
+                <path
+                  d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                  fill="white" />
+                <path
+                  d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                  fill="white" />
+              </svg>
+              &nbsp; Fields & Skills
+            </div>
+            <div class="skill-list">
+
+              <% for (x in devCont['fileds']) {%>
+              <div class="filterIcon"><div><%= devCont['fileds'][x]%> |
+                <%= devCont['skills'][x]%> </div></div>
+              <% } %>
+
+  
+            </div>
+            <div class="timeline">
+              <div class="project-title2">
+                <span>Field:</span>
+                <select class="field-phase date-input" onchange="adjustSkill()">
+                  <option selected disabled value>choose field first</option>
+                  <option value="Artificial_Intelligence">
+                    Artificial-Intelligence
+                  </option>
+                  <option value="Back_end_Development">
+                    Back-end-Development
+                  </option>
+                  <option value="Cloud_Computing">Cloud-Computing</option>
+                  <option value="Computer_Graphics">Computer-Graphics</option>
+                  <option value="Cybersecurity">Cybersecurity</option>
+                  <option value="Deep_Learning">Deep-Learning</option>
+                  <option value="Embedded_Systems">Embedded-Systems</option>
+                  <option value="Front_end_Development">
+                    Front-end-Development
+                  </option>
+                  <option value="Game_Development">Game-Development</option>
+                  <option value="Machine_Learning">Machine-Learning</option>
+                </select>
+                <span>Skill:</span>
+                <select class="skill-phase date-input"></select>
+                <div onclick="addSkill()">Add skill</div>
+              </div>
+              <div class="skill-list"></div>
+            </div>
+          </div>
+          <div class="timeline-cont">
+            <div class="left-title">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="18" fill="#020F22" />
+                <path
+                  d="M17.697 9C17.0118 9 16.4563 9.5555 16.4563 10.2408V16.4563H10.2408C9.5555 16.4563 9 17.0118 9 17.6971C9 18.3824 9.5555 18.9378 10.2408 18.9378H17.697C18.3823 18.9378 18.9378 18.3823 18.9378 17.697V10.2408C18.9378 9.5555 18.3823 9 17.697 9Z"
+                  fill="white" />
+                <path
+                  d="M17.933 3.86597C10.164 3.86597 3.866 10.164 3.866 17.933C3.866 25.702 10.164 32 17.933 32C25.702 32 32 25.702 32 17.933C31.9918 10.1675 25.6986 3.87427 17.933 3.86597ZM17.933 28.9904C11.2738 28.9904 6.87555 24.5921 6.87555 17.933C6.87555 11.2738 11.2738 6.87552 17.933 6.87552C24.5921 6.87552 28.9904 11.2738 28.9904 17.933C28.9833 24.5892 24.5892 28.9832 17.933 28.9904Z"
+                  fill="white" />
+              </svg>
+              &nbsp; Education
+            </div>
+            <div class="timeline">
+              <div class="project-title2">
+                <input class="title-phase-University title-input" type="text" placeholder="University" />
+                <input class="title-phase-Faculty title-input" type="text" placeholder="Faculty" />
+                <input class="title-phase-Field title-input" type="text" placeholder="Field" />
+              </div>
+              
+              <div class="project-title2">
+                <span>Degree:</span>
+                <select class="degree-type date-input" onchange="adjustSkill()">
+                  <option selected disabled value>choose degree</option>
+                  <option value="Associate_Degree">Associate Degree</option>
+                  <option value="Bachelor’s_Degree">
+                    Bachelor’s (or Baccalaureate) Degree
+                  </option>
+                  <option value="Graduate_Degree">Graduate Degree</option>
+                  <option value="Professional_Degree">Professional Degree</option>
+                  <option value="Joint_Degrees">Joint Degrees</option>
+                  <option value="Liberal_Arts_and_Career_Combination">
+                    Liberal Arts and Career Combination
+                  </option>
+                  <option value="Teacher_Certification">
+                    Teacher Certification
+                  </option>
+                </select>
+                <span>Start date:</span>
+
+                <input class="start-deg date-input" type="date" />
+                <span>End date:</span>
+                <input class="end-deg date-input" type="date" />
+                <div onclick="addDegree()">Add Degree</div>
+                
+              </div>
+              <div class="error-msg" id="degree_error" style="text-align: center;"></div>
+              <div class="phasedate-list degdate-list"></div>
+              <svg class="line-of-time" width="957" height="3" viewBox="0 0 957 3" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter5_d)">
+                  <line x1="953" y1="1.5" x2="4" y2="1.5" stroke="url(#paint7_linear)" stroke-width="3" />
+                </g>
+                <defs>
+                  <filter id="filter5_d" x="0" y="0" width="957" height="3" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                  </filter>
+                  <linearGradient id="paint7_linear" x1="953" y1="-0.992664" x2="4" y2="-0.992794"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4B90F7" stop-opacity="0" />
+                    <stop offset="0.148958" stop-color="#4B90F7" />
+                    <stop offset="0.836458" stop-color="#4B90F7" />
+                    <stop offset="1" stop-color="#4B90F7" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="phase-list deg-list">
+              <% for (x in devCont['degrees']) {%>
+                <div class="phase-cont">
+                  <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
+                    <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
+                    <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>  
+                  <div class="phase-title"><%= devCont['degrees'][x]['DEV_DEG_Field']%></div>
+                  <a style="color: #4b90f7"><%= devCont['degrees'][x]['DEV_DEG_University'] %>
+                    <%= devCont['degrees'][x]['DEV_DEG_Faculty'] %></a>
+                  <div class="phase-desc"><%= devCont['degrees'][x]['DEV_DEG_Title']%></div>
+                </div>
+                <% } %>
+              </div>
+              
+            </div>
+              <div onclick="saveProfile()" class="save-btn">Save</div>
+              <div class="error-msg" id="save_error"></div>
+              <div class="done-msg" id="save-msg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        let working = [];
+        let degrees = [];
+        let category = [];
+        let links = [];
+
+        function adjustHeight(el) {
+          el.style.height =
+            el.scrollHeight > el.clientHeight ? el.scrollHeight + "px" : "60px";
+        }
+        const SkillsOfField = {
+          Artificial_Intelligence: ["SearchAlgorithms"],
+          Back_end_Development: ["NodeJs", "PHP", "FireBase"],
+          Cloud_Computing: ["GoogleCloud", "Azure"],
+          Computer_Graphics: ["OpenGL"],
+          Cybersecurity: [""],
+          Deep_Learning: ["OpenCV", "Tensorflow"],
+          Embedded_Systems: ["AVR", "ARM"],
+          Front_end_Development: [
+            "VueJS",
+            "React",
+            "Angular",
+            "UI/UX",
+            "Sass",
+            "Flutter",
+          ],
+          Game_Development: ["Unity", "Unreal"],
+          Machine_Learning: ["Python"],
+        };
+        const ExtraForm = document.querySelector(".skill-phase");
+        function adjustSkill() {
+          ExtraForm.innerHTML = SkillsOfField[
+            document.querySelector(".field-phase").value
+          ].reduce(
+            (acc, elem) => `${acc}<option value="${elem}">${elem}</option>`,
+            ""
+          );
+        }
+
+        function addDev() {
+          const name = document.querySelector(".dev-input").value;
+          const link = document.querySelector(".role-input").value;
+          const links_error = document.querySelector("#links_error");
+          links_error.textContent = "";
+
+          if (!name)
+            links_error.textContent = "You Must Enter a Link Name";
+          else if(!link)
+          links_error.textContent = "You Must Enter a Link";
+          else
+          {
+            links.push({ name: document.querySelector(".dev-input").value, link: document.querySelector(".role-input").value });
+          document.querySelector(
+            "#developers-bar"
+          ).innerHTML += `<div class="review-head dev">
+      <div class="reviewer-cont dev">
+        <div class="review-title dev">${document.querySelector(".dev-input").value
+            }</div>
+        <div class="reviewer dev" style="font-family: sans-serif">
+          <a href='${document.querySelector(".role-input").value
+            }' class="creating-developer-role" style="color: #66a3ff">${document.querySelector(".role-input").value
+            }</a>
+        </div>
+      </div>
+    </div>`;
+          document.querySelector(".dev-input").value = "";
+          document.querySelector(".role-input").value = "";
+          }
+
+          
+        }
+        function addPhase() {
+
+          const company =  document.querySelector(".title-phase-company").value;
+          const role =  document.querySelector(".title-phase-role").value;
+          const desc = document.querySelector(".title-phase-desc").value;
+          const start = document.querySelector(".start-phase").value;
+          const end = document.querySelector(".end-phase").value;
+
+          const work_error = document.querySelector("#work_error");
+          work_error.textContent = "";
+
+          if (!company)
+            work_error.textContent = "You Must Enter a Company";
+          else if (!role)
+          work_error.textContent = "You Must Enter a Role";
+          else if (!start)
+          work_error.textContent = "You Must Enter a Start Date";
+          else if(!end)
+          work_error.textContent = "You Must Enter a End Date";
+
+          else
+          {
+            working.push({
+            company: document.querySelector(".title-phase-company").value,
+            role: document.querySelector(".title-phase-role").value,
+            desc: document.querySelector(".title-phase-desc").value,
+            start: document.querySelector(".start-phase").value,
+            end: document.querySelector(".end-phase").value
+          });
+
+          document.querySelector(
+            ".phasedate-list"
+          ).innerHTML += `<div class="phase-date">${document.querySelector(".start-phase").value
+            } - ${document.querySelector(".end-phase").value}</div>`;
+          document.querySelector(".start-phase").value = "";
+          document.querySelector(".end-phase").value = "";
+          document.querySelector(
+            ".phase-list"
+          ).innerHTML += `<div class="phase-cont">
+        <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
+          <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
+          <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          </svg>  
+        <div class="phase-title">${document.querySelector(".title-phase-company").value
+            }</div>
+        <a style="color: #4b90f7">${document.querySelector(".title-phase-role").value
+            }</a>
+        <div class="phase-desc">
+          ${document.querySelector(".title-phase-desc").value}
+        </div>
+      </div></div>`;
+          document.querySelector(".title-phase-company").value = "";
+          document.querySelector(".title-phase-role").value = "";
+          document.querySelector(".title-phase-desc").value = "";
+          }
+
+
+          
+        }
+        function addDegree() {
+
+          const university =  document.querySelector(".title-phase-University").value;
+          const faculty =  document.querySelector(".title-phase-Faculty").value;
+          const field = document.querySelector(".title-phase-Field").value;
+          const degreeType = document.querySelector(".degree-type").value;
+          const start =  document.querySelector(".start-deg").value;
+          const end = document.querySelector(".end-deg").value;
+          const degree_error = document.querySelector("#degree_error");
+
+          degree_error.textContent = "";
+
+          if (!university)
+            degree_error.textContent = "You Must Enter a University"
+          else if (!faculty)
+            degree_error.textContent = "You Must Enter a Faculty"
+          else if(!field)
+            degree_error.textContent = "You Must Enter a Field"
+          else if(!degreeType)
+            degree_error.textContent = "You Must Must Choose a Degree"
+          else if(!start)
+            degree_error.textContent = "You Must Enter a Start Date"
+          else if(!end)
+            degree_error.textContent = "You Must Enter an End Date"
+          else{
+            degrees.push({
+            university: document.querySelector(".title-phase-University").value,
+            faculty: document.querySelector(".title-phase-Faculty").value,
+            field: document.querySelector(".title-phase-Field").value,
+            degreeType: document.querySelector(".degree-type").value,
+            start: document.querySelector(".start-deg").value,
+            end: document.querySelector(".end-deg").value
+          });
+          document.querySelector(
+            ".degdate-list"
+          ).innerHTML += `<div class="phase-date">${document.querySelector(".start-deg").value
+            } - ${document.querySelector(".end-deg").value}</div>`;
+          document.querySelector(".start-deg").value = "";
+          document.querySelector(".end-deg").value = "";
+          document.querySelector(
+            ".deg-list"
+          ).innerHTML += `<div class="phase-cont">
+        <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
+          <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
+          <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          </svg>  
+        <div class="phase-title">${document.querySelector(".title-phase-Field").value
+            }</div>
+        <a style="color: #4b90f7">${document.querySelector(".title-phase-University").value
+            } - ${document.querySelector(".title-phase-Faculty").value}</a>
+        <div class="phase-desc">
+          ${document.querySelector(".degree-type").value}
+        </div>
+      </div></div>`;
+          document.querySelector(".degree-type").value = "";
+          document.querySelector(".title-phase-University").value = "";
+          document.querySelector(".title-phase-Faculty").value = "";
+          document.querySelector(".title-phase-Field").value = "";
+          }
+
+          
+        }
+        function addSkill() {
+          if (document.querySelector(".skill-phase").value.length > 0) {
+            category.push({ field: document.querySelector(".field-phase").value, skill: document.querySelector(".skill-phase").value });
+            document.querySelector(
+              ".skill-list"
+            ).innerHTML += `<div class="filterIcon"><div>${document.querySelector(".field-phase").value
+              } | ${document.querySelector(".skill-phase").value}</div></div>`;
+          }
+        }
+        saveProfile = async () => {
+
+          const fname = document.querySelector("#fname").value;
+          const lname = document.querySelector("#lname").value;
+          const phone = document.querySelector("#phone").value;
+          const address = document.querySelector("#address").value;
+          const birthdate = document.querySelector("#birthdate").value;
+
+          const description = document.querySelector("#about").value;
+          const logo = document.querySelector("#logo").value;
+          const coverPicture = document.querySelector("#coverPicture").value;
+
+          const save_error = document.querySelector("#save_error");
+          const save_msg = document.querySelector("#save-msg");
+          save_error.textContent = "";
+          save_msg.textContent= "";
+
+
+          if (!fname)
+            save_error.textContent = "You Must Enter a First Name";
+          else if (!lname)
+            save_error.textContent = "You Must Enter a Last Name";
+          else if (!phone)
+          save_error.textContent = "You Must Enter a Phone Number";
+          else if(!address)
+          save_error.textContent = "You Must Enter a Address";
+          else if(!birthdate)
+          save_error.textContent = "You Must Enter a Birth Date";
+          else
+          {
+              let res = await fetch('/change-settings', {
+              method: 'POST',
+              body: JSON.stringify({
+                fname, lname, phone, address, birthdate, description, logo, coverPicture,
+                working, degrees, category, links
+              }),
+              headers: { 'Content-Type': 'application/json' }
+            });
+
+            res = await res.json();
+            console.log(res);
+            save_msg.textContent = "Saved Successfully"
+            
+
+          }
+          
+
+        }    
+        </script>
+</body>

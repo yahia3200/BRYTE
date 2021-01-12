@@ -11,6 +11,18 @@ const getPortofiloInfo = async (id)=>{
     let [rows] = await pool.promise().query(query, [id]);
     res['dev'] = Object.assign({}, rows[0]);
 
+    let date = ("0" + res['dev']['DEV_Birth_Date'].getDate()).slice(-2);
+
+    // current month
+    let month = ("0" + (res['dev']['DEV_Birth_Date'].getMonth() + 1)).slice(-2);
+
+    // current year
+    let year = res['dev']['DEV_Birth_Date'].getFullYear();
+
+    let Date = year + "-" + month + "-" + date;
+
+    res['dev']['DEV_Birth_Date'] = Date
+
     // Get Projects that the developer worked on
     query = "SELECT * FROM developer_works_on WHERE DEV_ID = ?";
     [rows] = await pool.promise().query(query, [id]);
@@ -159,10 +171,177 @@ const changeDevPass = async(user, oldPass, newPass)=>{
         return false;
 }
 
+const updatDevInfo = async( userName, fname, lname, phone, address, birthdate, description, logo, coverPicture)=>{
+    const query = `update 
+    developer 
+  set 
+    DEV_Fname = ?,
+    DEV_Lname = ?,
+    DEV_Profile_Picture = ?,
+    DEV_Cover = ?,
+    DEV_Phone = ?,
+    DEV_Birth_Date = ?,
+    DEV_Address = ?,
+    DEV_About = ?
+  where 
+    DEV_User_Name = ?`
+
+    try {
+        const res = await pool.promise().query(query, [fname, lname, logo, coverPicture, phone, 
+            birthdate, address, description, userName]);
+            return true;
+
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
+const addWork = async(id, working)=>{
+
+    const query = `insert into 
+    bryte.dev_working_experince (
+      DEV_WOR_Title, 
+      DEV_WOR_Descreption, 
+      DEV_WOR_Start_Date, 
+      DEV_WOR_End_Date, 
+      DEV_WOR_Developer_Id, 
+      DEV_WOR_Place
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?
+    );`
+
+    try {
+        
+        for (let index = 0; index < working.length; index++) {
+        
+            const res = pool.promise().query(query, [working[index]['role'] , working[index]['desc'], 
+            working[index]['start'], working[index]['end'], id, working[index]['company']]);
+    
+            
+        }
+    
+        return true;
+
+    } catch (error) {
+        console.log(error);
+        return false;
+        
+    }
+}
+
+const addCats = async(id, category)=>{
+    const query = `insert into 
+    bryte.dev_category (
+      DEV_CAT_Field, 
+      DEV_CAT_Skill, 
+      CAT_Developer_Id, 
+      DEV_CAT_Verified
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?, 
+      false
+    );`
+
+    try {
+        for (let i = 0; i < category.length; i++) {
+            const res = pool.promise().query(query, [category[i]['field'] , category[i]['skill'], id]);    
+            
+        }
+        
+    } catch (error) {
+        console.log(error)
+        return false;
+    }
+
+    return true;
+}
+
+const addDegrees = (id, degrees)=>{
+    const query = `insert into 
+    bryte.dev_degree (
+      DEV_DEG_Field, 
+      DEV_DEG_Faculty, 
+      DEV_DEG_University, 
+      DEV_DEG_Developer_Id, 
+      DEV_DEG_Start_Date, 
+      DEV_DEG_End_Date, 
+      DEV_DEG_Title
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?, 
+      ?
+    );`
+
+    try {
+        for (let i = 0; i < degrees.length; i++) {
+            const res = pool.promise().query(query, [ degrees[i]['field'], degrees[i]['faculty'],
+            degrees[i]['university'], id, degrees[i]['start'], degrees[i]['end'], degrees[i]['degreeType']]);    
+            
+        }
+        
+    } catch (error) {
+        console.log(error)
+        return false;
+    }
+
+    return true
+}
+
+const addlinks = async(id , links)=>{
+    const query = `insert into 
+    bryte.dev_links (
+      DEV_LIN_Name, 
+      DEV_LIN_Link, 
+      DEV_LIN_Developer_Id
+    )
+  values
+    (
+      ?, 
+      ?, 
+      ?
+    );`
+
+    try {
+        for (let i = 0; i < links.length; i++) {
+            const res = pool.promise().query(query, [ links[i]['name'], links[i]['link'], id ]);    
+            
+        }
+        
+    } catch (error) {
+        console.log(error)
+        return false;
+    }
+
+    return true
+
+}
+
 module.exports =
 {
     getPortofiloInfo,
     isUsedUserName,
     isUsedEmail,
-    changeDevPass
+    changeDevPass,
+    updatDevInfo,
+    addWork,
+    addCats,
+    addDegrees,
+    addlinks
 }
