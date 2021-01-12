@@ -404,11 +404,12 @@ img{
     font-size:65px;
     color: #04F38D;
 }
-#Text{
+.text{
     font-family: Roboto;
     Font-style: Regular;
     Font-size: 28px;
     text-align: center;
+    margin-top: 20px;
     color:#BBBBBB;
 }
 #icons{
@@ -419,6 +420,8 @@ img{
 #section5 #icon{
     display: flex;
     width:max-content;
+    align-items: center;
+    margin: 0 10px;
 }
 #info{
     flex-direction:column;
@@ -426,7 +429,7 @@ img{
 #section5 span{
     font-family: Roboto;
     font-weight: 300;
-    font-size:30px;
+    font-size:25px;
     color:#FFFFFF;
 }
 
@@ -444,7 +447,7 @@ img{
     }
 #section6 #title{
     grid-row: 1;
-    margin:5% auto;
+    margin:5% auto 2%;
     display: flex;
 }
 #section6 #title span{

@@ -56,25 +56,25 @@
         <p id="line1">A PLATFORM WHERE</p>
         <p id="line2">DEVELOPERS</p>
         <p id="line3">CAN SHOWCASE THEIR PROJECTS</p>
-        <p id="Text">
+        <p class="text">
           Portfolios with customizability enabling users to collect thier
           projects, work experience, and achievements all in one place.
         </p>
         <div id="icons">
           <span class="icon" id="PP"
-            ><img id="PP0000"
+            ><img class="PP0000"
               src="Morph Animations\PP\PP0000.png"
               alt=""
             /><span id="info">Post Projects</span></span
           >
           <span class="icon" id="VYS"
-            ><img id="VYS0000"
+            ><img class="VYS0000"
               src="Morph Animations\VYS\VYS0000.png"
               alt=""
             /><span id="info">Get Reviewed</span></span
           >
           <span class="icon" id="AFW"
-            ><img id="AFW0000"
+            ><img class="AFW0000"
               src="Morph Animations\AFW\AFW0000.png"
               alt=""
             /><span id="info">Apply for Work</span></span
@@ -1227,28 +1227,29 @@
         <p id="line1">A PLATFORM WHERE</p>
         <p id="line2">CLIENTS</p>
         <p id="line3">CAN HIRE THE BEST</p>
-        <p id="Text">
+        <p class="text">
           Portfolios with customizability enabling users to collect thier
           projects, work experience, and achievements all in one place.
         </p>
         <div id="icons">
           <span id="icon"
-            ><img
-              src="assets/003736e340f58f47e44ba4a55b02eb90.png"
-              alt=""
-            /><span id="info">Explore Projects & Portfolios</span></span
+            ><img class="VYS0000"
+            src="Morph Animations\VYSVYS0000.png"
+            alt=""
+          /><span id="info">Explore Projects & Portfolios</span></span
           >
           <span id="icon"
-            ><img
-              src="assets/e1b9acaedbac34f4e1ecb7b69d9d449a.png"
-              alt=""
-            /><span id="info">Post bids & pick the right developer</span></span
+            ><img class="PP0000"
+            src="Morph Animations\PP\PP0000.png"
+            alt=""
+          /><span id="info">Post bids & pick the right developer</span></span
           >
           <span id="icon"
-            ><img
-              src="assets/ae3d6092d41ca61dc5eedda1e719342f.png"
-              alt=""
-            /><span id="info">Organize Competitions</span></span
+            ><img class="AFW0000"
+            src="Morph Animations\AFW\AFW0000.png"
+            alt=""
+          />
+            <span id="info">Organize Competitions</span></span
           >
         </div>
       </div>
@@ -1752,6 +1753,7 @@
       ForwardAnimation("PP");
       ForwardAnimation("AFW");
       ForwardAnimation("VYS");
+//      ForwardAnimation("VYS");
 
 
       function ForwardAnimation(id) {
@@ -1765,8 +1767,8 @@
     const temptime = timePerFrame;
     let timeWhenLastUpdate;
     let timeFromLastUpdate;
-    let length = document.getElementById(id + "0000").src.length;
-    let frameNumber = parseInt(document.getElementById(id + "0000").src[length - 6] + document.getElementById(id + "0000").src[length - 5]);
+    let length = document.querySelector("."+ id + "0000").src.length;
+    let frameNumber = parseInt(document.querySelector("."+ id + "0000").src[length - 6] + document.querySelector("."+ id + "0000").src[length - 5]);
 
     function step(startTime) {
         if (!timeWhenLastUpdate) timeWhenLastUpdate = startTime;
@@ -1775,9 +1777,9 @@
 
         if (timeFromLastUpdate > timePerFrame) {
             if (frameNumber < 10)
-                document.getElementById(id + "0000").setAttribute('src', imagePath + `0${frameNumber}.png`);
+                document.querySelectorAll("."+ id + "0000").forEach((el) => {el.setAttribute('src', imagePath + `0${frameNumber}.png`);});
             else
-                document.getElementById(id + "0000").setAttribute('src', imagePath + `${frameNumber}.png`);
+            document.querySelectorAll("."+ id + "0000").forEach((el) => {el.setAttribute('src', imagePath + `${frameNumber}.png`);});
             timeWhenLastUpdate = startTime;
 
             if (frameNumber >= totalFrames) {
@@ -1809,8 +1811,8 @@ function BackwardAnimation(id) {
     const temptime = timePerFrame;
     let timeWhenLastUpdate;
     let timeFromLastUpdate;
-    let length = document.getElementById(id + "0000").src.length;
-    let frameNumber = parseInt(document.getElementById(id + "0000").src[length - 6] + document.getElementById(id + "0000").src[length - 5]);
+    let length = document.querySelector("."+ id + "0000").src.length;
+    let frameNumber = parseInt(document.querySelector("."+ id + "0000").src[length - 6] + document.querySelector("."+ id + "0000").src[length - 5]);
 
     function step(startTime) {
         if (!timeWhenLastUpdate) timeWhenLastUpdate = startTime;
@@ -1819,9 +1821,9 @@ function BackwardAnimation(id) {
 
         if (timeFromLastUpdate > timePerFrame) {
             if (frameNumber < 10)
-                document.getElementById(id + "0000").setAttribute('src', imagePath + `0${frameNumber}.png`);
+                document.querySelectorAll("."+ id + "0000").forEach((el) => {el.setAttribute('src', imagePath + `0${frameNumber}.png`);});
             else
-                document.getElementById(id + "0000").setAttribute('src', imagePath + `${frameNumber}.png`);
+            document.querySelectorAll("."+ id + "0000").forEach((el) => {el.setAttribute('src', imagePath + `${frameNumber}.png`);});
             timeWhenLastUpdate = startTime;
 
             if (frameNumber <= 0) {
