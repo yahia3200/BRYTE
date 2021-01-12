@@ -11,7 +11,7 @@
     <div id="side-bar-container">
       <div class="side_bar">
         <div id="upper">
-          <img class="profile-pic" src="<%= devCont.dev['DEV_Profile_Picture'] %>" />
+          <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="profile-pic" src="<%= devCont.dev['DEV_Profile_Picture'] %>" />
           <div>
             <h1><%= devCont.dev['DEV_Fname'] %> <%= devCont.dev['DEV_Lname'] %></h1>
             <a href="#">
@@ -157,7 +157,7 @@
     <div class="content-border">
       <div class="content">
         <div class="slide_show">
-          <img id="Cover" src="<%= devCont.dev['DEV_Cover'] %>" />
+          <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" id="Cover" src="<%= devCont.dev['DEV_Cover'] %>" />
         </div>
         <div class="project-info">
           <div id="info-bar">
@@ -184,7 +184,7 @@
             <% for (x in devCont['fileds']) {%>
             <div class="skill-instance">
               <div class="skill-head">
-                <img src="../assets/Fields/<%= devCont['fileds'][x] %>.png" alt="<%= devCont['fileds'][x] %>" />
+                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="../assets/Fields/<%= devCont['fileds'][x] %>.png" alt="<%= devCont['fileds'][x] %>" />
               </div>
               <div>
                 <div class="skill-tail">
@@ -197,7 +197,7 @@
             <% for (x in devCont['skills']) {%>
               <div class="skill-instance">
                 <div class="skill-head">
-                  <img src="../assets/Skills/<%= devCont['skills'][x] %>.png" alt="<%= devCont['skills'][x] %>" />
+                  <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="../assets/Skills/<%= devCont['skills'][x] %>.png" alt="<%= devCont['skills'][x] %>" />
                 </div>
                 <div>
                   <div class="skill-tail">
@@ -226,16 +226,16 @@
             <% for (x in devCont['projects']) {%>
               <a href="/project/<%= devCont['projects'][x]['PRO_ID'] %>">
               <div class="project">
-                <img src="<%= devCont['projects'][x]['PRO_Thumbnail'] %>" alt="Project" class="MainPic" />
+                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="<%= devCont['projects'][x]['PRO_Thumbnail'] %>" alt="Project" class="MainPic" />
                 <div class="cats">
                   <% for (i in devCont['projects'][x]['fileds']) {%>
-                  <img class="cats-img" src="../assets/Fields/<%= devCont['projects'][x]['fileds'][i] %>.png">
+                  <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="cats-img" src="../assets/Fields/<%= devCont['projects'][x]['fileds'][i] %>.png">
                   <% if (i >= 2) {%>
                     <% break;}%>
                  <% } %>
                    | 
                  <% for (i in devCont['projects'][x]['skills']) {%>
-                  <img class="cats-img" src="../assets/Skills/<%= devCont['projects'][x]['skills'][i] %>.png">
+                  <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="cats-img" src="../assets/Skills/<%= devCont['projects'][x]['skills'][i] %>.png">
                   <% if (i >= 3) {%>
                     <% break;}%>
                  <% } %>

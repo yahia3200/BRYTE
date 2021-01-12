@@ -231,8 +231,8 @@ img{
     width:44vw;
   }
   .ListMainPic{
-    height: inherit;
-    width: 25%;
+    height: 100%;
+    width: 200px;
     object-fit: cover;
   }
   .icons{
@@ -555,4 +555,10 @@ img{
 
 a.Button:hover{
     color: white;
+}
+
+.cat{
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
 }
