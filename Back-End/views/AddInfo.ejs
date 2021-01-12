@@ -224,15 +224,7 @@
               </svg>
               &nbsp; Fields & Skills
             </div>
-            <div class="skill-list">
-
-              <% for (x in devCont['fileds']) {%>
-              <div class="filterIcon"><div><%= devCont['fileds'][x]%> |
-                <%= devCont['skills'][x]%> </div></div>
-              <% } %>
-
-  
-            </div>
+           
             <div class="timeline">
               <div class="project-title2">
                 <span>Field:</span>
@@ -259,8 +251,15 @@
                 <select class="skill-phase date-input"></select>
                 <div onclick="addSkill()">Add skill</div>
               </div>
-              <div class="skill-list"></div>
-            </div>
+              <div class="skill-list">
+
+                <% for (x in devCont['fileds']) {%>
+                <div class="filterIcon"><div><%= devCont['fileds'][x]%> |
+                  <%= devCont['skills'][x]%> </div></div>
+                <% } %>
+  
+    
+              </div>            </div>
           </div>
           <div class="timeline-cont">
             <div class="left-title">
