@@ -543,9 +543,13 @@
         submit_error.textContent = "You Must Enter an End Date";
       else if(!userRole)
         submit_error.textContent = "You Must Enter Your Role in Project";
+      else if (projectSecondImg == projectFirstImg)
+        submit_error.textContent = "Two Projects Images Must Have Diffrent Values";        
       else
       {
           developers.push({UserName : user, role : userRole});
+
+
           if (projectFirstImg)
           media.push({link : projectFirstImg, name : "image"});
           if (projectSecondImg)

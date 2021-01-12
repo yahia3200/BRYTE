@@ -251,6 +251,7 @@
               <div class="skill-list">
               </div>
               <div onclick="addWholeBid()">Submit Bid</div>
+              <div class="error-msg" id="submit_error"></div>
 
             </div>
             
@@ -296,21 +297,47 @@
     const endDate = document.querySelector("#endDate").value;
     const description = document.querySelector("#description").value;
     const logo = document.querySelector("#logo").value;
+    const submit_error = document.querySelector("#submit_error");
+    const price = document.querySelector("#price").value;
+    submit_error.textContent = "";
 
     const bidFirstImg = document.querySelector("#bidFirstImg").value;
     const bidSecondImg = document.querySelector("#bidSecondImg").value;
     const media = [];
-    media.push({link : bidFirstImg, name : "image"});
-    media.push({link : bidSecondImg, name : "image"});
 
+    if (!bidName)
+      submit_error.textContent = "You Must Enter a Bid Name";
+    else if (!startDate)
+      submit_error.textContent = "You Must Enter Bid Start Date"
+    else if(!endDate)
+      submit_error.textContent = "You Must Enter Bid End Date";
+    else if(!price)
+      submit_error.textContent = "You Must Enter Bid Price"
+    else if(bidSecondImg == bidFirstImg)
+      submit_error.textContent = "Two Bids Images Must Have Diffrent Values"
+    else
+    {
+      if (bidFirstImg)
+      media.push({link : bidFirstImg, name : "image"});
+      if(bidSecondImg)
+      media.push({link : bidSecondImg, name : "image"});
 
-    const price = document.querySelector("#price").value;
-    const res = await fetch('/addBid', {
+      const res = await fetch('/addBid', {
       method: 'POST',
       body: JSON.stringify({ bidName, startDate, endDate, description, logo,
                              bidFirstImg, bidSecondImg, price, fields , media}),
       headers: { 'Content-Type': 'application/json' }
     });
+
+    location.assign('/');
+    }
+
+    
+    
+
+
+    
+    
   }
     </script>
 </body>
