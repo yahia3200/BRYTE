@@ -299,11 +299,24 @@
     const logo = document.querySelector("#logo").value;
     const submit_error = document.querySelector("#submit_error");
     const price = document.querySelector("#price").value;
+    let currentDate = new Date();
+
+    let date = ("0" + currentDate.getDate()).slice(-2);
+
+    // current month
+    let month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+
+    // current year
+    let year = currentDate.getFullYear();
+
+    currentDate = year + "-" + month + "-" + date;
+
     submit_error.textContent = "";
 
     const bidFirstImg = document.querySelector("#bidFirstImg").value;
     const bidSecondImg = document.querySelector("#bidSecondImg").value;
     const media = [];
+    console.log(parseInt(price));
 
     if (!bidName)
       submit_error.textContent = "You Must Enter a Bid Name";
@@ -311,10 +324,18 @@
       submit_error.textContent = "You Must Enter Bid Start Date"
     else if(!endDate)
       submit_error.textContent = "You Must Enter Bid End Date";
+    else if(startDate < currentDate)
+      submit_error.textContent = "Please Enter a Valid Start Date";
+    else if(endDate < currentDate)
+      submit_error.textContent = "Please Enter a Valid End Date";
+    else if (endDate < startDate)
+      submit_error.textContent = "Start Date Must Be less Than End Date";
     else if(!price)
-      submit_error.textContent = "You Must Enter Bid Price"
-    else if(bidSecondImg == bidFirstImg)
-      submit_error.textContent = "Two Bids Images Must Have Diffrent Values"
+      submit_error.textContent = "You Must Enter Bid Price";
+    else if(isNaN(parseInt(price)))
+      submit_error.textContent = "Price Must Be a Number";
+    else if((bidSecondImg || bidFirstImg ) &&  bidSecondImg == bidFirstImg)
+      submit_error.textContent = "Two Bids Images Must Have Diffrent Values";
     else
     {
       if (bidFirstImg)
