@@ -85,8 +85,9 @@
     <div id="section3">
       <div id="projectsList">
         <% for(x in projects) { %>
+          <a href="/project/<%= projects[x].PRO_ID %>">
         <div class="ProjectInst">
-          <img
+            <img
             src="<%= projects[x].PRO_Thumbnail%>"
             class="ListMainPic"
             alt=""
@@ -139,6 +140,8 @@
             </div>
           </div>
         </div>
+        
+        </a>
         <% } %>
       </div>
       <div id="ProRight">

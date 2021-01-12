@@ -224,6 +224,7 @@
               <% }%>
 
             <% for (x in devCont['projects']) {%>
+              <a href="/project/<%= devCont['projects'][x]['PRO_ID'] %>">
               <div class="project">
                 <img src="<%= devCont['projects'][x]['PRO_Thumbnail'] %>" alt="Project" class="MainPic" />
                 <div class="cats">
@@ -240,6 +241,7 @@
                  <% } %>
 
                 </div>
+              </a>
                 <div class="info">
                   <div class="main">
                     <div class="dev">

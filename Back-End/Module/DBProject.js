@@ -82,7 +82,7 @@ return container;
 /************************ Searching All projects for the gallery   ****************************************** */
 
 const Search_all_Projects = async(num_of_loads)=>{
-    let sql = "select distinct Proj.* from project as Proj where Proj.PRO_ID >= 1+9* ? and Proj.PRO_ID <= 9+9* ? ; ";
+    let sql = "select distinct Proj.* from project as Proj ; ";
     let [projects] = await pool.promise().query(sql, [num_of_loads,num_of_loads]);
     projects = projects.map(v=> Object.assign({}, v));
 
