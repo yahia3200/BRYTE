@@ -5,6 +5,7 @@
     <title>Projects Gallery</title>
 </head>
 <body>
+    
 <div id="Head">
             <div id="title">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -93,7 +94,7 @@
         <div id="abbas">
             <div id="projects">                
                 <% for(x in projects) { %>
-                <div>
+                <div class="project-cont">
                     <div class="project">
                         <img src="<%= projects[x].PRO_Thumbnail%>" alt="Project" class="MainPic" />
                         <div class="cats">
@@ -106,7 +107,7 @@
                                 <img class="thumbnail" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" alt="" />
                                 <div class="dev">
                                     <p class="name"><%= projects[x].PRO_Name %></p>
-                                    <p class="username"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %> </p>
+                                    <p class="username"><%= projects[x].developers[0].DEV_User_Name %> </p>
                                 </div>
                             </div>
                             <div class="sec">
@@ -122,9 +123,7 @@
                     </div>
                 </div>
                 <% } %>
-                <div id="showMore">
-                    <button class="ShowMoreButton">Show More</button>
-                </div>
+                
             </div>
             <div id="projectsList">
                 <% for(x in projects) { %>
@@ -140,7 +139,7 @@
                                         <%= projects[x].PRO_Rate %>
                                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.55193 6.10352e-05L10.3652 5.52793H16.2331L11.4859 8.94433L13.2992 14.4722L8.55193 11.0558L3.8047 14.4722L5.61798 8.94433L0.870754 5.52793H6.73865L8.55193 6.10352e-05Z" fill="#4B90F7"/> </svg> 
                                     </span>
-                                    <span>| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %></a></span>
+                                    <span>| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_User_Name %></a></span>
                               </div>
                             </div>
                             <div>
@@ -165,9 +164,7 @@
                     </div>
                 </div>
                 <% } %>
-                <div id="showMore">
-                    <button class="ShowMoreButton">Show More</button>
-                </div>
+                
             </div>
             <div id="FiltersTab">
                 <form action="">
@@ -332,6 +329,7 @@
             </div>
         </div>
         <footer>BRYTE© - 2021 Copyrights Reserved</footer>
+        <% console.log(projects) %>
     </body>
 
 
@@ -354,6 +352,16 @@
         var child = document.getElementById(name);
         child.parentNode.removeChild(child);
     }
+
+    function RemoveProjects(){
+        document.querySelectorAll(".project-cont").forEach((child)=>{
+            child.parentNode.removeChild(child)
+        });
+        document.querySelectorAll(".ProjectInst").forEach((child)=>{
+            child.parentNode.removeChild(child)
+        });
+    }
+
     var index=0;
     document.querySelectorAll(".ShowMoreButton").forEach(
         button=>{
@@ -536,17 +544,97 @@ document.querySelector("#Apply").addEventListener("click",async(e)=>{{
             Fields.push(box.name);
         }
     })
-    console.log(Fields);
     try{
-        console.log(Fields);
         let res = await fetch('/projects',{
             method: 'POST',
             body: JSON.stringify(Fields),
             headers: {'Content-Type': 'application/json'}
           }).then(res => res.json());
-          console.log(res)
-          if(res.user) {
+           console.log(res)
+          if(Object.keys(res).length) {
+            RemoveProjects();
+            var button = document.querySelector("#projects").innerHTML;
+            document.querySelector("#projects").innerHTML = "";
+            var button1 = document.querySelector("#projectsList").innerHTML;
+            document.querySelector("#projectsList").innerHTML = "";
+            for(cat in res)
+            {
+                res[cat].forEach(project=>{
+                    var catimg="";
+                    var skillimg=""
+                    for(cats in project.categories)   
+                    {
+                        catimg+="<img class=\"cat\" src=\"..\\assets\\Fields\\"+ project.categories[cats].PRO_CAT_Field+".png\" alt=\"\">";
+                        skillimg+="<img class=\"cat\" src=\"..\\assets\\Skills\\"+ project.categories[cats].PRO_CAT_Skill+".png\" alt=\"\">";
+                    } 
+                    
+                    document.querySelector("#projects").innerHTML += `
+                    <div class="project-cont">
+                    <div class="project">
+                        <img src="` +project.PRO_Thumbnail+`" alt="Project" class="MainPic" />
+                        <div class="cats">
+                                `+catimg+`
+                        </div>
+                        <div class="info">
+                            <div class="main">
+                                <img class="thumbnail" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" alt="" />
+                                <div class="dev">
+                                    <p class="name">`+ project.PRO_Name +`</p>
+                                    <p class="username">`+ project.developers[0].DEV_User_Name + ` </p>
+                                </div>
+                            </div>
+                            <div class="sec">
+                                <p class="date">`+ project.PRO_End_Date + `</p>
+                                <div class="rate">
+                                    <p>`+ project.PRO_Rate +`</p>
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#4B90F7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    `;
 
+                    document.querySelector("#projectsList").innerHTML += `
+                    <div class="ProjectInst">
+                    <img src="`+ project.PRO_Thumbnail+`" class="ListMainPic" alt="">
+                    <div class ="details">
+                        <div class="project-head">
+                            <img class="project-avatar" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" />
+                            <div class="projecter-cont">
+                              <div class="project-title">`+ project.PRO_Name +`</div>
+                              <div style="font-family: sans-serif">
+                                    <span>
+                                        `+ project.PRO_Rate +`
+                                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.55193 6.10352e-05L10.3652 5.52793H16.2331L11.4859 8.94433L13.2992 14.4722L8.55193 11.0558L3.8047 14.4722L5.61798 8.94433L0.870754 5.52793H6.73865L8.55193 6.10352e-05Z" fill="#4B90F7"/> </svg> 
+                                    </span>
+                                    <span>| by:<a href="" style="color: #66a3ff">`+ project.developers[0].DEV_User_Name +`</a></span>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="project-date">`+ project.PRO_End_Date +`</div>
+                              <div class="icons">
+                                <div class="ProFields">
+                                    `+catimg+`
+                                </div>
+                                <div class="ProSkills">
+                                    `+skillimg+`
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="project-tail">
+                            `+ project.PRO_Description +`
+                        </div>
+                    </div>
+                </div>
+                    `;
+
+                    console.log(project.PRO_Name)
+                })
+            }
           } 
 
     }
