@@ -48,6 +48,95 @@ const Search_Single_Bid = async (id) => {
   return container;
 };
 
+
+
+
+const insertBid = async(BidName, startDate, endDate, description, logo,price) =>{
+  const query = `insert into 
+  bryte.bid ( 
+    BID_Name, 
+    BID_Start_Date, 
+    BID_End_Date, 
+    BID_Description,
+    BID_Price,  
+    BID_Thumbnail
+  )
+values
+  ( 
+    ?, 
+    ?,
+    ?,
+    ?, 
+    ?,  
+    ?
+  );`
+
+  const [res] = await await pool.promise().query(query, [BidName, startDate, endDate, description,price ,logo]);
+  if (res.insertId)
+      return res.insertId;
+  else
+      return "error";
+
+}
+
+const insertToMedia = async(id, media)=>{
+
+  const query = `insert into 
+  bryte.bid_attachements (
+    BID_ATT_ID, 
+    BID_ATT_Link, 
+    BID_ATT_Link_Description
+  )
+values
+  (
+    ?, 
+    ?, 
+    ?
+  );`
+
+  for (let index = 0; index < media.length; index++) {
+      const [result] = await  pool.promise().query(query, [id, media[index]['link'], media[index]['name']]);
+      
+      if (result.affectedRows < 1){
+          return false;
+      }
+  }
+
+  return true;
+}
+
+const insertIntoCategory = async(id, category)=>{
+  const query = `insert into 
+  bryte.bid_category (
+    BID_CAT_Field, 
+    BID_CAT_Skill, 
+    CAT_BID_Id
+  )
+values
+  (
+    ?, 
+    ?, 
+    ?
+  );`
+
+      
+  for (let index = 0; index < category.length; index++) {
+      
+    const [result] = await  pool.promise().query(query, [category[index]['category'], category[index]['skill'], id]);
+      
+      if (result.affectedRows < 1){
+          return false;
+      }
+  }
+
+  return true;
+}
+
+
+
 module.exports = {
-    Search_Single_Bid
+    Search_Single_Bid,
+    insertBid,
+    insertToMedia,
+    insertIntoCategory
 };

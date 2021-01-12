@@ -63,7 +63,6 @@ app.use(authRoutes);
 app.use(clientRoutes);
 app.use(projectRoutes);
 app.use(bidRoutes);
-
 app.use(devRoutes);
 
 app.get('/coming_soon', (req, res)=>{res.render('Comming Soon', {style: "404"})});

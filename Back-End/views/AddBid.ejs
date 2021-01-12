@@ -85,7 +85,7 @@
             <div id="info-bar">
               <div class="project-title">
                 <input id="bidName" class="title-input" type="text"placeholder="Bid title">
-                <input id="price" class="role-input" type="text"placeholder="Payement Price" onkeyup="changeRole(this)">
+                <input id="price" class="role-input" type="text"placeholder="Payement Price">
               </div>
               <div class="project-title3">
                 <span>Start date:</span>
@@ -314,13 +314,16 @@
 
     const bidFirstImg = document.querySelector("#bidFirstImg").value;
     const bidSecondImg = document.querySelector("#bidSecondImg").value;
+    const media = [];
+    media.push({link : bidFirstImg, name : "image"});
+    media.push({link : bidSecondImg, name : "image"});
 
-    const price = document.querySelector("#price").textContent;
 
+    const price = document.querySelector("#price").value;
     const res = await fetch('/addBid', {
       method: 'POST',
       body: JSON.stringify({ bidName, startDate, endDate, description, logo,
-                             bidFirstImg, bidSecondImg, price, fields}),
+                             bidFirstImg, bidSecondImg, price, fields , media}),
       headers: { 'Content-Type': 'application/json' }
     });
   }

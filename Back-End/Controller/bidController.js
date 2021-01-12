@@ -18,6 +18,39 @@ const get_bid_by_id = async function(req, res) {
     }
 }
 
+
+
+const addBid = async(req, res)=> {
+    console.log(req.body);
+    const {bidName, startDate, endDate, description, logo ,  bidFirstImg, bidSecondImg, price} = req.body;
+
+    let date_ob = new Date();
+
+    let date = ("0" + date_ob.getDate()).slice(-2);
+
+    // current month
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+    // current year
+    let year = date_ob.getFullYear();
+
+    date = year + "-" + month + "-" + date;
+
+    const id = await poolconnection.insertBid(bidName, startDate, endDate, description, logo, price);
+    if (id == "error")
+        res.send("error");
+
+    const { media } = req.body;
+    const media_res = await poolconnection.insertToMedia(id, media);
+    
+    const { fields } = req.body;
+    const cat_res = await poolconnection.insertIntoCategory(id, fields);
+
+    res.send("Done");
+
+}
+
 module.exports = {
-    get_bid_by_id
+    get_bid_by_id,
+    addBid
 }
