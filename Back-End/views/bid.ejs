@@ -75,15 +75,23 @@
       <div class="content-border">
         <div class="content">
           <div class="slide_show">
-            <img
-              id="first-img"
-              src="<%= container.media[0].BID_ATT_Link %>"
-            />
-            <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" id="second-img" src="<%= container.media[1].BID_ATT_Link %>" />
+            <% if (Object.keys(container['media']).length > 0) { %>
+            <img id="first-img" src="<%= container.media[0].BID_ATT_Link %>" />
+            <% } else { %>
+              <img id="first-img" src="../assets/img placeholder.svg" />
+            <% } %>
+
+            <% if (Object.keys(container['media']).length > 1) { %>
+              <img id="first-img" src="<%= container.media[1].BID_ATT_Link %>" />
+              <% }else { %>
+                <img id="first-img" src="../assets/img placeholder.svg" />
+              <% } %>
+          
+            
           </div>
           <div class="project-info">
             <div id="logo-bar">
-              <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="<%= container.BID.BID_Thumbnail %>" />
+              <img onerror="this.onerror=null;this.src='../assets/img placeholder.svg';" src="<%= container.BID.BID_Thumbnail %>" />
             </div>
             <div id="info-bar">
               <div id="project-title">
@@ -98,12 +106,14 @@
                   <div id="categories">
                     <% for(x in container.Fields) {%>
                       <p><%= container.Fields[x].BID_CAT_Field %></p> &ensp;
+                      <%if (x == 3) { break; }%>
                    <% } %>
                   </div>
                   <span style="color: white;"> | </span>
                   <div id="skills">
                     <% for(x in container.Skills) {%>
                       <p><%= container.Skills[x].BID_CAT_Skill %></p>  &ensp;
+                      <%if (x == 3) { break; }%>
                    <% } %>
                   </div>
                 </div>

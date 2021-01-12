@@ -97,14 +97,23 @@
       <div class="content-border">
         <div class="content">
           <div class="slide_show">
-            <% if (Object.keys(container['media']).length > 1) { %>
-            <img id="first-img" src="<%= project_container.media[0].PRO_MUL_Link %>" onerror="this.onerror=null;this.src='assets/img placeholder.svg';"/>
-            <img  id="second-img" src="<%= project_container.media[1].PRO_MUL_Link %>" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
-            <% } %>
+
+            <% if (Object.keys(container['media']).length > 0) { %>
+              <img id="first-img" src="<%= project_container.media[0].PRO_MUL_Link %>" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';"/>
+              <% } else { %>
+                <img id="first-img" src="../assets/img placeholder.svg" />
+              <% } %>
+  
+              <% if (Object.keys(container['media']).length > 1) { %>
+                <img id="second-img" src="<%= container.media[1].BID_ATT_Link %>" />
+                <% }else { %>
+                  <img id="second-img" src="../assets/img placeholder.svg" />
+                <% } %>
+
           </div>
           <div class="project-info">
             <div id="logo-bar">
-              <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" src="<%= project_container.project.PRO_Thumbnail %>" />
+              <img onerror="this.onerror=null;this.src='../assets/img placeholder.svg';" src="<%= project_container.project.PRO_Thumbnail %>" />
             </div>
             <div id="info-bar">
               <div id="project-title">
