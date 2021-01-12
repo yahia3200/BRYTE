@@ -50,6 +50,7 @@
             <input class="dev-input" type="text" placeholder="Website name" />
             <input class="role-input" type="text" placeholder="link" />
             <div onclick="addDev()">Add Link</div>
+            <div class="error-msg" id="links_error"></div>
           </div>
         </div>
       </div>
@@ -63,13 +64,15 @@
         </div>
         <div class=" project-info">
           <div id="logo-bar">
-            <img src="assets/img placeholder.svg" />
+            <img src="<%= devCont.dev['DEV_Profile_Picture'] %>"" />
           </div>
           <div id="info-bar">
             <div class="project-title">
               <input id="fname" class="title-input Fname" type="text" placeholder="First name" value="<%= devCont.dev['DEV_Fname'] %>"/>
               <input id="lname" class="title-input Lname" type="text" placeholder="Last name" value="<%= devCont.dev['DEV_Lname'] %>"/>
+              
               <input id="phone" class="title-input Lname" type="text" placeholder="Phone Number" value="<%= devCont.dev['DEV_Phone'] %>"/>
+              
             </div>
             <div class="project-title3">
               <input id="address" class="role-input Address" type="text" placeholder="Address" value="<%= devCont.dev['DEV_Address'] %>"/>
@@ -178,7 +181,7 @@
               <input class="end-phase date-input" type="date" />
               <div onclick="addPhase()">Add</div>
             </div>
-
+            <div class="error-msg" id="work_error"></div>
             <div class="phasedate-list"></div>
             <svg class="line-of-time" width="957" height="3" viewBox="0 0 957 3" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -303,8 +306,9 @@
                 <span>End date:</span>
                 <input class="end-deg date-input" type="date" />
                 <div onclick="addDegree()">Add Degree</div>
+                
               </div>
-
+              <div class="error-msg" id="degree_error" style="text-align: center;"></div>
               <div class="phasedate-list degdate-list"></div>
               <svg class="line-of-time" width="957" height="3" viewBox="0 0 957 3" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -331,9 +335,26 @@
                   </linearGradient>
                 </defs>
               </svg>
-              <div class="phase-list deg-list"></div>
-
-              <div onclick="saveProfile()">Save</div>
+              <div class="phase-list deg-list">
+              <% for (x in devCont['degrees']) {%>
+                <div class="phase-cont">
+                  <svg width="24" class="phase-svg" height="35" viewBox="0 0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12.5" cy="10.5" r="10.5" fill="#020F22"/>
+                    <circle cx="12.5" cy="10.5" r="5.5" transform="rotate(180 12.5 10.5)" stroke="white" stroke-width="2"/>
+                    <path d="M2 18L12.5 31L22 18.4062" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>  
+                  <div class="phase-title"><%= devCont['degrees'][x]['DEV_DEG_Field']%></div>
+                  <a style="color: #4b90f7"><%= devCont['degrees'][x]['DEV_DEG_University'] %>
+                    <%= devCont['degrees'][x]['DEV_DEG_Faculty'] %></a>
+                  <div class="phase-desc"><%= devCont['degrees'][x]['DEV_DEG_Title']%></div>
+                </div>
+                <% } %>
+              </div>
+              
+            </div>
+              <div onclick="saveProfile()" class="save-btn">Save</div>
+              <div class="error-msg" id="save_error"></div>
+              <div class="done-msg" id="save-msg"></div>
             </div>
           </div>
         </div>
@@ -379,7 +400,18 @@
         }
 
         function addDev() {
-          links.push({ name: document.querySelector(".dev-input").value, link: document.querySelector(".role-input").value });
+          const name = document.querySelector(".dev-input").value;
+          const link = document.querySelector(".role-input").value;
+          const links_error = document.querySelector("#links_error");
+          links_error.textContent = "";
+
+          if (!name)
+            links_error.textContent = "You Must Enter a Link Name";
+          else if(!link)
+          links_error.textContent = "You Must Enter a Link";
+          else
+          {
+            links.push({ name: document.querySelector(".dev-input").value, link: document.querySelector(".role-input").value });
           document.querySelector(
             "#developers-bar"
           ).innerHTML += `<div class="review-head dev">
@@ -395,9 +427,33 @@
     </div>`;
           document.querySelector(".dev-input").value = "";
           document.querySelector(".role-input").value = "";
+          }
+
+          
         }
         function addPhase() {
-          working.push({
+
+          const company =  document.querySelector(".title-phase-company").value;
+          const role =  document.querySelector(".title-phase-role").value;
+          const desc = document.querySelector(".title-phase-desc").value;
+          const start = document.querySelector(".start-phase").value;
+          const end = document.querySelector(".end-phase").value;
+
+          const work_error = document.querySelector("#work_error");
+          work_error.textContent = "";
+
+          if (!company)
+            work_error.textContent = "You Must Enter a Company";
+          else if (!role)
+          work_error.textContent = "You Must Enter a Role";
+          else if (!start)
+          work_error.textContent = "You Must Enter a Start Date";
+          else if(!end)
+          work_error.textContent = "You Must Enter a End Date";
+
+          else
+          {
+            working.push({
             company: document.querySelector(".title-phase-company").value,
             role: document.querySelector(".title-phase-role").value,
             desc: document.querySelector(".title-phase-desc").value,
@@ -430,9 +486,37 @@
           document.querySelector(".title-phase-company").value = "";
           document.querySelector(".title-phase-role").value = "";
           document.querySelector(".title-phase-desc").value = "";
+          }
+
+
+          
         }
         function addDegree() {
-          degrees.push({
+
+          const university =  document.querySelector(".title-phase-University").value;
+          const faculty =  document.querySelector(".title-phase-Faculty").value;
+          const field = document.querySelector(".title-phase-Field").value;
+          const degreeType = document.querySelector(".degree-type").value;
+          const start =  document.querySelector(".start-deg").value;
+          const end = document.querySelector(".end-deg").value;
+          const degree_error = document.querySelector("#degree_error");
+
+          degree_error.textContent = "";
+
+          if (!university)
+            degree_error.textContent = "You Must Enter a University"
+          else if (!faculty)
+            degree_error.textContent = "You Must Enter a Faculty"
+          else if(!field)
+            degree_error.textContent = "You Must Enter a Field"
+          else if(!degreeType)
+            degree_error.textContent = "You Must Must Choose a Degree"
+          else if(!start)
+            degree_error.textContent = "You Must Enter a Start Date"
+          else if(!end)
+            degree_error.textContent = "You Must Enter an End Date"
+          else{
+            degrees.push({
             university: document.querySelector(".title-phase-University").value,
             faculty: document.querySelector(".title-phase-Faculty").value,
             field: document.querySelector(".title-phase-Field").value,
@@ -466,6 +550,9 @@
           document.querySelector(".title-phase-University").value = "";
           document.querySelector(".title-phase-Faculty").value = "";
           document.querySelector(".title-phase-Field").value = "";
+          }
+
+          
         }
         function addSkill() {
           if (document.querySelector(".skill-phase").value.length > 0) {
@@ -488,18 +575,40 @@
           const logo = document.querySelector("#logo").value;
           const coverPicture = document.querySelector("#coverPicture").value;
 
+          const save_error = document.querySelector("#save_error");
+          const save_msg = document.querySelector("#save-msg");
+          save_error.textContent = "";
+          save_msg.textContent= "";
 
-          let res = await fetch('/change-settings', {
-            method: 'POST',
-            body: JSON.stringify({
-              fname, lname, phone, address, birthdate, description, logo, coverPicture,
-              working, degrees, category, links
-            }),
-            headers: { 'Content-Type': 'application/json' }
-          });
 
-          res = await res.json();
-          console.log(res);
+          if (!fname)
+            save_error.textContent = "You Must Enter a First Name";
+          else if (!lname)
+            save_error.textContent = "You Must Enter a Last Name";
+          else if (!phone)
+          save_error.textContent = "You Must Enter a Phone Number";
+          else if(!address)
+          save_error.textContent = "You Must Enter a Address";
+          else if(!birthdate)
+          save_error.textContent = "You Must Enter a Birth Date";
+          else
+          {
+              let res = await fetch('/change-settings', {
+              method: 'POST',
+              body: JSON.stringify({
+                fname, lname, phone, address, birthdate, description, logo, coverPicture,
+                working, degrees, category, links
+              }),
+              headers: { 'Content-Type': 'application/json' }
+            });
+
+            res = await res.json();
+            console.log(res);
+            save_msg.textContent = "Saved Successfully"
+            
+
+          }
+          
 
         }    
         </script>

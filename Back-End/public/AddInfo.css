@@ -569,6 +569,7 @@ div[onclick="saveProfile()"] {
   margin: 50px 0;
   margin-left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 0px;
 }
 div[onclick="saveProfile()"]:hover {
   -webkit-filter: brightness(0.8) contrast(1.7);
@@ -596,4 +597,21 @@ select {
 .degree-type
 {
   max-width: 130px;
+}
+
+.error-msg{
+
+  text-align: center;
+  margin: 50px;
+  margin-top: 15px;
+}
+
+.done-msg{
+  font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    color: #00bae4; 
+  text-align: center;
+  margin: 50px;
+  margin-top: 15px;
 }
