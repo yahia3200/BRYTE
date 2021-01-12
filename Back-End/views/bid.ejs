@@ -76,13 +76,13 @@
         <div class="content">
           <div class="slide_show">
             <% if (Object.keys(container['media']).length > 0) { %>
-            <img id="first-img" src="<%= container.media[0].BID_ATT_Link %>" />
+            <img id="first-img" src="<%= container.media[0].BID_ATT_Link %>" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';"/>
             <% } else { %>
               <img id="first-img" src="../assets/img placeholder.svg" />
             <% } %>
 
             <% if (Object.keys(container['media']).length > 1) { %>
-              <img id="first-img" src="<%= container.media[1].BID_ATT_Link %>" />
+              <img id="first-img" src="<%= container.media[1].BID_ATT_Link %>" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';"/>
               <% }else { %>
                 <img id="first-img" src="../assets/img placeholder.svg" />
               <% } %>

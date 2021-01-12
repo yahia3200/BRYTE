@@ -95,12 +95,12 @@
                             <% } %>
                         <div class="cats">
                             <% for(y in projects[x].categories) { %>
-                                <img class="cat" src="..\assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
+                                <img class="cat" src="assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
                             <% } %>
                         </div>
                         <div class="info">
                             <div class="main">
-                                <img class="thumbnail" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" alt="" />
+                                <img class="thumbnail" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" alt="" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';"/>
                                 <div class="dev">
                                     <p class="name"><%= projects[x].PRO_Name %></p>
                                     <p class="username"><%= projects[x].developers[0].DEV_User_Name %> </p>
@@ -146,12 +146,12 @@
                               <div class="icons">
                                 <div class="ProFields">
                                     <% for(y in projects[x].categories) { %>
-                                        <img class="cat" src="..\assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
+                                        <img class="cat" src="assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
                                     <% } %>
                                 </div>
                                 <div class="ProSkills">
                                     <% for(y in projects[x].categories) { %>
-                                        <img class="cat" src="..\assets\Skills\<%= projects[x].categories[y].PRO_CAT_Skill%>.png" alt="">                     
+                                        <img class="cat" src="assets\Skills\<%= projects[x].categories[y].PRO_CAT_Skill%>.png" alt="">                     
                                     <% } %>
                                 </div>
                             </div>
@@ -569,20 +569,20 @@ document.querySelector("#Apply").addEventListener("click",async(e)=>{{
                     var skillimg=""
                     for(cats in project.categories)   
                     {
-                        catimg+="<img class=\"cat\" src=\"..\\assets\\Fields\\"+ project.categories[cats].PRO_CAT_Field+".png\" alt=\"\">";
-                        skillimg+="<img class=\"cat\" src=\"..\\assets\\Skills\\"+ project.categories[cats].PRO_CAT_Skill+".png\" alt=\"\">";
+                        catimg+="<img class=\"cat\" src=\"assets\\Fields\\"+ project.categories[cats].PRO_CAT_Field+".png\" alt=\"\">";
+                        skillimg+="<img class=\"cat\" src=\"assets\\Skills\\"+ project.categories[cats].PRO_CAT_Skill+".png\" alt=\"\">";
                     } 
                     
                     document.querySelector("#projects").innerHTML += `
                     <div class="project-cont">
                     <div class="project">
-                        <img src="` +project.PRO_Thumbnail+`" alt="Project" class="MainPic" onerror="this.onerror=null;this.src='assets/img placeholder.svg';"/>
+                        <img src="` +project.PRO_Thumbnail+`" alt="Project" class="MainPic" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';"/>
                         <div class="cats">
                                 `+catimg+`
                         </div>
                         <div class="info">
                             <div class="main">
-                                <img class="thumbnail" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" alt="" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
+                                <img class="thumbnail" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" alt="" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';" />
                                 <div class="dev">
                                     <p class="name">`+ project.PRO_Name +`</p>
                                     <p class="username">`+ project.developers[0].DEV_User_Name + ` </p>
@@ -604,10 +604,10 @@ document.querySelector("#Apply").addEventListener("click",async(e)=>{{
 
                     document.querySelector("#projectsList").innerHTML += `
                     <div class="ProjectInst">
-                    <img src="`+ project.PRO_Thumbnail+`" class="ListMainPic" alt="" onerror="this.onerror=null;this.src='assets/img placeholder.svg';">
+                    <img src="`+ project.PRO_Thumbnail+`" class="ListMainPic" alt="" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';">
                     <div class ="details">
                         <div class="project-head">
-                            <img class="project-avatar" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
+                            <img class="project-avatar" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';" />
                             <div class="projecter-cont">
                               <div class="project-title">`+ project.PRO_Name +`</div>
                               <div style="font-family: sans-serif">

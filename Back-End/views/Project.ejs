@@ -80,7 +80,7 @@
             <% for(x in project_container.devs) { %>  
               <a href="/developer/<%= project_container.devs[x].DEV_ID %>">
               <div class="review-head dev">
-                <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="review-avatar dev" src="<%= project_container.devs[x].DEV_Profile_Picture %>" />
+                <img onerror="this.onerror=null;this.src='../assets/img placeholder.svg';" class="review-avatar dev" src="<%= project_container.devs[x].DEV_Profile_Picture %>" />
                 <div class="reviewer-cont dev">
                   <a href="#" class="review-title dev"><%= project_container.devs[x].DEV_Fname %> <%= project_container.devs[x].DEV_Lname %></a>
                   <div class="reviewer dev" style="font-family: sans-serif">
@@ -105,7 +105,7 @@
               <% } %>
   
               <% if (Object.keys(container['media']).length > 1) { %>
-                <img id="second-img" src="<%= container.media[1].BID_ATT_Link %>" />
+                <img id="second-img" src="<%= container.media[1].BID_ATT_Link %>" onerror="this.onerror=null;this.src='../assets/img placeholder.svg';"/>
                 <% }else { %>
                   <img id="second-img" src="../assets/img placeholder.svg" />
                 <% } %>
@@ -416,7 +416,7 @@
               <% for(x in project_container.reviews) {%>
               <div class="review-instance">
                 <div class="review-head">
-                  <img onerror="this.onerror=null;this.src='assets/img placeholder.svg';" class="review-avatar" src="<%=project_container.reviews[x].EXP_Profile_Picture %>" />
+                  <img onerror="this.onerror=null;this.src='../assets/img placeholder.svg';" class="review-avatar" src="<%=project_container.reviews[x].EXP_Profile_Picture %>" />
                   <div class="reviewer-cont">
                     <div class="review-title"><%=project_container.reviews[x].REV_Title %></div>
                     <div class="reviewer" style="font-family: sans-serif">
