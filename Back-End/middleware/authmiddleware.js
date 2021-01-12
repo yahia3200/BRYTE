@@ -15,7 +15,6 @@ const authVerifier = (req, res, next) => {
             }
             else //the token is verified 
             {
-                console.log(decodedToken);
                 //next() will make you apple to porceed with the function called this Auth confirmation
                 next();
             }
