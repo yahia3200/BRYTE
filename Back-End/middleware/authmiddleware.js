@@ -55,7 +55,30 @@ const getUser = (req, res, next) => {
 
 }
 
+const isDev = async (req, res, next) => {
+
+    const token = req.cookies.jwt;
+    if (token) {
+        jwt.verify(token, 'BRYTE Secret', async (err, decodedToken) => {
+            if (err) {
+                res.redirect('/signup')
+            }
+            else if (decodedToken.role != "Dev") {
+                res.redirect('/404')
+            }
+
+            else
+                next();
+        });
+    } 
+    else {
+
+        res.redirect('/signup')
+    }
+}
+
 module.exports = {
     authVerifier,
-    getUser
+    getUser,
+    isDev
 }; 
