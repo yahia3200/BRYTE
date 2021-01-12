@@ -9,7 +9,6 @@ const get_project_by_id = async function(req, res) {
     try {
         const id = req.params.id
         const Project_Container = await poolconnection.Search_Single_Project(id);
-        console.log(Project_Container);
         res.render('Project',{style: "Project" , project_container: Project_Container});
     }
     catch (err) {

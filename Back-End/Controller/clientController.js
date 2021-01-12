@@ -84,7 +84,6 @@ const changePassword = async(req, res)=>{
                     const {newPass, oldPass} = req.body;
                     user = decodedToken.userName;
                     const res2 = await poolconnection.changeClientPass(user, oldPass, newPass);
-                    console.log(res2);
                     res.send(res2);
                 }
             });
