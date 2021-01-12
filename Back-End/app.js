@@ -9,7 +9,7 @@ const projectRoutes = require('./Routes/projectRoutes');
 const devRoutes = require("./Routes/devRoutes");
 const clientRoutes = require('./Routes/clientRoutes');
 const bidRoutes = require('./Routes/bidRoutes');
-
+const homeRoutes = require('./Routes/homeRoutes');
 //Import Cookies package
 const cookieParser = require('cookie-parser');
 
@@ -46,10 +46,6 @@ app.set('view engine', 'ejs');
 //Routes
 app.get('*', getUser);
 
-//Home Route
-app.get('/', (req, res)=>{
-    res.render('home', {style: "home"})
-});
 app.get('/bids',(req, res)=>{
     res.render('comingsoon', {style: "comingsoon"});
 });
@@ -58,7 +54,7 @@ app.get('/bids',(req, res)=>{
 
 //Authentication verifecation
 //app.get('/Projects_gallery',authVerifier,(req, res) => {res.render('Projects_gallery', {style: "gallery"})});
-
+app.use(homeRoutes);
 app.use(authRoutes);
 app.use(clientRoutes);
 app.use(projectRoutes);
