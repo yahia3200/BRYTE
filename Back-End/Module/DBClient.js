@@ -46,7 +46,7 @@ const insertClient = (body, callback) => {
                     }
 
                     else {
-                        return callback({ sql_res: sql_res.insertId });
+                        return callback({ id: sql_res.insertId , userName});
                     }
 
                 });

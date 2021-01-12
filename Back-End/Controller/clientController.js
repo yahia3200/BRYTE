@@ -10,21 +10,23 @@ const createToken = (id, userName, role) => {
 
 const signUpPost = (req, res)=>{
     try {
-        poolconnection.insertClient(req.body, (sql_res)=>{
-            console.log(req.body);
-            console.log(sql_res);
-            if (sql_res['error'])
+        poolconnection.insertClient(req.body, (result)=>{
+            if (result['error'])
             {
-                res.send('not inserted');
+                res.send({error : "not inserted"});
             }
             else
             {
-                res.send(sql_res);
+                const token = createToken(result['id'], result["userName"] , "client");
+                res.locals.user = result["userName"];
+                res.locals.role = "client";
+                res.cookie('jwt', token, { httpOnly: true, maxAge: mymaxAge * 1000 });/*maxAge is in milliseconds , mymaxAge is in seconds*/
+                res.status(201).json({ user: result['id'] });
             }
             
         })
     } catch (error) {
-        res.send('error');
+        res.send(error);
     }
 }
 
