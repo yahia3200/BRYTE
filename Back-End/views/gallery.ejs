@@ -5,6 +5,7 @@
     <title>Projects Gallery</title>
 </head>
 <body>
+    
 <div id="Head">
             <div id="title">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -77,25 +78,20 @@
                     <label>Filters:</label>
                     <div id="and" class="unclicked">AND</div>
                     <div id="or" class="clicked">OR</div>
-                    <div class="filterIcon">
-                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g> <line x1="11.9541" y1="12.6886" x2="25.2304" y2="18.7234" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="12.3448" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="11.4966" y1="21.0846" x2="23.5661" y2="18.6707" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 21.3723)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="10.6342" y1="27.1312" x2="23.9106" y2="30.752" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="10.9137" cy="27.8205" r="1.93447" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="12.5721" y1="35.607" x2="24.6415" y2="30.7792" stroke="#00A3FF" stroke-width="1.5"/> <circle r="1.93447" transform="matrix(1 0 0 -1 10.9137 35.5584)" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <line x1="24.0774" y1="17.8781" x2="34.9399" y2="23.9128" stroke="#00A3FF" stroke-width="1.5"/> <line x1="25.8225" y1="29.5833" x2="36.685" y2="24.7555" stroke="#00A3FF" stroke-width="1.5"/> <circle cx="35.417" cy="24.3688" r="3.22412" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="14.2792" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <rect x="20.5861" y="27.1757" width="6.44824" height="6.44824" fill="#00F0FF" stroke="white" stroke-width="0.5"/> <defs> <filter id="filter0_d" x="0" y="0" width="48.1308" height="48.1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"> <feFlood flood-opacity="0" result="BackgroundImageFix"/> <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/> <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow"/> <feOffset dx="2"/> <feGaussianBlur stdDeviation="1.5"/> <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/> <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/> <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/> </filter> </defs> </svg> 
-                        <div>Deep Learning</div>
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
-                    </div>
-                    <div class="filterIcon">
-                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <g filter="url(#filter0_d)"> <circle cx="22.0654" cy="24.0654" r="20.0654" fill="#303641"/> <circle cx="22.0654" cy="24.0654" r="19.8154" stroke="#00F0FF" stroke-width="0.5"/> </g>  </svg> 
-                        <div>Deep Learning</div>
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg> 
-                    </div>
+                    
                 </div>
             </form>
         </div>
         <div id="abbas">
             <div id="projects">                
                 <% for(x in projects) { %>
-                <div>
+                <div class="project-cont">
                     <div class="project">
-                        <img src="<%= projects[x].PRO_Thumbnail%>" alt="Project" class="MainPic" />
+                        <% if(projects[x].PRO_Thumbnail) { %>
+                        <img src="<%= projects[x].PRO_Thumbnail%>" alt="Project" class="MainPic" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
+                        <% } else { %>
+                            <img src="assets/img placeholder.svg" alt="Project" class="MainPic" />
+                            <% } %>
                         <div class="cats">
                             <% for(y in projects[x].categories) { %>
                                 <img class="cat" src="..\assets\Fields\<%= projects[x].categories[y].PRO_CAT_Field%>.png" alt="">
@@ -103,15 +99,16 @@
                         </div>
                         <div class="info">
                             <div class="main">
-                                <img class="thumbnail" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" alt="" />
+                                <img class="thumbnail" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" alt="" />
                                 <div class="dev">
                                     <p class="name"><%= projects[x].PRO_Name %></p>
-                                    <p class="username"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %> </p>
+                                    <p class="username"><%= projects[x].developers[0].DEV_User_Name %> </p>
                                 </div>
                             </div>
                             <div class="sec">
                                 <p class="date"><%= projects[x].PRO_End_Date %></p>
                                 <div class="rate">
+
                                     <p><%= projects[x].PRO_Rate %></p>
                                     <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#4B90F7" />
@@ -122,9 +119,7 @@
                     </div>
                 </div>
                 <% } %>
-                <div id="showMore">
-                    <button class="ShowMoreButton">Show More</button>
-                </div>
+                
             </div>
             <div id="projectsList">
                 <% for(x in projects) { %>
@@ -132,7 +127,7 @@
                     <img src="<%= projects[x].PRO_Thumbnail%>" class="ListMainPic" alt="">
                     <div class ="details">
                         <div class="project-head">
-                            <img class="project-avatar" src="./assets/40409fbd3b13afb972dbb7ad426e0ecd.jpg" />
+                            <img class="project-avatar" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" />
                             <div class="projecter-cont">
                               <div class="project-title"><%= projects[x].PRO_Name %></div>
                               <div style="font-family: sans-serif">
@@ -140,7 +135,7 @@
                                         <%= projects[x].PRO_Rate %>
                                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.55193 6.10352e-05L10.3652 5.52793H16.2331L11.4859 8.94433L13.2992 14.4722L8.55193 11.0558L3.8047 14.4722L5.61798 8.94433L0.870754 5.52793H6.73865L8.55193 6.10352e-05Z" fill="#4B90F7"/> </svg> 
                                     </span>
-                                    <span>| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_Fname %> <%= projects[x].developers[0].DEV_Lname %></a></span>
+                                    <span>| by:<a href="" style="color: #66a3ff"><%= projects[x].developers[0].DEV_User_Name %></a></span>
                               </div>
                             </div>
                             <div>
@@ -165,9 +160,7 @@
                     </div>
                 </div>
                 <% } %>
-                <div id="showMore">
-                    <button class="ShowMoreButton">Show More</button>
-                </div>
+                
             </div>
             <div id="FiltersTab">
                 <form action="">
@@ -332,6 +325,7 @@
             </div>
         </div>
         <footer>BRYTE© - 2021 Copyrights Reserved</footer>
+        <% console.log(projects) %>
     </body>
 
 
@@ -340,11 +334,16 @@
         var parent=document.createElement("div");
         parent.classList.add("filterIcon");
         parent.id=name;
+        var child1 = document.createElement("img");
+        child1.src="..\\assets\\Fields\\"+name+".png"
+        child1.style.height="inherit";
+        child1.style.margin="5px";
         var child2 = document.createElement("div");
+        name = name.replace("_"," ");
         child2.textContent=name;
         var child3 = document.createElement("svg");
         child3.innerHTML='<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1611" cy="11.0654" r="10.4689" fill="#313741"/> <line x1="7.88266" y1="7.41218" x2="14.9779" y2="14.5074" stroke="white" stroke-width="4" stroke-linecap="round"/> <line x1="2" y1="-2" x2="12.0342" y2="-2" transform="matrix(-0.707107 0.707107 0.707107 0.707107 17.2679 7.41218)" stroke="white" stroke-width="4" stroke-linecap="round"/> </svg>';
-
+        parent.appendChild(child1);
         parent.appendChild(child2);
         parent.appendChild(child3);
         document.querySelector("#Filters").appendChild(parent);
@@ -354,6 +353,16 @@
         var child = document.getElementById(name);
         child.parentNode.removeChild(child);
     }
+
+    function RemoveProjects(){
+        document.querySelectorAll(".project-cont").forEach((child)=>{
+            child.parentNode.removeChild(child)
+        });
+        document.querySelectorAll(".ProjectInst").forEach((child)=>{
+            child.parentNode.removeChild(child)
+        });
+    }
+
     var index=0;
     document.querySelectorAll(".ShowMoreButton").forEach(
         button=>{
@@ -536,17 +545,97 @@ document.querySelector("#Apply").addEventListener("click",async(e)=>{{
             Fields.push(box.name);
         }
     })
-    console.log(Fields);
     try{
-        console.log(Fields);
         let res = await fetch('/projects',{
             method: 'POST',
             body: JSON.stringify(Fields),
             headers: {'Content-Type': 'application/json'}
           }).then(res => res.json());
-          console.log(res)
-          if(res.user) {
+           console.log(res)
+          if(Object.keys(res).length) {
+            RemoveProjects();
+            var button = document.querySelector("#projects").innerHTML;
+            document.querySelector("#projects").innerHTML = "";
+            var button1 = document.querySelector("#projectsList").innerHTML;
+            document.querySelector("#projectsList").innerHTML = "";
+            for(cat in res)
+            {
+                res[cat].forEach(project=>{
+                    var catimg="";
+                    var skillimg=""
+                    for(cats in project.categories)   
+                    {
+                        catimg+="<img class=\"cat\" src=\"..\\assets\\Fields\\"+ project.categories[cats].PRO_CAT_Field+".png\" alt=\"\">";
+                        skillimg+="<img class=\"cat\" src=\"..\\assets\\Skills\\"+ project.categories[cats].PRO_CAT_Skill+".png\" alt=\"\">";
+                    } 
+                    
+                    document.querySelector("#projects").innerHTML += `
+                    <div class="project-cont">
+                    <div class="project">
+                        <img src="` +project.PRO_Thumbnail+`" alt="Project" class="MainPic" onerror="this.onerror=null;this.src='assets/img placeholder.svg';"/>
+                        <div class="cats">
+                                `+catimg+`
+                        </div>
+                        <div class="info">
+                            <div class="main">
+                                <img class="thumbnail" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" alt="" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
+                                <div class="dev">
+                                    <p class="name">`+ project.PRO_Name +`</p>
+                                    <p class="username">`+ project.developers[0].DEV_User_Name + ` </p>
+                                </div>
+                            </div>
+                            <div class="sec">
+                                <p class="date">`+ project.PRO_End_Date + `</p>
+                                <div class="rate">
+                                    <p>`+ project.PRO_Rate +`</p>
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#4B90F7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    `;
 
+                    document.querySelector("#projectsList").innerHTML += `
+                    <div class="ProjectInst">
+                    <img src="`+ project.PRO_Thumbnail+`" class="ListMainPic" alt="" onerror="this.onerror=null;this.src='assets/img placeholder.svg';">
+                    <div class ="details">
+                        <div class="project-head">
+                            <img class="project-avatar" src="<%= projects[x].developers[0].DEV_Profile_Picture %>" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
+                            <div class="projecter-cont">
+                              <div class="project-title">`+ project.PRO_Name +`</div>
+                              <div style="font-family: sans-serif">
+                                    <span>
+                                        `+ project.PRO_Rate +`
+                                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.55193 6.10352e-05L10.3652 5.52793H16.2331L11.4859 8.94433L13.2992 14.4722L8.55193 11.0558L3.8047 14.4722L5.61798 8.94433L0.870754 5.52793H6.73865L8.55193 6.10352e-05Z" fill="#4B90F7"/> </svg> 
+                                    </span>
+                                    <span>| by:<a href="" style="color: #66a3ff">`+ project.developers[0].DEV_User_Name +`</a></span>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="project-date">`+ project.PRO_End_Date +`</div>
+                              <div class="icons">
+                                <div class="ProFields">
+                                    `+catimg+`
+                                </div>
+                                <div class="ProSkills">
+                                    `+skillimg+`
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="project-tail">
+                            `+ project.PRO_Description +`
+                        </div>
+                    </div>
+                </div>
+                    `;
+
+                    console.log(project.PRO_Name)
+                })
+            }
           } 
 
     }

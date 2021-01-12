@@ -290,7 +290,7 @@ create table BID
 create table BID_ATTACHEMENTS
 (
     BID_ATT_ID int not null,
-    BID_ATT_Link varchar(100) not null,
+    BID_ATT_Link varchar(500) not null,
     BID_ATT_Link_Description varchar(20),
     Foreign KEY (BID_ATT_ID) references BID(BID_ID),
     primary key (BID_ATT_ID, BID_ATT_Link)
@@ -809,7 +809,7 @@ INSERT INTO pro_category (
     VALUES (
     'Artificial_Intelligence',
     'Vue',
-    5
+    1
   );
 
 INSERT INTO pro_category (
@@ -820,7 +820,7 @@ INSERT INTO pro_category (
     VALUES (
     'Artificial_Intelligence',
     'Nodejs',
-    5
+    1
   );
 
   INSERT INTO pro_multimedia (
@@ -845,7 +845,7 @@ VALUES (
     'Photo1'
   );
 
-  INSERT INTO developer_works_on (DEV_Id, PRO_Id, Dev_Role) VALUES ( 1, 7, 'Front End');
+  INSERT INTO developer_works_on (DEV_Id, PRO_Id, Dev_Role) VALUES ( 1, 1, 'Front End');
 
    INSERT INTO timeline (
       PRO_TIM_ID,
