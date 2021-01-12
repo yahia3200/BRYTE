@@ -31,11 +31,11 @@ const Search_Single_Bid = async (id) => {
 
 
 
-  rows[0].BID_Start_Date =  (rows[0].BID_Start_Date.getDate() - 1).toString() + "/" + (rows[0].BID_Start_Date.getMonth() + 1).toString() + "/" + rows[0].BID_Start_Date.getFullYear().toString();
+  rows[0].BID_Start_Date =  (rows[0].BID_Start_Date.getDate()).toString() + "/" + (rows[0].BID_Start_Date.getMonth() + 1).toString() + "/" + rows[0].BID_Start_Date.getFullYear().toString();
 
 
 
-  rows[0].BID_End_Date = (rows[0].BID_End_Date.getDate() - 1).toString() + "/" + (rows[0].BID_End_Date.getMonth() + 1).toString() +  "/" + rows[0].BID_End_Date.getFullYear().toString();  
+  rows[0].BID_End_Date = (rows[0].BID_End_Date.getDate()).toString() + "/" + (rows[0].BID_End_Date.getMonth() + 1).toString() +  "/" + rows[0].BID_End_Date.getFullYear().toString();  
   container["BID"] = Object.assign({}, rows[0]);
 
   
@@ -71,7 +71,7 @@ const Search_Single_Bid = async (id) => {
   [rows, fields, sql_error] = await pool.promise().query(sql, [id]);
   rows = rows.map((v) => Object.assign({}, v));
   container["applicants"] = Object.assign({}, rows);
-  console.log(container);
+  //console.log(container);
   return container;
 };
 
