@@ -86,6 +86,7 @@
             <div id="projects">                
                 <% for(x in projects) { %>
                 <div class="project-cont">
+                    <a href="/project/<%= projects[x].PRO_ID %>">
                     <div class="project">
                         <% if(projects[x].PRO_Thumbnail) { %>
                         <img src="<%= projects[x].PRO_Thumbnail%>" alt="Project" class="MainPic" onerror="this.onerror=null;this.src='assets/img placeholder.svg';" />
@@ -117,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <% } %>
                 
@@ -124,6 +126,7 @@
             <div id="projectsList">
                 <% for(x in projects) { %>
                 <div class="ProjectInst">
+                    <a href="/project/<%= projects[x].PRO_ID %>">
                     <img src="<%= projects[x].PRO_Thumbnail%>" class="ListMainPic" alt="">
                     <div class ="details">
                         <div class="project-head">
@@ -158,6 +161,7 @@
                             <%= projects[x].PRO_Description %>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <% } %>
                 

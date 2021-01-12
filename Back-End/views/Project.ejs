@@ -78,6 +78,7 @@
             <h2>Developers:</h2>
             <div id="developers-bar">
             <% for(x in project_container.devs) { %>  
+              <a href="/developer/<%= project_container.devs[x].DEV_ID %>">
               <div class="review-head dev">
                 <img class="review-avatar dev" src="<%= project_container.devs[x].DEV_Profile_Picture %>" />
                 <div class="reviewer-cont dev">
@@ -87,6 +88,7 @@
                   </div>
                 </div>
               </div>
+            </a>
             <% } %>
             </div>
           </div>
