@@ -18,7 +18,7 @@ const signup_post = async function (req, res) {
     try {
         poolconnection.Insert_Developer(res, req.body, (id, userName ,sql_errornumber, sql_errorMessage, compleated) => {
             if (compleated) {
-                const token = createToken(id, userName, "Dev");
+                const token = createToken(id, userName, "dev");
                 res.locals.user = userName;
                 res.locals.role = "Dev";
                 res.cookie('jwt', token, { httpOnly: true, maxAge: mymaxAge * 1000 });/*maxAge is in milliseconds , mymaxAge is in seconds*/

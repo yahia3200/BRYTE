@@ -71,9 +71,34 @@ const checkEmail = async (req, res)=>{
     }
 
 }
+
+const changePassword = async(req, res)=>{
+    try {
+        const token = req.cookies.jwt;
+        if (token) {
+            jwt.verify(token, 'BRYTE Secret', async (err, decodedToken) => {
+                if (err) {
+                    res.send("error");
+                }
+                else {
+                    const {newPass, oldPass} = req.body;
+                    user = decodedToken.userName;
+                    const res2 = await poolconnection.changeClientPass(user, oldPass, newPass);
+                    console.log(res2);
+                    res.send(res2);
+                }
+            });
+        }
+
+    } catch (error) {
+        res.send("error");
+    }
+}
+
 module.exports = {
     signUpPost,
     singInPost,
     checkNewUser,
-    checkEmail
+    checkEmail,
+    changePassword
 }

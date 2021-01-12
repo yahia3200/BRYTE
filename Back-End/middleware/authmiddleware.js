@@ -63,12 +63,47 @@ const isDev = async (req, res, next) => {
             if (err) {
                 res.redirect('/signup')
             }
-            else if (decodedToken.role != "Dev") {
+            else if (decodedToken.role != "dev") {
                 res.redirect('/404')
             }
 
             else
+            {
+                res.locals.user = decodedToken.userName;
+                res.locals.id = decodedToken.id;
+                res.locals.role = decodedToken.role;
                 next();
+            }
+                
+        });
+    } 
+    else {
+
+        res.redirect('/signup')
+    }
+}
+
+const isClient = async (req, res, next) => {
+
+    const token = req.cookies.jwt;
+    if (token) {
+        jwt.verify(token, 'BRYTE Secret', async (err, decodedToken) => {
+            if (err) {
+                res.redirect('/signup')
+            }
+
+            else if (decodedToken.role != "client") {
+                res.redirect('/404')
+            }
+
+            else
+            {   
+                res.locals.user = decodedToken.userName;
+                res.locals.id = decodedToken.id;
+                res.locals.role = decodedToken.role;
+                next();
+            }
+                
         });
     } 
     else {
@@ -80,5 +115,6 @@ const isDev = async (req, res, next) => {
 module.exports = {
     authVerifier,
     getUser,
-    isDev
+    isDev,
+    isClient
 }; 
