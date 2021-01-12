@@ -799,16 +799,17 @@ INSERT INTO project (
     5,
     'https://i.pinimg.com/originals/40/ec/65/40ec6543854e8ce641728ee285f723ea.jpg'
   );
-
+  
+use Bryte;
 INSERT INTO pro_category (
     PRO_CAT_Field,
     PRO_CAT_Skill,
     CAT_PRO_Id
   )
     VALUES (
-    'Front-end Development',
+    'Artificial_Intelligence',
     'Vue',
-    1
+    5
   );
 
 INSERT INTO pro_category (
@@ -817,9 +818,9 @@ INSERT INTO pro_category (
     CAT_PRO_Id
   )
     VALUES (
-    'Game Development',
+    'Artificial_Intelligence',
     'Nodejs',
-    1
+    5
   );
 
   INSERT INTO pro_multimedia (
@@ -844,7 +845,7 @@ VALUES (
     'Photo1'
   );
 
-  INSERT INTO developer_works_on (DEV_Id, PRO_Id, Dev_Role) VALUES ( 1, 1, 'Front End');
+  INSERT INTO developer_works_on (DEV_Id, PRO_Id, Dev_Role) VALUES ( 1, 7, 'Front End');
 
    INSERT INTO timeline (
       PRO_TIM_ID,
@@ -957,5 +958,8 @@ Insert into dev_links values ("youtube", "youtube.com", 1);
 insert into dev_degree values ("Computer Science","Engineering", "Cairo", 1, "2020-2-2", "2020-2-2", "BCS");
 
 insert dev_category values ("Back-End Development", "Nodejs", 1, true);
+
+
+
 
 /*insert into dev_working_experince values ("Frond-End Developer", "Gammmmmmmmmmmmed", "2020-02-02", "2020-02-02", 1, "Google");*/
