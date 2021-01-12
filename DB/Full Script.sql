@@ -594,8 +594,14 @@ CREATE TABLE SUBMISSION
     Foreign key (PRO_Id) references PROJECT(PRO_Id)
 );
 
-USE BRYTE;
+-- USE BRYTE;
+-- UPDATE developer
+-- SET DEV_About= "Stephen William Hawking CH CBE FRS FRSA (8 January 1942 – 14 March 2018) was an English theoretical physicist, cosmologist, and author who was director of research at the Centre for Theoretical Cosmology at the University of Cambridge at the time of his death.[18][19][8] He was the Lucasian Professor of Mathematics at the University of Cambridge between 1979 and 2009.
 
+-- Hawking was born in Oxford into a family of doctors. Hawking began his university education at University College, Oxford in October 1959 at the age of 17, where he received a first-class BA (Hons.) degree in physics. He began his graduate work at Trinity Hall, Cambridge in October 1962, where he obtained his PhD degree in applied mathematics and theoretical physics, specialising in general relativity and cosmology in March 1966. During this period—in 1963—Hawking was diagnosed with an early-onset slow-progressing form of motor neurone disease (also known as amyotrophic lateral sclerosis (ALS) or Lou Gehrig's disease) that gradually paralysed him over the decades.[20][21] After the loss of his speech, he was able to communicate through a speech-generating device—initially through use of a handheld switch, and eventually by using a single cheek muscle.
+
+-- "
+-- Where DEV_ID < 5;
 /* Insert Developers*/
 INSERT INTO developer (
     DEV_Fname,
@@ -952,14 +958,13 @@ INSERT INTO expert_review_project (
       '2020-2-2'
     );
 
-Insert into dev_links values ("facebook", "facebook.com", 1);
-Insert into dev_links values ("youtube", "youtube.com", 1); 
+Insert into dev_links values ("facebook", "facebook.com", 4);
+Insert into dev_links values ("youtube", "youtube.com", 4); 
 
-insert into dev_degree values ("Computer Science","Engineering", "Cairo", 1, "2020-2-2", "2020-2-2", "BCS");
-
-insert dev_category values ("Back-End Development", "Nodejs", 1, true);
-
+insert into dev_degree values ("Computer Science","Engineering", "Cairo", 4, "2020-2-2", "2020-2-2", "BCS");
+insert dev_category values ("Back_end_Development", "Nodejs", 4, true);
 
 
 
-/*insert into dev_working_experince values ("Frond-End Developer", "Gammmmmmmmmmmmed", "2020-02-02", "2020-02-02", 1, "Google");*/
+
+insert into dev_working_experince values ("Frond-End Developer", "Gammmmmmmmmmmmed", "2020-02-02", "2020-02-02", 4, "Google");
