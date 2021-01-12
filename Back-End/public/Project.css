@@ -119,15 +119,16 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
 }
 
 .slide_show {
+  max-width: 76vw;
   margin-top: 95px;
   display: flex;
   overflow: hidden;
 }
 
 .slide_show #first-img {
+  flex-grow: 1;
   margin-right: 20px;
   display: inline;
-  min-width: 600px;
   height: 300px;
 }
 
@@ -135,7 +136,6 @@ body .Nav-Outer-Cont .Nav-inner-Cont li {
   object-fit: cover;
   display: inline;
   height: 300px;
-  width: 400px;
   flex-grow: 1;
 }
 

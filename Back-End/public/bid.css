@@ -18,6 +18,61 @@ body {
   overflow-x: hidden;
 }
 
+
+body .Nav-Outer-Cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  position: fixed;
+  display: flex;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  width: 100%;
+  z-index: 1;
+}
+
+body .Nav-Outer-Cont .logo-container {
+  background-color: #10213a;
+  min-width: 320px;
+  padding: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 0 0 40px 0;
+  -webkit-box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 10px 4px 33px 15px rgba(0, 0, 0, 0.15);
+}
+
+body .Nav-Outer-Cont .Nav-inner-Cont {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#041a2d),
+    color-stop(4%, #0e1d33)
+  );
+  background: linear-gradient(to right, #041a2d, #0e1d33 4%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  list-style: none;
+  height: 90px;
+  width: 100%;
+  padding-right: 30px;
+}
+
+
 .main {
   display: flex;
 }
@@ -30,6 +85,7 @@ body {
 }
 .content {
   background: #020f22;
+  min-height: 150vh;
 }
 .side_bar {
   min-width: 320px;
@@ -43,12 +99,13 @@ body {
   margin-top: 95px;
   display: flex;
   overflow: hidden;
+  max-width: 76vw;
 }
 
 .slide_show #first-img {
   margin-right: 20px;
   display: inline;
-  min-width: 600px;
+  flex-grow: 1;
   height: 300px;
 }
 
@@ -56,7 +113,6 @@ body {
   object-fit: cover;
   display: inline;
   height: 300px;
-  width: 400px;
   flex-grow: 1;
 }
 
