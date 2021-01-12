@@ -130,6 +130,9 @@
     </script>
     <% } else {%>
       <script>
+        document.querySelector("*").classList.add('greenify');
+        </script>
+      <script>
         document.querySelector("#form").addEventListener("submit", async(e)=>{
         e.preventDefault();
 
