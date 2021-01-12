@@ -11,5 +11,12 @@ const router = Router();
 //Single bid Route
 router.get('/bid/:id',bidController.get_bid_by_id)
 
+router.get('/addBid',(req,res) => {
+    res.render('AddBid',{style:"AddBid"})
+})
+
+router.post('/addBid', bidController.addBid);
+
+
 
 module.exports = router;
