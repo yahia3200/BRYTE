@@ -2,6 +2,8 @@
     <strong><b>BRYTE .... A new way to market developers</b></strong>
 </p>
 
+![](images/1.png)
+![](images/2.png)
 # 🎇 Story
 Bryte is a platform intended for the
 Software Engineering community,
