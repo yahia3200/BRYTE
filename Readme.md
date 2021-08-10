@@ -1,5 +1,5 @@
 <p align="center">
-    <strong><b>BRYTE .... A new way to market developers</b></strong>
+    <strong><h1>BRYTE .... A New Way To Market Developers</h1></strong>
 </p>
 
 ![](images/2.png)
