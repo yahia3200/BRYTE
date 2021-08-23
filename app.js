@@ -27,8 +27,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 //start listening for requests on the server
-app.listen(process.env.APP_PORT, () => {
-    console.log("server is runing at port: ", process.env.APP_PORT);
+var app_port = app.listen(process.env.PORT || 3000);
+app.listen(app_port, () => {
+    console.log("server is runing at port: ", app_port);
 });
 
 
