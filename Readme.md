@@ -2,7 +2,9 @@
     <strong><h1>BRYTE .... A New Way To Market Developers</h1></strong>
 </p>
 
-![](images/2.png)
+![Cover](https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/667de2124526907.6105f912e5158.png)
+
+[**Designs**](https://www.behance.net/gallery/124526907/Bryte)
 
 # 🎇 Story
 
@@ -37,14 +39,15 @@ Feel free to create a pull request, add any issues or suggestions.
 https://drive.google.com/file/d/1qF_khR2zRM17Y_D8MbwiO7uRQo52R1-n/view?usp=sharing
 ----------------------------------------------------------------------------------
 
-💻 Built Using
+💻 Technologies & Tools
 --------------
 
 * MYSQL
 * EJS
 * Nodejs
 * Express
-* HTML
+* HTML5/CSS3
+* Figma
 
 To Run The Code, Install
 ------------------------
